@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact Us — PAWSIC</title>
-  <meta name="description" content="Contact PAWSIC with questions, comments, or suggestions. We're here to help the post-acute wound care community.">
+  <title>CE/CME Courses — PAWSIC</title>
+  <meta name="description" content="Earn continuing education credits with expert-led courses on wound care. Free courses included with Premium Membership.">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Contact PAWSIC">
-  <meta property="og:description" content="Get in touch with the PAWSIC team.">
-  <meta property="og:url" content="https://pawsic.org/contact/">
+  <meta property="og:title" content="CE/CME Courses — PAWSIC">
+  <meta property="og:description" content="Earn continuing education credits with expert-led courses on wound care.">
+  <meta property="og:url" content="https://pawsic.org/courses/">
   <meta property="og:type" content="website">
 
   <!-- Fonts -->
@@ -75,7 +75,7 @@
           </ul>
         </li>
         <li><a href="/resources/">Resources</a></li>
-        <li><a href="/courses/">Courses</a></li>
+        <li><a href="/courses/" class="active">Courses</a></li>
         <li>
           <a href="/community/" class="has-dropdown">Community</a>
           <ul class="dropdown">
@@ -85,7 +85,7 @@
         </li>
         <li><a href="/membership/">Membership</a></li>
         <li><a href="/sponsorship/">Sponsorship</a></li>
-        <li><a href="/contact/" class="active">Contact</a></li>
+        <li><a href="/contact/">Contact</a></li>
       </ul>
     </div>
   </nav>
@@ -99,59 +99,77 @@
     <!-- ===== PAGE HEADER ===== -->
     <section class="page-header">
       <div class="container">
-        <h1>Contact Us</h1>
-        <p>PAWSIC is a not-for-profit, 501(c)(6). Please contact us with any questions, comments, or suggestions.</p>
+        <h1>CE/CME Courses</h1>
+        <p>Earn continuing education credits with expert-led courses</p>
       </div>
     </section>
 
-    <!-- ===== CONTACT FORM ===== -->
+    <!-- ===== FEATURED COURSE ===== -->
     <section class="section section-white">
       <div class="container">
-        <div class="contact-form-wrapper" style="max-width: 600px; margin: 0 auto;">
-          <form action="https://formsubmit.co/info@pawsic.org" method="POST">
+        <div class="course-card">
+          <div class="course-card-left">
+            <div class="course-image-placeholder" style="background-color:#1ab39f;display:flex;align-items:center;justify-content:center;height:300px;border-radius:8px;">
+              <span style="font-size:2rem;font-weight:700;color:white;">CE</span>
+            </div>
+          </div>
+          <div class="course-card-right">
+            <span class="course-tag">CE Accredited</span>
+            <h2>Person-Centered Wound Care</h2>
+            <p>This comprehensive course explores the fundamentals of person-centered care in wound management, emphasizing patient preferences, autonomy, and dignity throughout the care process. Learn evidence-based strategies for integrating patient values into clinical decision-making.</p>
             
-            <!-- Name Field -->
-            <div class="form-group">
-              <label for="name">Name</label>
-              <input type="text" id="name" name="name" required>
+            <div class="pricing-info">
+              <div class="price-option">
+                <p><strong>$99.99</strong> one-time purchase</p>
+              </div>
+              <div class="price-divider">or</div>
+              <div class="price-option">
+                <p><strong>Included FREE</strong> with Premium Membership</p>
+              </div>
             </div>
 
-            <!-- Email Field -->
-            <div class="form-group">
-              <label for="email">Email</label>
-              <input type="email" id="email" name="email" required>
+            <div class="course-actions">
+              <a href="https://memberships.pawsic.org/courses/person-centered-wound-care-post-acute/" class="btn-primary">Enroll Now</a>
+              <a href="https://memberships.pawsic.org/register/premium-membership/" class="btn-secondary">Join Premium — All Courses Included</a>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-            <!-- Subject Field -->
-            <div class="form-group">
-              <label for="subject">Subject</label>
-              <select id="subject" name="subject" required>
-                <option value="">Select a subject...</option>
-                <option value="General Inquiry">General Inquiry</option>
-                <option value="Membership">Membership</option>
-                <option value="Sponsorship">Sponsorship</option>
-                <option value="Events">Events</option>
-                <option value="Press/Media">Press/Media</option>
-                <option value="Other">Other</option>
-              </select>
-            </div>
+    <!-- ===== MORE COURSES COMING SOON ===== -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-header">
+          <h2>More Courses Coming Soon</h2>
+          <p>We're developing additional CE/CME courses to expand your learning opportunities.</p>
+        </div>
+        <div class="course-placeholder-grid">
+          <div class="course-placeholder">
+            <div class="placeholder-image"></div>
+            <h4>Advanced Pressure Injury Assessment</h4>
+            <p class="coming-soon-badge">Coming Soon</p>
+          </div>
+          <div class="course-placeholder">
+            <div class="placeholder-image"></div>
+            <h4>Incontinence-Associated Dermatitis Management</h4>
+            <p class="coming-soon-badge">Coming Soon</p>
+          </div>
+          <div class="course-placeholder">
+            <div class="placeholder-image"></div>
+            <h4>Documentation &amp; Coding for Wound Care</h4>
+            <p class="coming-soon-badge">Coming Soon</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-            <!-- Message Field -->
-            <div class="form-group">
-              <label for="message">Message</label>
-              <textarea id="message" name="message" rows="8" required></textarea>
-            </div>
-
-            <!-- Hidden Fields -->
-            <input type="hidden" name="_subject" value="New Contact from PAWSIC.org">
-            <input type="hidden" name="_captcha" value="false">
-
-            <!-- Submit Button -->
-            <button type="submit" class="btn-primary" style="width:100%;">Send Message</button>
-
-            <!-- Microcopy -->
-            <p style="text-align:center;margin-top:1rem;font-size:0.85rem;color:#718096;">Takes less than 2 minutes. Your information is secure.</p>
-          </form>
+    <!-- ===== CTA BANNER ===== -->
+    <section class="section section-white" style="padding:3rem 0;">
+      <div class="container">
+        <div class="cta-banner">
+          <h2>Get all current and future courses included with Premium Membership at $150/year</h2>
+          <a href="https://memberships.pawsic.org/register/premium-membership/" class="btn-primary">Start Your Premium Trial</a>
         </div>
       </div>
     </section>

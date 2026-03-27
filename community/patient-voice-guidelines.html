@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Patient Voice Forum Guidelines -- PAWSIC Community</title>
+  <meta name="description" content="Community guidelines for the PAWSIC Patient Voice Forum. A space for patients, caregivers, and advocates to share experiences related to wound care and skin integrity.">
+  <style>
+    /* Reset & Base */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      color: #1a1a2e;
+      line-height: 1.7;
+      background: #ffffff;
+    }
+
+    /* Header Banner */
+    .forum-header {
+      background: linear-gradient(135deg, #0c1f3f 0%, #152d54 60%, #1a3a6a 100%);
+      color: #ffffff;
+      padding: 3rem 1.5rem;
+      text-align: center;
+    }
+
+    .forum-header .badge {
+      display: inline-block;
+      background: #3a9e8f;
+      color: #ffffff;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      margin-bottom: 1rem;
+    }
+
+    .forum-header h1 {
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+      line-height: 1.2;
+    }
+
+    .forum-header p {
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.8);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Main Content */
+    .content-wrapper {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 4rem;
+    }
+
+    /* Intro Box */
+    .intro-box {
+      background: #ffffff;
+      border: 1px solid #e0ddd6;
+      border-left: 4px solid #3a9e8f;
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .intro-box p {
+      font-size: 0.95rem;
+      color: #444;
+    }
+
+    .intro-box p + p {
+      margin-top: 0.75rem;
+    }
+
+    /* Section */
+    .rules-section {
+      margin-bottom: 2.5rem;
+    }
+
+    .rules-section h2 {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #0c1f3f;
+      margin-bottom: 0.75rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid #3a9e8f;
+    }
+
+    .rules-section p {
+      font-size: 0.93rem;
+      color: #333;
+      margin-bottom: 0.75rem;
+    }
+
+    .rules-section ul {
+      margin: 0.5rem 0 1rem 1.5rem;
+      font-size: 0.93rem;
+      color: #333;
+    }
+
+    .rules-section li {
+      margin-bottom: 0.5rem;
+    }
+
+    .rules-section li strong {
+      color: #0c1f3f;
+    }
+
+    /* Callout Boxes */
+    .callout {
+      border-radius: 8px;
+      padding: 1.25rem 1.5rem;
+      margin: 1.25rem 0;
+      font-size: 0.9rem;
+    }
+
+    .callout-critical {
+      background: #fef2f2;
+      border: 1px solid #fca5a5;
+      border-left: 4px solid #dc2626;
+    }
+
+    .callout-critical .callout-title {
+      color: #dc2626;
+      font-weight: 700;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.5rem;
+    }
+
+    .callout-info {
+      background: #eff6ff;
+      border: 1px solid #93c5fd;
+      border-left: 4px solid #38b6ff;
+    }
+
+    .callout-info .callout-title {
+      color: #1d4ed8;
+      font-weight: 700;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.5rem;
+    }
+
+    .callout-warm {
+      background: #fef7ee;
+      border: 1px solid #fcd9b6;
+      border-left: 4px solid #e8913a;
+    }
+
+    .callout-warm .callout-title {
+      color: #c2792e;
+      font-weight: 700;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.5rem;
+    }
+
+    .callout-tip {
+      background: #f0fdf4;
+      border: 1px solid #86efac;
+      border-left: 4px solid #3a9e8f;
+    }
+
+    .callout-tip .callout-title {
+      color: #3a9e8f;
+      font-weight: 700;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Agreement Box */
+    .agreement-box {
+      background: #f8fafc;
+      border: 2px solid #0c1f3f;
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .agreement-box p {
+      font-size: 0.93rem;
+      color: #333;
+      margin-bottom: 0;
+    }
+
+    /* Footer Note */
+    .footer-note {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid #e0ddd6;
+      font-size: 0.82rem;
+      color: #888;
+      text-align: center;
+    }
+
+    .footer-note a {
+      color: #3a9e8f;
+      text-decoration: none;
+    }
+
+    .footer-note a:hover {
+      text-decoration: underline;
+    }
+
+    /* Responsive */
+    @media (max-width: 640px) {
+      .forum-header { padding: 2rem 1rem; }
+      .forum-header h1 { font-size: 1.5rem; }
+      .content-wrapper { padding: 1.5rem 1rem 3rem; }
+      .rules-section h2 { font-size: 1.15rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="forum-header">
+    <div class="badge">Community Forum</div>
+    <h1>Patient Voice Forum</h1>
+    <p>Community Guidelines</p>
+  </div>
+
+  <!-- Content -->
+  <div class="content-wrapper">
+
+    <!-- Intro / Purpose -->
+    <div class="intro-box">
+      <p>A space for <strong>patients, caregivers, and advocates</strong> to share experiences related to wound care and skin integrity in post-acute settings.</p>
+      <p>Your voice matters. These guidelines help us keep this community safe, supportive, and empowering for everyone.</p>
+    </div>
+
+    <!-- Section 1: Sharing Your Experience -->
+    <div class="rules-section">
+      <h2>Sharing Your Experience</h2>
+      <ul>
+        <li>You are welcome to share your personal healing journey, caregiving experiences, and questions about navigating wound care</li>
+        <li>Your stories help the PAWSIC community better understand the patient perspective and improve care delivery</li>
+      </ul>
+
+      <div class="callout callout-tip">
+        <div class="callout-title">Your Story Has Power</div>
+        <p>Every experience shared here contributes to a better understanding of wound care from the patient and caregiver perspective. Thank you for being part of this community.</p>
+      </div>
+    </div>
+
+    <!-- Section 2: Medical Advice Disclaimer -->
+    <div class="rules-section">
+      <h2>Medical Advice Disclaimer</h2>
+
+      <div class="callout callout-critical">
+        <div class="callout-title">Important -- Please Read</div>
+        <p>This forum is <strong>not</strong> a substitute for professional medical advice, diagnosis, or treatment. Never delay or disregard professional medical advice because of something you read here.</p>
+      </div>
+
+      <ul>
+        <li>No member, moderator, or PAWSIC representative is providing clinical recommendations through this forum</li>
+        <li><strong>If you are experiencing a medical emergency, contact your healthcare provider or call 911 immediately</strong></li>
+      </ul>
+    </div>
+
+    <!-- Section 3: Privacy and Safety -->
+    <div class="rules-section">
+      <h2>Privacy and Safety</h2>
+      <ul>
+        <li>Do <strong>not</strong> share your full name, facility name, provider names, medical record numbers, insurance details, or any information that could identify you or others</li>
+        <li>If sharing photos of wounds or skin conditions, ensure no identifying features (face, tattoos, birthmarks, name bands) are visible</li>
+        <li>PAWSIC reserves the right to remove any content that may compromise patient privacy</li>
+      </ul>
+
+      <div class="callout callout-warm">
+        <div class="callout-title">Protect Yourself</div>
+        <p>This is a public community space. Be mindful of what personal details you share. You can tell your story without revealing information that could identify you, your facility, or your providers.</p>
+      </div>
+    </div>
+
+    <!-- Section 4: Respect and Conduct -->
+    <div class="rules-section">
+      <h2>Respect and Conduct</h2>
+      <ul>
+        <li>Treat all members with <strong>empathy and respect</strong>. Wound care journeys are deeply personal</li>
+        <li>No harassment, discrimination, bullying, or personal attacks</li>
+        <li>Do not dismiss or minimize another person's experience</li>
+      </ul>
+    </div>
+
+    <!-- Section 5: Product and Treatment Discussions -->
+    <div class="rules-section">
+      <h2>Product and Treatment Discussions</h2>
+      <ul>
+        <li>You may share your personal experience with treatments or products, but do <strong>not</strong> present personal experience as clinical evidence</li>
+        <li>Statements like "this cured me" or "this product is the only thing that works" are not permitted. Use language such as "in my experience" or "my provider recommended"</li>
+        <li>No product promotions, affiliate links, or sales solicitations</li>
+      </ul>
+
+      <div class="callout callout-info">
+        <div class="callout-title">Helpful Language</div>
+        <p><strong>Instead of:</strong> "This cream cured my wound -- everyone should use it!"<br>
+        <strong>Try:</strong> "In my experience, my provider recommended a specific type of barrier cream and it helped with my healing process."</p>
+      </div>
+    </div>
+
+    <!-- Section 6: Content Moderation -->
+    <div class="rules-section">
+      <h2>Content Moderation</h2>
+      <ul>
+        <li>Moderators may edit, move, or remove posts that violate these guidelines</li>
+        <li>Repeated violations may result in temporary or permanent suspension</li>
+        <li>Moderator decisions are final</li>
+      </ul>
+
+      <div class="callout callout-info">
+        <div class="callout-title">Questions or Concerns?</div>
+        <p>If you have questions about these guidelines or believe a moderation decision was made in error, contact PAWSIC at <a href="mailto:community@pawsic.org" style="color:#1d4ed8;">community@pawsic.org</a>.</p>
+      </div>
+    </div>
+
+    <!-- Agreement -->
+    <div class="agreement-box">
+      <p><strong>By participating, you acknowledge that PAWSIC is not liable for any actions taken based on information shared in this forum.</strong></p>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer-note">
+      <p>&copy; 2026 Post-Acute Wound &amp; Skin Integrity Council (PAWSIC). All rights reserved.</p>
+      <p>These guidelines are reviewed periodically and may be updated. Members will be notified of material changes.</p>
+      <p style="margin-top: 0.5rem;">
+        <a href="/community/">Back to Community</a> &nbsp;|&nbsp;
+        <a href="/membership/">Membership</a> &nbsp;|&nbsp;
+        <a href="/privacy-policy/">Privacy Policy</a> &nbsp;|&nbsp;
+        <a href="/disclaimers/">Disclaimers</a>
+      </p>
+      <p style="margin-top: 0.75rem; font-size: 0.78rem; color: #aaa;">Last updated: March 2026</p>
+    </div>
+
+  </div>
+
+</body>
+</html>

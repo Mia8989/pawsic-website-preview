@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact Us — PAWSIC</title>
-  <meta name="description" content="Contact PAWSIC with questions, comments, or suggestions. We're here to help the post-acute wound care community.">
+  <title>Upcoming Events — PAWSIC</title>
+  <meta name="description" content="Join PAWSIC at major wound care conferences and events. Network with professionals, access education, and advance wound care.">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Contact PAWSIC">
-  <meta property="og:description" content="Get in touch with the PAWSIC team.">
-  <meta property="og:url" content="https://pawsic.org/contact/">
+  <meta property="og:title" content="Upcoming Events — PAWSIC">
+  <meta property="og:description" content="Join PAWSIC at major conferences and networking events across the industry.">
+  <meta property="og:url" content="https://pawsic.org/upcoming-events/">
   <meta property="og:type" content="website">
 
   <!-- Fonts -->
@@ -67,9 +67,9 @@
           </ul>
         </li>
         <li>
-          <a href="/upcoming-events/" class="has-dropdown">Events</a>
+          <a href="/upcoming-events/" class="has-dropdown active">Events</a>
           <ul class="dropdown">
-            <li><a href="/upcoming-events/">Upcoming Events</a></li>
+            <li><a href="/upcoming-events/" class="active">Upcoming Events</a></li>
             <li><a href="/webinars/">Webinars</a></li>
             <li><a href="/press-releases/">Press Releases</a></li>
           </ul>
@@ -85,7 +85,7 @@
         </li>
         <li><a href="/membership/">Membership</a></li>
         <li><a href="/sponsorship/">Sponsorship</a></li>
-        <li><a href="/contact/" class="active">Contact</a></li>
+        <li><a href="/contact/">Contact</a></li>
       </ul>
     </div>
   </nav>
@@ -99,59 +99,76 @@
     <!-- ===== PAGE HEADER ===== -->
     <section class="page-header">
       <div class="container">
-        <h1>Contact Us</h1>
-        <p>PAWSIC is a not-for-profit, 501(c)(6). Please contact us with any questions, comments, or suggestions.</p>
+        <h1>Upcoming Events</h1>
+        <p>Join PAWSIC at major wound care conferences and industry events. Network, learn, and connect with thousands of post-acute care professionals.</p>
       </div>
     </section>
 
-    <!-- ===== CONTACT FORM ===== -->
+    <!-- ===== EVENTS CARDS ===== -->
     <section class="section section-white">
       <div class="container">
-        <div class="contact-form-wrapper" style="max-width: 600px; margin: 0 auto;">
-          <form action="https://formsubmit.co/info@pawsic.org" method="POST">
-            
-            <!-- Name Field -->
-            <div class="form-group">
-              <label for="name">Name</label>
-              <input type="text" id="name" name="name" required>
+        <div class="events-grid">
+          <!-- Event 1: AAPACN 2026 Conference -->
+          <div class="event-card">
+            <div class="event-card-image">
+              <img src="../images/events/AAPACN-2026-Conference_Im-Exhibiting_FB-LI_120.png" alt="AAPACN 2026 Conference">
             </div>
-
-            <!-- Email Field -->
-            <div class="form-group">
-              <label for="email">Email</label>
-              <input type="email" id="email" name="email" required>
+            <div class="event-card-content">
+              <h3>AAPACN 2026 Conference</h3>
+              <p class="event-date">
+                <strong>Date:</strong> Spring 2026
+              </p>
+              <p class="event-description">
+                Join PAWSIC at the American Academy of Post-Acute and Critical Care Nursing annual conference. Connect with clinical leaders and advance your knowledge in wound care and skin integrity management across post-acute settings.
+              </p>
+              <a href="#" class="btn-primary">Register Now</a>
             </div>
+          </div>
 
-            <!-- Subject Field -->
-            <div class="form-group">
-              <label for="subject">Subject</label>
-              <select id="subject" name="subject" required>
-                <option value="">Select a subject...</option>
-                <option value="General Inquiry">General Inquiry</option>
-                <option value="Membership">Membership</option>
-                <option value="Sponsorship">Sponsorship</option>
-                <option value="Events">Events</option>
-                <option value="Press/Media">Press/Media</option>
-                <option value="Other">Other</option>
-              </select>
+          <!-- Event 2: SAWC Spring 2026 -->
+          <div class="event-card">
+            <div class="event-card-image">
+              <img src="../images/events/SAWC Spring Social1.png" alt="SAWC Spring 2026">
             </div>
-
-            <!-- Message Field -->
-            <div class="form-group">
-              <label for="message">Message</label>
-              <textarea id="message" name="message" rows="8" required></textarea>
+            <div class="event-card-content">
+              <h3>SAWC Spring 2026</h3>
+              <p class="event-date">
+                <strong>Date:</strong> April 16-20, 2026 | <strong>Booth:</strong> #142
+              </p>
+              <p class="event-description">
+                Visit PAWSIC at the Spring Symposium on Advanced Wound Care. Explore the latest in wound care innovation and connect with the multidisciplinary community shaping the future of post-acute wound management.
+              </p>
+              <a href="#" class="btn-primary">Register Now</a>
             </div>
+          </div>
 
-            <!-- Hidden Fields -->
-            <input type="hidden" name="_subject" value="New Contact from PAWSIC.org">
-            <input type="hidden" name="_captcha" value="false">
+          <!-- Event 3: WoundCon Spring 2026 -->
+          <div class="event-card">
+            <div class="event-card-image">
+              <img src="../images/events/imgi_1_2025-WoundConSpring-1920x1801x_2x_65.png" alt="WoundCon Spring 2026">
+            </div>
+            <div class="event-card-content">
+              <h3>WoundCon Spring 2026</h3>
+              <p class="event-date">
+                <strong>Date:</strong> Spring 2026
+              </p>
+              <p class="event-description">
+                WoundCon Spring brings together wound care specialists, nurses, physicians, and industry partners for cutting-edge education and networking. Experience clinical insights from leading experts in post-acute wound management.
+              </p>
+              <a href="#" class="btn-primary">Register Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-            <!-- Submit Button -->
-            <button type="submit" class="btn-primary" style="width:100%;">Send Message</button>
-
-            <!-- Microcopy -->
-            <p style="text-align:center;margin-top:1rem;font-size:0.85rem;color:#718096;">Takes less than 2 minutes. Your information is secure.</p>
-          </form>
+    <!-- ===== CTA: JOIN ===== -->
+    <section class="section section-alt" style="padding:3rem 0;">
+      <div class="container">
+        <div class="cta-banner">
+          <h2>Don't Miss Out</h2>
+          <p>Stay updated on PAWSIC events and conferences. Join for free to receive event announcements directly.</p>
+          <a href="https://memberships.pawsic.org/register/free-membership/" class="btn-primary">Join PAWSIC Free</a>
         </div>
       </div>
     </section>

@@ -118,19 +118,27 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // --- Active Nav Highlight ---
   var path = window.location.pathname;
+  // Normalize: strip trailing slash for comparison, except bare root
+  var normalizedPath = path.length > 1 ? path.replace(/\/$/, '') : path;
   document.querySelectorAll('.nav-links a').forEach(function(link) {
     var href = link.getAttribute('href');
-    if (href && path.includes(href) && href !== '/') {
+    if (!href || href === '/' || href === '#') return;
+    // Normalize href the same way
+    var normalizedHref = href.replace(/\/$/, '');
+    // Exact match OR path ends with the href segment (handles subpath matches)
+    if (normalizedPath === normalizedHref || normalizedPath.endsWith(normalizedHref)) {
       link.classList.add('active');
     }
   });
+  // Home: only mark active on true root or /index.html
   if (path === '/' || path === '/index.html') {
     var home = document.querySelector('.nav-links a[href="/"]');
     if (home) home.classList.add('active');
   }
 
   // --- Contact Form Loading State ---
-  var contactForm = document.querySelector('.contact-form form');
+  // Supports both legacy .contact-form and v2 .v2-contact-form class
+  var contactForm = document.querySelector('.v2-contact-form, .contact-form form');
   if (contactForm) {
     contactForm.addEventListener('submit', function() {
       var btn = this.querySelector('button[type="submit"]');
@@ -155,6 +163,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Default state: yearly (toggle knob on right)
     function showYearly() {
       pricingToggle.classList.remove('monthly');
+      pricingToggle.setAttribute('aria-pressed', 'false');
       priceYearly.style.display = '';
       priceMonthly.style.display = 'none';
       if (ctaYearly) ctaYearly.style.display = '';
@@ -167,6 +176,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function showMonthly() {
       pricingToggle.classList.add('monthly');
+      pricingToggle.setAttribute('aria-pressed', 'true');
       priceYearly.style.display = 'none';
       priceMonthly.style.display = '';
       if (ctaYearly) ctaYearly.style.display = 'none';
@@ -182,6 +192,18 @@ document.addEventListener('DOMContentLoaded', function() {
         showYearly();
       } else {
         showMonthly();
+      }
+    });
+
+    // Keyboard accessibility: Enter or Space toggles pricing
+    pricingToggle.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        if (this.classList.contains('monthly')) {
+          showYearly();
+        } else {
+          showMonthly();
+        }
       }
     });
 

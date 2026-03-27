@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skin Failure SIG Forum Rules — PAWSIC Community</title>
+  <meta name="description" content="Community guidelines and forum rules for the PAWSIC Skin Failure Shared Interest Group (SIG). Premium members-only discussion space for skin failure education and collaboration.">
+  <style>
+    /* Reset & Base */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      color: #1a1a2e;
+      line-height: 1.7;
+      background: #ffffff;
+    }
+
+    /* Header Banner */
+    .sig-header {
+      background: linear-gradient(135deg, #0c1f3f 0%, #152d54 60%, #1a3a6a 100%);
+      color: #ffffff;
+      padding: 3rem 1.5rem;
+      text-align: center;
+    }
+
+    .sig-header .badge {
+      display: inline-block;
+      background: #3a9e8f;
+      color: #ffffff;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      margin-bottom: 1rem;
+    }
+
+    .sig-header h1 {
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+      line-height: 1.2;
+    }
+
+    .sig-header p {
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.8);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Main Content */
+    .content-wrapper {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 4rem;
+    }
+
+    /* Intro Box */
+    .intro-box {
+      background: #ffffff;
+      border: 1px solid #e0ddd6;
+      border-left: 4px solid #3a9e8f;
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .intro-box p {
+      font-size: 0.95rem;
+      color: #444;
+    }
+
+    .intro-box p + p {
+      margin-top: 0.75rem;
+    }
+
+    /* Section */
+    .rules-section {
+      margin-bottom: 2.5rem;
+    }
+
+    .rules-section h2 {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #0c1f3f;
+      margin-bottom: 0.75rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid #3a9e8f;
+    }
+
+    .rules-section h3 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #0c1f3f;
+      margin-top: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .rules-section p {
+      font-size: 0.93rem;
+      color: #333;
+      margin-bottom: 0.75rem;
+    }
+
+    .rules-section ul, .rules-section ol {
+      margin: 0.5rem 0 1rem 1.5rem;
+      font-size: 0.93rem;
+      color: #333;
+    }
+
+    .rules-section li {
+      margin-bottom: 0.5rem;
+    }
+
+    .rules-section li strong {
+      color: #0c1f3f;
+    }
+
+    /* Callout Boxes */
+    .callout {
+      border-radius: 8px;
+      padding: 1.25rem 1.5rem;
+      margin: 1.25rem 0;
+      font-size: 0.9rem;
+    }
+
+    .callout-critical {
+      background: #fef2f2;
+      border: 1px solid #fca5a5;
+      border-left: 4px solid #dc2626;
+    }
+
+    .callout-critical .callout-title {
+      color: #dc2626;
+      font-weight: 700;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.5rem;
+    }
+
+    .callout-info {
+      background: #eff6ff;
+      border: 1px solid #93c5fd;
+      border-left: 4px solid #38b6ff;
+    }
+
+    .callout-info .callout-title {
+      color: #1d4ed8;
+      font-weight: 700;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.5rem;
+    }
+
+    .callout-tip {
+      background: #f0fdf4;
+      border: 1px solid #86efac;
+      border-left: 4px solid #3a9e8f;
+    }
+
+    .callout-tip .callout-title {
+      color: #3a9e8f;
+      font-weight: 700;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Enforcement Table */
+    .enforcement-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+      font-size: 0.88rem;
+    }
+
+    .enforcement-table th {
+      background: #0c1f3f;
+      color: #ffffff;
+      padding: 0.75rem 1rem;
+      text-align: left;
+      font-weight: 600;
+    }
+
+    .enforcement-table td {
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid #e0ddd6;
+    }
+
+    .enforcement-table tr:nth-child(even) {
+      background: #f5f5f5;
+    }
+
+    /* Footer Note */
+    .footer-note {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid #e0ddd6;
+      font-size: 0.82rem;
+      color: #888;
+      text-align: center;
+    }
+
+    .footer-note a {
+      color: #3a9e8f;
+      text-decoration: none;
+    }
+
+    .footer-note a:hover {
+      text-decoration: underline;
+    }
+
+    /* Responsive */
+    @media (max-width: 640px) {
+      .sig-header { padding: 2rem 1rem; }
+      .sig-header h1 { font-size: 1.5rem; }
+      .content-wrapper { padding: 1.5rem 1rem 3rem; }
+      .rules-section h2 { font-size: 1.15rem; }
+      .enforcement-table { font-size: 0.8rem; }
+      .enforcement-table th, .enforcement-table td { padding: 0.5rem 0.6rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="sig-header">
+    <div class="badge">Premium SIG Space</div>
+    <h1>Skin Failure Shared Interest Group</h1>
+    <p>Forum Rules &amp; Community Guidelines</p>
+  </div>
+
+  <!-- Content -->
+  <div class="content-wrapper">
+
+    <!-- Intro -->
+    <div class="intro-box">
+      <p>Welcome to the <strong>Skin Failure Shared Interest Group (SIG)</strong> -- a premium PAWSIC community space dedicated to advancing the understanding, assessment, and documentation of skin failure in post-acute and end-of-life care settings.</p>
+      <p>This forum exists to facilitate evidence-based dialogue among wound care professionals. The following rules ensure our discussions remain clinically rigorous, ethically sound, and beneficial for all members. By participating, you agree to these guidelines.</p>
+    </div>
+
+    <!-- Section 1: Purpose & Scope -->
+    <div class="rules-section">
+      <h2>1. Purpose &amp; Scope</h2>
+      <p>The Skin Failure SIG focuses on:</p>
+      <ul>
+        <li><strong>Skin failure recognition and assessment</strong> -- including distinguishing skin failure from pressure injuries, moisture-associated skin damage (MASD), and other etiologies</li>
+        <li><strong>End-of-life skin changes</strong> -- Kennedy Terminal Ulcers (KTU), Skin Changes at Life's End (SCALE), and Trombley-Brennan Terminal Tissue Injuries (TB-TTI)</li>
+        <li><strong>Documentation and regulatory considerations</strong> -- CMS survey readiness, MDS coding, care planning, and family communication</li>
+        <li><strong>Emerging research and clinical evidence</strong> -- peer-reviewed findings, clinical frameworks, and evolving definitions</li>
+        <li><strong>Interdisciplinary perspectives</strong> -- nursing, palliative care, hospice, long-term care, dermatology, and wound care specialists</li>
+      </ul>
+      <p>Discussions outside this scope may be redirected to the appropriate PAWSIC community forum or SIG space.</p>
+    </div>
+
+    <!-- Section 2: Who Can Participate -->
+    <div class="rules-section">
+      <h2>2. Who Can Participate</h2>
+      <p>The Skin Failure SIG is available exclusively to <strong>PAWSIC Premium Members</strong>. Participants typically include:</p>
+      <ul>
+        <li>Wound, Ostomy, and Continence (WOC) nurses and certified wound care specialists</li>
+        <li>Directors of Nursing (DONs) and clinical leadership in post-acute settings</li>
+        <li>Palliative care and hospice clinicians</li>
+        <li>Physicians, nurse practitioners, and physician assistants specializing in wound care</li>
+        <li>Researchers and academics studying skin failure and end-of-life skin changes</li>
+        <li>Quality improvement and regulatory compliance professionals</li>
+      </ul>
+
+      <div class="callout callout-info">
+        <div class="callout-title">Credential Transparency</div>
+        <p>We encourage all members to list their credentials and practice setting in their profile. This helps the community contextualize clinical perspectives and fosters trust in discussions.</p>
+      </div>
+    </div>
+
+    <!-- Section 3: Core Rules -->
+    <div class="rules-section">
+      <h2>3. Core Forum Rules</h2>
+
+      <h3>3.1 Evidence-Based Discussion</h3>
+      <ul>
+        <li>All clinical claims, treatment recommendations, and assessment guidance <strong>must</strong> be supported by peer-reviewed evidence, clinical practice guidelines, or recognized expert consensus</li>
+        <li>When citing evidence, include the source (author, journal/publication, year) whenever possible</li>
+        <li>Acceptable sources include peer-reviewed journals, Cochrane Reviews, NPUAP/EPUAP/PPPIA guidelines, WOCN position statements, and AHRQ publications</li>
+        <li>Clearly distinguish between established evidence, emerging research, clinical opinion, and anecdotal experience</li>
+        <li>Statements like "in my clinical experience" are valued but should be identified as experiential rather than evidence-based</li>
+      </ul>
+
+      <h3>3.2 Patient Privacy (HIPAA Compliance)</h3>
+      <div class="callout callout-critical">
+        <div class="callout-title">Critical -- Zero Tolerance</div>
+        <p>HIPAA compliance is mandatory and non-negotiable. Violations will result in immediate post removal and may result in permanent forum ban. PAWSIC is obligated to report suspected HIPAA violations to the appropriate authorities.</p>
+      </div>
+      <ul>
+        <li><strong>Never</strong> share patient names, initials, dates of birth, facility names, or any combination of details that could identify a patient</li>
+        <li><strong>Never</strong> post clinical photographs that include identifiable patient features (face, tattoos, birthmarks, room numbers, facility branding) without documented HIPAA authorization</li>
+        <li>When discussing clinical scenarios, use de-identified composite cases: "An 82-year-old female in a skilled nursing facility presented with..."</li>
+        <li>Remove all 18 HIPAA identifiers per the Safe Harbor de-identification standard</li>
+        <li>If you are uncertain whether information is identifiable, err on the side of caution and do not post it</li>
+      </ul>
+
+      <h3>3.3 Professional Conduct</h3>
+      <ul>
+        <li>Treat all members with professional respect regardless of credentials, experience level, or practice setting</li>
+        <li>Disagree constructively -- challenge ideas with evidence, not personal attacks</li>
+        <li>No harassment, discrimination, bullying, or intimidation of any kind</li>
+        <li>Avoid condescending language toward members from different disciplines or care settings</li>
+        <li>Respect that skin failure is a complex and evolving area where clinical opinions may differ -- approach disagreements as learning opportunities</li>
+      </ul>
+
+      <h3>3.4 No Product Promotion or Commercial Bias</h3>
+      <ul>
+        <li>Do not promote specific commercial products, devices, or services</li>
+        <li>When discussing product categories (e.g., wound dressings, skin protectants), use generic or category names</li>
+        <li>If a brand name is necessary for clinical context, include relevant alternatives for balanced representation</li>
+        <li>Do not post affiliate links, referral codes, or promotional materials</li>
+        <li>If you have a financial relationship with a company whose products are relevant to a discussion, disclose it</li>
+      </ul>
+
+      <div class="callout callout-tip">
+        <div class="callout-title">Acceptable Product Discussion</div>
+        <p>"We've had success using silicone-bordered foam dressings for sacral skin protection in hospice patients" is appropriate. "Buy [Brand X] -- it's the best!" is not.</p>
+      </div>
+
+      <h3>3.5 No Direct Clinical Advice</h3>
+      <ul>
+        <li>This forum is for <strong>peer education and professional discussion</strong>, not for providing direct clinical recommendations for specific patients</li>
+        <li>Do not ask the forum to diagnose a specific wound or prescribe treatment for an active patient case</li>
+        <li>When discussing clinical approaches, frame responses as general educational guidance: "In similar presentations, the literature supports..." rather than "You should do X for this patient"</li>
+        <li>If a member is seeking urgent clinical guidance, redirect them to the appropriate clinical consult process within their facility</li>
+      </ul>
+
+      <h3>3.6 Respect Intellectual Property</h3>
+      <ul>
+        <li>Do not post copyrighted materials (full journal articles, textbook chapters, proprietary assessment tools) without permission</li>
+        <li>Sharing brief citations, abstracts, or links to published work is encouraged</li>
+        <li>If sharing presentation slides or original educational materials, ensure you have the right to distribute them</li>
+        <li>Always credit the original author or creator when referencing someone else's work</li>
+      </ul>
+    </div>
+
+    <!-- Section 4: Skin Failure Specific -->
+    <div class="rules-section">
+      <h2>4. Skin Failure -- Specific Discussion Guidelines</h2>
+      <p>Given the specialized nature of this SIG, the following additional guidelines apply:</p>
+
+      <h3>4.1 Terminology</h3>
+      <ul>
+        <li>Use precise, current terminology consistent with published literature and consensus documents</li>
+        <li>Recognize that "skin failure" terminology is still evolving -- be open to discussing various frameworks and definitions</li>
+        <li>Common accepted terms: skin failure, Kennedy Terminal Ulcer (KTU), Skin Changes at Life's End (SCALE), Trombley-Brennan Terminal Tissue Injury (TB-TTI), unavoidable pressure injury</li>
+        <li>When introducing less-established terminology, provide context and cite the source</li>
+      </ul>
+
+      <h3>4.2 Clinical Photography</h3>
+      <ul>
+        <li>Clinical photographs may be shared for educational purposes <strong>only</strong> if fully de-identified and HIPAA-compliant</li>
+        <li>Photos must have no patient identifiers visible (face, name bands, facility signage, room numbers, unique markings)</li>
+        <li>Include relevant clinical context: wound location, measurements, patient age range, care setting, and relevant comorbidities</li>
+        <li>Label photographs as "used with HIPAA authorization" or "de-identified composite" as applicable</li>
+        <li>PAWSIC moderators reserve the right to remove any photo that may compromise patient privacy</li>
+      </ul>
+
+      <h3>4.3 End-of-Life Sensitivity</h3>
+      <ul>
+        <li>Discussions about end-of-life skin changes involve deeply sensitive clinical and human situations -- maintain compassion and sensitivity at all times</li>
+        <li>Focus discussions on clinical best practices, documentation approaches, and family/caregiver education strategies</li>
+        <li>Respect that clinicians may have differing perspectives on palliative vs. curative goals of care as they relate to skin integrity</li>
+        <li>When discussing family communication about skin failure, emphasize empathy and shared decision-making</li>
+      </ul>
+
+      <h3>4.4 Regulatory &amp; Documentation Discussions</h3>
+      <ul>
+        <li>Discussions about CMS survey processes, MDS coding, and regulatory compliance are encouraged but must reflect current published CMS guidance</li>
+        <li>Do not present personal interpretations of survey or coding rules as definitive guidance</li>
+        <li>Clearly distinguish between CMS requirements, state-specific regulations, and organizational policies</li>
+        <li>Share documentation templates or frameworks as "examples" rather than prescriptive standards</li>
+      </ul>
+    </div>
+
+    <!-- Section 5: Posting Guidelines -->
+    <div class="rules-section">
+      <h2>5. Posting Best Practices</h2>
+      <ul>
+        <li><strong>Use descriptive thread titles</strong> -- "Differentiating skin failure from deep tissue pressure injury in hospice patients" is more helpful than "Quick question"</li>
+        <li><strong>Search before posting</strong> -- Check if your topic has been discussed recently to avoid duplicates</li>
+        <li><strong>Stay on topic</strong> -- Keep replies relevant to the thread. Start a new thread for a new topic</li>
+        <li><strong>Format for readability</strong> -- Use paragraphs, bullet points, and headers when making longer posts</li>
+        <li><strong>Include context</strong> -- When asking a question, provide relevant clinical context (care setting, patient population, specific challenge) while maintaining de-identification</li>
+        <li><strong>Acknowledge uncertainty</strong> -- It is perfectly acceptable (and encouraged) to say "I don't know" or "I'm still learning about this area"</li>
+        <li><strong>Close the loop</strong> -- If you asked a question and found the answer, share it with the community</li>
+      </ul>
+    </div>
+
+    <!-- Section 6: Moderation -->
+    <div class="rules-section">
+      <h2>6. Moderation &amp; Enforcement</h2>
+      <p>PAWSIC moderators are responsible for ensuring this space remains clinically rigorous, safe, and welcoming. All moderation decisions are guided by these rules and PAWSIC's organizational policies.</p>
+
+      <h3>Enforcement Actions</h3>
+      <table class="enforcement-table">
+        <thead>
+          <tr>
+            <th>Violation</th>
+            <th>First Occurrence</th>
+            <th>Repeat Offense</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Off-topic or low-quality post</strong></td>
+            <td>Post redirected or removed with private note</td>
+            <td>Temporary posting restriction</td>
+          </tr>
+          <tr>
+            <td><strong>Unsupported clinical claims</strong></td>
+            <td>Request to add citation; post flagged</td>
+            <td>Post removed; posting restriction</td>
+          </tr>
+          <tr>
+            <td><strong>Product promotion / spam</strong></td>
+            <td>Post removed with warning</td>
+            <td>Temporary or permanent ban</td>
+          </tr>
+          <tr>
+            <td><strong>Unprofessional conduct</strong></td>
+            <td>Private warning from moderator</td>
+            <td>Temporary or permanent ban</td>
+          </tr>
+          <tr>
+            <td><strong>HIPAA violation</strong></td>
+            <td>Immediate post removal; formal warning; potential report</td>
+            <td>Permanent ban; regulatory notification</td>
+          </tr>
+          <tr>
+            <td><strong>Direct clinical advice for a specific patient</strong></td>
+            <td>Post removed; educational redirect</td>
+            <td>Posting restriction</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout callout-info">
+        <div class="callout-title">Appeals Process</div>
+        <p>If you believe a moderation decision was made in error, contact PAWSIC at <a href="mailto:community@pawsic.org" style="color:#1d4ed8;">community@pawsic.org</a>. All appeals are reviewed within 5 business days by PAWSIC leadership.</p>
+      </div>
+    </div>
+
+    <!-- Section 7: Reporting -->
+    <div class="rules-section">
+      <h2>7. How to Report a Concern</h2>
+      <p>If you see a post that violates these rules or raises a concern:</p>
+      <ol>
+        <li><strong>Use the "Report" button</strong> on the post (if available in the forum interface)</li>
+        <li><strong>Email the moderation team</strong> at <a href="mailto:community@pawsic.org" style="color:#3a9e8f;">community@pawsic.org</a> with a link to the post and a brief description of the concern</li>
+        <li><strong>For urgent HIPAA concerns</strong>, email <a href="mailto:compliance@pawsic.org" style="color:#3a9e8f;">compliance@pawsic.org</a> immediately</li>
+      </ol>
+      <p>All reports are reviewed confidentially. Reporters are never identified to the person being reported.</p>
+    </div>
+
+    <!-- Section 8: Agreement -->
+    <div class="rules-section">
+      <h2>8. Acknowledgment</h2>
+      <p>By posting in the Skin Failure SIG forum, you acknowledge that:</p>
+      <ul>
+        <li>You have read and agree to these forum rules</li>
+        <li>You understand that this forum is for professional peer education, not direct patient care advice</li>
+        <li>You will comply with all applicable HIPAA, FDA, and professional conduct standards</li>
+        <li>You understand that PAWSIC moderators may edit or remove posts that violate these guidelines</li>
+        <li>You accept that repeated violations may result in loss of forum access</li>
+      </ul>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer-note">
+      <p>&copy; 2026 Post-Acute Wound &amp; Skin Integrity Council (PAWSIC). All rights reserved.</p>
+      <p>These rules are reviewed annually and may be updated. Members will be notified of material changes.</p>
+      <p style="margin-top: 0.5rem;">
+        <a href="/community/">Back to Community</a> &nbsp;|&nbsp;
+        <a href="/membership/">Membership</a> &nbsp;|&nbsp;
+        <a href="/privacy-policy/">Privacy Policy</a> &nbsp;|&nbsp;
+        <a href="/disclaimers/">Disclaimers</a>
+      </p>
+      <p style="margin-top: 0.75rem; font-size: 0.78rem; color: #aaa;">Last updated: March 2026</p>
+    </div>
+
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clinical Q&amp;A Forum Guidelines -- PAWSIC Community</title>
+  <meta name="description" content="Community guidelines for the PAWSIC Clinical Q&A Forum. A structured forum for evidence-based clinical questions and answers related to wound assessment, prevention, treatment, and skin integrity.">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      color: #1a1a2e;
+      line-height: 1.7;
+      background: #ffffff;
+    }
+
+    .forum-header {
+      background: linear-gradient(135deg, #0c1f3f 0%, #152d54 60%, #1a3a6a 100%);
+      color: #ffffff;
+      padding: 3rem 1.5rem;
+      text-align: center;
+    }
+
+    .forum-header .badge {
+      display: inline-block;
+      background: #38b6ff;
+      color: #ffffff;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      margin-bottom: 1rem;
+    }
+
+    .forum-header h1 {
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+      line-height: 1.2;
+    }
+
+    .forum-header p {
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.8);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .content-wrapper {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 4rem;
+    }
+
+    .intro-box {
+      background: #ffffff;
+      border: 1px solid #e0ddd6;
+      border-left: 4px solid #38b6ff;
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .intro-box p {
+      font-size: 0.95rem;
+      color: #444;
+    }
+
+    .intro-box p + p {
+      margin-top: 0.75rem;
+    }
+
+    .rules-section {
+      margin-bottom: 2.5rem;
+    }
+
+    .rules-section h2 {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #0c1f3f;
+      margin-bottom: 0.75rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid #38b6ff;
+    }
+
+    .rules-section p {
+      font-size: 0.93rem;
+      color: #333;
+      margin-bottom: 0.75rem;
+    }
+
+    .rules-section ul {
+      margin: 0.5rem 0 1rem 1.5rem;
+      font-size: 0.93rem;
+      color: #333;
+    }
+
+    .rules-section li {
+      margin-bottom: 0.5rem;
+    }
+
+    .rules-section li strong {
+      color: #0c1f3f;
+    }
+
+    .callout {
+      border-radius: 8px;
+      padding: 1.25rem 1.5rem;
+      margin: 1.25rem 0;
+      font-size: 0.9rem;
+    }
+
+    .callout-critical {
+      background: #fef2f2;
+      border: 1px solid #fca5a5;
+      border-left: 4px solid #dc2626;
+    }
+
+    .callout-critical .callout-title {
+      color: #dc2626;
+      font-weight: 700;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.5rem;
+    }
+
+    .callout-info {
+      background: #eff6ff;
+      border: 1px solid #93c5fd;
+      border-left: 4px solid #38b6ff;
+    }
+
+    .callout-info .callout-title {
+      color: #1d4ed8;
+      font-weight: 700;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.5rem;
+    }
+
+    .callout-tip {
+      background: #f0fdf4;
+      border: 1px solid #86efac;
+      border-left: 4px solid #3a9e8f;
+    }
+
+    .callout-tip .callout-title {
+      color: #3a9e8f;
+      font-weight: 700;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.5rem;
+    }
+
+    .callout-warning {
+      background: #fffbeb;
+      border: 1px solid #fcd34d;
+      border-left: 4px solid #f59e0b;
+    }
+
+    .callout-warning .callout-title {
+      color: #d97706;
+      font-weight: 700;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.5rem;
+    }
+
+    .agreement-box {
+      background: #f8fafc;
+      border: 2px solid #0c1f3f;
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .agreement-box p {
+      font-size: 0.93rem;
+      color: #333;
+      margin-bottom: 0;
+    }
+
+    .footer-note {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid #e0ddd6;
+      font-size: 0.82rem;
+      color: #888;
+      text-align: center;
+    }
+
+    .footer-note a {
+      color: #3a9e8f;
+      text-decoration: none;
+    }
+
+    .footer-note a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 640px) {
+      .forum-header { padding: 2rem 1rem; }
+      .forum-header h1 { font-size: 1.5rem; }
+      .content-wrapper { padding: 1.5rem 1rem 3rem; }
+      .rules-section h2 { font-size: 1.15rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="forum-header">
+    <div class="badge">Evidence-Based Exchange</div>
+    <h1>Clinical Q&amp;A Forum</h1>
+    <p>Community Guidelines</p>
+  </div>
+
+  <!-- Content -->
+  <div class="content-wrapper">
+
+    <!-- Intro -->
+    <div class="intro-box">
+      <p>A <strong>structured forum for evidence-based clinical questions and answers</strong> related to wound assessment, prevention, treatment, and skin integrity in post-acute care.</p>
+      <p>Ask clearly. Answer with evidence. Learn from each other.</p>
+    </div>
+
+    <!-- Medical Advice Disclaimer -->
+    <div class="rules-section">
+      <h2>Medical Advice Disclaimer</h2>
+
+      <div class="callout callout-critical">
+        <div class="callout-title">Important Disclaimer</div>
+        <p>Responses in this forum reflect individual clinical knowledge and peer expertise. They are <strong>not</strong> PAWSIC-endorsed clinical recommendations, practice guidelines, or medical advice. No provider-patient relationship is created through this forum.</p>
+      </div>
+
+      <ul>
+        <li>All clinical decisions must be made by the treating provider based on individual patient assessment</li>
+        <li>PAWSIC, its moderators, and responding clinicians assume no liability for patient outcomes resulting from information shared in this forum</li>
+      </ul>
+    </div>
+
+    <!-- Asking Questions -->
+    <div class="rules-section">
+      <h2>Asking Questions</h2>
+      <ul>
+        <li>Frame clinical questions clearly with relevant (de-identified) context: wound type, care setting, patient population, current interventions</li>
+        <li><strong>Never</strong> include real patient identifiers, facility names, or any information that could identify a specific patient. Use composite or hypothetical scenarios</li>
+        <li>Specify whether you are asking about general best practice, a specific clinical scenario, or seeking resource recommendations</li>
+      </ul>
+
+      <div class="callout callout-tip">
+        <div class="callout-title">Well-Framed Question Example</div>
+        <p>"In a skilled nursing setting, what does current evidence support for repositioning frequency in patients on high-density foam mattresses who are at end of life with limited mobility? Looking for guideline-based recommendations."</p>
+      </div>
+    </div>
+
+    <!-- Answering Questions -->
+    <div class="rules-section">
+      <h2>Answering Questions</h2>
+      <ul>
+        <li>Ground your responses in <strong>current evidence-based practice</strong>. Cite sources when possible (guideline body, journal, year)</li>
+        <li>Clearly distinguish between evidence-based recommendations, institutional protocols, and personal clinical experience</li>
+        <li>Use appropriate clinical terminology. Preferred: "pressure injury" (not "bedsore"), "wound closure" (not "healing guarantee")</li>
+        <li>Use hedging language: "current evidence supports," "guidelines recommend," "clinical experience suggests" -- never absolute outcome claims</li>
+        <li>If you lack expertise in the specific area, <strong>defer rather than speculate</strong></li>
+      </ul>
+    </div>
+
+    <!-- HIPAA Compliance -->
+    <div class="rules-section">
+      <h2>HIPAA Compliance (Mandatory)</h2>
+
+      <div class="callout callout-critical">
+        <div class="callout-title">Zero Tolerance</div>
+        <p>Violation of patient privacy will result in immediate removal and potential suspension.</p>
+      </div>
+
+      <ul>
+        <li>All case-based questions and answers must be fully de-identified per the <strong>HIPAA Safe Harbor method</strong></li>
+        <li>No real patient photos unless fully de-identified with documented consent (which cannot be verified through this forum -- avoid posting patient images entirely)</li>
+      </ul>
+    </div>
+
+    <!-- Conflicts of Interest -->
+    <div class="rules-section">
+      <h2>Conflicts of Interest</h2>
+      <ul>
+        <li>If your response references a product or device with which you have a financial relationship, <strong>disclose it</strong></li>
+        <li>Do not use Q&amp;A responses as an opportunity for product promotion</li>
+        <li>Provide balanced perspectives -- when mentioning a specific product, note the broader category or alternatives</li>
+      </ul>
+
+      <div class="callout callout-warning">
+        <div class="callout-title">Disclosure Required</div>
+        <p>Transparency about financial relationships ensures the integrity of clinical peer exchange. If in doubt, disclose.</p>
+      </div>
+    </div>
+
+    <!-- Scope and Limitations -->
+    <div class="rules-section">
+      <h2>Scope and Limitations</h2>
+      <ul>
+        <li>This forum does <strong>not</strong> replace formal clinical education, CE/CME programs, or institutional clinical protocols</li>
+        <li>Questions requiring urgent clinical decision-making should be directed to the treating clinical team, not this forum</li>
+        <li>PAWSIC reserves the right to add editorial disclaimers to responses that may be incomplete or require additional context</li>
+      </ul>
+    </div>
+
+    <!-- Content Moderation -->
+    <div class="rules-section">
+      <h2>Content Moderation</h2>
+      <ul>
+        <li>Moderators with clinical expertise may tag responses as <strong>"peer perspective,"</strong> <strong>"evidence-supported,"</strong> or <strong>"needs citation"</strong></li>
+        <li>Unsubstantiated claims or responses that could lead to patient harm will be removed</li>
+        <li>Repeated guideline violations may result in suspension</li>
+      </ul>
+
+      <div class="callout callout-info">
+        <div class="callout-title">Questions or Concerns?</div>
+        <p>Contact PAWSIC at <a href="mailto:community@pawsic.org" style="color:#1d4ed8;">community@pawsic.org</a> with questions about these guidelines or moderation decisions.</p>
+      </div>
+    </div>
+
+    <!-- Agreement -->
+    <div class="agreement-box">
+      <p><strong>By participating, you acknowledge that this forum is for educational peer exchange only. PAWSIC is not liable for clinical decisions or patient outcomes based on forum content.</strong></p>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer-note">
+      <p>&copy; 2026 Post-Acute Wound &amp; Skin Integrity Council (PAWSIC). All rights reserved.</p>
+      <p>These guidelines are reviewed periodically and may be updated. Members will be notified of material changes.</p>
+      <p style="margin-top: 0.5rem;">
+        <a href="/community/">Back to Community</a> &nbsp;|&nbsp;
+        <a href="/membership/">Membership</a> &nbsp;|&nbsp;
+        <a href="/privacy-policy/">Privacy Policy</a> &nbsp;|&nbsp;
+        <a href="/disclaimers/">Disclaimers</a>
+      </p>
+      <p style="margin-top: 0.75rem; font-size: 0.78rem; color: #aaa;">Last updated: March 2026</p>
+    </div>
+
+  </div>
+
+</body>
+</html>
