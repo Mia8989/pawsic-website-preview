@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For Patients &amp; Caregivers | PAWSIC</title>
+  <meta name="description" content="Free wound care resources for patients, families, and caregivers. Learn the basics, find helpful tools, and join a supportive community. No medical credentials needed.">
+  <meta property="og:title" content="For Patients &amp; Caregivers | PAWSIC">
+  <meta property="og:description" content="Free wound care resources for patients, families, and caregivers. No medical credentials needed.">
+  <meta property="og:url" content="https://pawsic.org/patients">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://pawsic.org/images/pawsic-og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="For Patients &amp; Caregivers | PAWSIC">
+  <meta name="twitter:description" content="Free wound care resources for patients, families, and caregivers. No medical credentials needed.">
+  <meta name="twitter:image" content="https://pawsic.org/images/pawsic-og-image.jpg">
+  <link rel="canonical" href="https://pawsic.org/patients">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/v2-overrides.css">
+  <style>
+    .pc-hero {
+      background: linear-gradient(145deg, #f0f7fc 0%, #e4f0fa 50%, #dceaf5 100%);
+      padding: 5rem 0 4rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .pc-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 30% 50%, rgba(56, 182, 255, 0.06) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .pc-hero h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2rem, 4.5vw, 3rem);
+      color: #0c1f3f;
+      margin-bottom: 1rem;
+      position: relative;
+    }
+    .pc-hero h1 em { color: #1B5E9E; font-style: italic; }
+    .pc-hero .pc-hero-sub {
+      font-size: 1.15rem;
+      color: #4a6275;
+      max-width: 640px;
+      margin: 0 auto 2rem;
+      line-height: 1.7;
+      position: relative;
+    }
+    .pc-hero .pc-hero-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 56px; height: 56px;
+      background: rgba(224, 122, 142, 0.12);
+      border-radius: 50%;
+      margin-bottom: 1.25rem;
+      color: #e07a8e;
+    }
+
+    /* What You'll Find */
+    .pc-card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .pc-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 2rem;
+      border: 1px solid #e5eaf0;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .pc-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+    }
+    .pc-card-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px; height: 48px;
+      background: #f0f7fc;
+      border-radius: 12px;
+      margin-bottom: 1rem;
+      color: #1B5E9E;
+    }
+    .pc-card h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.15rem;
+      margin-bottom: 0.5rem;
+      color: #0c1f3f;
+    }
+    .pc-card p {
+      font-size: 0.9rem;
+      color: #5a6f80;
+      line-height: 1.6;
+    }
+
+    /* You're Not Alone section */
+    .pc-reassurance {
+      max-width: 680px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .pc-reassurance h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      color: #0c1f3f;
+      margin-bottom: 1rem;
+    }
+    .pc-reassurance h2 em { color: #1B5E9E; font-style: italic; }
+    .pc-reassurance p {
+      font-size: 1.05rem;
+      color: #4a6275;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+    .pc-checklist {
+      list-style: none;
+      padding: 0;
+      text-align: left;
+      max-width: 480px;
+      margin: 2rem auto;
+    }
+    .pc-checklist li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      padding: 0.5rem 0;
+      font-size: 0.95rem;
+      color: #374151;
+    }
+    .pc-checklist li svg {
+      flex-shrink: 0;
+      margin-top: 2px;
+      color: #1B5E9E;
+    }
+
+    /* FAQ for patients */
+    .pc-faq {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+    .pc-faq details {
+      border-bottom: 1px solid #e5e7eb;
+    }
+    .pc-faq details:first-child {
+      border-top: 1px solid #e5e7eb;
+    }
+    .pc-faq summary {
+      padding: 1.25rem 0;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #1a1a2e;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .pc-faq summary::-webkit-details-marker { display: none; }
+    .pc-faq summary::after {
+      content: '+';
+      font-size: 1.5rem;
+      font-weight: 300;
+      color: #1B5E9E;
+      flex-shrink: 0;
+    }
+    .pc-faq details[open] summary::after { content: '\2212'; }
+    .pc-faq .faq-answer {
+      padding: 0 0 1.25rem;
+      color: #374151;
+      line-height: 1.7;
+      font-size: 0.95rem;
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "For Patients and Caregivers | PAWSIC",
+    "url": "https://pawsic.org/patients",
+    "description": "Free wound care resources for patients, families, and caregivers. Learn the basics, find helpful tools, and join a supportive community.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "PAWSIC",
+      "url": "https://pawsic.org"
+    }
+  }
+  </script>
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- ===== ANNOUNCEMENT BANNER ===== -->
+  <div class="announcement-banner" id="announcementBanner">
+    <div class="container">
+      <span class="banner-text">
+        <strong>Join PAWSIC for Free</strong>: Wound Basics Course &amp; Webinar Library, publications, clinical tools, Skin Failure Library, community forums, and newsletters.
+        <a href="https://memberships.pawsic.org/register/free/">Sign Up Now &rarr;</a>
+      </span>
+      <button class="banner-close" aria-label="Dismiss banner">&times;</button>
+    </div>
+  </div>
+
+  <!-- ===== UTILITY BAR ===== -->
+  <div class="utility-bar">
+    <div class="container">
+      <a href="index-v2.html" class="utility-logo">
+        <img src="images/pawsic-diamond.png" alt="PAWSIC icon" class="logo-icon">
+        <span class="logo-text">
+          <span class="logo-name">PAWSIC</span>
+          <span class="logo-tagline">Post-Acute Wound &amp; Skin Integrity Council</span>
+        </span>
+      </a>
+      <div class="utility-links">
+        <a href="/resources/pawsic-brochure.pdf" class="utility-link" download>Download Brochure</a>
+        <a href="https://memberships.pawsic.org/login/" class="utility-link">Member Login</a>
+        <a href="https://memberships.pawsic.org/register/free/" class="utility-link utility-join">Join Free</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== MAIN NAVIGATION ===== -->
+  <nav class="main-nav" aria-label="Main navigation">
+    <div class="container">
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="index-v2.html">Home</a></li>
+        <li>
+          <a href="about-v2.html" class="has-dropdown">About Us <span class="dropdown-arrow"></span></a>
+          <ul class="dropdown">
+            <li><a href="about-v2.html">About PAWSIC</a></li>
+            <li><a href="board-v2.html">The Board</a></li>
+            <li><a href="advisory-v2.html">Advisory Committee</a></li>
+            <li><a href="who-is-pawsic-v2.html">Who is PAWSIC?</a></li>
+            <li><a href="services-v2.html">Services</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="events-v2.html" class="has-dropdown">Events <span class="dropdown-arrow"></span></a>
+          <ul class="dropdown">
+            <li><a href="events-v2.html">Upcoming Events</a></li>
+            <li><a href="webinars-v2.html">Webinars</a></li>
+            <li><a href="press-releases-v2.html">Press Releases</a></li>
+          </ul>
+        </li>
+        <li><a href="resources-v2.html">Resources</a></li>
+        <li><a href="programs-v2.html">Courses</a></li>
+        <li>
+          <a href="community-v2.html" class="has-dropdown">Community <span class="dropdown-arrow"></span></a>
+          <ul class="dropdown">
+            <li><a href="community-v2.html#forums">Forums</a></li>
+            <li><a href="community-v2.html#sig-spaces">Shared Interest Group (SIG)</a></li>
+          </ul>
+        </li>
+        <li><a href="membership-v2.html">Membership</a></li>
+        <li><a href="sponsors-v2.html">Sponsorship</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="mobile-overlay"></div>
+
+  <main id="main-content">
+
+    <!-- ===== HERO ===== -->
+    <section class="pc-hero">
+      <div class="container">
+        <div class="pc-hero-icon reveal">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </div>
+        <h1 class="reveal reveal-delay-1">You Care About Someone's <em>Skin &amp; Wound Health</em></h1>
+        <p class="pc-hero-sub reveal reveal-delay-2">Whether you are healing from a wound yourself or helping a loved one, PAWSIC has free resources made just for you. No medical background needed.</p>
+        <div class="reveal reveal-delay-3">
+          <a href="https://memberships.pawsic.org/register/free/" class="btn-primary btn-lg">Join Free: It Takes 30 Seconds <span class="btn-arrow">&rarr;</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== WHAT YOU'LL FIND ===== -->
+    <section class="section section-white">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">What You'll Find</span>
+          <h2>Free Resources <em>For You</em></h2>
+          <p>Everything here is included with a free PAWSIC membership. No cost, no catch.</p>
+        </div>
+        <div class="pc-card-grid reveal reveal-delay-1">
+
+          <div class="pc-card">
+            <div class="pc-card-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+            </div>
+            <h3>Wound Care Basics</h3>
+            <p>Easy-to-understand guides about common wounds, what to watch for, and when to contact your care team.</p>
+          </div>
+
+          <div class="pc-card">
+            <div class="pc-card-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+            </div>
+            <h3>Helpful Tools &amp; Checklists</h3>
+            <p>Printable checklists to bring to appointments, questions to ask your doctor, and simple tracking tools.</p>
+          </div>
+
+          <div class="pc-card">
+            <div class="pc-card-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <h3>Community Support</h3>
+            <p>Connect with other patients and caregivers who understand what you are going through. You are not alone in this.</p>
+          </div>
+
+          <div class="pc-card">
+            <div class="pc-card-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <h3>Newsletter &amp; Updates</h3>
+            <p>A monthly email with wound care tips, new resources, and updates from the PAWSIC community. Unsubscribe anytime.</p>
+          </div>
+
+          <div class="pc-card">
+            <div class="pc-card-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+            </div>
+            <h3>Frank &amp; Lizzie Show</h3>
+            <p>Watch free episodes of our healthcare education show. Real conversations about wound care, explained in plain language.</p>
+          </div>
+
+          <div class="pc-card">
+            <div class="pc-card-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+            </div>
+            <h3>Skin Failure Library</h3>
+            <p>Learn about skin failure, what it means, and how it is different from other types of wounds. Written for everyone to understand.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== YOU'RE NOT ALONE ===== -->
+    <section class="section section-ice">
+      <div class="container">
+        <div class="pc-reassurance reveal">
+          <h2>You Are <em>Not Alone</em></h2>
+          <p>Dealing with a wound can feel overwhelming, especially when care involves multiple doctors, facilities, or settings. PAWSIC was created to help bring everyone together so nothing falls through the cracks.</p>
+          <ul class="pc-checklist">
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Learn what questions to ask your care team</span>
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Understand the basics of wound healing</span>
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Find tools to track your progress</span>
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Connect with others who get it</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== QUICK FAQ ===== -->
+    <section class="section section-white">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Common Questions</span>
+          <h2>Questions You <em>Might Have</em></h2>
+        </div>
+        <div class="pc-faq reveal reveal-delay-1">
+
+          <details>
+            <summary>Do I need to be a nurse or doctor to join?</summary>
+            <div class="faq-answer">
+              <p>Not at all. PAWSIC welcomes everyone: patients, family members, caregivers, and anyone who cares about skin health and wound care. Our free membership is designed with you in mind.</p>
+            </div>
+          </details>
+
+          <details>
+            <summary>Is it really free?</summary>
+            <div class="faq-answer">
+              <p>Yes. Free membership costs nothing and never will. No credit card, no hidden fees. You get access to wound care basics, the newsletter, the Frank &amp; Lizzie Show, community forums, and more.</p>
+            </div>
+          </details>
+
+          <details>
+            <summary>What kind of wound care information will I find?</summary>
+            <div class="faq-answer">
+              <p>You will find easy-to-read guides about pressure injuries, chronic wounds, skin failure, and general wound healing. We also have checklists you can bring to doctor visits and tools to help you track healing progress.</p>
+            </div>
+          </details>
+
+          <details>
+            <summary>Can I talk to other patients and caregivers?</summary>
+            <div class="faq-answer">
+              <p>Yes. Our community forums let you connect with others going through similar experiences. You can ask questions, share what has worked for you, and find support from people who understand.</p>
+            </div>
+          </details>
+
+          <details>
+            <summary>Is the medical information trustworthy?</summary>
+            <div class="faq-answer">
+              <p>All PAWSIC resources are created or reviewed by board-certified wound care professionals. Our content is evidence-based and follows clinical guidelines. That said, it is educational and not a replacement for advice from your own healthcare team.</p>
+            </div>
+          </details>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CTA ===== -->
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-card reveal">
+          <div class="cta-content">
+            <h2>Ready to Get<br>Started?</h2>
+            <p>Join PAWSIC for free and start exploring wound care resources made for patients and caregivers. It takes about 30 seconds.</p>
+            <a href="https://memberships.pawsic.org/register/free/" class="btn-primary btn-lg">Join PAWSIC Free <span class="btn-arrow">&rarr;</span></a>
+          </div>
+          <div class="cta-visual">
+            <div class="cta-orb cta-orb-1"></div>
+            <div class="cta-orb cta-orb-2"></div>
+            <div class="cta-orb cta-orb-3"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <img src="images/pawsic-diamond.png" alt="PAWSIC" class="logo-icon">
+            <span class="logo-text">
+              <span class="logo-name">PAWSIC</span>
+              <span class="logo-tagline">Post-Acute Wound &amp; Skin Integrity Council</span>
+            </span>
+          </div>
+          <p>Post-Acute Wound &amp; Skin Integrity Council, a 501(c)(6) nonprofit uniting wound care professionals through education, community, and advocacy.</p>
+          <div class="social-links">
+            <a href="https://www.facebook.com/pawsicorg" aria-label="Facebook" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+            <a href="https://www.instagram.com/pawsicorg" aria-label="Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="https://www.linkedin.com/company/pawsic" aria-label="LinkedIn" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+            <a href="https://www.tiktok.com/@pawsicorg" aria-label="TikTok" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="white" stroke="none"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1v-3.52a6.37 6.37 0 0 0-.79-.05A6.34 6.34 0 0 0 3.15 15.2a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.73a8.19 8.19 0 0 0 4.76 1.52V6.8a4.84 4.84 0 0 1-1-.11z"/></svg></a>
+            <a href="https://www.youtube.com/@pawsicorg" aria-label="YouTube" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="white" stroke="none"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+            <a href="https://x.com/pawsicorg" aria-label="X" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="white" stroke="none"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="about-v2.html">About Us</a></li>
+            <li><a href="board-v2.html">The Board</a></li>
+            <li><a href="membership-v2.html">Membership</a></li>
+            <li><a href="programs-v2.html">CE/CME Courses</a></li>
+            <li><a href="resources-v2.html">Resources</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Community</h4>
+          <ul>
+            <li><a href="community-v2.html#forums">Forums</a></li>
+            <li><a href="community-v2.html#sig-spaces">Shared Interest Group (SIG)</a></li>
+            <li><a href="events-v2.html">Events</a></li>
+            <li><a href="webinars-v2.html">Webinars</a></li>
+            <li><a href="contact-v2.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="sponsors-v2.html">Become a Sponsor</a></li>
+            <li><a href="https://donate.stripe.com/dRm8wQ1mC3oE8Ef8p7c7u0m" target="_blank" rel="noopener">Donate</a></li>
+            <li><a href="https://memberships.pawsic.org/login/">Member Login</a></li>
+            <li><a href="press-releases-v2.html">Press Releases</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 PAWSIC. All Rights Reserved. Donations/sponsorships are not tax deductible.</span>
+        <div class="footer-legal">
+          <a href="/privacy-policy/">Privacy Policy</a>
+          <a href="/disclaimers/">Website Disclaimer</a>
+          <a href="/disclaimers/#resource-disclaimer">Resource Disclaimer</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

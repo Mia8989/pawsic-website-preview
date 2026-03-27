@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Community | PAWSIC</title>
+  <meta name="description" content="Connect with wound care professionals through PAWSIC community forums and Shared Interest Groups. Coming soon | join free today to be first in line.">
+  <meta property="og:title" content="PAWSIC Community">
+  <meta property="og:description" content="Connect, collaborate, and grow with fellow wound care professionals.">
+  <meta property="og:url" content="https://pawsic.org/community/">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://pawsic.org/images/pawsic-og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="PAWSIC Community">
+  <meta name="twitter:description" content="Connect, collaborate, and grow with fellow wound care professionals.">
+  <meta name="twitter:image" content="https://pawsic.org/images/pawsic-og-image.jpg">
+  <link rel="canonical" href="https://pawsic.org/community/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/v2-overrides.css">
+
+  <style>
+    /* ---- Community Page Specific Styles ---- */
+
+    .community-hero {
+      background: linear-gradient(135deg, #1a2744 0%, #1B5E9E 60%, #38B6FF 100%);
+      padding: 5rem 0 4rem;
+      text-align: center;
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .community-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+
+    .community-hero h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2.8rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .community-hero h1 em {
+      font-style: italic;
+      color: #38B6FF;
+    }
+
+    .community-hero p {
+      font-size: 1.15rem;
+      max-width: 620px;
+      margin: 0 auto 1.5rem;
+      opacity: 0.9;
+      line-height: 1.6;
+    }
+
+    .coming-soon-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(56, 182, 255, 0.15);
+      border: 1px solid rgba(56, 182, 255, 0.35);
+      color: #a8deff;
+      padding: 0.5rem 1.25rem;
+      border-radius: 2rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+
+    .coming-soon-badge svg {
+      flex-shrink: 0;
+    }
+
+    /* Feature Cards */
+    .community-cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 700px) {
+      .community-cards {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .community-feature-card {
+      background: #fff;
+      border-radius: 16px;
+      border: 1px solid #e8edf2;
+      overflow: hidden;
+      transition: box-shadow 0.3s, transform 0.3s;
+    }
+
+    .community-feature-card:hover {
+      box-shadow: 0 8px 30px rgba(27, 94, 158, 0.12);
+      transform: translateY(-2px);
+    }
+
+    .community-card-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+      background: linear-gradient(135deg, #e8f4fd 0%, #d4e9f7 100%);
+    }
+
+    .community-card-image-placeholder {
+      width: 100%;
+      height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .community-card-image-placeholder.forums-bg {
+      background: linear-gradient(135deg, #e8f4fd 0%, #c4ddf0 100%);
+    }
+
+    .community-card-image-placeholder.sig-bg {
+      background: linear-gradient(135deg, #f0e8fd 0%, #d4c4f0 100%);
+    }
+
+    .community-card-image-placeholder svg {
+      opacity: 0.4;
+    }
+
+    .community-card-body {
+      padding: 1.5rem;
+    }
+
+    .community-card-body .card-badge {
+      display: inline-block;
+      padding: 0.2rem 0.75rem;
+      border-radius: 1rem;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.75rem;
+    }
+
+    .card-badge.free {
+      background: #e0f5e9;
+      color: #1a7a42;
+    }
+
+    .card-badge.premium {
+      background: #ede0f5;
+      color: #6b2fa5;
+    }
+
+    .community-card-body h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.35rem;
+      margin-bottom: 0.5rem;
+      color: #1a2744;
+    }
+
+    .community-card-body p {
+      color: #5a6a7a;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .community-card-body ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 1.5rem;
+    }
+
+    .community-card-body ul li {
+      padding: 0.3rem 0 0.3rem 1.5rem;
+      position: relative;
+      font-size: 0.9rem;
+      color: #4a5a6a;
+      line-height: 1.5;
+    }
+
+    .community-card-body ul li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.65rem;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #38B6FF;
+    }
+
+    /* How It Works Steps */
+    .how-steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      max-width: 900px;
+      margin: 2rem auto 0;
+    }
+
+    @media (max-width: 700px) {
+      .how-steps {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+    }
+
+    .how-step {
+      text-align: center;
+      padding: 1.5rem;
+    }
+
+    .how-step-number {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #1B5E9E, #38B6FF);
+      color: #fff;
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+      box-shadow: 0 4px 12px rgba(27, 94, 158, 0.25);
+    }
+
+    .how-step h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      color: #1a2744;
+    }
+
+    .how-step p {
+      font-size: 0.9rem;
+      color: #5a6a7a;
+      line-height: 1.6;
+    }
+
+    /* Community Preview Images */
+    .community-preview {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .community-preview-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      margin-top: 2rem;
+    }
+
+    @media (max-width: 700px) {
+      .community-preview-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .preview-card {
+      background: #fff;
+      border-radius: 12px;
+      border: 1px solid #e8edf2;
+      overflow: hidden;
+      text-align: left;
+    }
+
+    .preview-card-visual {
+      height: 140px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .preview-card-visual.chat-bg {
+      background: linear-gradient(135deg, #e8f4fd 0%, #d4e9f7 100%);
+    }
+
+    .preview-card-visual.forum-bg {
+      background: linear-gradient(135deg, #e0f5e9 0%, #c4ebd4 100%);
+    }
+
+    .preview-card-visual.group-bg {
+      background: linear-gradient(135deg, #f0e8fd 0%, #e0d4f0 100%);
+    }
+
+    .preview-card-content {
+      padding: 1rem 1.25rem;
+    }
+
+    .preview-card-content h4 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1rem;
+      margin-bottom: 0.25rem;
+      color: #1a2744;
+    }
+
+    .preview-card-content p {
+      font-size: 0.8rem;
+      color: #5a6a7a;
+      line-height: 1.5;
+    }
+
+    /* Chat bubble illustrations */
+    .chat-bubbles {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      padding: 1rem 1.5rem;
+      width: 100%;
+    }
+
+    .chat-bubble {
+      padding: 0.5rem 0.85rem;
+      border-radius: 12px;
+      font-size: 0.72rem;
+      max-width: 75%;
+      line-height: 1.4;
+      color: #3a4a5a;
+    }
+
+    .chat-bubble.left {
+      background: #fff;
+      align-self: flex-start;
+      border-bottom-left-radius: 4px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    }
+
+    .chat-bubble.right {
+      background: #1B5E9E;
+      color: #fff;
+      align-self: flex-end;
+      border-bottom-right-radius: 4px;
+    }
+
+    /* Forum thread illustration */
+    .forum-threads {
+      padding: 1rem 1.5rem;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .forum-thread {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: #fff;
+      padding: 0.4rem 0.65rem;
+      border-radius: 8px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+
+    .thread-avatar {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .thread-text {
+      font-size: 0.68rem;
+      color: #4a5a6a;
+      flex: 1;
+    }
+
+    .thread-replies {
+      font-size: 0.6rem;
+      color: #8a9aaa;
+      white-space: nowrap;
+    }
+
+    /* SIG group illustration */
+    .sig-groups {
+      padding: 1rem 1.5rem;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .sig-group-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: #fff;
+      padding: 0.5rem 0.75rem;
+      border-radius: 8px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+
+    .sig-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .sig-icon.blue { background: #e0f0ff; color: #1B5E9E; }
+    .sig-icon.green { background: #e0f5e9; color: #1a7a42; }
+    .sig-icon.purple { background: #ede0f5; color: #6b2fa5; }
+
+    .sig-group-text {
+      font-size: 0.7rem;
+      color: #4a5a6a;
+    }
+
+    .sig-members {
+      font-size: 0.6rem;
+      color: #8a9aaa;
+      margin-left: auto;
+      white-space: nowrap;
+    }
+  </style>
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- ===== ANNOUNCEMENT BANNER ===== -->
+  <div class="announcement-banner" id="announcementBanner">
+    <div class="container">
+      <span class="banner-text">
+        <strong>Join PAWSIC for Free</strong>: Wound Basics Course &amp; Webinar Library, publications, clinical tools, Skin Failure Library, community forums, and newsletters.
+        <a href="https://memberships.pawsic.org/register/free/">Sign Up Now &rarr;</a>
+      </span>
+      <button class="banner-close" aria-label="Dismiss banner">&times;</button>
+    </div>
+  </div>
+
+  <!-- ===== UTILITY BAR ===== -->
+  <div class="utility-bar">
+    <div class="container">
+      <a href="index-v2.html" class="utility-logo">
+        <img src="images/pawsic-diamond.png" alt="PAWSIC icon" class="logo-icon">
+        <span class="logo-text">
+          <span class="logo-name">PAWSIC</span>
+          <span class="logo-tagline">Post-Acute Wound &amp; Skin Integrity Council</span>
+        </span>
+      </a>
+      <div class="utility-links">
+        <a href="patients-v2.html" class="utility-link v2-patient-link">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          Patients &amp; Caregivers
+        </a>
+        <a href="/resources/pawsic-brochure.pdf" class="utility-link" download>Download Brochure</a>
+        <a href="https://memberships.pawsic.org/login/" class="utility-link">Member Login</a>
+        <a href="https://memberships.pawsic.org/register/free/" class="utility-link utility-join">Join Free</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== MAIN NAVIGATION ===== -->
+  <nav class="main-nav" aria-label="Main navigation">
+    <div class="container">
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="index-v2.html">Home</a></li>
+        <li>
+          <a href="about-v2.html" class="has-dropdown">About Us <span class="dropdown-arrow"></span></a>
+          <ul class="dropdown">
+            <li><a href="about-v2.html">About PAWSIC</a></li>
+            <li><a href="board-v2.html">The Board</a></li>
+            <li><a href="advisory-v2.html">Advisory Committee</a></li>
+            <li><a href="who-is-pawsic-v2.html">Who is PAWSIC?</a></li>
+            <li><a href="services-v2.html">Services</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="events-v2.html" class="has-dropdown">Events <span class="dropdown-arrow"></span></a>
+          <ul class="dropdown">
+            <li><a href="events-v2.html">Upcoming Events</a></li>
+            <li><a href="webinars-v2.html">Webinars</a></li>
+            <li><a href="press-releases-v2.html">Press Releases</a></li>
+          </ul>
+        </li>
+        <li><a href="resources-v2.html">Resources</a></li>
+        <li><a href="programs-v2.html">Courses</a></li>
+        <li>
+          <a href="community-v2.html" class="has-dropdown active">Community <span class="dropdown-arrow"></span></a>
+          <ul class="dropdown">
+            <li><a href="community-v2.html#forums" class="active">Forums</a></li>
+            <li><a href="community-v2.html#sig-spaces">Shared Interest Group (SIG)</a></li>
+          </ul>
+        </li>
+        <li><a href="membership-v2.html">Membership</a></li>
+        <li><a href="sponsors-v2.html">Sponsorship</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="mobile-overlay"></div>
+
+  <main id="main-content">
+
+    <!-- ===== HERO ===== -->
+    <section class="community-hero">
+      <div class="container">
+        <span class="coming-soon-badge reveal">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          Coming Soon
+        </span>
+        <h1 class="reveal reveal-delay-1">PAWSIC <em>Community</em></h1>
+        <p class="reveal reveal-delay-2">A dedicated space for wound care professionals to connect, collaborate, and grow together. Forums, specialized interest groups, and peer-to-peer knowledge sharing, all in one place.</p>
+        <a href="https://memberships.pawsic.org/register/free/" class="btn-primary btn-lg reveal reveal-delay-3">Join Free to Get Early Access <span class="btn-arrow">&rarr;</span></a>
+      </div>
+    </section>
+
+    <!-- ===== COMMUNITY FEATURES ===== -->
+    <section class="section section-white">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">What's Coming</span>
+          <h2>Two Ways to <em>Connect</em></h2>
+        </div>
+
+        <div class="community-cards reveal reveal-delay-1">
+          <!-- Forums Card -->
+          <div class="community-feature-card" id="forums">
+            <div class="community-card-image-placeholder forums-bg">
+              <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#1B5E9E" stroke-width="1"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            </div>
+            <div class="community-card-body">
+              <span class="card-badge free">Free for All Members</span>
+              <h3>Community Forums</h3>
+              <p>Open discussion forums for all PAWSIC members to connect, ask questions, and share real-world wound care knowledge.</p>
+              <ul>
+                <li>Ask questions and get answers from peers</li>
+                <li>Share real-world experiences and best practices</li>
+                <li>Discuss clinical challenges and solutions</li>
+                <li>Connect with professionals across all care settings</li>
+              </ul>
+              <a href="https://memberships.pawsic.org/register/free/" class="btn-primary">Join Free to Get Access <span class="btn-arrow">&rarr;</span></a>
+            </div>
+          </div>
+
+          <!-- SIG Spaces Card -->
+          <div class="community-feature-card" id="sig-spaces">
+            <div class="community-card-image-placeholder sig-bg">
+              <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#6b2fa5" stroke-width="1"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <div class="community-card-body">
+              <span class="card-badge premium">Premium Members</span>
+              <h3>SIG Spaces</h3>
+              <p>Specialized Interest Group spaces for focused collaboration among experts in specific areas of wound care.</p>
+              <ul>
+                <li>Topic-specific groups with in-depth discussions</li>
+                <li>Advanced clinical conversations and case studies</li>
+                <li>Professional networking with specialized peers</li>
+                <li>Led by PAWSIC committee and board members</li>
+              </ul>
+              <a href="membership-v2.html" class="btn-outline">View Membership Options <span class="btn-arrow">&rarr;</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PREVIEW: WHAT IT WILL LOOK LIKE ===== -->
+    <section class="section section-ice">
+      <div class="container">
+        <div class="community-preview reveal">
+          <div class="section-header">
+            <span class="section-tag">Sneak Peek</span>
+            <h2>What the Community <em>Looks Like</em></h2>
+            <p>Here's a preview of what you'll experience when the PAWSIC community launches.</p>
+          </div>
+
+          <div class="community-preview-grid reveal reveal-delay-1">
+            <!-- Chat Preview -->
+            <div class="preview-card">
+              <div class="preview-card-visual chat-bg">
+                <div class="chat-bubbles">
+                  <div class="chat-bubble left">Has anyone tried negative pressure on stage 3 sacral PIs in home health?</div>
+                  <div class="chat-bubble right">We've had good results. Key is caregiver education on dressing changes.</div>
+                  <div class="chat-bubble left">Great point. Can you share your protocol?</div>
+                </div>
+              </div>
+              <div class="preview-card-content">
+                <h4>Peer Discussions</h4>
+                <p>Real conversations between wound care professionals sharing clinical insights.</p>
+              </div>
+            </div>
+
+            <!-- Forum Preview -->
+            <div class="preview-card">
+              <div class="preview-card-visual forum-bg">
+                <div class="forum-threads">
+                  <div class="forum-thread">
+                    <div class="thread-avatar" style="background:#1B5E9E;"></div>
+                    <span class="thread-text">Best practices for moisture-associated skin damage</span>
+                    <span class="thread-replies">12 replies</span>
+                  </div>
+                  <div class="forum-thread">
+                    <div class="thread-avatar" style="background:#38B6FF;"></div>
+                    <span class="thread-text">Nutrition assessments in long-term care</span>
+                    <span class="thread-replies">8 replies</span>
+                  </div>
+                  <div class="forum-thread">
+                    <div class="thread-avatar" style="background:#1a7a42;"></div>
+                    <span class="thread-text">Documentation tips for wound measurement</span>
+                    <span class="thread-replies">23 replies</span>
+                  </div>
+                </div>
+              </div>
+              <div class="preview-card-content">
+                <h4>Organized Forums</h4>
+                <p>Topical threads that make it easy to find answers and contribute your expertise.</p>
+              </div>
+            </div>
+
+            <!-- SIG Preview -->
+            <div class="preview-card">
+              <div class="preview-card-visual group-bg">
+                <div class="sig-groups">
+                  <div class="sig-group-item">
+                    <div class="sig-icon blue"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                    <span class="sig-group-text">Skin Failure SIG</span>
+                    <span class="sig-members">42 members</span>
+                  </div>
+                  <div class="sig-group-item">
+                    <div class="sig-icon green"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div>
+                    <span class="sig-group-text">Home Health WC</span>
+                    <span class="sig-members">38 members</span>
+                  </div>
+                  <div class="sig-group-item">
+                    <div class="sig-icon purple"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+                    <span class="sig-group-text">Pressure Injury Prevention</span>
+                    <span class="sig-members">56 members</span>
+                  </div>
+                </div>
+              </div>
+              <div class="preview-card-content">
+                <h4>Specialized Groups</h4>
+                <p>Focused SIG spaces for deep-dive collaboration on specific wound care topics.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== HOW IT WORKS ===== -->
+    <section class="section section-white">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">How It Works</span>
+          <h2>Get Started in <em>3 Steps</em></h2>
+          <p>Joining the PAWSIC community is simple and free.</p>
+        </div>
+
+        <div class="how-steps reveal reveal-delay-1">
+          <div class="how-step">
+            <div class="how-step-number">1</div>
+            <h3>Join for Free</h3>
+            <p>Sign up for your free PAWSIC membership. No credit card required. Instant access to community forums when they launch.</p>
+          </div>
+          <div class="how-step">
+            <div class="how-step-number">2</div>
+            <h3>Join the Discussion</h3>
+            <p>Browse forums, ask questions, and share your expertise with fellow wound care professionals across all settings.</p>
+          </div>
+          <div class="how-step">
+            <div class="how-step-number">3</div>
+            <h3>Upgrade When Ready</h3>
+            <p>Unlock SIG Spaces and specialized groups by upgrading to Premium. No pressure. Upgrade whenever you see the value.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CTA ===== -->
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-card reveal">
+          <div class="cta-content">
+            <h2>Be the First to<br>Join the Community</h2>
+            <p>Sign up free today and you'll be notified as soon as the PAWSIC community launches. Get early access to forums, connect with peers, and shape the conversation.</p>
+            <a href="https://memberships.pawsic.org/register/free/" class="btn-primary btn-lg">Join PAWSIC Free <span class="btn-arrow">&rarr;</span></a>
+          </div>
+          <div class="cta-visual">
+            <div class="cta-orb cta-orb-1"></div>
+            <div class="cta-orb cta-orb-2"></div>
+            <div class="cta-orb cta-orb-3"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <img src="images/pawsic-diamond.png" alt="PAWSIC" class="logo-icon">
+            <span class="logo-text">
+              <span class="logo-name">PAWSIC</span>
+              <span class="logo-tagline">Post-Acute Wound &amp; Skin Integrity Council</span>
+            </span>
+          </div>
+          <p>Post-Acute Wound &amp; Skin Integrity Council, a 501(c)(6) nonprofit uniting wound care professionals through education, community, and advocacy.</p>
+          <div class="social-links">
+            <a href="https://www.facebook.com/pawsicorg" aria-label="Facebook" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+            <a href="https://www.instagram.com/pawsicorg" aria-label="Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="https://www.linkedin.com/company/pawsic" aria-label="LinkedIn" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+            <a href="https://www.tiktok.com/@pawsicorg" aria-label="TikTok" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="white" stroke="none"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1v-3.52a6.37 6.37 0 0 0-.79-.05A6.34 6.34 0 0 0 3.15 15.2a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.73a8.19 8.19 0 0 0 4.76 1.52V6.8a4.84 4.84 0 0 1-1-.11z"/></svg></a>
+            <a href="https://www.youtube.com/@pawsicorg" aria-label="YouTube" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="white" stroke="none"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+            <a href="https://x.com/pawsicorg" aria-label="X" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="white" stroke="none"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="about-v2.html">About Us</a></li>
+            <li><a href="board-v2.html">The Board</a></li>
+            <li><a href="membership-v2.html">Membership</a></li>
+            <li><a href="programs-v2.html">CE/CME Courses</a></li>
+            <li><a href="resources-v2.html">Resources</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Community</h4>
+          <ul>
+            <li><a href="community-v2.html#forums">Forums</a></li>
+            <li><a href="community-v2.html#sig-spaces">Shared Interest Group (SIG)</a></li>
+            <li><a href="events-v2.html">Events</a></li>
+            <li><a href="webinars-v2.html">Webinars</a></li>
+            <li><a href="contact-v2.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="sponsors-v2.html">Become a Sponsor</a></li>
+            <li><a href="https://donate.stripe.com/dRm8wQ1mC3oE8Ef8p7c7u0m" target="_blank" rel="noopener">Donate</a></li>
+            <li><a href="https://memberships.pawsic.org/login/">Member Login</a></li>
+            <li><a href="press-releases-v2.html">Press Releases</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 PAWSIC. All Rights Reserved. Donations/sponsorships are not tax deductible.</span>
+        <div class="footer-legal">
+          <a href="/privacy-policy/">Privacy Policy</a>
+          <a href="/disclaimers/">Website Disclaimer</a>
+          <a href="/disclaimers/#resource-disclaimer">Resource Disclaimer</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

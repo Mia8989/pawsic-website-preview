@@ -1,0 +1,769 @@
+/* ==========================================================================
+   WHO IS PAWSIC -- Page-Specific Styles
+   Premium UX/UI for the Who is PAWSIC? overview page.
+   All classes use the wip- namespace to avoid collisions.
+   ========================================================================== */
+
+
+/* --------------------------------------------------------------------------
+   AT A GLANCE -- Stats bar beneath hero
+   -------------------------------------------------------------------------- */
+
+.wip-glance-section {
+  padding: 0;
+  margin-top: -2.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.wip-glance-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: #e8ecf2;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(12, 31, 63, 0.12);
+}
+
+.wip-glance-card {
+  background: #fff;
+  padding: 1.75rem 1.5rem;
+  text-align: center;
+  transition: background 0.2s ease;
+}
+
+.wip-glance-card:hover {
+  background: #f8fafc;
+}
+
+.wip-glance-icon {
+  width: 52px;
+  height: 52px;
+  background: linear-gradient(135deg, rgba(43, 124, 202, 0.08) 0%, rgba(56, 182, 255, 0.08) 100%);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 0.85rem;
+  color: #1E3A6E;
+}
+
+.wip-glance-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-muted, #7a8699);
+  margin-bottom: 0.35rem;
+}
+
+.wip-glance-value {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--navy, #0c1f3f);
+  line-height: 1.3;
+}
+
+
+/* --------------------------------------------------------------------------
+   OUR IDENTITY -- Two-column layout with sidebar credential cards
+   -------------------------------------------------------------------------- */
+
+.wip-identity-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 0.7fr;
+  gap: 2.5rem;
+  align-items: start;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.wip-identity-main {
+  /* Main content column */
+}
+
+.wip-identity-lead {
+  font-size: 1.15rem;
+  font-weight: 500;
+  line-height: 1.7;
+  color: var(--navy, #0c1f3f);
+  margin-bottom: 1rem;
+}
+
+.wip-identity-main > p {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--text-body, #3d4a5c);
+  margin-bottom: 1.5rem;
+}
+
+.wip-identity-list {
+  background: #f8fafc;
+  border: 1px solid #e8ecf2;
+  border-radius: 14px;
+  padding: 1.5rem 1.75rem;
+}
+
+.wip-identity-list h3 {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--navy, #0c1f3f);
+  margin-bottom: 1rem;
+}
+
+.wip-identity-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.wip-identity-list ul li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--text-body, #3d4a5c);
+  padding: 0.45rem 0;
+  border-bottom: 1px solid #eef1f6;
+}
+
+.wip-identity-list ul li:last-child {
+  border-bottom: none;
+}
+
+.wip-identity-list ul li svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+
+/* -- Sidebar credential cards -- */
+
+.wip-identity-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.wip-credential-card {
+  background: #fff;
+  border: 1px solid #e8ecf2;
+  border-radius: 14px;
+  padding: 1.75rem;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.wip-credential-card:hover {
+  box-shadow: 0 6px 24px rgba(12, 31, 63, 0.1);
+  transform: translateY(-2px);
+}
+
+.wip-credential-icon {
+  width: 52px;
+  height: 52px;
+  background: linear-gradient(135deg, rgba(43, 124, 202, 0.1) 0%, rgba(30, 58, 110, 0.08) 100%);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  color: #1E3A6E;
+}
+
+.wip-credential-card h4 {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--navy, #0c1f3f);
+  margin-bottom: 0.5rem;
+  line-height: 1.35;
+}
+
+.wip-credential-card p {
+  font-size: 0.85rem;
+  line-height: 1.65;
+  color: var(--text-muted, #7a8699);
+  margin-bottom: 0.85rem;
+}
+
+.wip-credential-link {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #1A5494;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.wip-credential-link:hover {
+  color: #2B7CCA;
+}
+
+
+/* --------------------------------------------------------------------------
+   PATIENT-CENTERED MODEL -- Concentric Rings Visual
+   -------------------------------------------------------------------------- */
+
+.wip-model-section {
+  /* extends .section-navy from v2-overrides.css */
+}
+
+.wip-rings-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  margin-bottom: 3.5rem;
+  position: relative;
+}
+
+.wip-rings-image-wrap {
+  position: relative;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.wip-rings-img {
+  width: 360px;
+  height: 360px;
+  object-fit: contain;
+  display: block;
+  border-radius: 50%;
+}
+
+.wip-rings-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  pointer-events: none;
+}
+
+.wip-rings-overlay span {
+  font-family: 'DM Serif Display', serif;
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: #fff;
+  line-height: 1.25;
+}
+
+
+/* -- Pointer labels (brochure style) -- */
+
+.wip-ring-pointer {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  position: absolute;
+  top: 50%;
+}
+
+/* Left pointer: "Team Members We Represent" -> inner circle */
+.wip-ring-pointer-left {
+  right: calc(50% + 60px);
+  transform: translateY(10%);
+  flex-direction: row-reverse;
+}
+
+/* Right pointer: "Settings We Serve" -> outer circle edge, dot ON the ring */
+.wip-ring-pointer-right {
+  left: calc(50% + 135px);
+  top: 28%;
+  transform: none;
+}
+
+.wip-pointer-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.7);
+  flex-shrink: 0;
+}
+
+.wip-pointer-line {
+  width: 60px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.4);
+  flex-shrink: 0;
+}
+
+.wip-pointer-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+.wip-ring-pointer-left .wip-pointer-label {
+  text-align: right;
+  margin-right: 8px;
+}
+
+.wip-ring-pointer-right .wip-pointer-label {
+  text-align: left;
+  margin-left: 8px;
+}
+
+
+/* -- Two-column breakdown below rings -- */
+
+.wip-model-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.wip-model-col h3 {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.wip-model-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.wip-pill {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 50px;
+  padding: 0.5rem 1rem;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.82rem;
+  font-weight: 500;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.wip-pill:hover {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+
+/* --------------------------------------------------------------------------
+   WHO WE SERVE -- Audience Cards (8-card grid)
+   -------------------------------------------------------------------------- */
+
+.wip-audience-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.wip-audience-card {
+  background: #fff;
+  border: 1px solid #e8ecf2;
+  border-radius: 14px;
+  padding: 1.75rem 1.5rem;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.wip-audience-card:hover {
+  box-shadow: 0 6px 24px rgba(12, 31, 63, 0.1);
+  transform: translateY(-2px);
+}
+
+.wip-audience-icon {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, rgba(43, 124, 202, 0.08) 0%, rgba(56, 182, 255, 0.08) 100%);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  color: #1E3A6E;
+}
+
+.wip-audience-card h3 {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--navy, #0c1f3f);
+  margin-bottom: 0.5rem;
+  line-height: 1.3;
+}
+
+.wip-audience-card p {
+  font-size: 0.85rem;
+  line-height: 1.65;
+  color: var(--text-muted, #7a8699);
+  margin: 0;
+}
+
+
+/* --------------------------------------------------------------------------
+   HOW TO GET INVOLVED -- Step Cards (6-card grid)
+   -------------------------------------------------------------------------- */
+
+.wip-steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.wip-step-card {
+  background: #fff;
+  border: 1px solid #e8ecf2;
+  border-radius: 14px;
+  padding: 1.75rem 1.5rem;
+  position: relative;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.wip-step-card:hover {
+  box-shadow: 0 6px 24px rgba(12, 31, 63, 0.1);
+  transform: translateY(-2px);
+}
+
+.wip-step-number {
+  width: 36px;
+  height: 36px;
+  background: linear-gradient(135deg, #1A5494 0%, #2B7CCA 100%);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'DM Serif Display', serif;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.wip-step-card h3 {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--navy, #0c1f3f);
+  margin-bottom: 0.5rem;
+  line-height: 1.3;
+}
+
+.wip-step-card p {
+  font-size: 0.85rem;
+  line-height: 1.65;
+  color: var(--text-muted, #7a8699);
+  margin-bottom: 0.85rem;
+}
+
+.wip-step-link {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #1A5494;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.wip-step-link:hover {
+  color: #2B7CCA;
+}
+
+
+/* --------------------------------------------------------------------------
+   SHARE WITH COLLEAGUES -- Brochure download section
+   -------------------------------------------------------------------------- */
+
+.wip-share-section {
+  /* extends .section-navy -- no extra padding needed */
+}
+
+.wip-share-content {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 3rem;
+  align-items: center;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.wip-share-text .section-tag {
+  display: inline-block;
+  margin-bottom: 0.75rem;
+}
+
+.wip-share-text h2 {
+  margin-bottom: 1rem;
+}
+
+.wip-share-text p {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.wip-share-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.wip-share-actions .btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+
+/* -- Brochure preview mockup -- */
+
+.wip-share-visual {
+  display: flex;
+  justify-content: center;
+}
+
+.wip-brochure-preview {
+  width: 220px;
+  perspective: 800px;
+}
+
+.wip-brochure-page {
+  width: 100%;
+  aspect-ratio: 8.5 / 11;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow:
+    0 4px 16px rgba(0, 0, 0, 0.15),
+    0 16px 48px rgba(0, 0, 0, 0.1),
+    8px 4px 16px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 2rem 1.25rem;
+  transform: rotateY(-5deg) rotateX(2deg);
+  transition: transform 0.4s ease;
+}
+
+.wip-brochure-preview:hover .wip-brochure-page {
+  transform: rotateY(0deg) rotateX(0deg);
+}
+
+.wip-brochure-logo {
+  margin-bottom: 0.25rem;
+}
+
+.wip-brochure-logo img {
+  display: block;
+}
+
+.wip-brochure-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: var(--navy, #0c1f3f);
+  text-align: center;
+  line-height: 1.3;
+}
+
+.wip-brochure-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.55rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-muted, #7a8699);
+  text-align: center;
+}
+
+.wip-brochure-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 70%;
+  margin-top: 0.5rem;
+}
+
+.wip-brochure-lines span {
+  height: 3px;
+  background: #e8ecf2;
+  border-radius: 2px;
+}
+
+.wip-brochure-lines span:nth-child(2) {
+  width: 85%;
+}
+
+.wip-brochure-lines span:nth-child(3) {
+  width: 92%;
+}
+
+.wip-brochure-lines span:nth-child(4) {
+  width: 65%;
+}
+
+
+/* --------------------------------------------------------------------------
+   RESPONSIVE -- Tablet (max-width: 900px)
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 900px) {
+  .wip-glance-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .wip-glance-section {
+    margin-top: -2rem;
+  }
+
+  .wip-identity-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .wip-model-columns {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .wip-ring-pointer {
+    display: none;
+  }
+
+  .wip-audience-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+
+  .wip-steps-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+
+  .wip-share-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    text-align: center;
+  }
+
+  .wip-share-actions {
+    justify-content: center;
+  }
+
+  .wip-share-visual {
+    order: -1;
+  }
+
+  .wip-brochure-preview {
+    width: 180px;
+  }
+
+  .wip-brochure-page {
+    transform: rotateY(0deg) rotateX(0deg);
+  }
+}
+
+
+/* --------------------------------------------------------------------------
+   RESPONSIVE -- Mobile (max-width: 600px)
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 600px) {
+  .wip-glance-section {
+    margin-top: -1.5rem;
+  }
+
+  .wip-glance-grid {
+    grid-template-columns: 1fr 1fr;
+    border-radius: 12px;
+  }
+
+  .wip-glance-card {
+    padding: 1.25rem 1rem;
+  }
+
+  .wip-glance-icon {
+    width: 44px;
+    height: 44px;
+  }
+
+  .wip-glance-value {
+    font-size: 0.95rem;
+  }
+
+  .wip-identity-lead {
+    font-size: 1.05rem;
+  }
+
+  .wip-rings-img {
+    width: 220px;
+    height: 220px;
+  }
+
+  .wip-rings-overlay span {
+    font-size: 0.75rem;
+  }
+
+  .wip-rings-container {
+    margin-bottom: 2.5rem;
+  }
+
+  .wip-ring-pointer {
+    display: none;
+  }
+
+  .wip-pill {
+    font-size: 0.78rem;
+    padding: 0.4rem 0.85rem;
+  }
+
+  .wip-audience-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .wip-audience-card {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .wip-steps-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .wip-step-card {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .wip-share-content {
+    text-align: center;
+  }
+
+  .wip-brochure-preview {
+    width: 160px;
+  }
+
+  .wip-share-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+}
