@@ -1865,22 +1865,24 @@ p { margin-bottom: 1rem; }
 .social-links a[aria-label="TikTok"] svg { fill: none; stroke: #fff; }
 
 .footer-bottom {
-  padding: 1.5rem 0;
-  font-size: 0.78rem;
-  color: rgba(255,255,255,0.3);
-  text-align: center;
+  padding: 1.5rem 0 1rem;
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.35);
+  border-top: 1px solid rgba(255,255,255,0.08);
 }
 .footer-bottom-row {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  gap: 0.75rem;
+  justify-content: space-between;
+  gap: 1rem;
 }
-.footer-bottom a { color: rgba(255,255,255,0.4); }
+.footer-bottom a { color: rgba(255,255,255,0.4); text-decoration: none; }
 .footer-bottom a:hover { color: #fff; }
-.footer-legal { display: flex; gap: 1.25rem; flex-wrap: wrap; justify-content: center; }
-.footer-credit { margin: 0.75rem 0 0; text-align: center; font-size: 0.72rem; }
-.footer-credit a { color: #38b6ff; opacity: 0.8; }
+.footer-legal { display: flex; gap: 1rem; flex-wrap: wrap; }
+.footer-legal a { font-size: 0.72rem; }
+.footer-credit { margin: 0.5rem 0 0; text-align: center; font-size: 0.68rem; color: rgba(255,255,255,0.25); letter-spacing: 0.02em; }
+.footer-credit a { color: #38b6ff; opacity: 0.7; text-decoration: none; }
 .footer-credit a:hover { color: #38b6ff; opacity: 1; }
 
 /* ============================================
@@ -2125,6 +2127,7 @@ p { margin-bottom: 1rem; }
   .event-card { grid-template-columns: 1fr; }
   .event-card img { height: 200px; }
   .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .footer-bottom-row { flex-direction: column; text-align: center; }
   .footer-legal { flex-wrap: wrap; justify-content: center; }
   .hero-cta-group { flex-direction: column; }
   .utility-bar .container { flex-wrap: wrap; gap: 0.5rem; }
