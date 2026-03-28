@@ -87,23 +87,23 @@
 
 /* Platinum showcase wrapper */
 .v2-platinum-showcase {
-  background: linear-gradient(135deg, #f8faff 0%, #eef4fc 100%);
-  border: 1px solid rgba(43,124,202,0.12);
-  border-radius: 16px;
-  padding: 2rem 2.5rem 2.5rem;
-  margin-bottom: 2.5rem;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0 0 2.5rem;
+  margin-bottom: 2rem;
   text-align: center;
 }
 
 .v2-platinum-label {
   display: inline-block;
-  font-size: 0.72rem;
-  font-weight: 700;
+  font-size: 0.7rem;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.14em;
-  color: #1B5E9E;
+  letter-spacing: 0.12em;
+  color: #64748b;
   margin-bottom: 1.25rem;
-  background: rgba(43,124,202,0.08);
+  background: rgba(0,0,0,0.04);
   padding: 0.35rem 1rem;
   border-radius: 50px;
 }
@@ -122,15 +122,16 @@
   align-items: center;
   justify-content: center;
   background: #fff;
-  padding: 1rem 1.5rem;
-  border-radius: 12px;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.06), 0 4px 12px rgba(0,0,0,0.04);
-  transition: opacity 0.2s ease, box-shadow 0.2s ease;
+  padding: 1.25rem 2rem;
+  border-radius: 14px;
+  border: 1px solid rgba(0,0,0,0.06);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04), 0 4px 16px rgba(0,0,0,0.03);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .v2-sponsors-platinum a:hover {
-  opacity: 0.75;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1), 0 6px 20px rgba(0,0,0,0.06);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08), 0 8px 24px rgba(0,0,0,0.04);
 }
 
 .v2-sponsors-platinum img {
@@ -2452,7 +2453,7 @@
    -------------------------------------------------------------------------- */
 
 .v2-patient-cta {
-  padding: 0;
+  padding: 2rem 0;
   background: transparent;
 }
 
@@ -2464,13 +2465,12 @@
   display: flex;
   align-items: center;
   gap: 1.5rem;
-  background: linear-gradient(135deg, #e8f4f8 0%, #f0f7fa 100%);
-  border: 1px solid #c8dfe8;
-  border-radius: 12px;
-  padding: 1.5rem 2rem;
-  margin: -1.5rem auto 0;
-  position: relative;
-  z-index: 1;
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 14px;
+  padding: 1.75rem 2.25rem;
+  margin: 0 auto;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 16px rgba(0,0,0,0.03);
 }
 
 .v2-patient-cta-icon {
