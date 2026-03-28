@@ -1882,7 +1882,7 @@ p { margin-bottom: 1rem; }
 .footer-legal { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
 .footer-legal a { font-size: 0.72rem; }
 .footer-credit { margin: 0.6rem 0 0; text-align: center; font-size: 0.68rem; color: rgba(255,255,255,0.25); letter-spacing: 0.02em; }
-.footer-credit a { color: #38b6ff; opacity: 0.7; text-decoration: none; }
+.footer-credit a { color: #38b6ff; opacity: 0.7; text-decoration: none; white-space: nowrap; }
 .footer-credit a:hover { color: #38b6ff; opacity: 1; }
 
 /* ============================================
@@ -2075,24 +2075,18 @@ p { margin-bottom: 1rem; }
   .hero h1 { font-size: 2.25rem; }
 
   .nav-toggle { display: block; }
+  .main-nav .container { justify-content: flex-end; }
+  .nav-toggle.active { position: fixed; top: 0.75rem; right: 1.2rem; z-index: 1002; }
 
   .nav-links {
     position: fixed; top: 0; right: -100%; width: 300px; height: 100vh;
     background: #fff; flex-direction: column; align-items: stretch;
-    padding: 4.5rem 1.5rem 2rem; box-shadow: -5px 0 20px rgba(0,0,0,0.1);
+    padding: 5.5rem 1.5rem 2rem; box-shadow: -5px 0 20px rgba(0,0,0,0.1);
     transition: right 0.3s var(--ease); overflow-y: auto; z-index: 999; gap: 0;
   }
   .nav-links.active { right: 0; }
   .nav-links > li > a { padding: 0.85rem 0; font-size: 0.95rem; border-bottom: 1px solid var(--border-light); }
   .nav-links > li > a::after { display: none; }
-
-  .dropdown {
-    position: static; opacity: 1; visibility: visible; transform: none;
-    box-shadow: none; border: none; display: none;
-    background: var(--bg-frost); border-radius: 0; min-width: auto;
-    backdrop-filter: none;
-  }
-  .dropdown.show { display: block; }
 
   .mobile-overlay {
     display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
@@ -2130,12 +2124,82 @@ p { margin-bottom: 1rem; }
   .footer-bottom-row { flex-direction: column; text-align: center; }
   .footer-legal { flex-wrap: wrap; justify-content: center; }
   .hero-cta-group { flex-direction: column; }
-  .utility-bar .container { flex-wrap: wrap; gap: 0.5rem; }
-  .utility-logo { width: 100%; justify-content: center; margin-bottom: 0.25rem; }
-  .utility-links { width: 100%; justify-content: center; flex-wrap: wrap; gap: 0.5rem 1rem; }
+  .utility-bar .container { flex-wrap: nowrap; gap: 0.4rem; }
+  .utility-logo { width: auto; margin-bottom: 0; }
+  .utility-logo .logo-tagline { display: none; }
+  .utility-logo .logo-icon { height: 26px; width: 26px; }
+  .utility-logo .logo-name { font-size: 0.95rem; letter-spacing: 1px; }
+  .utility-links { width: auto; flex-wrap: nowrap; gap: 0.3rem; font-size: 0.65rem; }
+  .utility-link { white-space: nowrap; }
   .platinum-grid { gap: 1rem; }
   .platinum-card { min-width: 150px; padding: 1.25rem 1.5rem; }
   .cta-card { padding: 2.5rem 1.5rem; }
+  .btn-primary { padding: 0.65rem 1.2rem; font-size: 0.85rem; }
+  .btn-primary.btn-lg { padding: 0.75rem 1.5rem; font-size: 0.9rem; }
+
+  /* --- Announcement Banner: single-line scrolling marquee --- */
+  .announcement-banner {
+    padding: 0.45rem 0;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  .announcement-banner .container {
+    max-width: none;
+    overflow: hidden;
+    padding: 0;
+    position: relative;
+  }
+  .announcement-banner .banner-text {
+    display: inline-block;
+    white-space: nowrap;
+    animation: banner-marquee 20s linear infinite;
+    padding-left: 100%;
+    font-size: 0.82rem;
+  }
+  .announcement-banner .banner-close {
+    position: absolute; right: 0.4rem; top: 50%; transform: translateY(-50%);
+    z-index: 2; background: rgba(12,31,63,0.7); border-radius: 50%;
+    width: 1.5rem; height: 1.5rem; display: flex; align-items: center;
+    justify-content: center; font-size: 0.85rem; padding: 0;
+  }
+
+  /* --- Mobile dropdown submenus: clearly visible & tappable --- */
+  .dropdown {
+    position: static !important; opacity: 1 !important; visibility: visible !important;
+    transform: none !important; left: auto !important;
+    box-shadow: none; border: none; display: none;
+    background: #f0f4f8; border-radius: 0; min-width: auto;
+    backdrop-filter: none; padding: 0; margin: 0;
+    width: 100%;
+  }
+  .dropdown.show { display: block; }
+  .dropdown li a {
+    padding: 0.7rem 1rem 0.7rem 1.5rem;
+    font-size: 0.88rem;
+    color: var(--text-body);
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+    white-space: normal;
+  }
+  .dropdown li:last-child a { border-bottom: none; }
+  .dropdown li a:hover,
+  .dropdown li a:active {
+    background: #e4ecf4;
+    color: var(--navy);
+    padding-left: 1.5rem;
+  }
+  .has-dropdown .dropdown-arrow {
+    transition: transform 0.2s ease;
+  }
+  .nav-links > li > a.has-dropdown[aria-expanded="true"] .dropdown-arrow,
+  .dropdown.show ~ .dropdown-arrow {
+    transform: rotate(180deg);
+  }
+}
+
+/* Marquee animation for mobile announcement banner */
+@keyframes banner-marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
 }
 
 /* --- Reduced Motion --- */

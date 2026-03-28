@@ -38,7 +38,12 @@ document.addEventListener('DOMContentLoaded', function() {
         e.preventDefault();
         var dd = this.nextElementSibling;
         if (dd && dd.classList.contains('dropdown')) {
-          dd.classList.toggle('show');
+          var isOpen = dd.classList.toggle('show');
+          // Rotate arrow indicator
+          var arrow = this.querySelector('.dropdown-arrow');
+          if (arrow) {
+            arrow.style.transform = isOpen ? 'rotate(180deg)' : '';
+          }
         }
       }
     });
