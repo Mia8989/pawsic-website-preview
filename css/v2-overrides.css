@@ -192,19 +192,11 @@
 }
 
 .v2-sponsors-grid img {
-  max-height: 40px;
-  max-width: 120px;
+  max-height: 45px;
+  max-width: 130px;
   width: auto;
   height: auto;
   object-fit: contain;
-  filter: grayscale(30%);
-  opacity: 0.7;
-  transition: filter 0.2s ease, opacity 0.2s ease;
-}
-
-.v2-sponsors-grid .v2-sponsor-logo:hover img {
-  filter: grayscale(0%);
-  opacity: 1;
 }
 
 /* Partners grid -- smaller row, subtle */
@@ -233,19 +225,11 @@
 }
 
 .v2-partners-grid img {
-  max-height: 36px;
-  max-width: 110px;
+  max-height: 40px;
+  max-width: 120px;
   width: auto;
   height: auto;
   object-fit: contain;
-  filter: grayscale(40%);
-  opacity: 0.6;
-  transition: filter 0.2s ease, opacity 0.2s ease;
-}
-
-.v2-partners-grid .v2-sponsor-logo:hover img {
-  filter: grayscale(0%);
-  opacity: 1;
 }
 
 
