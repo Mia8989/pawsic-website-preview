@@ -3003,7 +3003,7 @@
 .v2-photo-strip-track {
   display: flex;
   gap: 1rem;
-  animation: photoScroll 40s linear infinite;
+  animation: photoScroll 60s linear infinite;
   width: max-content;
 }
 
@@ -3057,7 +3057,7 @@
     height: 150px;
   }
   .v2-photo-strip-track {
-    animation-duration: 30s;
+    animation-duration: 45s;
   }
 }
 
