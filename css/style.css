@@ -1867,14 +1867,19 @@ p { margin-bottom: 1rem; }
 .footer-bottom {
   padding: 1.25rem 0;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem 1.5rem;
+  text-align: center;
   font-size: 0.78rem;
   color: rgba(255,255,255,0.3);
 }
 .footer-bottom a { color: rgba(255,255,255,0.3); }
 .footer-bottom a:hover { color: #fff; }
 .footer-legal { display: flex; gap: 1.5rem; }
+.footer-credit { margin: 0; }
+.footer-credit a { color: rgba(255,255,255,0.4); }
+.footer-credit a:hover { color: #fff; }
 
 /* ============================================
    PAGE HEADER (inner pages)
@@ -2118,7 +2123,6 @@ p { margin-bottom: 1rem; }
   .event-card { grid-template-columns: 1fr; }
   .event-card img { height: 200px; }
   .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
-  .footer-bottom { flex-direction: column; gap: 0.75rem; text-align: center; }
   .footer-legal { flex-wrap: wrap; justify-content: center; }
   .hero-cta-group { flex-direction: column; }
   .utility-bar .container { flex-wrap: wrap; gap: 0.5rem; }

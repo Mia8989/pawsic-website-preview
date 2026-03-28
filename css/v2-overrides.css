@@ -85,13 +85,35 @@
   margin-top: 2.5rem;
 }
 
+/* Platinum showcase wrapper */
+.v2-platinum-showcase {
+  background: linear-gradient(135deg, #f8faff 0%, #eef4fc 100%);
+  border: 1px solid rgba(43,124,202,0.12);
+  border-radius: 16px;
+  padding: 2rem 2.5rem 2.5rem;
+  margin-bottom: 2.5rem;
+  text-align: center;
+}
+
+.v2-platinum-label {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: #1B5E9E;
+  margin-bottom: 1.25rem;
+  background: rgba(43,124,202,0.08);
+  padding: 0.35rem 1rem;
+  border-radius: 50px;
+}
+
 /* Platinum tier -- 3 large logos in a row */
 .v2-sponsors-platinum {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 3rem;
-  margin-bottom: 2.5rem;
   flex-wrap: wrap;
 }
 
