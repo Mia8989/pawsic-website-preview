@@ -3086,3 +3086,137 @@
   text-align: center;
   font-style: italic;
 }
+
+/* --------------------------------------------------------------------------
+   Footer Photo Strip -- dark variant above site footer
+   -------------------------------------------------------------------------- */
+
+.v2-footer-photo-strip {
+  padding: 2rem 0 0;
+  overflow: hidden;
+  background: linear-gradient(to bottom, #fff 0%, #1a2332 40%);
+  position: relative;
+}
+
+.v2-footer-photo-strip .v2-photo-strip-label {
+  color: rgba(255,255,255,0.35);
+  margin-bottom: 1rem;
+}
+
+.v2-footer-photo-strip .v2-photo-strip-track {
+  display: flex;
+  gap: 0.75rem;
+  animation: photoScroll 55s linear infinite;
+  width: max-content;
+}
+
+.v2-footer-photo-strip .v2-photo-strip-track:hover {
+  animation-play-state: paused;
+}
+
+.v2-footer-photo-strip .v2-photo-strip-item {
+  flex-shrink: 0;
+  width: 220px;
+  height: 150px;
+  border-radius: 8px;
+  overflow: hidden;
+  opacity: 0.85;
+  transition: opacity 0.3s ease;
+}
+
+.v2-footer-photo-strip .v2-photo-strip-item:hover {
+  opacity: 1;
+}
+
+.v2-footer-photo-strip .v2-photo-strip-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Fade edges for footer strip */
+.v2-footer-photo-strip::before,
+.v2-footer-photo-strip::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 60px;
+  z-index: 2;
+  pointer-events: none;
+}
+.v2-footer-photo-strip::before {
+  left: 0;
+  background: linear-gradient(to right, rgba(26,35,50,0.9), transparent);
+}
+.v2-footer-photo-strip::after {
+  right: 0;
+  background: linear-gradient(to left, rgba(26,35,50,0.9), transparent);
+}
+
+@media (max-width: 768px) {
+  .v2-footer-photo-strip .v2-photo-strip-item {
+    width: 180px;
+    height: 120px;
+  }
+  .v2-footer-photo-strip .v2-photo-strip-track {
+    animation-duration: 40s;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Event Gallery Grid -- Past events photo grid on events page
+   -------------------------------------------------------------------------- */
+
+.v2-event-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.v2-event-gallery-item {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  aspect-ratio: 4/3;
+}
+
+.v2-event-gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.v2-event-gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+.v2-event-gallery-label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 2rem 0.75rem 0.6rem;
+  background: linear-gradient(to top, rgba(0,0,0,0.65), transparent);
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+@media (max-width: 900px) {
+  .v2-event-gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .v2-event-gallery {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+}
