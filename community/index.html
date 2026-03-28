@@ -280,11 +280,30 @@
     }
 
     .preview-card-visual {
-      height: 140px;
+      height: 160px;
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       justify-content: center;
       position: relative;
+      overflow: hidden;
+    }
+    .preview-card-visual::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 32px;
+      z-index: 1;
+    }
+    .preview-card-visual.chat-bg::after {
+      background: linear-gradient(to bottom, transparent, #d4e9f7);
+    }
+    .preview-card-visual.forum-bg::after {
+      background: linear-gradient(to bottom, transparent, #c4ebd4);
+    }
+    .preview-card-visual.group-bg::after {
+      background: linear-gradient(to bottom, transparent, #e0d4f0);
     }
 
     .preview-card-visual.chat-bg {
@@ -321,7 +340,7 @@
       display: flex;
       flex-direction: column;
       gap: 0.5rem;
-      padding: 1rem 1.5rem;
+      padding: 0.75rem 1.5rem;
       width: 100%;
     }
 
@@ -350,7 +369,7 @@
 
     /* Forum thread illustration */
     .forum-threads {
-      padding: 1rem 1.5rem;
+      padding: 0.75rem 1.5rem;
       width: 100%;
       display: flex;
       flex-direction: column;
