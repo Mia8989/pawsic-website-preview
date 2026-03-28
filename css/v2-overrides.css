@@ -93,6 +93,7 @@
   padding: 0 0 2.5rem;
   margin-bottom: 2rem;
   text-align: center;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
 }
 
 .v2-platinum-label {
@@ -106,6 +107,18 @@
   background: rgba(0,0,0,0.04);
   padding: 0.35rem 1rem;
   border-radius: 50px;
+}
+
+.v2-sponsors-tier-label {
+  display: block;
+  text-align: center;
+  font-family: 'Inter', Arial, sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #94a3b8;
+  margin: 0 0 1.5rem;
 }
 
 /* Platinum tier -- 3 large logos in a row */
