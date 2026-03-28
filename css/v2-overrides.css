@@ -712,23 +712,25 @@
 
   .v2-sponsors-grid {
     grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
+    gap: 0.75rem;
     max-width: 100%;
+    padding: 0 0.75rem;
   }
 
   .v2-sponsors-grid img {
-    max-height: 36px;
-    max-width: 100px;
+    max-height: 34px;
+    max-width: 90px;
   }
 
   .v2-partners-grid {
-    gap: 1rem;
+    gap: 0.75rem;
     flex-wrap: wrap;
+    padding: 0 0.75rem;
   }
 
   .v2-partners-grid img {
-    max-height: 34px;
-    max-width: 100px;
+    max-height: 32px;
+    max-width: 90px;
   }
 
   .v2-split-row {
