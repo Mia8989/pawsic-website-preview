@@ -251,44 +251,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Duplicate all cards for seamless infinite scroll
     var cards = sliderInner.innerHTML;
     sliderInner.innerHTML = cards + cards;
-
-    // Tap to unmute/mute individual videos
-    sliderInner.querySelectorAll('.v2-video-card').forEach(function(card) {
-      card.addEventListener('click', function() {
-        var video = card.querySelector('video');
-        if (!video) return;
-        if (video.muted) {
-          // Mute all others first
-          sliderInner.querySelectorAll('video').forEach(function(v) {
-            v.muted = true;
-            v.closest('.v2-video-card').classList.remove('unmuted');
-          });
-          video.muted = false;
-          card.classList.add('unmuted');
-        } else {
-          video.muted = true;
-          card.classList.remove('unmuted');
-        }
-      });
-    });
-
-    // Lazy-load videos with IntersectionObserver
-    if ('IntersectionObserver' in window) {
-      var videoObserver = new IntersectionObserver(function(entries) {
-        entries.forEach(function(entry) {
-          var video = entry.target;
-          if (entry.isIntersecting) {
-            video.play().catch(function() {});
-          } else {
-            video.pause();
-          }
-        });
-      }, { rootMargin: '200px' });
-
-      sliderInner.querySelectorAll('video').forEach(function(video) {
-        videoObserver.observe(video);
-      });
-    }
   }
 
 });
