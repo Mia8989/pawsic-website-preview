@@ -351,11 +351,11 @@
   </footer>
 
   <!-- Bio Modal -->
-  <div class="v2-bio-modal" id="bioModal" aria-hidden="true" role="dialog" aria-modal="true">
+  <div class="v2-bio-modal" id="bioModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="bioModalName">
     <div class="v2-bio-modal-backdrop"></div>
     <div class="v2-bio-modal-content">
       <button class="v2-bio-modal-close" aria-label="Close bio">&times;</button>
-      <div class="v2-bio-modal-photo"><img id="bioModalPhoto" src="" alt=""></div>
+      <div class="v2-bio-modal-photo"><img id="bioModalPhoto" src="" alt="Committee member photo"></div>
       <div class="v2-bio-modal-info">
         <span class="v2-board-role" id="bioModalRole" style="display:none;"></span>
         <h3 id="bioModalName"></h3>
@@ -378,14 +378,17 @@
     var modalRole = document.getElementById('bioModalRole');
     var modalText = document.getElementById('bioModalText');
 
-    function openBio(card) {
+    var triggerElement = null;
+
+    function openBio(card, trigger) {
+      triggerElement = trigger || document.activeElement;
       var img = card.querySelector('.v2-board-photo img');
       var name = card.querySelector('h3').textContent;
       var creds = card.querySelector('.v2-board-creds').textContent;
       var role = card.querySelector('.v2-board-role');
       var bio = card.getAttribute('data-bio') || 'Bio coming soon.';
       modalPhoto.src = img.src;
-      modalPhoto.alt = img.alt;
+      modalPhoto.alt = name;
       modalName.textContent = name;
       modalCreds.textContent = creds;
       if (role) { modalRole.textContent = role.textContent; modalRole.style.display = 'inline-block'; }
@@ -394,18 +397,35 @@
       modal.classList.add('active');
       modal.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
+      closeBtn.focus();
     }
 
     function closeBio() {
       modal.classList.remove('active');
       modal.setAttribute('aria-hidden', 'true');
       document.body.style.overflow = '';
+      if (triggerElement) triggerElement.focus();
     }
+
+    modal.addEventListener('keydown', function(e) {
+      if (e.key !== 'Tab') return;
+      var focusable = modal.querySelectorAll('button, [href], [tabindex]:not([tabindex="-1"])');
+      if (focusable.length === 0) return;
+      var first = focusable[0];
+      var last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    });
 
     document.querySelectorAll('.v2-bio-trigger').forEach(function(btn) {
       btn.addEventListener('click', function(e) {
         e.stopPropagation();
-        openBio(btn.closest('.v2-board-card'));
+        openBio(btn.closest('.v2-board-card'), btn);
       });
     });
 

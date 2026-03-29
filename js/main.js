@@ -13,38 +13,61 @@ document.addEventListener('DOMContentLoaded', function() {
   const navLinks = document.querySelector('.nav-links');
   const overlay = document.querySelector('.mobile-overlay');
 
+  function closeNav() {
+    navToggle.classList.remove('active');
+    navLinks.classList.remove('active');
+    if (overlay) overlay.classList.remove('active');
+    navToggle.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+
   if (navToggle) {
     navToggle.addEventListener('click', function() {
       navToggle.classList.toggle('active');
       navLinks.classList.toggle('active');
       if (overlay) overlay.classList.toggle('active');
-      document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+      var isOpen = navLinks.classList.contains('active');
+      navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      document.body.style.overflow = isOpen ? 'hidden' : '';
     });
   }
 
   if (overlay) {
-    overlay.addEventListener('click', function() {
-      navToggle.classList.remove('active');
-      navLinks.classList.remove('active');
-      overlay.classList.remove('active');
-      document.body.style.overflow = '';
-    });
+    overlay.addEventListener('click', closeNav);
   }
+
+  // Close mobile nav on Escape key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && navLinks && navLinks.classList.contains('active')) {
+      closeNav();
+      navToggle.focus();
+    }
+  });
 
   // --- Mobile Dropdown Toggles ---
   document.querySelectorAll('.nav-links > li > a.has-dropdown').forEach(function(link) {
-    link.addEventListener('click', function(e) {
+    link.setAttribute('aria-expanded', 'false');
+    link.setAttribute('aria-haspopup', 'true');
+
+    function toggleDropdown(e) {
       if (window.innerWidth <= 768) {
         e.preventDefault();
-        var dd = this.nextElementSibling;
+        var dd = link.nextElementSibling;
         if (dd && dd.classList.contains('dropdown')) {
           var isOpen = dd.classList.toggle('show');
-          // Rotate arrow indicator
-          var arrow = this.querySelector('.dropdown-arrow');
+          link.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+          var arrow = link.querySelector('.dropdown-arrow');
           if (arrow) {
             arrow.style.transform = isOpen ? 'rotate(180deg)' : '';
           }
         }
+      }
+    }
+
+    link.addEventListener('click', toggleDropdown);
+    link.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        toggleDropdown(e);
       }
     });
   });
@@ -64,9 +87,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // --- Accordion ---
   document.querySelectorAll('.accordion-header').forEach(function(header) {
-    header.addEventListener('click', function() {
-      var item = this.parentElement;
-      var content = this.nextElementSibling;
+    // Make accordion headers keyboard-accessible
+    if (!header.getAttribute('tabindex')) header.setAttribute('tabindex', '0');
+    if (!header.getAttribute('role')) header.setAttribute('role', 'button');
+    var content = header.nextElementSibling;
+    if (content) {
+      var contentId = content.id || ('accordion-panel-' + Math.random().toString(36).substr(2, 6));
+      content.id = contentId;
+      content.setAttribute('role', 'region');
+      header.setAttribute('aria-controls', contentId);
+    }
+    header.setAttribute('aria-expanded', header.parentElement.classList.contains('active') ? 'true' : 'false');
+
+    function toggleAccordion() {
+      var item = header.parentElement;
+      var panel = header.nextElementSibling;
       var isActive = item.classList.contains('active');
 
       // Close all others in same parent
@@ -74,11 +109,22 @@ document.addEventListener('DOMContentLoaded', function() {
         other.classList.remove('active');
         var c = other.querySelector('.accordion-content');
         if (c) c.style.maxHeight = null;
+        var h = other.querySelector('.accordion-header');
+        if (h) h.setAttribute('aria-expanded', 'false');
       });
 
       if (!isActive) {
         item.classList.add('active');
-        content.style.maxHeight = content.scrollHeight + 'px';
+        panel.style.maxHeight = panel.scrollHeight + 'px';
+        header.setAttribute('aria-expanded', 'true');
+      }
+    }
+
+    header.addEventListener('click', toggleAccordion);
+    header.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        toggleAccordion();
       }
     });
   });
@@ -133,12 +179,16 @@ document.addEventListener('DOMContentLoaded', function() {
     // Exact match OR path ends with the href segment (handles subpath matches)
     if (normalizedPath === normalizedHref || normalizedPath.endsWith(normalizedHref)) {
       link.classList.add('active');
+      link.setAttribute('aria-current', 'page');
     }
   });
   // Home: only mark active on true root or /index.html
   if (path === '/' || path === '/index.html') {
     var home = document.querySelector('.nav-links a[href="/"]');
-    if (home) home.classList.add('active');
+    if (home) {
+      home.classList.add('active');
+      home.setAttribute('aria-current', 'page');
+    }
   }
 
   // --- Contact Form Loading State ---

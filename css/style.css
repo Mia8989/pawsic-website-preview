@@ -106,6 +106,48 @@ p { margin-bottom: 1rem; }
 }
 .skip-link:focus { top: 0; color: #fff; }
 
+/* --- Screen Reader Only (visually hidden, accessible to assistive tech) --- */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* --- Focus Visible (keyboard focus ring, does not appear on mouse click) --- */
+:focus-visible {
+  outline: 2px solid var(--blue-accent, #4A90D9);
+  outline-offset: 2px;
+}
+/* Buttons and links -- consistent focus ring */
+.btn-primary:focus-visible,
+.btn-secondary:focus-visible,
+.btn-dark:focus-visible,
+.btn-outline:focus-visible,
+.btn-ghost:focus-visible,
+.nav-toggle:focus-visible,
+.banner-close:focus-visible {
+  outline: 2px solid var(--blue-accent, #4A90D9);
+  outline-offset: 2px;
+}
+/* Nav links */
+.nav-links a:focus-visible {
+  outline: 2px solid var(--blue-accent, #4A90D9);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+/* Accordion headers */
+.accordion-header:focus-visible {
+  outline: 2px solid var(--blue-accent, #4A90D9);
+  outline-offset: 2px;
+  border-radius: var(--r-sm, 8px);
+}
+
 /* --- Scroll Reveal --- */
 /* JS adds .js-loaded to <html> — if JS doesn't load, content stays visible */
 .js-loaded .reveal {
