@@ -215,7 +215,11 @@
   align-items: center;
   justify-content: center;
   background: transparent;
-  padding: 0.5rem 0.75rem;
+  padding: 0.5rem 1rem;
+  flex: 1 1 0;
+  min-width: 0;
+  max-width: 200px;
+  height: 60px;
   border-radius: 8px;
   transition: opacity 0.2s ease;
 }
@@ -225,8 +229,8 @@
 }
 
 .v2-partners-grid img {
-  max-height: 40px;
-  max-width: 120px;
+  max-height: 36px;
+  max-width: 130px;
   width: auto;
   height: auto;
   object-fit: contain;
@@ -413,9 +417,13 @@
     gap: 1.5rem;
   }
 
+  .v2-partners-grid .v2-sponsor-logo {
+    max-width: 160px;
+    height: 50px;
+  }
+
   .v2-partners-grid img {
-    max-height: 38px;
-    max-width: 110px;
+    max-height: 34px;
   }
 
   .v2-split-row {
@@ -841,9 +849,14 @@
     box-sizing: border-box;
   }
 
+  .v2-partners-grid .v2-sponsor-logo {
+    flex: 0 1 calc(50% - 1rem);
+    max-width: none;
+    height: 44px;
+  }
+
   .v2-partners-grid img {
-    max-height: 32px;
-    max-width: 80px;
+    max-height: 28px;
   }
 
   .v2-split-row {
