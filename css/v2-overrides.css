@@ -688,10 +688,138 @@
 
 
 /* --------------------------------------------------------------------------
+   VIDEO SNIPPET SLIDER -- Course Preview
+   -------------------------------------------------------------------------- */
+
+.v2-video-slider-section {
+  background: var(--navy, #0c1f3f);
+  padding: 4rem 0 3.5rem;
+  overflow: hidden;
+}
+
+.v2-video-slider-section .section-tag {
+  color: #38B6FF;
+}
+
+.v2-video-slider-section h2 {
+  color: #fff;
+}
+
+.v2-video-slider-section .section-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.v2-video-slider-track {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+}
+
+.v2-video-slider-inner {
+  display: flex;
+  gap: 1.25rem;
+  animation: v2-video-scroll 40s linear infinite;
+  width: max-content;
+}
+
+.v2-video-slider-inner:hover {
+  animation-play-state: paused;
+}
+
+.v2-video-card {
+  flex-shrink: 0;
+  width: 220px;
+  height: 390px;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #1a2a4a;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+.v2-video-card:hover {
+  transform: scale(1.04);
+  box-shadow: 0 8px 30px rgba(56, 182, 255, 0.2);
+}
+
+.v2-video-card video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Unmute overlay icon */
+.v2-video-card::after {
+  content: '';
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  width: 32px;
+  height: 32px;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolygon points='11 5 6 9 2 9 2 15 6 15 11 19 11 5'/%3E%3Cline x1='23' y1='9' x2='17' y2='15'/%3E%3Cline x1='17' y1='9' x2='23' y2='15'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 16px;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+}
+
+.v2-video-card.unmuted::after {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolygon points='11 5 6 9 2 9 2 15 6 15 11 19 11 5'/%3E%3Cpath d='M19.07 4.93a10 10 0 0 1 0 14.14'/%3E%3Cpath d='M15.54 8.46a5 5 0 0 1 0 7.07'/%3E%3C/svg%3E");
+}
+
+@keyframes v2-video-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* --------------------------------------------------------------------------
    RESPONSIVE -- Mobile
    -------------------------------------------------------------------------- */
 
 @media (max-width: 600px) {
+
+  /* Video slider mobile */
+  .v2-video-slider-section {
+    padding: 2.5rem 0 2rem;
+  }
+
+  .v2-video-slider-section h2 {
+    font-size: 1.35rem;
+  }
+
+  .v2-video-card {
+    width: 160px;
+    height: 284px;
+    border-radius: 12px;
+  }
+
+  .v2-video-slider-inner {
+    gap: 0.75rem;
+    animation-duration: 30s;
+  }
+
+  .v2-video-card::after {
+    width: 26px;
+    height: 26px;
+    bottom: 8px;
+    right: 8px;
+    background-size: 13px;
+  }
+
   .v2-sponsors-section {
     padding: 2rem 0 1.5rem;
     overflow: hidden;
