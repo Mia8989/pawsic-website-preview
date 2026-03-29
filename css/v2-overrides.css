@@ -731,8 +731,8 @@
 
 .v2-video-card {
   flex-shrink: 0;
-  width: 220px;
-  height: 390px;
+  width: 340px;
+  height: 255px;
   border-radius: 16px;
   overflow: hidden;
   background: #1a2a4a;
@@ -783,8 +783,8 @@
   }
 
   .v2-video-card {
-    width: 160px;
-    height: 284px;
+    width: 260px;
+    height: 195px;
     border-radius: 12px;
   }
 
