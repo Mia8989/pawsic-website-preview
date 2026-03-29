@@ -1915,11 +1915,24 @@ p { margin-bottom: 1rem; }
 /* ============================================
    LEGAL PAGES
    ============================================ */
-.legal-content { max-width: 800px; margin: 0 auto; padding: 3rem 0; }
-.legal-content h2 { font-size: 1.3rem; margin-top: 2rem; margin-bottom: 0.75rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border-light); }
-.legal-content p, .legal-content li { font-size: 0.95rem; line-height: 1.7; }
-.legal-content ul { margin: 0.5rem 0 1rem 1.5rem; }
-.legal-content li { margin-bottom: 0.3rem; }
+.legal-content { max-width: 780px; margin: 0 auto; padding: 3rem 0; }
+.legal-content h2 {
+  font-size: 1.35rem; margin-top: 3rem; margin-bottom: 1.25rem;
+  padding-bottom: 0.6rem; border-bottom: 1px solid var(--border-light);
+  letter-spacing: -0.01em;
+}
+.legal-content h2:first-child { margin-top: 0; }
+.legal-content h3 {
+  font-size: 1.05rem; font-weight: 600; margin-top: 2.25rem; margin-bottom: 0.75rem;
+  color: var(--navy); letter-spacing: -0.01em;
+}
+.legal-content p, .legal-content li { font-size: 0.93rem; line-height: 1.8; color: var(--text-body); }
+.legal-content p { margin-bottom: 1.1rem; }
+.legal-content p + h3 { margin-top: 2.5rem; }
+.legal-content ul + h3 { margin-top: 2.5rem; }
+.legal-content ul { margin: 0.75rem 0 1.25rem 1.5rem; }
+.legal-content li { margin-bottom: 0.4rem; }
+.legal-content strong { color: var(--navy); }
 
 /* ============================================
    MISC COMPONENTS
