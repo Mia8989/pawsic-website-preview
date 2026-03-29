@@ -694,6 +694,7 @@
 @media (max-width: 600px) {
   .v2-sponsors-section {
     padding: 2rem 0 1.5rem;
+    overflow: hidden;
   }
 
   .v2-sponsors-heading {
@@ -703,34 +704,45 @@
 
   .v2-sponsors-platinum {
     gap: 1.5rem;
+    padding: 0 1.25rem;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
   .v2-sponsors-platinum img {
     max-height: 45px;
-    max-width: 150px;
+    max-width: 140px;
   }
 
   .v2-sponsors-grid {
     grid-template-columns: repeat(3, 1fr);
     gap: 0.75rem;
     max-width: 100%;
-    padding: 0 0.75rem;
+    padding: 0 1.25rem;
+    box-sizing: border-box;
+  }
+
+  .v2-sponsors-grid .v2-sponsor-logo {
+    padding: 0.4rem 0.25rem;
   }
 
   .v2-sponsors-grid img {
     max-height: 34px;
-    max-width: 90px;
+    max-width: 80px;
+    width: 100%;
   }
 
   .v2-partners-grid {
     gap: 0.75rem;
     flex-wrap: wrap;
-    padding: 0 0.75rem;
+    padding: 0 1.25rem;
+    box-sizing: border-box;
   }
 
   .v2-partners-grid img {
     max-height: 32px;
-    max-width: 90px;
+    max-width: 80px;
   }
 
   .v2-split-row {
