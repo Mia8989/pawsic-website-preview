@@ -44,6 +44,26 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 
+  // --- Desktop Dropdown Hover: update aria-expanded ---
+  document.querySelectorAll('.nav-links > li.has-dropdown, .nav-links > li:has(a.has-dropdown)').forEach(function(li) {
+    var link = li.querySelector('a.has-dropdown');
+    if (!link) return;
+    li.addEventListener('mouseenter', function() {
+      link.setAttribute('aria-expanded', 'true');
+    });
+    li.addEventListener('mouseleave', function() {
+      link.setAttribute('aria-expanded', 'false');
+    });
+    link.addEventListener('focus', function() {
+      link.setAttribute('aria-expanded', 'true');
+    });
+    li.addEventListener('focusout', function(e) {
+      if (!li.contains(e.relatedTarget)) {
+        link.setAttribute('aria-expanded', 'false');
+      }
+    });
+  });
+
   // --- Mobile Dropdown Toggles ---
   document.querySelectorAll('.nav-links > li > a.has-dropdown').forEach(function(link) {
     link.setAttribute('aria-expanded', 'false');
@@ -219,6 +239,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function showYearly() {
       pricingToggle.classList.remove('monthly');
       pricingToggle.setAttribute('aria-pressed', 'false');
+      pricingToggle.setAttribute('aria-label', 'Switch to monthly pricing');
       priceYearly.style.display = '';
       priceMonthly.style.display = 'none';
       if (ctaYearly) ctaYearly.style.display = '';
@@ -232,6 +253,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function showMonthly() {
       pricingToggle.classList.add('monthly');
       pricingToggle.setAttribute('aria-pressed', 'true');
+      pricingToggle.setAttribute('aria-label', 'Switch to yearly pricing');
       priceYearly.style.display = 'none';
       priceMonthly.style.display = '';
       if (ctaYearly) ctaYearly.style.display = 'none';
@@ -262,13 +284,7 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
 
-    // Allow clicking the labels too
-    if (toggleMonthly) {
-      toggleMonthly.addEventListener('click', function() { showMonthly(); });
-    }
-    if (toggleYearly) {
-      toggleYearly.addEventListener('click', function() { showYearly(); });
-    }
+    // Note: label click handlers removed -- the toggle button is the sole control for accessibility
   }
 
   // --- Webinar Category Filter (events-v2.html) ---
