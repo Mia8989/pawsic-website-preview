@@ -26,14 +26,14 @@
 
     /* SIG brand accent -- teal/slate to distinguish from main PAWSIC blue */
     :root {
-      --sig-teal: #2a8f80;
-      --sig-teal-light: #e6f5f3;
-      --sig-teal-mid: #3aaa99;
+      --sig-teal: #2B7CCA;
+      --sig-teal-light: #EBF4FF;
+      --sig-teal-mid: #38B6FF;
       --sig-dark: #0c1f3f;
     }
 
     .sig-hero {
-      background: linear-gradient(135deg, #0c1f3f 0%, #1a3a6a 55%, #2a8f80 100%);
+      background: linear-gradient(135deg, #0c1f3f 0%, #1E3A6E 55%, #1B5E9E 100%);
       padding: 5rem 0 4.5rem;
       text-align: center;
       color: #fff;
@@ -47,15 +47,16 @@
       inset: 0;
       background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
       pointer-events: none;
+      z-index: 0;
     }
 
     .sig-hero-eyebrow {
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      background: rgba(42, 143, 128, 0.2);
-      border: 1px solid rgba(58, 170, 153, 0.4);
-      color: #8fddd5;
+      background: rgba(43, 124, 202, 0.2);
+      border: 1px solid rgba(56, 182, 255, 0.4);
+      color: #38B6FF;
       padding: 0.4rem 1.1rem;
       border-radius: 2rem;
       font-size: 0.78rem;
@@ -74,7 +75,7 @@
 
     .sig-hero h1 em {
       font-style: italic;
-      color: #8fddd5;
+      color: #38B6FF;
     }
 
     .sig-hero p {
@@ -107,7 +108,7 @@
     }
 
     .btn-sig:hover {
-      background: #237d6f;
+      background: #1A5494;
       transform: translateY(-1px);
     }
 
@@ -214,7 +215,7 @@
 
     .sig-callout-box p {
       font-size: 0.95rem;
-      color: #1a3a30;
+      color: #1a2744;
       line-height: 1.65;
       margin: 0;
     }
@@ -338,7 +339,7 @@
       align-items: center;
       justify-content: center;
       margin: 0 auto 1rem;
-      box-shadow: 0 4px 14px rgba(42,143,128,0.3);
+      box-shadow: 0 4px 14px rgba(43, 124, 202, 0.3);
     }
 
     .sig-step h3 {
@@ -356,8 +357,8 @@
 
     .sig-step .step-badge {
       display: inline-block;
-      background: #e0f5e9;
-      color: #1a7a42;
+      background: #EBF4FF;
+      color: #1B5E9E;
       font-size: 0.7rem;
       font-weight: 700;
       text-transform: uppercase;
@@ -368,13 +369,13 @@
     }
 
     .sig-step .step-badge.premium {
-      background: #ede0f5;
-      color: #6b2fa5;
+      background: #dce8f7;
+      color: #1A5494;
     }
 
     /* CTA */
     .sig-cta {
-      background: linear-gradient(135deg, #0c1f3f 0%, #1a3a6a 60%, #2a8f80 100%);
+      background: linear-gradient(135deg, #0c1f3f 0%, #1E3A6E 60%, #1B5E9E 100%);
       padding: 5rem 0;
       text-align: center;
       color: #fff;
@@ -388,13 +389,16 @@
       inset: 0;
       background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
       pointer-events: none;
+      z-index: 0;
     }
 
     .sig-cta h2 {
       font-family: 'DM Serif Display', serif;
       font-size: clamp(2rem, 4vw, 2.8rem);
       margin-bottom: 1rem;
+      color: #fff;
       position: relative;
+      z-index: 1;
     }
 
     .sig-cta p {
@@ -404,6 +408,7 @@
       opacity: 0.88;
       line-height: 1.65;
       position: relative;
+      z-index: 1;
     }
 
     .sig-cta-buttons {
@@ -412,13 +417,17 @@
       justify-content: center;
       flex-wrap: wrap;
       position: relative;
+      z-index: 1;
     }
 
     .sig-membership-note {
-      font-size: 0.85rem;
-      opacity: 0.65;
-      margin-top: 1.25rem;
+      font-size: 0.88rem;
+      opacity: 0.7;
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255,255,255,0.15);
       position: relative;
+      z-index: 1;
     }
   </style>
 </head>
@@ -555,22 +564,22 @@
             </div>
 
             <div style="margin-top:1.5rem; background:#fff; border:1px solid #e8edf2; border-radius:14px; padding:1.5rem;">
-              <p style="font-size:0.85rem; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:#2a8f80; margin-bottom:0.75rem;">SIG Details</p>
+              <p style="font-size:0.85rem; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:#2B7CCA; margin-bottom:0.75rem;">SIG Details</p>
               <div style="display:flex; flex-direction:column; gap:0.6rem;">
                 <div style="display:flex; align-items:center; gap:0.6rem; font-size:0.9rem; color:#3a4a5a;">
-                  <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2a8f80" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                  <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2B7CCA" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
                   <span>PAWSIC's inaugural Shared Interest Group</span>
                 </div>
                 <div style="display:flex; align-items:center; gap:0.6rem; font-size:0.9rem; color:#3a4a5a;">
-                  <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2a8f80" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                  <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2B7CCA" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
                   <span>Open to PAWSIC Premium Members</span>
                 </div>
                 <div style="display:flex; align-items:center; gap:0.6rem; font-size:0.9rem; color:#3a4a5a;">
-                  <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2a8f80" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                  <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2B7CCA" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
                   <span>Evidence-based discussions and case studies</span>
                 </div>
                 <div style="display:flex; align-items:center; gap:0.6rem; font-size:0.9rem; color:#3a4a5a;">
-                  <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2a8f80" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2B7CCA" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                   <span>Active forum led by PAWSIC board members</span>
                 </div>
               </div>
@@ -724,7 +733,7 @@
             Go Directly to the SIG <span class="btn-arrow">&rarr;</span>
           </a>
         </div>
-        <p class="sig-membership-note">Already a Premium Member? <a href="https://memberships.pawsic.org/login/" target="_blank" rel="noopener noreferrer" style="color:#8fddd5;">Log in and go to the SIG &rarr;</a></p>
+        <p class="sig-membership-note">Already a Premium Member? <a href="https://memberships.pawsic.org/login/" target="_blank" rel="noopener noreferrer" style="color:#38B6FF;">Log in and go to the SIG &rarr;</a></p>
       </div>
     </section>
 
