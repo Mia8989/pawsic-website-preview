@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skin Failure SIG | PAWSIC Community</title>
+  <meta name="description" content="The PAWSIC Skin Failure Shared Interest Group (SIG) -- a professional community for wound care clinicians advancing the understanding, assessment, and documentation of skin failure in post-acute and end-of-life care.">
+  <meta property="og:title" content="Skin Failure SIG | PAWSIC Community">
+  <meta property="og:description" content="Join PAWSIC's first Shared Interest Group dedicated to skin failure, end-of-life skin changes, and documentation best practices.">
+  <meta property="og:url" content="https://pawsic.org/community/skin-failure-sig/">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://mia8989.github.io/pawsic-website-preview/images/pawsic-og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Skin Failure SIG | PAWSIC Community">
+  <meta name="twitter:description" content="Join PAWSIC's first Shared Interest Group dedicated to skin failure, end-of-life skin changes, and documentation best practices.">
+  <meta name="twitter:image" content="https://mia8989.github.io/pawsic-website-preview/images/pawsic-og-image.jpg">
+  <link rel="canonical" href="https://pawsic.org/community/skin-failure-sig/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/pawsic-website-preview/css/style.css">
+  <link rel="stylesheet" href="/pawsic-website-preview/css/v2-overrides.css">
+
+  <style>
+    /* ---- Skin Failure SIG Page Specific Styles ---- */
+
+    /* SIG brand accent -- teal/slate to distinguish from main PAWSIC blue */
+    :root {
+      --sig-teal: #2a8f80;
+      --sig-teal-light: #e6f5f3;
+      --sig-teal-mid: #3aaa99;
+      --sig-dark: #0c1f3f;
+    }
+
+    .sig-hero {
+      background: linear-gradient(135deg, #0c1f3f 0%, #1a3a6a 55%, #2a8f80 100%);
+      padding: 5rem 0 4.5rem;
+      text-align: center;
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .sig-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+
+    .sig-hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(42, 143, 128, 0.2);
+      border: 1px solid rgba(58, 170, 153, 0.4);
+      color: #8fddd5;
+      padding: 0.4rem 1.1rem;
+      border-radius: 2rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      margin-bottom: 1.25rem;
+    }
+
+    .sig-hero h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.2rem, 5vw, 3.2rem);
+      margin-bottom: 1rem;
+      line-height: 1.15;
+    }
+
+    .sig-hero h1 em {
+      font-style: italic;
+      color: #8fddd5;
+    }
+
+    .sig-hero p {
+      font-size: 1.1rem;
+      max-width: 640px;
+      margin: 0 auto 2rem;
+      opacity: 0.9;
+      line-height: 1.65;
+    }
+
+    .sig-hero-ctas {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-sig {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: var(--sig-teal);
+      color: #fff;
+      padding: 0.8rem 1.75rem;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .btn-sig:hover {
+      background: #237d6f;
+      transform: translateY(-1px);
+    }
+
+    .btn-sig-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: transparent;
+      color: #fff;
+      padding: 0.8rem 1.75rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 1rem;
+      text-decoration: none;
+      border: 1.5px solid rgba(255,255,255,0.45);
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .btn-sig-outline:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: rgba(255,255,255,0.7);
+    }
+
+    /* What is Skin Failure */
+    .sig-explainer {
+      background: #fff;
+      padding: 4.5rem 0;
+    }
+
+    .sig-explainer-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    @media (max-width: 768px) {
+      .sig-explainer-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    }
+
+    .sig-explainer-text h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2rem;
+      color: var(--sig-dark);
+      margin-bottom: 1rem;
+    }
+
+    .sig-explainer-text h2 em {
+      font-style: italic;
+      color: var(--sig-teal);
+    }
+
+    .sig-explainer-text p {
+      color: #4a5a6a;
+      font-size: 1rem;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+
+    .sig-topic-list {
+      list-style: none;
+      padding: 0;
+      margin: 1.25rem 0 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .sig-topic-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.65rem;
+      font-size: 0.95rem;
+      color: #3a4a5a;
+      line-height: 1.5;
+    }
+
+    .sig-topic-list li::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--sig-teal);
+      flex-shrink: 0;
+      margin-top: 0.45rem;
+    }
+
+    .sig-callout-box {
+      background: var(--sig-teal-light);
+      border-left: 4px solid var(--sig-teal);
+      border-radius: 0 12px 12px 0;
+      padding: 1.5rem 1.75rem;
+    }
+
+    .sig-callout-box .callout-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: var(--sig-teal);
+      margin-bottom: 0.6rem;
+      display: block;
+    }
+
+    .sig-callout-box p {
+      font-size: 0.95rem;
+      color: #1a3a30;
+      line-height: 1.65;
+      margin: 0;
+    }
+
+    .sig-callout-box p + p {
+      margin-top: 0.75rem;
+    }
+
+    /* What You'll Find */
+    .sig-benefits {
+      background: var(--sig-teal-light);
+      padding: 4.5rem 0;
+    }
+
+    .sig-benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+
+    @media (max-width: 768px) {
+      .sig-benefits-grid { grid-template-columns: 1fr; }
+    }
+
+    .sig-benefit-card {
+      background: #fff;
+      border-radius: 14px;
+      padding: 1.75rem;
+      border: 1px solid rgba(42,143,128,0.15);
+    }
+
+    .sig-benefit-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: var(--sig-teal-light);
+      color: var(--sig-teal);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+    }
+
+    .sig-benefit-card h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.15rem;
+      color: var(--sig-dark);
+      margin-bottom: 0.5rem;
+    }
+
+    .sig-benefit-card p {
+      font-size: 0.9rem;
+      color: #5a6a7a;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* Who Joins */
+    .sig-who {
+      background: #fff;
+      padding: 4.5rem 0;
+    }
+
+    .sig-audience-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+      margin-top: 1.75rem;
+    }
+
+    .sig-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      background: #f0f4f8;
+      color: #2a3a4a;
+      padding: 0.45rem 1rem;
+      border-radius: 2rem;
+      font-size: 0.88rem;
+      font-weight: 500;
+      border: 1px solid #dde4ec;
+    }
+
+    .sig-chip svg {
+      color: var(--sig-teal);
+      flex-shrink: 0;
+    }
+
+    /* How to Join */
+    .sig-steps {
+      background: #f7f9fc;
+      padding: 4.5rem 0;
+    }
+
+    .sig-steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 2.5rem;
+    }
+
+    @media (max-width: 768px) {
+      .sig-steps-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+    }
+
+    .sig-step {
+      text-align: center;
+      padding: 1.5rem;
+    }
+
+    .sig-step-num {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #1B5E9E, var(--sig-teal));
+      color: #fff;
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.4rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+      box-shadow: 0 4px 14px rgba(42,143,128,0.3);
+    }
+
+    .sig-step h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.1rem;
+      color: var(--sig-dark);
+      margin-bottom: 0.5rem;
+    }
+
+    .sig-step p {
+      font-size: 0.9rem;
+      color: #5a6a7a;
+      line-height: 1.6;
+    }
+
+    .sig-step .step-badge {
+      display: inline-block;
+      background: #e0f5e9;
+      color: #1a7a42;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 0.2rem 0.6rem;
+      border-radius: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .sig-step .step-badge.premium {
+      background: #ede0f5;
+      color: #6b2fa5;
+    }
+
+    /* CTA */
+    .sig-cta {
+      background: linear-gradient(135deg, #0c1f3f 0%, #1a3a6a 60%, #2a8f80 100%);
+      padding: 5rem 0;
+      text-align: center;
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .sig-cta::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+
+    .sig-cta h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      margin-bottom: 1rem;
+      position: relative;
+    }
+
+    .sig-cta p {
+      font-size: 1.05rem;
+      max-width: 560px;
+      margin: 0 auto 2rem;
+      opacity: 0.88;
+      line-height: 1.65;
+      position: relative;
+    }
+
+    .sig-cta-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      position: relative;
+    }
+
+    .sig-membership-note {
+      font-size: 0.85rem;
+      opacity: 0.65;
+      margin-top: 1.25rem;
+      position: relative;
+    }
+  </style>
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- ===== ANNOUNCEMENT BANNER ===== -->
+  <div class="announcement-banner" id="announcementBanner">
+    <div class="container">
+      <span class="banner-text">
+        <strong>PAWSIC's First SIG is Live</strong>: The Skin Failure Shared Interest Group is now open for Premium Members.
+        <a href="https://memberships.pawsic.org/register/free/" target="_blank" rel="noopener noreferrer">Join Free &rarr;</a>
+      </span>
+      <button class="banner-close" aria-label="Dismiss banner">&times;</button>
+    </div>
+  </div>
+
+  <!-- ===== UTILITY BAR ===== -->
+  <nav class="utility-bar" aria-label="Utility navigation">
+    <div class="container">
+      <a href="/pawsic-website-preview/" class="utility-logo">
+        <img src="/pawsic-website-preview/images/pawsic-diamond.png" alt="PAWSIC icon" class="logo-icon">
+        <span class="logo-text">
+          <span class="logo-name">PAWSIC</span>
+          <span class="logo-tagline">Post-Acute Wound &amp; Skin Integrity Council</span>
+        </span>
+      </a>
+      <div class="utility-links">
+        <a href="/pawsic-website-preview/patients/" class="utility-link v2-patient-link">
+          <svg aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          Patients &amp; Caregivers
+        </a>
+        <a href="/pawsic-website-preview/resources/pawsic-brochure.pdf" class="utility-link" target="_blank" rel="noopener noreferrer">Download Brochure</a>
+        <a href="https://memberships.pawsic.org/login/" class="utility-link" target="_blank" rel="noopener noreferrer">Member Login</a>
+        <a href="https://memberships.pawsic.org/register/free/" class="utility-link utility-join" target="_blank" rel="noopener noreferrer">Join Free</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== MAIN NAVIGATION ===== -->
+  <nav class="main-nav" aria-label="Main navigation">
+    <div class="container">
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/pawsic-website-preview/">Home</a></li>
+        <li>
+          <a href="/pawsic-website-preview/about/" class="has-dropdown" aria-haspopup="true" aria-expanded="false">About Us <span class="dropdown-arrow" aria-hidden="true"></span></a>
+          <ul class="dropdown">
+            <li><a href="/pawsic-website-preview/about/">About PAWSIC</a></li>
+            <li><a href="/pawsic-website-preview/board/">The Board</a></li>
+            <li><a href="/pawsic-website-preview/advisory/">Advisory Committee</a></li>
+            <li><a href="/pawsic-website-preview/who-is-pawsic/">Who is PAWSIC?</a></li>
+            <li><a href="/pawsic-website-preview/services/">Services</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="/pawsic-website-preview/events/" class="has-dropdown" aria-haspopup="true" aria-expanded="false">Events <span class="dropdown-arrow" aria-hidden="true"></span></a>
+          <ul class="dropdown">
+            <li><a href="/pawsic-website-preview/events/">Upcoming Events</a></li>
+            <li><a href="/pawsic-website-preview/webinars/">Webinars</a></li>
+            <li><a href="/pawsic-website-preview/press-releases/">Press Releases</a></li>
+          </ul>
+        </li>
+        <li><a href="/pawsic-website-preview/resources/">Resources</a></li>
+        <li><a href="/pawsic-website-preview/programs/">Courses</a></li>
+        <li>
+          <a href="/pawsic-website-preview/community/" class="has-dropdown active" aria-haspopup="true" aria-expanded="false">Community <span class="dropdown-arrow" aria-hidden="true"></span></a>
+          <ul class="dropdown">
+            <li><a href="/pawsic-website-preview/community/#forums">Forums</a></li>
+            <li><a href="/pawsic-website-preview/community/skin-failure-sig/" class="active">Skin Failure SIG</a></li>
+            <li><a href="/pawsic-website-preview/community/#sig-spaces">All SIG Spaces</a></li>
+          </ul>
+        </li>
+        <li><a href="/pawsic-website-preview/membership/">Membership</a></li>
+        <li><a href="/pawsic-website-preview/sponsors/">Sponsorship</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="mobile-overlay"></div>
+
+  <main id="main-content">
+
+    <!-- ===== HERO ===== -->
+    <section class="sig-hero">
+      <div class="container">
+        <span class="sig-hero-eyebrow">
+          <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          PAWSIC's First Shared Interest Group
+        </span>
+        <h1>The Skin Failure<br><em>Shared Interest Group</em></h1>
+        <p>A focused professional community for wound care clinicians advancing the recognition, assessment, documentation, and research of skin failure in post-acute and end-of-life care settings.</p>
+        <div class="sig-hero-ctas">
+          <a href="https://memberships.pawsic.org/register/free/" class="btn-sig" target="_blank" rel="noopener noreferrer">
+            Join PAWSIC Free <span class="btn-arrow">&rarr;</span>
+          </a>
+          <a href="https://memberships.pawsic.org/skin-failure-sig/" class="btn-sig-outline" target="_blank" rel="noopener noreferrer">
+            Go to the SIG Forum <span class="btn-arrow">&rarr;</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== WHAT IS SKIN FAILURE ===== -->
+    <section class="sig-explainer">
+      <div class="container">
+        <div class="sig-explainer-grid">
+          <div class="sig-explainer-text">
+            <span class="section-tag">Why This SIG Exists</span>
+            <h2>Skin Failure is <em>Underrecognized</em> -- and Consequential</h2>
+            <p>Skin failure refers to the deterioration of skin integrity that can accompany severe illness and end-of-life decline. Unlike pressure injuries caused by external forces, skin failure reflects systemic physiologic compromise -- and the distinction matters clinically, legally, and for patient care quality.</p>
+            <p>Despite growing evidence and evolving clinical frameworks, skin failure remains inconsistently defined, documented, and differentiated from other wound etiologies across post-acute settings. The result: unnecessary litigation, regulatory scrutiny, and missed opportunities for appropriate palliative care planning.</p>
+            <p>The Skin Failure SIG brings together the wound care community to change that.</p>
+
+            <ul class="sig-topic-list">
+              <li>Kennedy Terminal Ulcers (KTU) and end-of-life skin changes</li>
+              <li>Skin Changes at Life's End (SCALE) -- evidence and assessment</li>
+              <li>Trombley-Brennan Terminal Tissue Injuries (TB-TTI)</li>
+              <li>Differentiating skin failure from pressure injuries and MASD</li>
+              <li>CMS survey readiness, MDS coding, and care planning implications</li>
+              <li>Emerging research and evolving clinical consensus</li>
+            </ul>
+          </div>
+
+          <div>
+            <div class="sig-callout-box">
+              <span class="callout-label">Clinical Context</span>
+              <p>Skin failure is recognized as an unavoidable skin change in some individuals experiencing multiorgan failure, systemic hypoperfusion, or end-of-life decline. Evidence supports its distinction from pressure injuries in specific clinical contexts.</p>
+              <p>Key frameworks include the SCALE (Skin Changes at Life's End) consensus document, NPIAP position statements, and emerging interdisciplinary research on Kennedy Terminal Ulcers and end-of-life tissue injury patterns.</p>
+              <p><em>All clinical discussions in the SIG are evidence-based and peer-reviewed. This page is for educational purposes and does not constitute medical advice.</em></p>
+            </div>
+
+            <div style="margin-top:1.5rem; background:#fff; border:1px solid #e8edf2; border-radius:14px; padding:1.5rem;">
+              <p style="font-size:0.85rem; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:#2a8f80; margin-bottom:0.75rem;">SIG Details</p>
+              <div style="display:flex; flex-direction:column; gap:0.6rem;">
+                <div style="display:flex; align-items:center; gap:0.6rem; font-size:0.9rem; color:#3a4a5a;">
+                  <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2a8f80" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                  <span>PAWSIC's inaugural Shared Interest Group</span>
+                </div>
+                <div style="display:flex; align-items:center; gap:0.6rem; font-size:0.9rem; color:#3a4a5a;">
+                  <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2a8f80" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                  <span>Open to PAWSIC Premium Members</span>
+                </div>
+                <div style="display:flex; align-items:center; gap:0.6rem; font-size:0.9rem; color:#3a4a5a;">
+                  <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2a8f80" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                  <span>Evidence-based discussions and case studies</span>
+                </div>
+                <div style="display:flex; align-items:center; gap:0.6rem; font-size:0.9rem; color:#3a4a5a;">
+                  <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2a8f80" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  <span>Active forum led by PAWSIC board members</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== WHAT YOU'LL FIND IN THE SIG ===== -->
+    <section class="sig-benefits">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">What's Inside</span>
+          <h2>What You'll Find in the <em>Skin Failure SIG</em></h2>
+          <p>A curated space for focused collaboration, not general wound care discussion.</p>
+        </div>
+        <div class="sig-benefits-grid reveal reveal-delay-1">
+          <div class="sig-benefit-card">
+            <div class="sig-benefit-icon">
+              <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            </div>
+            <h3>Peer Forum Discussions</h3>
+            <p>Ask clinical questions, share challenging cases (fully de-identified), and get perspectives from wound care specialists, DONs, palliative care clinicians, and researchers across care settings.</p>
+          </div>
+          <div class="sig-benefit-card">
+            <div class="sig-benefit-icon">
+              <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+            </div>
+            <h3>Evidence &amp; Resources</h3>
+            <p>Curated research, SCALE consensus documents, NPIAP position statements, clinical assessment tools, and documentation templates specific to skin failure and end-of-life skin changes.</p>
+          </div>
+          <div class="sig-benefit-card">
+            <div class="sig-benefit-icon">
+              <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+            </div>
+            <h3>Webinar &amp; CE Content</h3>
+            <p>Access to PAWSIC's skin failure webinar library, including CE-eligible recordings on Kennedy Terminal Ulcers, SCALE, end-of-life documentation, and regulatory survey readiness.</p>
+          </div>
+          <div class="sig-benefit-card">
+            <div class="sig-benefit-icon">
+              <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <h3>Survey &amp; Compliance Guidance</h3>
+            <p>Practical discussion threads on MDS coding, care planning documentation, F686 survey tags, and communicating skin failure findings to surveyors, families, and interdisciplinary teams.</p>
+          </div>
+          <div class="sig-benefit-card">
+            <div class="sig-benefit-icon">
+              <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <h3>Expert Networking</h3>
+            <p>Connect directly with PAWSIC board members, advisory committee clinicians, and nationally recognized wound care experts who specialize in skin failure and end-of-life care.</p>
+          </div>
+          <div class="sig-benefit-card">
+            <div class="sig-benefit-icon">
+              <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+            </div>
+            <h3>Shape the Research Agenda</h3>
+            <p>As PAWSIC's inaugural SIG, members have a direct role in identifying practice gaps, proposing position statement topics, and advancing PAWSIC's advocacy work on skin failure standards.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== WHO JOINS ===== -->
+    <section class="sig-who">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Who Joins</span>
+          <h2>This SIG is for <em>You</em> If You Care About Skin Failure</h2>
+          <p>Anyone involved in wound care, palliative care, hospice, post-acute settings, or regulatory compliance is welcome to join.</p>
+        </div>
+        <div class="sig-audience-chips reveal reveal-delay-1">
+          <span class="sig-chip">
+            <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+            WOC Nurses &amp; Wound Specialists
+          </span>
+          <span class="sig-chip">
+            <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+            Directors of Nursing &amp; Clinical Leadership
+          </span>
+          <span class="sig-chip">
+            <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            Palliative Care &amp; Hospice Clinicians
+          </span>
+          <span class="sig-chip">
+            <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Physicians, NPs &amp; PAs
+          </span>
+          <span class="sig-chip">
+            <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+            Quality Improvement &amp; Compliance Professionals
+          </span>
+          <span class="sig-chip">
+            <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            Researchers &amp; Academics
+          </span>
+          <span class="sig-chip">
+            <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            Home Health &amp; LTC Clinicians
+          </span>
+          <span class="sig-chip">
+            <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            MDS Coordinators &amp; RAC-CT Nurses
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== HOW TO JOIN ===== -->
+    <section class="sig-steps">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">How to Join</span>
+          <h2>Get Into the SIG in <em>3 Steps</em></h2>
+          <p>Start free, then upgrade to access the Skin Failure SIG space.</p>
+        </div>
+        <div class="sig-steps-grid reveal reveal-delay-1">
+          <div class="sig-step">
+            <div class="sig-step-num">1</div>
+            <span class="step-badge">Free</span>
+            <h3>Create a Free Account</h3>
+            <p>Join PAWSIC free at memberships.pawsic.org. No credit card required. Get access to the wound basics course, webinar library, publications, and community forums.</p>
+          </div>
+          <div class="sig-step">
+            <div class="sig-step-num">2</div>
+            <span class="step-badge premium">Premium</span>
+            <h3>Upgrade to Premium</h3>
+            <p>Unlock full access to the Skin Failure SIG, CE/CME-eligible courses, all SIG spaces, and exclusive events by upgrading to a PAWSIC Premium Membership.</p>
+          </div>
+          <div class="sig-step">
+            <div class="sig-step-num">3</div>
+            <span class="step-badge">SIG</span>
+            <h3>Join the Conversation</h3>
+            <p>Access the Skin Failure SIG forum, introduce yourself, browse discussions, and start contributing your clinical experience and expertise.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CTA ===== -->
+    <section class="sig-cta">
+      <div class="container">
+        <h2>Ready to Join the<br>Skin Failure SIG?</h2>
+        <p>Start with a free PAWSIC membership, explore what's available, and upgrade when you're ready to access the SIG and all of PAWSIC's premium content.</p>
+        <div class="sig-cta-buttons">
+          <a href="https://memberships.pawsic.org/register/free/" class="btn-primary btn-lg" target="_blank" rel="noopener noreferrer">
+            Join PAWSIC Free <span class="btn-arrow">&rarr;</span>
+          </a>
+          <a href="https://memberships.pawsic.org/skin-failure-sig/" class="btn-sig-outline" target="_blank" rel="noopener noreferrer">
+            Go Directly to the SIG <span class="btn-arrow">&rarr;</span>
+          </a>
+        </div>
+        <p class="sig-membership-note">Already a Premium Member? <a href="https://memberships.pawsic.org/login/" target="_blank" rel="noopener noreferrer" style="color:#8fddd5;">Log in and go to the SIG &rarr;</a></p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER PHOTO STRIP ===== -->
+  <section class="v2-footer-photo-strip" aria-hidden="true">
+    <span class="v2-photo-strip-label">PAWSIC Community</span>
+    <div class="v2-photo-strip-track">
+      <div class="v2-photo-strip-item"><img src="/pawsic-website-preview/images/events/community/aapcn-2026/photo-6.jpg" alt="PAWSIC booth AAPACN 2026" loading="lazy"></div>
+      <div class="v2-photo-strip-item"><img src="/pawsic-website-preview/images/events/community/sawc-fall-2025/photo-2.jpg" alt="" loading="lazy"></div>
+      <div class="v2-photo-strip-item"><img src="/pawsic-website-preview/images/events/community/wocn-northeast-2025/photo-2.jpg" alt="" loading="lazy"></div>
+      <div class="v2-photo-strip-item"><img src="/pawsic-website-preview/images/events/community/sawc-fall-2025/photo-3.jpg" alt="" loading="lazy"></div>
+      <div class="v2-photo-strip-item"><img src="/pawsic-website-preview/images/events/community/wocn-northeast-2025/photo-4.jpg" alt="" loading="lazy"></div>
+      <div class="v2-photo-strip-item"><img src="/pawsic-website-preview/images/events/community/sawc-fall-2025/photo-1.jpg" alt="PAWSIC booth SAWC" loading="lazy"></div>
+      <div class="v2-photo-strip-item"><img src="/pawsic-website-preview/images/events/community/wocn-northeast-2025/photo-5.jpg" alt="" loading="lazy"></div>
+      <div class="v2-photo-strip-item"><img src="/pawsic-website-preview/images/events/community/aapacn-2025/photo-2.jpg" alt="" loading="lazy"></div>
+      <div class="v2-photo-strip-item"><img src="/pawsic-website-preview/images/events/community/aapcn-2026/photo-6.jpg" alt="PAWSIC booth AAPACN 2026" loading="lazy"></div>
+      <div class="v2-photo-strip-item"><img src="/pawsic-website-preview/images/events/community/sawc-fall-2025/photo-2.jpg" alt="" loading="lazy"></div>
+      <div class="v2-photo-strip-item"><img src="/pawsic-website-preview/images/events/community/wocn-northeast-2025/photo-2.jpg" alt="" loading="lazy"></div>
+      <div class="v2-photo-strip-item"><img src="/pawsic-website-preview/images/events/community/sawc-fall-2025/photo-3.jpg" alt="" loading="lazy"></div>
+      <div class="v2-photo-strip-item"><img src="/pawsic-website-preview/images/events/community/wocn-northeast-2025/photo-4.jpg" alt="" loading="lazy"></div>
+      <div class="v2-photo-strip-item"><img src="/pawsic-website-preview/images/events/community/sawc-fall-2025/photo-1.jpg" alt="PAWSIC booth SAWC" loading="lazy"></div>
+      <div class="v2-photo-strip-item"><img src="/pawsic-website-preview/images/events/community/wocn-northeast-2025/photo-5.jpg" alt="" loading="lazy"></div>
+      <div class="v2-photo-strip-item"><img src="/pawsic-website-preview/images/events/community/aapacn-2025/photo-2.jpg" alt="" loading="lazy"></div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <img src="/pawsic-website-preview/images/pawsic-diamond.png" alt="PAWSIC" class="logo-icon">
+            <span class="logo-text">
+              <span class="logo-name">PAWSIC</span>
+              <span class="logo-tagline">Post-Acute Wound &amp; Skin Integrity Council</span>
+            </span>
+          </div>
+          <p>Post-Acute Wound &amp; Skin Integrity Council, a 501(c)(6) nonprofit uniting wound care professionals through education, community, and advocacy.</p>
+          <div class="social-links">
+            <a href="https://www.facebook.com/pawsicorg" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+            <a href="https://www.instagram.com/pawsicorg" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="https://www.linkedin.com/company/pawsic" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+            <a href="https://www.tiktok.com/@pawsicorg" aria-label="TikTok" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" viewBox="0 0 24 24" fill="white" stroke="none"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1v-3.52a6.37 6.37 0 0 0-.79-.05A6.34 6.34 0 0 0 3.15 15.2a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.73a8.19 8.19 0 0 0 4.76 1.52V6.8a4.84 4.84 0 0 1-1-.11z"/></svg></a>
+            <a href="https://www.youtube.com/@pawsicorg" aria-label="YouTube" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" viewBox="0 0 24 24" fill="white" stroke="none"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+            <a href="https://x.com/pawsicorg" aria-label="X" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" viewBox="0 0 24 24" fill="white" stroke="none"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="/pawsic-website-preview/about/">About Us</a></li>
+            <li><a href="/pawsic-website-preview/board/">The Board</a></li>
+            <li><a href="/pawsic-website-preview/membership/">Membership</a></li>
+            <li><a href="/pawsic-website-preview/programs/">CE/CME Courses</a></li>
+            <li><a href="/pawsic-website-preview/resources/">Resources</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Community</h4>
+          <ul>
+            <li><a href="/pawsic-website-preview/community/#forums">Forums</a></li>
+            <li><a href="/pawsic-website-preview/community/skin-failure-sig/">Skin Failure SIG</a></li>
+            <li><a href="/pawsic-website-preview/community/#sig-spaces">All SIG Spaces</a></li>
+            <li><a href="/pawsic-website-preview/events/">Events</a></li>
+            <li><a href="/pawsic-website-preview/contact/">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="/pawsic-website-preview/sponsors/">Become a Sponsor</a></li>
+            <li><a href="https://donate.stripe.com/dRm8wQ1mC3oE8Ef8p7c7u0m" target="_blank" rel="noopener noreferrer">Donate</a></li>
+            <li><a href="https://memberships.pawsic.org/login/" target="_blank" rel="noopener noreferrer">Member Login</a></li>
+            <li><a href="/pawsic-website-preview/press-releases/">Press Releases</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-bottom-row">
+          <span>&copy; 2026 PAWSIC. All Rights Reserved. Donations/sponsorships are not tax deductible.</span>
+          <div class="footer-legal">
+            <a href="/pawsic-website-preview/privacy-policy/">Privacy Policy</a>
+            <a href="/pawsic-website-preview/disclaimers/">Website Disclaimer</a>
+            <a href="/pawsic-website-preview/disclaimers/#resource-disclaimer">Resource Disclaimer</a>
+            <a href="/pawsic-website-preview/accessibility/">Accessibility</a>
+          </div>
+        </div>
+        <p class="footer-disclaimer">This website is for educational purposes only and does not constitute medical advice. All clinical content is evidence-based and intended for healthcare professionals. See our <a href="/pawsic-website-preview/disclaimers/">full disclaimer</a>.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/pawsic-website-preview/js/main.js"></script>
+</body>
+</html>
