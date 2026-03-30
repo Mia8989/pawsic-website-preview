@@ -168,11 +168,11 @@
 
 /* Regular sponsors grid -- smaller, flatter, no elevation */
 .v2-sponsors-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 1.25rem 1.5rem;
   align-items: center;
-  justify-items: center;
   max-width: 800px;
   margin: 0 auto 1.5rem;
 }
@@ -185,6 +185,8 @@
   padding: 0.5rem 0.75rem;
   border-radius: 8px;
   transition: opacity 0.2s ease;
+  flex: 0 0 calc((100% - 6rem) / 5);
+  box-sizing: border-box;
 }
 
 .v2-sponsors-grid .v2-sponsor-logo:hover {
@@ -405,8 +407,11 @@
   }
 
   .v2-sponsors-grid {
-    grid-template-columns: repeat(4, 1fr);
     gap: 1.25rem 1.5rem;
+  }
+
+  .v2-sponsors-grid .v2-sponsor-logo {
+    flex: 0 0 calc((100% - 4.5rem) / 4);
   }
 
   .v2-sponsors-grid img {
@@ -826,7 +831,6 @@
   }
 
   .v2-sponsors-grid {
-    grid-template-columns: repeat(3, 1fr);
     gap: 0.75rem;
     max-width: 100%;
     padding: 0 1.25rem;
@@ -834,6 +838,7 @@
   }
 
   .v2-sponsors-grid .v2-sponsor-logo {
+    flex: 0 0 calc((100% - 1.5rem) / 3);
     padding: 0.4rem 0.25rem;
   }
 
