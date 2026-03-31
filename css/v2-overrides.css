@@ -3310,8 +3310,8 @@
 
 .v2-event-gallery {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
   margin-top: 2rem;
 }
 
@@ -3319,13 +3319,14 @@
   position: relative;
   border-radius: 10px;
   overflow: hidden;
-  aspect-ratio: 4/3;
+  aspect-ratio: 3/4;
 }
 
 .v2-event-gallery-item img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center 20%;
   display: block;
   transition: transform 0.4s ease;
 }
@@ -3349,13 +3350,13 @@
 
 @media (max-width: 900px) {
   .v2-event-gallery {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 600px) {
   .v2-event-gallery {
-    grid-template-columns: 1fr;
-    gap: 0.75rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.6rem;
   }
 }
