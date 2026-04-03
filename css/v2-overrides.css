@@ -112,8 +112,8 @@
 
   /* Download Brochure standalone item */
   .mobile-nav-utility.mobile-brochure-link {
-    border-top: 1px solid rgba(12,31,63,0.08) !important;
-    margin-top: 0.25rem;
+    border-top: none !important;
+    margin-top: 0;
   }
   .mobile-nav-utility.mobile-brochure-link > a {
     display: flex !important;
