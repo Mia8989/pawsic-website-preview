@@ -151,6 +151,30 @@
     background: #2da5ee !important;
     padding-left: 1rem !important;
   }
+
+  /* Donate -- gold CTA button stacked below Join Free */
+  .mobile-nav-utility.mobile-donate-item {
+    padding: 0 1.25rem 1.5rem !important;
+    border-top: none !important;
+  }
+  .mobile-nav-utility.mobile-donate-item > a {
+    display: block !important;
+    background: #C9A84C !important;
+    color: #fff !important;
+    text-align: center !important;
+    padding: 0.85rem 1rem !important;
+    border-radius: 8px !important;
+    font-weight: 700 !important;
+    font-size: 0.95rem !important;
+    letter-spacing: 0.02em !important;
+    text-decoration: none !important;
+    border-bottom: none !important;
+    transition: background 0.2s ease !important;
+  }
+  .mobile-nav-utility.mobile-donate-item > a:hover {
+    background: #b8963e !important;
+    padding-left: 1rem !important;
+  }
 }
   .sub-dropdown {
     position: static !important;
