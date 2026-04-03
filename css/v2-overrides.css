@@ -60,8 +60,34 @@
 /* Community hero h1 -- ensure white text overrides global h1 color */
 .community-hero h1 { color: #fff; }
 
+/* Mobile-only utility nav items: hidden on desktop, shown in hamburger menu */
+.mobile-nav-utility { display: none; }
+
 /* Mobile: sub-dropdown shows indented below parent */
 @media (max-width: 900px) {
+  /* Show mobile utility items in hamburger menu */
+  .mobile-nav-utility { display: list-item; }
+
+  /* Patients & Caregivers mobile link -- styled to stand out */
+  .mobile-nav-utility.mobile-patients-link > a {
+    color: #38B6FF !important;
+    font-style: italic;
+    font-family: 'DM Serif Display', serif;
+  }
+
+  /* Member Access group divider at top */
+  .mobile-nav-utility.mobile-member-access {
+    border-top: 2px solid rgba(12,31,63,0.08) !important;
+    margin-top: 0.25rem;
+    padding-top: 0.25rem;
+  }
+
+  /* Join Free button styling in mobile nav */
+  .mobile-nav-utility .mobile-join-link {
+    color: #38B6FF !important;
+    font-weight: 700 !important;
+  }
+}
   .sub-dropdown {
     position: static !important;
     opacity: 1 !important;
