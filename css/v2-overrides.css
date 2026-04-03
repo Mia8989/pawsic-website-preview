@@ -63,29 +63,93 @@
 /* Mobile-only utility nav items: hidden on desktop, shown in hamburger menu */
 .mobile-nav-utility { display: none; }
 
+/* Mobile login icon in header -- hidden on desktop */
+.mobile-login-icon { display: none; }
+
 /* Mobile: sub-dropdown shows indented below parent */
 @media (max-width: 900px) {
+  /* Login icon button -- always visible in header next to hamburger */
+  .mobile-login-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: 1px solid rgba(12,31,63,0.18);
+    border-radius: 50%;
+    width: 34px;
+    height: 34px;
+    color: #0C1F3F;
+    text-decoration: none;
+    flex-shrink: 0;
+    transition: background 0.2s ease, border-color 0.2s ease;
+  }
+  .mobile-login-icon:hover {
+    background: rgba(12,31,63,0.06);
+    border-color: #0C1F3F;
+  }
+  .mobile-login-icon svg {
+    width: 17px;
+    height: 17px;
+  }
+
+  /* Main nav container: logo hidden on mobile, login icon + hamburger on right */
+  .main-nav .container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.6rem;
+  }
+
   /* Show mobile utility items in hamburger menu */
   .mobile-nav-utility { display: list-item; }
 
-  /* Patients & Caregivers mobile link -- styled to stand out */
+  /* Patients & Caregivers mobile link */
   .mobile-nav-utility.mobile-patients-link > a {
     color: #38B6FF !important;
     font-style: italic;
     font-family: 'DM Serif Display', serif;
   }
 
-  /* Member Access group divider at top */
-  .mobile-nav-utility.mobile-member-access {
-    border-top: 2px solid rgba(12,31,63,0.08) !important;
+  /* Download Brochure standalone item */
+  .mobile-nav-utility.mobile-brochure-link {
+    border-top: 1px solid rgba(12,31,63,0.08) !important;
     margin-top: 0.25rem;
-    padding-top: 0.25rem;
+  }
+  .mobile-nav-utility.mobile-brochure-link > a {
+    display: flex !important;
+    align-items: center;
+    gap: 0.5rem;
+    color: #3a4a5c !important;
   }
 
-  /* Join Free button styling in mobile nav */
-  .mobile-nav-utility .mobile-join-link {
-    color: #38B6FF !important;
+  /* Member Login standalone item */
+  .mobile-nav-utility.mobile-login-link > a {
+    color: #1E3A6E !important;
+    font-weight: 600 !important;
+  }
+
+  /* Join Free -- full-width CTA button at bottom of menu */
+  .mobile-nav-utility.mobile-join-item {
+    padding: 1rem 1.25rem 1.25rem !important;
+    border-top: 1px solid rgba(12,31,63,0.08) !important;
+  }
+  .mobile-nav-utility.mobile-join-item > a {
+    display: block !important;
+    background: #38B6FF !important;
+    color: #fff !important;
+    text-align: center !important;
+    padding: 0.85rem 1rem !important;
+    border-radius: 8px !important;
     font-weight: 700 !important;
+    font-size: 0.95rem !important;
+    letter-spacing: 0.02em !important;
+    text-decoration: none !important;
+    border-bottom: none !important;
+    transition: background 0.2s ease !important;
+  }
+  .mobile-nav-utility.mobile-join-item > a:hover {
+    background: #2da5ee !important;
+    padding-left: 1rem !important;
   }
 }
   .sub-dropdown {
