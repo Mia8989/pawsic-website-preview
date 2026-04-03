@@ -189,12 +189,18 @@
         <span class="section-tag reveal">About PAWSIC</span>
         <h1 class="reveal reveal-delay-1">Uniting the Post-Acute<br><em>Wound Care Community</em></h1>
         <p class="v2-page-hero-sub reveal reveal-delay-2">We are a patient-centered, interprofessional council providing evidence-based education, clinical tools, and a professional community for everyone who cares about wound and skin health outside the hospital.</p>
-        <div class="v2-page-hero-links reveal reveal-delay-3">
-          <a href="#our-mission" class="btn-primary">Our Mission &amp; Vision</a>
-          <a href="/board/" class="btn-outline">Meet the Board</a>
-        </div>
       </div>
     </section>
+
+    <!-- ===== PAGE TAB NAV ===== -->
+    <div class="events-tab-nav" id="about-tab-nav">
+      <div class="events-tab-nav-inner" style="max-width:700px;">
+        <a href="#our-mission" class="events-tab active" data-section="our-mission">Mission &amp; Vision</a>
+        <a href="#what-we-do" class="events-tab" data-section="what-we-do">What We Do</a>
+        <a href="#who-we-serve" class="events-tab" data-section="who-we-serve">Who We Serve</a>
+        <a href="#leadership" class="events-tab" data-section="leadership">Leadership</a>
+      </div>
+    </div>
 
     <!-- ===== OUR STORY (Vimeo video) ===== -->
     <section class="mission-banner">
@@ -216,7 +222,6 @@
       <div class="container">
         <div class="v2-split-row reveal">
           <div class="v2-split-text">
-            <span class="section-tag">Our Mission</span>
             <h2 class="v2-split-title"><em>Our</em> Mission</h2>
             <p>We are a patient-centered inter-professional team that serves the post-acute care community as the source and voice to guide in quality wound and skin prevention and management, through collaborative evidence-based education, practice, and advocacy.</p>
             <p style="font-size:0.9rem; color:var(--text-muted);">PAWSIC is a 501(c)(6) nonprofit council led by nationally recognized wound care experts.</p>
@@ -235,7 +240,6 @@
     <section class="section section-light v2-split-section">
       <div class="container">
         <div class="section-header reveal">
-          <span class="section-tag">Our Vision</span>
           <h2><em>Our</em> Vision</h2>
           <p>To create a future where post-acute wound management is patient-centered, addressing not only the wound and skin but also the person's unique needs, preferences, and overall well-being.</p>
           <a href="/community/" class="btn-primary" style="display:inline-block;margin-top:1rem;">Explore Our Community <span class="btn-arrow">&rarr;</span></a>
@@ -244,7 +248,7 @@
     </section>
 
     <!-- ===== WHAT WE DO / VALUES ===== -->
-    <section class="section section-white">
+    <section id="what-we-do" class="section section-white">
       <div class="container">
         <div class="section-header reveal">
           <span class="section-tag">What We Do</span>
@@ -299,7 +303,7 @@
     </section>
 
     <!-- ===== WHO WE SERVE ===== -->
-    <section class="section section-warm">
+    <section id="who-we-serve" class="section section-warm">
       <div class="container">
         <div class="section-header reveal">
           <span class="section-tag">Who We Serve</span>
@@ -397,7 +401,7 @@
     </section>
 
     <!-- ===== LEADERSHIP CTA ===== -->
-    <section class="section section-white">
+    <section id="leadership" class="section section-white">
       <div class="container">
         <div class="v2-about-leadership reveal">
           <div class="v2-about-leadership-text">
@@ -421,7 +425,7 @@
       <div class="container">
         <div class="cta-card reveal">
           <div class="cta-content">
-            <h2>Ready to Join <br>the Community?</h2>
+            <h2>Ready to Join <br>the PAWSIC Community?</h2>
             <p>Connect with wound care professionals across the country. Start free. Upgrade when you see the value.</p>
             <a href="https://memberships.pawsic.org/register/free/" class="btn-primary btn-lg" target="_blank" rel="noopener noreferrer">Join PAWSIC Free <span class="btn-arrow">&rarr;</span></a>
           </div>
@@ -529,5 +533,57 @@
   </footer>
 
   <script src="/js/main.js"></script>
+  <style>
+    .events-tab-nav {
+      background: #fff;
+      border-bottom: 1px solid #eee;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      position: sticky;
+      top: 0;
+      z-index: 90;
+    }
+    .events-tab-nav-inner {
+      display: flex;
+      justify-content: center;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .events-tab {
+      flex: 1;
+      text-align: center;
+      padding: 0.9rem 1rem;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #888;
+      text-decoration: none;
+      border-bottom: 2px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+      white-space: nowrap;
+    }
+    .events-tab:hover { color: #1a2e4a; }
+    .events-tab.active {
+      color: #1a2e4a;
+      font-weight: 600;
+      border-bottom-color: #38B6FF;
+    }
+  </style>
+  <script>
+    (function() {
+      var sections = ['our-mission', 'what-we-do', 'who-we-serve', 'leadership'];
+      var tabs = document.querySelectorAll('#about-tab-nav .events-tab');
+      function onScroll() {
+        var scrollY = window.scrollY + 120;
+        var current = sections[0];
+        sections.forEach(function(id) {
+          var el = document.getElementById(id);
+          if (el && el.offsetTop <= scrollY) current = id;
+        });
+        tabs.forEach(function(tab) {
+          tab.classList.toggle('active', tab.dataset.section === current);
+        });
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+    })();
+  </script>
 </body>
 </html>
