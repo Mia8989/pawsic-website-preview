@@ -179,6 +179,10 @@ p { margin-bottom: 1rem; }
   display: block;
   border-bottom: none;
   overflow: hidden;
+  clip-path: inset(0);
+  -webkit-clip-path: inset(0);
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
 }
 .announcement-banner.dismissed { display: none; }
 
@@ -468,9 +472,9 @@ p { margin-bottom: 1rem; }
 }
 
 @keyframes hero-float {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  33% { transform: translate(25px, -35px) scale(1.08); }
-  66% { transform: translate(-20px, 25px) scale(0.95); }
+  0%, 100% { transform: translateY(0) scale(1); }
+  33% { transform: translateY(-35px) scale(1.08); }
+  66% { transform: translateY(25px) scale(0.95); }
 }
 
 .hero .container {
@@ -789,6 +793,10 @@ p { margin-bottom: 1rem; }
 .logo-track-wrapper {
   overflow: hidden;
   position: relative;
+  clip-path: inset(0);
+  -webkit-clip-path: inset(0);
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
 }
 .logo-track-wrapper::before,
 .logo-track-wrapper::after {
