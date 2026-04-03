@@ -193,8 +193,17 @@
       </div>
     </section>
 
+    <!-- ===== PAGE TAB NAV ===== -->
+    <div class="events-tab-nav" id="events-tab-nav">
+      <div class="events-tab-nav-inner">
+        <a href="#upcoming-events" class="events-tab active" data-section="upcoming-events">Upcoming Events</a>
+        <a href="#why-attend" class="events-tab" data-section="why-attend">Why Attend</a>
+        <a href="#past-events" class="events-tab" data-section="past-events">PAWSIC in Action</a>
+      </div>
+    </div>
+
     <!-- ===== UPCOMING EVENTS ===== -->
-    <section class="section section-white">
+    <section id="upcoming-events" class="section section-white">
       <div class="container">
         <div class="section-header reveal">
           <span class="section-tag">Upcoming Events</span>
@@ -242,7 +251,7 @@
     </section>
 
     <!-- ===== WHY ATTEND ===== -->
-    <section class="section section-warm">
+    <section id="why-attend" class="section section-warm">
       <div class="container">
         <div class="why-pawsic-layout reveal">
           <div class="why-pawsic-text">
@@ -287,7 +296,7 @@
     </section>
 
     <!-- ===== PAST EVENTS GALLERY ===== -->
-    <section class="section section-white">
+    <section id="past-events" class="section section-white">
       <div class="container">
         <div class="section-header reveal">
           <span class="section-tag">Past Events</span>
@@ -480,5 +489,57 @@
   </footer>
 
   <script src="/js/main.js"></script>
+  <style>
+    .events-tab-nav {
+      background: #fff;
+      border-bottom: 1px solid #eee;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      position: sticky;
+      top: 0;
+      z-index: 90;
+    }
+    .events-tab-nav-inner {
+      display: flex;
+      justify-content: center;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .events-tab {
+      flex: 1;
+      text-align: center;
+      padding: 0.9rem 1rem;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #888;
+      text-decoration: none;
+      border-bottom: 2px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+      white-space: nowrap;
+    }
+    .events-tab:hover { color: #1a2e4a; }
+    .events-tab.active {
+      color: #1a2e4a;
+      font-weight: 600;
+      border-bottom-color: #38B6FF;
+    }
+  </style>
+  <script>
+    (function() {
+      var sections = ['upcoming-events', 'why-attend', 'past-events'];
+      var tabs = document.querySelectorAll('.events-tab');
+      function onScroll() {
+        var scrollY = window.scrollY + 120;
+        var current = sections[0];
+        sections.forEach(function(id) {
+          var el = document.getElementById(id);
+          if (el && el.offsetTop <= scrollY) current = id;
+        });
+        tabs.forEach(function(tab) {
+          tab.classList.toggle('active', tab.dataset.section === current);
+        });
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+    })();
+  </script>
 </body>
 </html>
