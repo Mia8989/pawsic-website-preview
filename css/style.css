@@ -1894,6 +1894,12 @@ p { margin-bottom: 1rem; }
 }
 .footer-col ul li a:hover { color: #fff; }
 
+/* Footer SIG sub-item: indented under Shared Interest Groups */
+.footer-col ul li.footer-sub-item { padding-left: 0.8rem; margin-bottom: 0.35rem; }
+.footer-col ul li.footer-sub-item a { font-size: 0.81rem; color: rgba(255,255,255,0.38); }
+.footer-col ul li.footer-sub-item a::before { content: "└ "; opacity: 0.55; }
+.footer-col ul li.footer-sub-item a:hover { color: rgba(255,255,255,0.75); }
+
 .social-links {
   display: flex;
   gap: 0.6rem;
