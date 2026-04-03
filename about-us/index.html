@@ -193,12 +193,12 @@
     </section>
 
     <!-- ===== PAGE TAB NAV ===== -->
-    <div class="events-tab-nav" id="about-tab-nav">
-      <div class="events-tab-nav-inner" style="max-width:700px;">
-        <a href="#our-mission" class="events-tab active" data-section="our-mission">Mission &amp; Vision</a>
-        <a href="#what-we-do" class="events-tab" data-section="what-we-do">What We Do</a>
-        <a href="#who-we-serve" class="events-tab" data-section="who-we-serve">Who We Serve</a>
-        <a href="#leadership" class="events-tab" data-section="leadership">Leadership</a>
+    <div class="about-tab-nav" id="about-tab-nav">
+      <div class="about-tab-nav-inner">
+        <a href="#our-mission" class="about-tab active" data-section="our-mission">Mission &amp; Vision</a>
+        <a href="#what-we-do" class="about-tab" data-section="what-we-do">What We Do</a>
+        <a href="#who-we-serve" class="about-tab" data-section="who-we-serve">Who We Serve</a>
+        <a href="#leadership" class="about-tab" data-section="leadership">Leadership</a>
       </div>
     </div>
 
@@ -534,35 +534,34 @@
 
   <script src="/js/main.js"></script>
   <style>
-    .events-tab-nav {
-      background: #fff;
-      border-bottom: 1px solid #eee;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    .about-tab-nav {
+      background: var(--navy, #0f2240);
+      border-top: 1px solid rgba(255,255,255,0.1);
       position: sticky;
       top: 0;
       z-index: 90;
     }
-    .events-tab-nav-inner {
+    .about-tab-nav-inner {
       display: flex;
       justify-content: center;
-      max-width: 600px;
+      max-width: 700px;
       margin: 0 auto;
     }
-    .events-tab {
+    .about-tab {
       flex: 1;
       text-align: center;
       padding: 0.9rem 1rem;
       font-size: 0.85rem;
       font-weight: 500;
-      color: #888;
+      color: rgba(255,255,255,0.55);
       text-decoration: none;
       border-bottom: 2px solid transparent;
       transition: color 0.2s, border-color 0.2s;
       white-space: nowrap;
     }
-    .events-tab:hover { color: #1a2e4a; }
-    .events-tab.active {
-      color: #1a2e4a;
+    .about-tab:hover { color: rgba(255,255,255,0.85); }
+    .about-tab.active {
+      color: #fff;
       font-weight: 600;
       border-bottom-color: #38B6FF;
     }
@@ -570,7 +569,7 @@
   <script>
     (function() {
       var sections = ['our-mission', 'what-we-do', 'who-we-serve', 'leadership'];
-      var tabs = document.querySelectorAll('#about-tab-nav .events-tab');
+      var tabs = document.querySelectorAll('#about-tab-nav .about-tab');
       function onScroll() {
         var scrollY = window.scrollY + 120;
         var current = sections[0];
