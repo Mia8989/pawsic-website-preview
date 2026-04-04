@@ -215,7 +215,8 @@ add_action('wp_footer', function () {
         <div class="pawsic-portal-wrap">
           <div class="pawsic-portal-card">
             <div class="pawsic-portal-logo">
-              <img src="https://memberships.pawsic.org/wp-content/uploads/2025/11/PAWSIC-gray-logo-.webp" alt="PAWSIC">
+              <img src="https://pawsic.org/images/pawsic-icon.svg" alt="PAWSIC">
+              <div style="color:rgba(255,255,255,0.6);font-size:0.72rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;margin-top:0.5rem;">Post-Acute Wound &amp; Skin Integrity Council</div>
             </div>
             <span class="pawsic-portal-eyebrow">
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
