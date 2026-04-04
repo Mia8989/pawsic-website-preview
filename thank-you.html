@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thank You | PAWSIC Membership</title>
+  <meta name="description" content="Welcome to PAWSIC! Your membership is confirmed. Explore courses, join the community, and start your wound care education journey.">
+  <meta property="og:title" content="Thank You | PAWSIC Membership">
+  <meta property="og:description" content="Welcome to PAWSIC! Your membership is confirmed.">
+  <meta property="og:url" content="https://memberships.pawsic.org/thank-you/">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://pawsic.org/images/pawsic-og-image.jpg">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="canonical" href="https://memberships.pawsic.org/thank-you/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/v2-overrides.css">
+  <style>
+    /* ===== Thank You Page Styles ===== */
+
+    .ty-header {
+      background: linear-gradient(160deg, #081428 0%, #0c1f3f 50%, #1e3a6e 100%);
+      color: #fff;
+      padding: 4.5rem 0 3.5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .ty-header::before {
+      content: '';
+      position: absolute;
+      top: -50%; right: -15%;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(56,182,255,0.12) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .ty-header::after {
+      content: '';
+      position: absolute;
+      bottom: -40%; left: -10%;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(58,158,143,0.08) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .ty-header .container {
+      position: relative;
+      z-index: 2;
+    }
+
+    .ty-checkmark {
+      width: 64px;
+      height: 64px;
+      background: rgba(56, 182, 255, 0.15);
+      border: 2px solid rgba(56, 182, 255, 0.3);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+    }
+    .ty-checkmark svg {
+      width: 30px;
+      height: 30px;
+      stroke: #38B6FF;
+      stroke-width: 2.5;
+      fill: none;
+    }
+
+    .ty-header h1 {
+      color: #fff;
+      font-size: clamp(2rem, 4.5vw, 3rem);
+      margin-bottom: 0.75rem;
+    }
+    .ty-header h1 em {
+      font-style: italic;
+      color: #38B6FF;
+    }
+    .ty-header p {
+      color: rgba(255,255,255,0.7);
+      font-size: 1.1rem;
+      max-width: 560px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    /* Content area */
+    .ty-content {
+      padding: 4rem 0 5rem;
+      background: #FAF8F4;
+    }
+    .ty-content .container {
+      max-width: 880px;
+    }
+
+    .ty-section-title {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+    .ty-section-title h2 {
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      margin-bottom: 0.5rem;
+    }
+    .ty-section-title p {
+      color: #7a8699;
+      font-size: 1rem;
+    }
+
+    /* Next-step cards */
+    .ty-steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .ty-step-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      border: 1px solid #e8edf2;
+      transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .ty-step-card:hover {
+      border-color: #2b7cca;
+      box-shadow: 0 4px 20px rgba(12,31,63,0.08);
+      transform: translateY(-2px);
+    }
+
+    .ty-step-icon {
+      width: 52px;
+      height: 52px;
+      background: #eef5f8;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.25rem;
+    }
+    .ty-step-icon svg {
+      width: 24px;
+      height: 24px;
+      stroke: #2b7cca;
+      stroke-width: 2;
+      fill: none;
+    }
+
+    .ty-step-card h3 {
+      font-size: 1.05rem;
+      color: #0c1f3f;
+      margin-bottom: 0.5rem;
+    }
+    .ty-step-card p {
+      font-size: 0.9rem;
+      color: #7a8699;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+    .ty-step-link {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: #2b7cca;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      transition: color 0.3s ease, gap 0.3s ease;
+    }
+    .ty-step-link:hover {
+      color: #1e3a6e;
+      gap: 0.55rem;
+    }
+
+    /* CTA section */
+    .ty-cta {
+      text-align: center;
+      padding: 2.5rem 2rem;
+      background: linear-gradient(160deg, #0c1f3f 0%, #1e3a6e 100%);
+      border-radius: 20px;
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+    .ty-cta::before {
+      content: '';
+      position: absolute;
+      top: -30%; right: -10%;
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, rgba(56,182,255,0.1) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .ty-cta h2 {
+      color: #fff;
+      font-size: clamp(1.35rem, 2.5vw, 1.75rem);
+      margin-bottom: 0.5rem;
+      position: relative;
+      z-index: 1;
+    }
+    .ty-cta p {
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+      position: relative;
+      z-index: 1;
+    }
+    .ty-cta .btn-primary {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .ty-header {
+        padding: 3rem 0 2.5rem;
+      }
+      .ty-checkmark {
+        width: 52px;
+        height: 52px;
+        margin-bottom: 1.25rem;
+      }
+      .ty-checkmark svg {
+        width: 24px;
+        height: 24px;
+      }
+      .ty-steps {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+      .ty-content {
+        padding: 3rem 0 3.5rem;
+      }
+      .ty-cta {
+        padding: 2rem 1.5rem;
+        border-radius: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- ===== ANNOUNCEMENT BANNER ===== -->
+  <div class="announcement-banner" id="announcementBanner">
+    <div class="container">
+      <span class="banner-text">
+        <strong>Welcome to PAWSIC</strong>: Explore CE &amp; CME courses, webinars, clinical tools, community forums, and more.
+        <a href="https://memberships.pawsic.org/account/">Go to Your Account &rarr;</a>
+      </span>
+      <button class="banner-close" aria-label="Dismiss banner">&times;</button>
+    </div>
+  </div>
+
+  <!-- ===== UTILITY BAR ===== -->
+  <nav class="utility-bar" aria-label="Utility navigation">
+    <div class="container">
+      <a href="https://pawsic.org/" class="utility-logo">
+        <img src="images/pawsic-diamond.png" alt="PAWSIC icon" class="logo-icon">
+        <span class="logo-text">
+          <span class="logo-name">PAWSIC</span>
+          <span class="logo-tagline">Post-Acute Wound &amp; Skin Integrity Council</span>
+        </span>
+      </a>
+      <div class="utility-links">
+        <a href="https://pawsic.org/resources/pawsic-brochure.pdf" class="utility-link" target="_blank" rel="noopener noreferrer">Download Brochure</a>
+        <a href="https://memberships.pawsic.org/account/" class="utility-link">My Account</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== MAIN NAVIGATION ===== -->
+  <nav class="main-nav" aria-label="Main navigation">
+    <div class="container">
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="https://pawsic.org/">Home</a></li>
+        <li>
+          <a href="https://pawsic.org/about/" class="has-dropdown" aria-haspopup="true" aria-expanded="false">About Us <span class="dropdown-arrow" aria-hidden="true"></span></a>
+          <ul class="dropdown">
+            <li><a href="https://pawsic.org/about/">About PAWSIC</a></li>
+            <li><a href="https://pawsic.org/board/">The Board</a></li>
+            <li><a href="https://pawsic.org/advisory/">Advisory Committee</a></li>
+            <li><a href="https://pawsic.org/who-is-pawsic/">Who is PAWSIC?</a></li>
+            <li><a href="https://pawsic.org/services/">Services</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="https://pawsic.org/events/" class="has-dropdown" aria-haspopup="true" aria-expanded="false">Events <span class="dropdown-arrow" aria-hidden="true"></span></a>
+          <ul class="dropdown">
+            <li><a href="https://pawsic.org/events/">Upcoming Events</a></li>
+            <li><a href="https://pawsic.org/webinars/">Webinars</a></li>
+            <li><a href="https://pawsic.org/press-releases/">Press Releases</a></li>
+          </ul>
+        </li>
+        <li><a href="https://pawsic.org/resources/">Resources</a></li>
+        <li><a href="https://pawsic.org/programs/">Courses</a></li>
+        <li>
+          <a href="https://pawsic.org/community/" class="has-dropdown" aria-haspopup="true" aria-expanded="false">Community <span class="dropdown-arrow" aria-hidden="true"></span></a>
+          <ul class="dropdown">
+            <li><a href="https://pawsic.org/community/#forums">Forums</a></li>
+            <li><a href="https://pawsic.org/community/#sig-spaces">Shared Interest Group (SIG)</a></li>
+          </ul>
+        </li>
+        <li><a href="https://pawsic.org/membership/">Membership</a></li>
+        <li><a href="https://pawsic.org/sponsors/">Sponsorship</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="mobile-overlay"></div>
+
+  <main id="main-content">
+
+    <!-- ===== THANK YOU HEADER ===== -->
+    <section class="ty-header">
+      <div class="container">
+        <div class="ty-checkmark">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <!--
+          WORDPRESS/MEMBERPRESS NOTE:
+          Replace the text "Member" below with the MemberPress shortcode:
+          [mepr_account_info field="first_name"]
+          so the heading reads: "Thank You, Sarah!" (or whatever the member's first name is)
+        -->
+        <h1>Thank You, <em>[mepr_account_info field="first_name"]</em>!</h1>
+        <p>Your PAWSIC membership is confirmed. You now have access to evidence-based wound care education, CE &amp; CME credits, and a professional community dedicated to improving patient outcomes.</p>
+      </div>
+    </section>
+
+    <!-- ===== WHAT'S NEXT ===== -->
+    <section class="ty-content">
+      <div class="container">
+
+        <div class="ty-section-title">
+          <h2>Here's How to Get Started</h2>
+          <p>Three ways to make the most of your PAWSIC membership right away.</p>
+        </div>
+
+        <div class="ty-steps">
+
+          <!-- Card 1: Courses -->
+          <div class="ty-step-card">
+            <div class="ty-step-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+            </div>
+            <h3>Explore Your Courses</h3>
+            <p>Browse CE &amp; CME accredited courses, webinar recordings, and clinical resources available with your membership.</p>
+            <a href="https://memberships.pawsic.org/account/" class="ty-step-link">
+              View Courses <span aria-hidden="true">&rarr;</span>
+            </a>
+          </div>
+
+          <!-- Card 2: Community -->
+          <div class="ty-step-card">
+            <div class="ty-step-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <h3>Join the Community</h3>
+            <p>Connect with wound care professionals in our forums, Shared Interest Groups, and upcoming events.</p>
+            <a href="https://pawsic.org/community/" class="ty-step-link">
+              Visit Forums <span aria-hidden="true">&rarr;</span>
+            </a>
+          </div>
+
+          <!-- Card 3: Email -->
+          <div class="ty-step-card">
+            <div class="ty-step-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <h3>Check Your Email</h3>
+            <p>We've sent a welcome email with your membership details, login credentials, and helpful getting-started resources.</p>
+            <a href="https://memberships.pawsic.org/account/" class="ty-step-link">
+              My Account <span aria-hidden="true">&rarr;</span>
+            </a>
+          </div>
+
+        </div>
+
+        <!-- CTA Banner -->
+        <div class="ty-cta">
+          <h2>Ready to Start Learning?</h2>
+          <p>Your account is set up and waiting for you. Explore your dashboard, enroll in courses, and join the conversation.</p>
+          <a href="https://memberships.pawsic.org/account/" class="btn-primary btn-lg">
+            Go to My Account <span class="btn-arrow">&rarr;</span>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <img src="images/pawsic-diamond.png" alt="PAWSIC" class="logo-icon">
+            <span class="logo-text">
+              <span class="logo-name">PAWSIC</span>
+              <span class="logo-tagline">Post-Acute Wound &amp; Skin Integrity Council</span>
+            </span>
+          </div>
+          <p>Post-Acute Wound &amp; Skin Integrity Council, a 501(c)(6) nonprofit uniting wound care professionals through education, community, and advocacy.</p>
+          <div class="social-links">
+            <a href="https://www.facebook.com/pawsicorg" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+            <a href="https://www.instagram.com/pawsicorg" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="https://www.linkedin.com/company/pawsic" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+            <a href="https://www.tiktok.com/@pawsicorg" aria-label="TikTok" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" viewBox="0 0 24 24" fill="white" stroke="none"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1v-3.52a6.37 6.37 0 0 0-.79-.05A6.34 6.34 0 0 0 3.15 15.2a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.73a8.19 8.19 0 0 0 4.76 1.52V6.8a4.84 4.84 0 0 1-1-.11z"/></svg></a>
+            <a href="https://www.youtube.com/@pawsicorg" aria-label="YouTube" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" viewBox="0 0 24 24" fill="white" stroke="none"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+            <a href="https://x.com/pawsicorg" aria-label="X" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" viewBox="0 0 24 24" fill="white" stroke="none"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="https://pawsic.org/about/">About Us</a></li>
+            <li><a href="https://pawsic.org/board/">The Board</a></li>
+            <li><a href="https://pawsic.org/membership/">Membership</a></li>
+            <li><a href="https://pawsic.org/programs/">CE/CME Courses</a></li>
+            <li><a href="https://pawsic.org/resources/">Resources</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Community</h4>
+          <ul>
+            <li><a href="https://pawsic.org/community/#forums">Forums</a></li>
+            <li><a href="https://pawsic.org/community/#sig-spaces">Shared Interest Group (SIG)</a></li>
+            <li><a href="https://pawsic.org/events/">Events</a></li>
+            <li><a href="https://pawsic.org/webinars/">Webinars</a></li>
+            <li><a href="https://pawsic.org/contact/">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="https://pawsic.org/sponsors/">Become a Sponsor</a></li>
+            <li><a href="https://donate.stripe.com/dRm8wQ1mC3oE8Ef8p7c7u0m" target="_blank" rel="noopener noreferrer">Donate</a></li>
+            <li><a href="https://memberships.pawsic.org/login/" target="_blank" rel="noopener noreferrer">Member Login</a></li>
+            <li><a href="https://pawsic.org/press-releases/">Press Releases</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-bottom-row">
+          <span>&copy; 2026 PAWSIC. All Rights Reserved. Donations/sponsorships are not tax deductible.</span>
+          <div class="footer-legal">
+            <a href="https://pawsic.org/privacy-policy/">Privacy Policy</a>
+            <a href="https://pawsic.org/disclaimers/">Website Disclaimer</a>
+            <a href="https://pawsic.org/disclaimers/#resource-disclaimer">Resource Disclaimer</a>
+            <a href="https://pawsic.org/accessibility/">Accessibility</a>
+          </div>
+        </div>
+        <p class="footer-credit">Website built and designed with care by <a href="https://aipowereddahlia.com/" target="_blank" rel="noopener noreferrer">AI Powered Dahlia</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
