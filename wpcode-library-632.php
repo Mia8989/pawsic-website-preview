@@ -144,7 +144,9 @@ add_action('wp_head', function () {
         color: #0c1f3f; font-weight: 700; line-height: 1.3;
       }
       .plib-m p { margin-bottom: 0; }
-      .plib-m a { color: #2b7cca; text-decoration: none; }
+      .plib-m a { color: #2b7cca; text-decoration: underline; text-decoration-color: rgba(43,124,202,0.3); text-underline-offset: 2px; }
+      .plib-m a:hover { text-decoration-color: #2b7cca; }
+      .plib-m .res-card, .plib-m .chapter-item, .plib-m .btn, .plib-m .res-nav a { text-decoration: none !important; }
       .plib-m img { max-width: 100%; height: auto; }
       .plib-m .wrap { max-width: 1080px; margin: 0 auto; padding: 0 2rem; }
       .plib-m em { font-style: italic; color: #38b6ff; }
@@ -180,7 +182,7 @@ add_action('wp_head', function () {
         color: #fff !important; margin-bottom: 0.5rem !important;
       }
       .plib-m-hero .hero-sub {
-        color: rgba(255,255,255,0.65); font-size: 1rem;
+        color: rgba(255,255,255,0.85); font-size: 1rem;
         line-height: 1.7; max-width: 620px; margin: 0 auto;
       }
       .plib-m-hero .hero-stats {
@@ -191,7 +193,7 @@ add_action('wp_head', function () {
         font-size: 2rem; color: #38b6ff; display: block; line-height: 1.1;
       }
       .plib-m-hero .hero-stat-label {
-        font-size: 0.75rem; color: rgba(255,255,255,0.5);
+        font-size: 0.75rem; color: rgba(255,255,255,0.75);
         text-transform: uppercase; letter-spacing: 1px;
       }
 
@@ -380,9 +382,10 @@ add_action('wp_head', function () {
         width: 180px; flex-shrink: 0; position: relative; z-index: 1;
       }
       .plib-m .ebook-cover img {
-        width: 100%; border-radius: 4px;
+        width: 100%; border-radius: 6px;
         box-shadow: 0 12px 40px rgba(0,0,0,0.4);
-        mix-blend-mode: multiply;
+        background: #fff;
+        padding: 8px;
       }
       .plib-m .ebook-info { position: relative; z-index: 1; flex: 1; }
       .plib-m .ebook-info h2 {
@@ -394,13 +397,13 @@ add_action('wp_head', function () {
         margin-bottom: 0.5rem;
       }
       .plib-m .ebook-info .ebook-editors {
-        color: rgba(255,255,255,0.5); font-size: 0.82rem;
+        color: rgba(255,255,255,0.75); font-size: 0.82rem;
         margin-bottom: 0.75rem;
       }
       .plib-m .ebook-info .ebook-pub {
         display: inline-flex; align-items: center; gap: 0.4rem;
-        font-size: 0.75rem; color: rgba(255,255,255,0.4);
-        background: rgba(255,255,255,0.08); padding: 0.3rem 0.8rem;
+        font-size: 0.75rem; color: rgba(255,255,255,0.7);
+        background: rgba(255,255,255,0.12); padding: 0.3rem 0.8rem;
         border-radius: 100px; margin-bottom: 1rem;
       }
       .plib-m .ebook-info .ebook-actions {
@@ -498,7 +501,7 @@ add_action('wp_head', function () {
         margin-bottom: 0.25rem !important; position: relative; z-index: 1;
       }
       .plib-m .cta-banner p {
-        color: rgba(255,255,255,0.6); font-size: 0.9rem; position: relative; z-index: 1;
+        color: rgba(255,255,255,0.8); font-size: 0.9rem; position: relative; z-index: 1;
       }
       .plib-m .cta-banner .btn { position: relative; z-index: 1; }
 
@@ -528,16 +531,16 @@ add_filter('the_content', function ($content) {
     if (get_the_ID() != 632) return $content;
 
     $html = <<<'HTML'
-<div class="plib-m">
+<div class="plib-m" role="main" aria-label="PAWSIC Resource Library">
 
 <!-- HERO -->
-<section class="plib-m-hero">
+<section class="plib-m-hero" aria-label="Library introduction">
   <div class="wrap">
     <span class="hero-tag">Member Resource Library</span>
     <h1>PAWSIC <em>Library</em></h1>
     <p class="hero-sub">Your central hub for clinical resources, downloadable tools, and the complete Chronic Wound Care e-Book. Browse, search, and access everything in one place.</p>
     <div class="hero-stats">
-      <div><span class="hero-stat-num">35</span><span class="hero-stat-label">Resources</span></div>
+      <div><span class="hero-stat-num">39</span><span class="hero-stat-label">Resources</span></div>
       <div><span class="hero-stat-num">25</span><span class="hero-stat-label">e-Book Chapters</span></div>
     </div>
   </div>
@@ -547,8 +550,8 @@ add_filter('the_content', function ($content) {
 <div class="search-bar">
   <div class="wrap">
     <div class="search-input-wrap">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-      <input type="text" class="search-input" id="plib-search" placeholder="Search resources by title or keyword...">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input type="text" class="search-input" id="plib-search" placeholder="Search resources by title or keyword..." aria-label="Search resources">
     </div>
     <span class="search-count" id="plib-count">Showing all resources</span>
   </div>
@@ -561,17 +564,17 @@ add_filter('the_content', function ($content) {
     <!-- DISCLAIMER BANNER -->
     <div class="disclaimer-banner" id="plib-disclaimer">
       <div class="disclaimer-icon">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
       </div>
       <div class="disclaimer-body">
         <h4>Resource Disclaimer</h4>
         <p>All resources in this library are provided for educational and informational purposes only. By downloading, you agree to the <a href="https://pawsic.org/disclaimers/#resource-disclaimer" target="_blank">PAWSIC Resource Disclaimer</a>.</p>
         <label class="disclaimer-check">
-          <input type="checkbox" id="plib-disclaimer-cb">
+          <input type="checkbox" id="plib-disclaimer-cb" aria-label="Acknowledge PAWSIC Resource Disclaimer">
           I acknowledge and agree to the PAWSIC Resource Disclaimer
         </label>
         <div class="disclaimer-accepted-msg">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
           Disclaimer acknowledged. Downloads are enabled.
         </div>
       </div>
@@ -583,9 +586,10 @@ add_filter('the_content', function ($content) {
       <aside class="res-sidebar">
         <div class="res-sidebar-title">Categories</div>
         <ul class="res-nav" role="tablist">
-          <li><a role="tab" class="active" data-filter="all">All Resources <span class="nav-count">35</span></a></li>
-          <li><a role="tab" data-filter="resources">Resources &amp; Handouts <span class="nav-count">7</span></a></li>
-          <li><a role="tab" data-filter="ebook">e-Book Chapters <span class="nav-count">28</span></a></li>
+          <li role="presentation"><a role="tab" class="active" aria-selected="true" data-filter="all" tabindex="0">All Resources <span class="nav-count">39</span></a></li>
+          <li role="presentation"><a role="tab" aria-selected="false" data-filter="resources" tabindex="0">Resources &amp; Handouts <span class="nav-count">6</span></a></li>
+          <li role="presentation"><a role="tab" aria-selected="false" data-filter="skin-failure" tabindex="0">Skin Failure <span class="nav-count">5</span></a></li>
+          <li role="presentation"><a role="tab" aria-selected="false" data-filter="ebook" tabindex="0">e-Book Chapters <span class="nav-count">28</span></a></li>
         </ul>
       </aside>
 
@@ -601,53 +605,93 @@ add_filter('the_content', function ($content) {
       </div>
       <div class="res-cards" id="plib-res-grid">
 
-        <a href="https://memberships.pawsic.org/wp-content/uploads/2026/03/PAWSIC-WOUND-LITERACY-MARTIN-HAMPTON-compressed-1.pdf" target="_blank" class="res-card download-locked" data-title="Wound Literacy and Patient Education: Advancing Understanding to Improve Outcomes">
-          <span class="res-type res-type-blue">Publication</span>
-          <h3>Wound Literacy and Patient Education</h3>
-          <p>Advancing understanding to improve outcomes. A comprehensive resource on patient education strategies for wound care literacy by Martin Hampton.</p>
-          <span class="res-link">Download PDF <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17l9.2-9.2M7 7h9.2v9.2"/></svg></span>
-        </a>
-
         <a href="https://memberships.pawsic.org/wp-content/uploads/2026/01/Martin-WISE-scale-1.pdf" target="_blank" class="res-card download-locked" data-title="Martin-WISE Scale">
           <span class="res-type res-type-gold">Assessment Tool</span>
           <h3>Martin-WISE Scale</h3>
           <p>The Wound Identification for Skin failure Evaluation (WISE) scale, a clinical assessment tool for identifying and documenting skin failure.</p>
-          <span class="res-link">Download PDF <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17l9.2-9.2M7 7h9.2v9.2"/></svg></span>
+          <span class="res-link">Download PDF <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M7 17l9.2-9.2M7 7h9.2v9.2"/></svg></span>
         </a>
 
         <a href="https://memberships.pawsic.org/wp-content/uploads/2026/01/Beyond-the-Mattress_-Comprehensive-Therapeutic-Support-Surface-Strategies-for-PALTC.pdf" target="_blank" class="res-card download-locked" data-title="Beyond the Mattress: Comprehensive Therapeutic Support Surface Strategies for PALTC">
           <span class="res-type res-type-teal">Clinical Guide</span>
           <h3>Beyond the Mattress: Support Surface Strategies for PALTC</h3>
           <p>Comprehensive therapeutic support surface strategies for post-acute and long-term care settings, covering selection, implementation, and best practices.</p>
-          <span class="res-link">Download PDF <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17l9.2-9.2M7 7h9.2v9.2"/></svg></span>
+          <span class="res-link">Download PDF <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M7 17l9.2-9.2M7 7h9.2v9.2"/></svg></span>
         </a>
 
         <a href="https://memberships.pawsic.org/wp-content/uploads/2023/08/Wound-Provider-Group-Checklist-PAWSIC.pdf" target="_blank" class="res-card download-locked" data-title="Wound Provider Group (WPG) Checklist">
           <span class="res-type res-type-green">Checklist</span>
           <h3>Wound Provider Group (WPG) Checklist</h3>
           <p>A structured checklist for wound provider groups to ensure comprehensive, standardized wound care delivery across care teams.</p>
-          <span class="res-link">Download PDF <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17l9.2-9.2M7 7h9.2v9.2"/></svg></span>
+          <span class="res-link">Download PDF <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M7 17l9.2-9.2M7 7h9.2v9.2"/></svg></span>
         </a>
 
         <a href="https://memberships.pawsic.org/wp-content/uploads/2023/08/pawsic_white_paper_feb_2023_v5.pdf" target="_blank" class="res-card download-locked" data-title="Ongoing COVID-19 Impact on Skin Health and Wound Management in Post-Acute Care">
           <span class="res-type res-type-purple">White Paper</span>
           <h3>Ongoing COVID-19 Impact on Skin Health and Wound Management</h3>
           <p>PAWSIC white paper examining the continuing effects of COVID-19 on skin health and wound management in post-acute care settings.</p>
-          <span class="res-link">Download PDF <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17l9.2-9.2M7 7h9.2v9.2"/></svg></span>
+          <span class="res-link">Download PDF <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M7 17l9.2-9.2M7 7h9.2v9.2"/></svg></span>
         </a>
 
         <a href="https://memberships.pawsic.org/wp-content/uploads/2024/02/Webinar-Questions-3.pdf" target="_blank" class="res-card download-locked" data-title="Webinar Questions">
           <span class="res-type res-type-blue">Q&amp;A Resource</span>
           <h3>Webinar Questions</h3>
           <p>Compiled questions and answers from PAWSIC webinar sessions, providing additional clinical insights and expert responses.</p>
-          <span class="res-link">Download PDF <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17l9.2-9.2M7 7h9.2v9.2"/></svg></span>
+          <span class="res-link">Download PDF <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M7 17l9.2-9.2M7 7h9.2v9.2"/></svg></span>
         </a>
 
         <a href="https://memberships.pawsic.org/wp-content/uploads/2024/02/Handouts-for-PAWSIC-Webinar-2-06-24.pdf" target="_blank" class="res-card download-locked" data-title="Conceptual Framework of Skin Injuries Associated with Severe Life-Threatening Situations">
           <span class="res-type res-type-blue">Handout</span>
           <h3>Conceptual Framework of Skin Injuries Associated with Severe Life-Threatening Situations</h3>
           <p>Conceptual framework examining skin injuries that occur in association with severe, life-threatening medical situations. Originally developed as a PAWSIC webinar companion resource.</p>
-          <span class="res-link">Download PDF <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17l9.2-9.2M7 7h9.2v9.2"/></svg></span>
+          <span class="res-link">Download PDF <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M7 17l9.2-9.2M7 7h9.2v9.2"/></svg></span>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- SKIN FAILURE SECTION -->
+    <div class="res-section" data-category="skin-failure" id="plib-skin-failure" style="margin-top:3rem">
+      <div class="sec-header">
+        <span class="sec-label">Skin Failure</span>
+        <h2>Skin Failure <em>Resources</em></h2>
+        <p>Position statements, clinical assessment guides, code proposals, and reference materials from the PAWSIC Skin Failure Shared Interest Group.</p>
+      </div>
+      <div class="res-cards">
+
+        <a href="https://memberships.pawsic.org/wp-content/uploads/2025/09/AADA_PAWSIC_SKIN_FAILURE_REVISED_CODE_PROPOSAL_Presented_September.pdf" target="_blank" class="res-card download-locked" data-title="AADA-PAWSIC Skin Failure Revised Code Proposal">
+          <span class="res-type res-type-gold">Code Proposal</span>
+          <h3>AADA-PAWSIC Skin Failure Revised Code Proposal</h3>
+          <p>Revised code proposal for skin failure classification, developed in collaboration between AADA and PAWSIC. September 2025.</p>
+          <span class="res-link">Download PDF <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M7 17l9.2-9.2M7 7h9.2v9.2"/></svg></span>
+        </a>
+
+        <a href="https://memberships.pawsic.org/wp-content/uploads/2025/09/PAWSIC-Skin-Failure-Clinical-Assessment-Guide-June-2025-1.pdf" target="_blank" class="res-card download-locked" data-title="PAWSIC Skin Failure Clinical Assessment Guide">
+          <span class="res-type res-type-green">Assessment Guide</span>
+          <h3>PAWSIC Skin Failure Clinical Assessment Guide</h3>
+          <p>Clinical assessment guide for identifying and documenting skin failure, supporting differentiation from pressure injuries. June 2025.</p>
+          <span class="res-link">Download PDF <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M7 17l9.2-9.2M7 7h9.2v9.2"/></svg></span>
+        </a>
+
+        <a href="https://memberships.pawsic.org/wp-content/uploads/2025/11/PAWSIC-SF-SIG-Position-Statements-November-2025_compressed.pdf" target="_blank" class="res-card download-locked" data-title="PAWSIC SF SIG Position Statements">
+          <span class="res-type res-type-purple">Position Statement</span>
+          <h3>PAWSIC SF SIG Position Statements</h3>
+          <p>Official position statements and clinical recommendations developed by the PAWSIC Skin Failure Shared Interest Group. November 2025.</p>
+          <span class="res-link">Download PDF <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M7 17l9.2-9.2M7 7h9.2v9.2"/></svg></span>
+        </a>
+
+        <a href="https://memberships.pawsic.org/wp-content/uploads/2026/01/PAWSIC-Skin-Failure-References-Jan-2026_1.pdf" target="_blank" class="res-card download-locked" data-title="PAWSIC Skin Failure References">
+          <span class="res-type res-type-blue">Reference List</span>
+          <h3>PAWSIC Skin Failure References</h3>
+          <p>Comprehensive reference list supporting skin failure research, clinical practice, and documentation standards. January 2026.</p>
+          <span class="res-link">Download PDF <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M7 17l9.2-9.2M7 7h9.2v9.2"/></svg></span>
+        </a>
+
+        <a href="https://memberships.pawsic.org/wp-content/uploads/2025/09/Skin-Failure-Commentary-John-La-Puma-August-2025.pdf" target="_blank" class="res-card download-locked" data-title="Skin Failure Commentary: John La Puma">
+          <span class="res-type res-type-purple">Commentary</span>
+          <h3>Skin Failure Commentary: John La Puma</h3>
+          <p>Expert commentary on skin failure by John La Puma, exploring clinical perspectives and implications for wound care practice. August 2025.</p>
+          <span class="res-link">Download PDF <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M7 17l9.2-9.2M7 7h9.2v9.2"/></svg></span>
         </a>
 
       </div>
@@ -667,10 +711,10 @@ add_filter('the_content', function ($content) {
           <h2><em>Chronic Wound Care:</em> The Essentials</h2>
           <p class="ebook-subtitle">A Clinical Source Book for Healthcare Professionals</p>
           <p class="ebook-editors">Edited by Diane L. Krasner, PhD, RN, FAAN &amp; Lis van Rijswijk, DNP, RN, CWCN</p>
-          <span class="ebook-pub"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg> Originally published by HMP / Why Wound Care?</span>
+          <span class="ebook-pub"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg> Originally published by HMP / Why Wound Care?</span>
           <div class="ebook-actions">
-            <a href="https://memberships.pawsic.org/wp-content/uploads/2024/03/WWC-CWCE-e-Book-2018.pdf" target="_blank" class="btn btn-primary download-locked">Download Full e-Book <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></a>
-            <span style="color:rgba(255,255,255,0.4);font-size:0.82rem;display:flex;align-items:center">or browse individual chapters below</span>
+            <a href="https://memberships.pawsic.org/wp-content/uploads/2024/03/WWC-CWCE-e-Book-2018.pdf" target="_blank" class="btn btn-primary download-locked">Download Full e-Book <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></a>
+            <span style="color:rgba(255,255,255,0.7);font-size:0.82rem;display:flex;align-items:center">or browse individual chapters below</span>
           </div>
         </div>
       </div>
@@ -681,61 +725,61 @@ add_filter('the_content', function ($content) {
         <a href="https://memberships.pawsic.org/wp-content/uploads/2024/03/Chapter-1-The-Call-to-Wound-Prevention-and-Care.pdf" target="_blank" class="chapter-item download-locked" data-title="Chapter 1: The Call to Wound Prevention and Care">
           <span class="chapter-num">01</span>
           <div class="ch-info"><h4>The Call to Wound Prevention and Care</h4></div>
-          <svg class="ch-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17l9.2-9.2M7 7h9.2v9.2"/></svg>
+          <svg class="ch-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17l9.2-9.2M7 7h9.2v9.2"/></svg>
         </a>
 
         <a href="https://memberships.pawsic.org/wp-content/uploads/2024/03/Chapter-2-International-Interprofessional-Wound-Caring.pdf" target="_blank" class="chapter-item download-locked" data-title="Chapter 2: International Interprofessional Wound Caring">
           <span class="chapter-num">02</span>
           <div class="ch-info"><h4>International Interprofessional Wound Caring</h4></div>
-          <svg class="ch-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17l9.2-9.2M7 7h9.2v9.2"/></svg>
+          <svg class="ch-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17l9.2-9.2M7 7h9.2v9.2"/></svg>
         </a>
 
         <a href="https://memberships.pawsic.org/wp-content/uploads/2024/03/Chapter-3-The-Science-of-Wound-Healing.pdf" target="_blank" class="chapter-item download-locked" data-title="Chapter 3: Science of Wound Healing">
           <span class="chapter-num">03</span>
           <div class="ch-info"><h4>Science of Wound Healing: Translation of Bench Science into Advances for Chronic Wound Care</h4></div>
-          <svg class="ch-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17l9.2-9.2M7 7h9.2v9.2"/></svg>
+          <svg class="ch-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17l9.2-9.2M7 7h9.2v9.2"/></svg>
         </a>
 
         <a href="https://memberships.pawsic.org/wp-content/uploads/2024/03/Chapter-4-Wound-Assessment-and-Documentation.pdf" target="_blank" class="chapter-item download-locked" data-title="Chapter 4: Wound Assessment and Documentation">
           <span class="chapter-num">04</span>
           <div class="ch-info"><h4>Wound Assessment and Documentation</h4></div>
-          <svg class="ch-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17l9.2-9.2M7 7h9.2v9.2"/></svg>
+          <svg class="ch-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17l9.2-9.2M7 7h9.2v9.2"/></svg>
         </a>
 
         <a href="https://memberships.pawsic.org/wp-content/uploads/2024/03/Chapter-5-Cleansing-Wound-Irrigation-Wound-Disinfection.pdf" target="_blank" class="chapter-item download-locked" data-title="Chapter 5: Wound Cleansing, Wound Irrigation, Wound Disinfection">
           <span class="chapter-num">05</span>
           <div class="ch-info"><h4>Wound Cleansing, Wound Irrigation, Wound Disinfection</h4></div>
-          <svg class="ch-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17l9.2-9.2M7 7h9.2v9.2"/></svg>
+          <svg class="ch-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17l9.2-9.2M7 7h9.2v9.2"/></svg>
         </a>
 
         <a href="https://memberships.pawsic.org/wp-content/uploads/2024/03/Chapter-6-Wound-Debridement.pdf" target="_blank" class="chapter-item download-locked" data-title="Chapter 6: Wound Debridement">
           <span class="chapter-num">06</span>
           <div class="ch-info"><h4>Wound Debridement</h4></div>
-          <svg class="ch-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17l9.2-9.2M7 7h9.2v9.2"/></svg>
+          <svg class="ch-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17l9.2-9.2M7 7h9.2v9.2"/></svg>
         </a>
 
         <a href="https://memberships.pawsic.org/wp-content/uploads/2024/03/Chapter-7-Cofactors-in-Impaired-Wound-Healing.pdf" target="_blank" class="chapter-item download-locked" data-title="Chapter 7: Cofactors in Impaired Wound Healing">
           <span class="chapter-num">07</span>
           <div class="ch-info"><h4>Cofactors in Impaired Wound Healing</h4></div>
-          <svg class="ch-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17l9.2-9.2M7 7h9.2v9.2"/></svg>
+          <svg class="ch-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17l9.2-9.2M7 7h9.2v9.2"/></svg>
         </a>
 
         <a href="https://memberships.pawsic.org/wp-content/uploads/2024/03/Chapter-8-Infections-in-Chronic-Wounds.pdf" target="_blank" class="chapter-item download-locked" data-title="Chapter 8: Infections in Chronic Wounds">
           <span class="chapter-num">08</span>
           <div class="ch-info"><h4>Infections in Chronic Wounds</h4></div>
-          <svg class="ch-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17l9.2-9.2M7 7h9.2v9.2"/></svg>
+          <svg class="ch-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17l9.2-9.2M7 7h9.2v9.2"/></svg>
         </a>
 
         <a href="https://memberships.pawsic.org/wp-content/uploads/2024/03/Chapter-9-Pain.pdf" target="_blank" class="chapter-item download-locked" data-title="Chapter 9: Pain in People with Chronic Wounds">
           <span class="chapter-num">09</span>
           <div class="ch-info"><h4>Pain in People with Chronic Wounds: Clinical Strategies for Decreasing Pain and Improving Quality of Life</h4></div>
-          <svg class="ch-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17l9.2-9.2M7 7h9.2v9.2"/></svg>
+          <svg class="ch-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17l9.2-9.2M7 7h9.2v9.2"/></svg>
         </a>
 
         <a href="https://memberships.pawsic.org/wp-content/uploads/2024/03/Chapter-10-Health-Related-Quality-of-Life-and-Chronic-Wounds-1.pdf" target="_blank" class="chapter-item download-locked" data-title="Chapter 10: Health-Related Quality of Life and Chronic Wounds">
           <span class="chapter-num">10</span>
           <div class="ch-info"><h4>Health-Related Quality of Life and Chronic Wounds: Evidence and Implications for Practice</h4></div>
-          <svg class="ch-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17l9.2-9.2M7 7h9.2v9.2"/></svg>
+          <svg class="ch-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17l9.2-9.2M7 7h9.2v9.2"/></svg>
         </a>
 
       </div>
@@ -746,103 +790,103 @@ add_filter('the_content', function ($content) {
         <a href="https://memberships.pawsic.org/wp-content/uploads/2024/03/Chapter-11-Nutritional-Strategies.pdf" target="_blank" class="chapter-item download-locked" data-title="Chapter 11: Nutritional Strategies for Wound and Pressure Ulcer Management">
           <span class="chapter-num">11</span>
           <div class="ch-info"><h4>Nutritional Strategies for Wound and Pressure Ulcer Management</h4></div>
-          <svg class="ch-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17l9.2-9.2M7 7h9.2v9.2"/></svg>
+          <svg class="ch-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17l9.2-9.2M7 7h9.2v9.2"/></svg>
         </a>
 
         <a href="https://memberships.pawsic.org/wp-content/uploads/2024/03/Chapter-12-The-Development-of-Wound-Management-Products.pdf" target="_blank" class="chapter-item download-locked" data-title="Chapter 12: The Development of Wound Management Products">
           <span class="chapter-num">12</span>
           <div class="ch-info"><h4>The Development of Wound Management Products</h4></div>
-          <svg class="ch-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17l9.2-9.2M7 7h9.2v9.2"/></svg>
+          <svg class="ch-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17l9.2-9.2M7 7h9.2v9.2"/></svg>
         </a>
 
         <a href="https://memberships.pawsic.org/wp-content/uploads/2024/03/Chapter-13-Wound-Dressing-Product-Selection.pdf" target="_blank" class="chapter-item download-locked" data-title="Chapter 13: Wound Dressing Product Selection">
           <span class="chapter-num">13</span>
           <div class="ch-info"><h4>Wound Dressing Product Selection: A Holistic, Interprofessional, Patient-Centered Approach</h4></div>
-          <svg class="ch-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17l9.2-9.2M7 7h9.2v9.2"/></svg>
+          <svg class="ch-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17l9.2-9.2M7 7h9.2v9.2"/></svg>
         </a>
 
         <a href="https://memberships.pawsic.org/wp-content/uploads/2024/03/Chapter-14-Wound-Device-Product-Selection.pdf" target="_blank" class="chapter-item download-locked" data-title="Chapter 14: Interprofessional Perspectives on Individualized Wound Device Product Selection">
           <span class="chapter-num">14</span>
           <div class="ch-info"><h4>Interprofessional Perspectives on Individualized Wound Device Product Selection</h4></div>
-          <svg class="ch-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17l9.2-9.2M7 7h9.2v9.2"/></svg>
+          <svg class="ch-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17l9.2-9.2M7 7h9.2v9.2"/></svg>
         </a>
 
         <a href="https://memberships.pawsic.org/wp-content/uploads/2024/03/Chapter-15-Wound-Product-Selection-Challenges.pdf" target="_blank" class="chapter-item download-locked" data-title="Chapter 15: Wound Product Selection Challenges">
           <span class="chapter-num">15</span>
           <div class="ch-info"><h4>Wound Product Selection Challenges: Developing Strategies for Your Practice Setting</h4></div>
-          <svg class="ch-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17l9.2-9.2M7 7h9.2v9.2"/></svg>
+          <svg class="ch-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17l9.2-9.2M7 7h9.2v9.2"/></svg>
         </a>
 
         <a href="https://memberships.pawsic.org/wp-content/uploads/2024/03/Chapter-16-Negative-Pressure-Wound-Therapy.pdf" target="_blank" class="chapter-item download-locked" data-title="Chapter 16: Negative Pressure Wound Therapy">
           <span class="chapter-num">16</span>
           <div class="ch-info"><h4>Negative Pressure Wound Therapy</h4></div>
-          <svg class="ch-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17l9.2-9.2M7 7h9.2v9.2"/></svg>
+          <svg class="ch-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17l9.2-9.2M7 7h9.2v9.2"/></svg>
         </a>
 
         <a href="https://memberships.pawsic.org/wp-content/uploads/2024/03/Chapter-17-Biophysical-Technologies-in-Wound-Management.pdf" target="_blank" class="chapter-item download-locked" data-title="Chapter 17: Biophysical Technologies in Wound Management">
           <span class="chapter-num">17</span>
           <div class="ch-info"><h4>Biophysical Technologies in Wound Management</h4></div>
-          <svg class="ch-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17l9.2-9.2M7 7h9.2v9.2"/></svg>
+          <svg class="ch-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17l9.2-9.2M7 7h9.2v9.2"/></svg>
         </a>
 
         <a href="https://memberships.pawsic.org/wp-content/uploads/2024/03/Chapter-18-Support-Surfaces.pdf" target="_blank" class="chapter-item download-locked" data-title="Chapter 18: Support Surfaces: Tissue Integrity, Terms, Principles, and Choice">
           <span class="chapter-num">18</span>
           <div class="ch-info"><h4>Support Surfaces: Tissue Integrity, Terms, Principles, and Choice</h4></div>
-          <svg class="ch-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17l9.2-9.2M7 7h9.2v9.2"/></svg>
+          <svg class="ch-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17l9.2-9.2M7 7h9.2v9.2"/></svg>
         </a>
 
         <a href="https://memberships.pawsic.org/wp-content/uploads/2024/03/Chapter-19-Compression-Therapies.pdf" target="_blank" class="chapter-item download-locked" data-title="Chapter 19: Compression Therapies">
           <span class="chapter-num">19</span>
           <div class="ch-info"><h4>Compression Therapies</h4></div>
-          <svg class="ch-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17l9.2-9.2M7 7h9.2v9.2"/></svg>
+          <svg class="ch-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17l9.2-9.2M7 7h9.2v9.2"/></svg>
         </a>
 
         <a href="https://memberships.pawsic.org/wp-content/uploads/2024/03/Chapter-20-Offloading-Foot-Wounds-in-People-with-Diabetes.pdf" target="_blank" class="chapter-item download-locked" data-title="Chapter 20: Offloading Foot Wounds in People with Diabetes">
           <span class="chapter-num">20</span>
           <div class="ch-info"><h4>Offloading Foot Wounds in People with Diabetes</h4></div>
-          <svg class="ch-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17l9.2-9.2M7 7h9.2v9.2"/></svg>
+          <svg class="ch-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17l9.2-9.2M7 7h9.2v9.2"/></svg>
         </a>
 
         <a href="https://memberships.pawsic.org/wp-content/uploads/2024/03/Chapter-21-Surgical-Repair-in-Advanced-Wound-Caring.pdf" target="_blank" class="chapter-item download-locked" data-title="Chapter 21: Surgical Repair in Advanced Wound Caring">
           <span class="chapter-num">21</span>
           <div class="ch-info"><h4>Surgical Repair in Advanced Wound Caring</h4></div>
-          <svg class="ch-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17l9.2-9.2M7 7h9.2v9.2"/></svg>
+          <svg class="ch-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17l9.2-9.2M7 7h9.2v9.2"/></svg>
         </a>
 
         <a href="https://memberships.pawsic.org/wp-content/uploads/2024/03/Chapter-22-The-Role-of-Oxygen-and-Hyperbaric-Medicine.pdf" target="_blank" class="chapter-item download-locked" data-title="Chapter 22: The Role of Oxygen and Hyperbaric Medicine">
           <span class="chapter-num">22</span>
           <div class="ch-info"><h4>The Role of Oxygen and Hyperbaric Medicine</h4></div>
-          <svg class="ch-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17l9.2-9.2M7 7h9.2v9.2"/></svg>
+          <svg class="ch-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17l9.2-9.2M7 7h9.2v9.2"/></svg>
         </a>
 
         <a href="https://memberships.pawsic.org/wp-content/uploads/2024/03/Chapter-23-SCALE-Skin-Changes-At-Lifes-End.pdf" target="_blank" class="chapter-item download-locked" data-title="Chapter 23: SCALE Skin Changes At Life's End">
           <span class="chapter-num">23</span>
           <div class="ch-info"><h4>SCALE Skin Changes At Life's End</h4></div>
-          <svg class="ch-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17l9.2-9.2M7 7h9.2v9.2"/></svg>
+          <svg class="ch-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17l9.2-9.2M7 7h9.2v9.2"/></svg>
         </a>
 
         <a href="https://memberships.pawsic.org/wp-content/uploads/2024/03/Chapter-24-Best-Practice-Guidelines-Algorithms-and-Standards.pdf" target="_blank" class="chapter-item download-locked" data-title="Chapter 24: Best Practice Guidelines, Algorithms, and Standards">
           <span class="chapter-num">24</span>
           <div class="ch-info"><h4>Best Practice Guidelines, Algorithms, and Standards: Tools to Make the Right Thing Easier to Do</h4></div>
-          <svg class="ch-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17l9.2-9.2M7 7h9.2v9.2"/></svg>
+          <svg class="ch-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17l9.2-9.2M7 7h9.2v9.2"/></svg>
         </a>
 
         <a href="https://memberships.pawsic.org/wp-content/uploads/2024/03/Chapter-25-The-Outpatient-Wound-Clinic.pdf" target="_blank" class="chapter-item download-locked" data-title="Chapter 25: The Outpatient Wound Clinic">
           <span class="chapter-num">25</span>
           <div class="ch-info"><h4>The Outpatient Wound Clinic</h4></div>
-          <svg class="ch-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17l9.2-9.2M7 7h9.2v9.2"/></svg>
+          <svg class="ch-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17l9.2-9.2M7 7h9.2v9.2"/></svg>
         </a>
 
         <a href="https://memberships.pawsic.org/wp-content/uploads/2024/03/conclusion.pdf" target="_blank" class="chapter-item download-locked" data-title="Conclusion">
           <span class="chapter-num" style="background:linear-gradient(135deg,#1e3a6e,#2b7cca);color:#fff">&#10003;</span>
           <div class="ch-info"><h4>Conclusion</h4></div>
-          <svg class="ch-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17l9.2-9.2M7 7h9.2v9.2"/></svg>
+          <svg class="ch-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17l9.2-9.2M7 7h9.2v9.2"/></svg>
         </a>
 
         <a href="https://memberships.pawsic.org/wp-content/uploads/2024/03/Index.pdf" target="_blank" class="chapter-item download-locked" data-title="Index">
           <span class="chapter-num" style="background:linear-gradient(135deg,#eef5f8,#dceef8);color:#7a8699;font-size:0.7rem">IDX</span>
           <div class="ch-info"><h4>Index</h4></div>
-          <svg class="ch-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17l9.2-9.2M7 7h9.2v9.2"/></svg>
+          <svg class="ch-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17l9.2-9.2M7 7h9.2v9.2"/></svg>
         </a>
 
       </div>
@@ -864,7 +908,7 @@ add_filter('the_content', function ($content) {
           <h2>Looking for <em>CE Courses</em>?</h2>
           <p>Explore PAWSIC's accredited continuing education programs for wound care and skin health professionals.</p>
         </div>
-        <a href="https://memberships.pawsic.org/courses/person-centered-wound-care-post-acute/" class="btn btn-primary">Browse CE Courses <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        <a href="https://memberships.pawsic.org/courses/person-centered-wound-care-post-acute/" class="btn btn-primary">Browse CE Courses <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
       </div>
     </div>
 
@@ -937,8 +981,9 @@ add_filter('the_content', function ($content) {
   navLinks.forEach(function(link){
     link.addEventListener('click', function(e){
       e.preventDefault();
-      navLinks.forEach(function(l){ l.classList.remove('active'); });
+      navLinks.forEach(function(l){ l.classList.remove('active'); l.setAttribute('aria-selected','false'); });
       this.classList.add('active');
+      this.setAttribute('aria-selected','true');
       activeFilter = this.getAttribute('data-filter');
       sections.forEach(function(sec){
         if(activeFilter === 'all' || sec.getAttribute('data-category') === activeFilter){
@@ -989,12 +1034,18 @@ add_filter('the_content', function ($content) {
       if(match) visible++;
     });
 
-    /* Show/hide section headers */
+    /* Show/hide section headers based on visible cards */
     var resSec = document.getElementById('plib-resources');
     var resCards = resSec.querySelectorAll('.res-card');
     var anyResVisible = false;
     resCards.forEach(function(c){ if(c.style.display !== 'none') anyResVisible = true; });
     resSec.style.display = anyResVisible ? '' : 'none';
+
+    var sfSec = document.getElementById('plib-skin-failure');
+    var sfCards = sfSec.querySelectorAll('.res-card');
+    var anySfVisible = false;
+    sfCards.forEach(function(c){ if(c.style.display !== 'none') anySfVisible = true; });
+    sfSec.style.display = anySfVisible ? '' : 'none';
 
     var ebookSec = document.getElementById('plib-ebook');
     var chapterItems = ebookSec.querySelectorAll('.chapter-item');
@@ -1010,6 +1061,7 @@ add_filter('the_content', function ($content) {
     if(q === ''){
       countEl.textContent = 'Showing all resources';
       resSec.style.display = (activeFilter === 'all' || activeFilter === 'resources') ? '' : 'none';
+      sfSec.style.display = (activeFilter === 'all' || activeFilter === 'skin-failure') ? '' : 'none';
     } else {
       countEl.textContent = 'Showing ' + visible + ' of ' + totalCount + ' resources';
     }
