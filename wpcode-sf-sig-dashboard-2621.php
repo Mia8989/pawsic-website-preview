@@ -3,7 +3,7 @@
  * PAWSIC SF SIG Member Dashboard v2
  *
  * WPCode Snippet for memberships.pawsic.org
- * Page ID: 27742991 (SF SIG Member Dashboard)
+ * Page ID: 2621 (SF SIG Member Dashboard)
  *
  * HOW TO INSTALL:
  * 1. Go to WPCode > Add Snippet > Custom Snippet > PHP Snippet
@@ -15,33 +15,45 @@
  * ACCESS CONTROL:
  * Page access is handled by MemberPress Rules (not this snippet).
  * Protect this page for: Premium Annual, Premium Monthly, and SF SIG memberships.
+ *
+ * NOTE: Post 2621 is a WordPress Project (custom post type), not a Page.
+ * We use get_the_ID() instead of is_page(), and add a body class filter
+ * so the .page-id-2621 CSS selectors work on any post type.
  */
+
+// Add body class so .page-id-2621 works on custom post types
+add_filter('body_class', function ($classes) {
+    if (get_the_ID() == 2621) {
+        $classes[] = 'page-id-2621';
+    }
+    return $classes;
+});
 
 // Inject styles into head
 add_action('wp_head', function () {
-    if (!is_page(27742991)) return;
+    if (get_the_ID() != 2621) return;
     ?>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-      /* ===== Divi Nuclear Reset for page 27742991 ===== */
-      .page-id-27742991 #page-container,
-      .page-id-27742991 #et-main-area,
-      .page-id-27742991 #main-content,
-      .page-id-27742991 #main-content .container,
-      .page-id-27742991 .et_pb_section,
-      .page-id-27742991 .et_pb_row,
-      .page-id-27742991 .et_pb_column,
-      .page-id-27742991 .et_pb_module,
-      .page-id-27742991 .et_pb_text_inner,
-      .page-id-27742991 .et_pb_post_content,
-      .page-id-27742991 .et_builder_inner_content,
-      .page-id-27742991 .entry-content,
-      .page-id-27742991 .et_pb_gutters3 .et_pb_column,
-      .page-id-27742991 .et_pb_with_border,
-      .page-id-27742991 article,
-      .page-id-27742991 .post-content {
+      /* ===== Divi Nuclear Reset for page 2621 ===== */
+      .page-id-2621 #page-container,
+      .page-id-2621 #et-main-area,
+      .page-id-2621 #main-content,
+      .page-id-2621 #main-content .container,
+      .page-id-2621 .et_pb_section,
+      .page-id-2621 .et_pb_row,
+      .page-id-2621 .et_pb_column,
+      .page-id-2621 .et_pb_module,
+      .page-id-2621 .et_pb_text_inner,
+      .page-id-2621 .et_pb_post_content,
+      .page-id-2621 .et_builder_inner_content,
+      .page-id-2621 .entry-content,
+      .page-id-2621 .et_pb_gutters3 .et_pb_column,
+      .page-id-2621 .et_pb_with_border,
+      .page-id-2621 article,
+      .page-id-2621 .post-content {
         padding: 0 !important;
         margin: 0 !important;
         max-width: 100% !important;
@@ -51,12 +63,12 @@ add_action('wp_head', function () {
       }
 
       /* Hide Divi page title + sidebar + top spacing */
-      .page-id-27742991 .et_pb_post_title,
-      .page-id-27742991 .et_pb_post_title_0,
-      .page-id-27742991 h1.entry-title,
-      .page-id-27742991 h1.main_title,
-      .page-id-27742991 .page .entry-title,
-      .page-id-27742991 .et_post_meta_wrapper {
+      .page-id-2621 .et_pb_post_title,
+      .page-id-2621 .et_pb_post_title_0,
+      .page-id-2621 h1.entry-title,
+      .page-id-2621 h1.main_title,
+      .page-id-2621 .page .entry-title,
+      .page-id-2621 .et_post_meta_wrapper {
         display: none !important;
         visibility: hidden !important;
         height: 0 !important;
@@ -67,15 +79,15 @@ add_action('wp_head', function () {
         font-size: 0 !important;
         min-height: 0 !important;
       }
-      .page-id-27742991 #sidebar,
-      .page-id-27742991 .widget-area,
-      .page-id-27742991 .et_right_sidebar #sidebar,
-      .page-id-27742991 .et_left_sidebar #sidebar {
+      .page-id-2621 #sidebar,
+      .page-id-2621 .widget-area,
+      .page-id-2621 .et_right_sidebar #sidebar,
+      .page-id-2621 .et_left_sidebar #sidebar {
         display: none !important;
       }
-      .page-id-27742991 .et_right_sidebar #left-area,
-      .page-id-27742991 .et_left_sidebar #left-area,
-      .page-id-27742991 #left-area {
+      .page-id-2621 .et_right_sidebar #left-area,
+      .page-id-2621 .et_left_sidebar #left-area,
+      .page-id-2621 #left-area {
         width: 100% !important;
         float: none !important;
         padding: 0 !important;
@@ -83,54 +95,54 @@ add_action('wp_head', function () {
         margin-top: 0 !important;
         padding-top: 0 !important;
       }
-      .page-id-27742991 .entry-content,
-      .page-id-27742991 .et_pb_post_content {
+      .page-id-2621 .entry-content,
+      .page-id-2621 .et_pb_post_content {
         overflow: visible !important;
         padding-top: 0 !important;
         margin-top: 0 !important;
       }
       /* Nuclear removal of ALL top spacing from Divi wrappers */
-      .page-id-27742991 #et-main-area,
-      .page-id-27742991 #main-content,
-      .page-id-27742991 #main-content .container,
-      .page-id-27742991 .et_pb_section,
-      .page-id-27742991 .et_pb_section:first-child,
-      .page-id-27742991 .et_pb_row,
-      .page-id-27742991 .et_pb_row:first-child,
-      .page-id-27742991 .et_pb_column,
-      .page-id-27742991 .et_pb_column:first-child,
-      .page-id-27742991 .et_pb_module,
-      .page-id-27742991 .et_pb_module:first-child,
-      .page-id-27742991 article.page,
-      .page-id-27742991 article.post,
-      .page-id-27742991 .et_pb_extra_column_main,
-      .page-id-27742991 .et_pb_post,
-      .page-id-27742991 .et-l,
-      .page-id-27742991 .et-l--post,
-      .page-id-27742991 .et-l--body,
-      .page-id-27742991 .et-l--main,
-      .page-id-27742991 #et-boc,
-      .page-id-27742991 #content-area,
-      .page-id-27742991 .et_builder_inner_content,
-      .page-id-27742991 .et_pb_text_inner,
-      .page-id-27742991 .et_pb_section_0,
-      .page-id-27742991 .et_pb_row_0,
-      .page-id-27742991 .et_pb_column_0,
-      .page-id-27742991 .et_pb_module_0 {
+      .page-id-2621 #et-main-area,
+      .page-id-2621 #main-content,
+      .page-id-2621 #main-content .container,
+      .page-id-2621 .et_pb_section,
+      .page-id-2621 .et_pb_section:first-child,
+      .page-id-2621 .et_pb_row,
+      .page-id-2621 .et_pb_row:first-child,
+      .page-id-2621 .et_pb_column,
+      .page-id-2621 .et_pb_column:first-child,
+      .page-id-2621 .et_pb_module,
+      .page-id-2621 .et_pb_module:first-child,
+      .page-id-2621 article.page,
+      .page-id-2621 article.post,
+      .page-id-2621 .et_pb_extra_column_main,
+      .page-id-2621 .et_pb_post,
+      .page-id-2621 .et-l,
+      .page-id-2621 .et-l--post,
+      .page-id-2621 .et-l--body,
+      .page-id-2621 .et-l--main,
+      .page-id-2621 #et-boc,
+      .page-id-2621 #content-area,
+      .page-id-2621 .et_builder_inner_content,
+      .page-id-2621 .et_pb_text_inner,
+      .page-id-2621 .et_pb_section_0,
+      .page-id-2621 .et_pb_row_0,
+      .page-id-2621 .et_pb_column_0,
+      .page-id-2621 .et_pb_module_0 {
         padding-top: 0 !important;
         margin-top: 0 !important;
         min-height: 0 !important;
       }
 
       /* Catch-all: force content flush against the nav */
-      .page-id-27742991 .sfsig-m {
+      .page-id-2621 .sfsig-m {
         margin-top: -50px !important;
         position: relative;
         z-index: 1;
       }
 
       /* Hide any default content that's not ours */
-      .page-id-27742991 .entry-content > *:not(.sfsig-m) {
+      .page-id-2621 .entry-content > *:not(.sfsig-m) {
         display: none !important;
       }
 
@@ -165,7 +177,7 @@ add_action('wp_head', function () {
       /* Hero */
       .sfsig-m-hero {
         background: linear-gradient(135deg, #0c1f3f 0%, #1e3a6e 50%, #2b7cca 100%) !important;
-        color: #fff !important; padding: 5rem 0 3.5rem !important;
+        color: #fff !important; padding: 10rem 0 3.5rem !important;
         position: relative !important; overflow: hidden !important;
       }
       .sfsig-m-hero::before {
@@ -405,6 +417,9 @@ add_action('wp_head', function () {
       }
       .sfsig-m .res-card .res-type-purple {
         color: #7c5cbf; background: rgba(124,92,191,0.08);
+      }
+      .sfsig-m .res-card .res-type-green {
+        color: #2e8b57; background: rgba(46,139,87,0.08);
       }
       .sfsig-m .res-card h3 {
         font-size: 1rem !important; font-family: 'Inter', sans-serif !important;
@@ -666,7 +681,7 @@ add_action('wp_head', function () {
 
 // Inject custom HTML into the page content
 add_filter('the_content', function ($content) {
-    if (!is_page(27742991)) return $content;
+    if (get_the_ID() != 2621) return $content;
 
     $html = <<<'HTML'
 <div class="sfsig-m">
@@ -826,7 +841,11 @@ add_filter('the_content', function ($content) {
           <ul class="res-nav">
             <li><a href="#" class="active" data-filter="all">
               <span><svg style="display:inline;vertical-align:-3px;width:16px;height:16px;margin-right:6px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>All Resources</span>
-              <span class="nav-count">5</span>
+              <span class="nav-count">17</span>
+            </a></li>
+            <li><a href="#" data-filter="skin-failure">
+              <span><svg style="display:inline;vertical-align:-3px;width:16px;height:16px;margin-right:6px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Skin Failure</span>
+              <span class="nav-count">12</span>
             </a></li>
             <li><a href="#" data-filter="clinical-guide">
               <span><svg style="display:inline;vertical-align:-3px;width:16px;height:16px;margin-right:6px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Clinical Guides</span>
@@ -1099,7 +1118,7 @@ add_filter('the_content', function ($content) {
       </div>
       <div style="display:flex;gap:0.75rem;flex-wrap:wrap">
         <a href="https://memberships.pawsic.org/account/" class="btn btn-primary">My Account</a>
-        <a href="https://memberships.pawsic.org/courses/" class="btn btn-outline-light">CE Courses</a>
+        <a href="https://memberships.pawsic.org/courses/person-centered-wound-care-post-acute/" class="btn btn-outline-light">CE Courses</a>
       </div>
     </div>
   </div>

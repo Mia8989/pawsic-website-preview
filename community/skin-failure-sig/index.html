@@ -438,6 +438,41 @@
       position: relative;
       z-index: 1;
     }
+    /* ---- SIG Tab Nav ---- */
+    .sig-tab-nav {
+      position: sticky;
+      top: 0;
+      z-index: 90;
+      background: var(--navy, #0f2240);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .sig-tab-nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: flex;
+      gap: 0;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .sig-tab-nav-inner::-webkit-scrollbar { display: none; }
+    .sig-tab {
+      display: inline-block;
+      padding: 1rem 1.4rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.65);
+      text-decoration: none;
+      border-bottom: 3px solid transparent;
+      white-space: nowrap;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .sig-tab:hover { color: #fff; }
+    .sig-tab.active {
+      color: #fff;
+      border-bottom-color: #38B6FF;
+    }
   </style>
   <link rel="icon" type="image/png" sizes="32x32" href="/images/pawsic-favicon-32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/pawsic-favicon-16.png">
@@ -560,8 +595,18 @@
       </div>
     </section>
 
+    <!-- ===== SIG TAB NAV ===== -->
+    <div class="sig-tab-nav" id="sig-tab-nav">
+      <div class="sig-tab-nav-inner">
+        <a href="#sig-about" class="sig-tab active" data-section="sig-about">About Skin Failure</a>
+        <a href="#sig-benefits" class="sig-tab" data-section="sig-benefits">What's Inside</a>
+        <a href="#sig-who" class="sig-tab" data-section="sig-who">Who Joins</a>
+        <a href="#sig-leadership" class="sig-tab" data-section="sig-leadership">Leadership</a>
+      </div>
+    </div>
+
     <!-- ===== WHAT IS SKIN FAILURE ===== -->
-    <section class="sig-explainer">
+    <section class="sig-explainer" id="sig-about">
       <div class="container">
         <div class="sig-explainer-grid">
           <div class="sig-explainer-text">
@@ -616,7 +661,7 @@
     </section>
 
     <!-- ===== WHAT YOU'LL FIND IN THE SIG ===== -->
-    <section class="sig-benefits">
+    <section class="sig-benefits" id="sig-benefits">
       <div class="container">
         <div class="section-header reveal">
           <span class="section-tag">What's Inside</span>
@@ -671,7 +716,7 @@
     </section>
 
     <!-- ===== WHO JOINS ===== -->
-    <section class="sig-who">
+    <section class="sig-who" id="sig-who">
       <div class="container">
         <div class="section-header reveal">
           <span class="section-tag">Who Joins</span>
@@ -905,5 +950,31 @@
   </footer>
 
   <script src="/js/main.js"></script>
+  <script>
+    (function () {
+      var tabs = document.querySelectorAll('#sig-tab-nav .sig-tab');
+      var sections = ['sig-about', 'sig-benefits', 'sig-who', 'sig-leadership'];
+      var navHeight = document.getElementById('sig-tab-nav').offsetHeight + 80;
+
+      window.addEventListener('scroll', function () {
+        var current = sections[0];
+        sections.forEach(function (id) {
+          var el = document.getElementById(id);
+          if (el && el.getBoundingClientRect().top <= navHeight) current = id;
+        });
+        tabs.forEach(function (tab) {
+          tab.classList.toggle('active', tab.dataset.section === current);
+        });
+      }, { passive: true });
+
+      tabs.forEach(function (tab) {
+        tab.addEventListener('click', function (e) {
+          e.preventDefault();
+          var target = document.getElementById(tab.dataset.section);
+          if (target) window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - navHeight, behavior: 'smooth' });
+        });
+      });
+    })();
+  </script>
 </body>
 </html>
