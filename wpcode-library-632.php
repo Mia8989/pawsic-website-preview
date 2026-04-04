@@ -290,6 +290,39 @@ add_action('wp_head', function () {
         padding: 0.3rem 0.9rem; border-radius: 100px; margin-bottom: 0.75rem;
       }
 
+      /* Resource Layout (sidebar + grid) */
+      .plib-m .res-layout {
+        display: grid; grid-template-columns: 240px 1fr;
+        gap: 2.5rem; align-items: start;
+      }
+      .plib-m .res-sidebar { position: sticky; top: 5rem; }
+      .plib-m .res-sidebar-title {
+        font-size: 0.68rem; font-weight: 700; text-transform: uppercase;
+        letter-spacing: 1.5px; color: #7a8699; margin-bottom: 1rem;
+        font-family: 'Inter', sans-serif;
+      }
+      .plib-m .res-nav {
+        list-style: none; display: flex; flex-direction: column; gap: 0.25rem;
+        padding: 0 !important; margin: 0 !important;
+      }
+      .plib-m .res-nav li { list-style: none !important; }
+      .plib-m .res-nav li a {
+        display: flex; align-items: center; justify-content: space-between;
+        padding: 0.65rem 1rem; border-radius: 10px; font-size: 0.88rem;
+        font-weight: 500; color: #3d4a5c !important;
+        text-decoration: none !important; transition: all 0.2s ease;
+        cursor: pointer;
+      }
+      .plib-m .res-nav li a:hover { background: #eef5f8; color: #1e3a6e !important; }
+      .plib-m .res-nav li a.active { background: #0c1f3f; color: #fff !important; }
+      .plib-m .res-nav li a .nav-count {
+        font-size: 0.72rem; font-weight: 600; color: #7a8699;
+        background: #f0f3f6; padding: 0.15rem 0.55rem; border-radius: 100px;
+      }
+      .plib-m .res-nav li a.active .nav-count {
+        color: rgba(255,255,255,0.6); background: rgba(255,255,255,0.15);
+      }
+
       /* Resource Cards */
       .plib-m .res-cards {
         display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem;
@@ -347,8 +380,9 @@ add_action('wp_head', function () {
         width: 180px; flex-shrink: 0; position: relative; z-index: 1;
       }
       .plib-m .ebook-cover img {
-        width: 100%; border-radius: 8px;
+        width: 100%; border-radius: 4px;
         box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+        mix-blend-mode: multiply;
       }
       .plib-m .ebook-info { position: relative; z-index: 1; flex: 1; }
       .plib-m .ebook-info h2 {
@@ -470,6 +504,10 @@ add_action('wp_head', function () {
 
       /* Responsive */
       @media (max-width: 768px) {
+        .plib-m .res-layout { grid-template-columns: 1fr; }
+        .plib-m .res-sidebar { position: static; }
+        .plib-m .res-nav { flex-direction: row; flex-wrap: wrap; gap: 0.5rem; }
+        .plib-m .res-nav li a { padding: 0.5rem 0.85rem; font-size: 0.82rem; }
         .plib-m .res-cards { grid-template-columns: 1fr; }
         .plib-m-hero .hero-stats { flex-direction: column; gap: 1rem; }
         .plib-m .cta-banner { flex-direction: column; text-align: center; padding: 2rem 1.5rem; }
@@ -539,8 +577,23 @@ add_filter('the_content', function ($content) {
       </div>
     </div>
 
+    <div class="res-layout">
+
+      <!-- Sidebar -->
+      <aside class="res-sidebar">
+        <div class="res-sidebar-title">Categories</div>
+        <ul class="res-nav" role="tablist">
+          <li><a role="tab" class="active" data-filter="all">All Resources <span class="nav-count">35</span></a></li>
+          <li><a role="tab" data-filter="resources">Resources &amp; Handouts <span class="nav-count">7</span></a></li>
+          <li><a role="tab" data-filter="ebook">e-Book Chapters <span class="nav-count">28</span></a></li>
+        </ul>
+      </aside>
+
+      <!-- Main Content -->
+      <div class="res-main">
+
     <!-- STANDALONE RESOURCES -->
-    <div class="res-section" id="plib-resources">
+    <div class="res-section" data-category="resources" id="plib-resources">
       <div class="sec-header">
         <span class="sec-label">Resources &amp; Handouts</span>
         <h2>Clinical Resources <em>&amp; Tools</em></h2>
@@ -601,7 +654,7 @@ add_filter('the_content', function ($content) {
     </div>
 
     <!-- E-BOOK SECTION -->
-    <div class="res-section" id="plib-ebook" style="margin-top:3rem">
+    <div class="res-section" data-category="ebook" id="plib-ebook" style="margin-top:3rem">
       <div class="sec-header">
         <span class="sec-label">e-Book</span>
       </div>
@@ -801,6 +854,9 @@ add_filter('the_content', function ($content) {
 
     </div>
 
+      </div><!-- /.res-main -->
+    </div><!-- /.res-layout -->
+
     <!-- CTA -->
     <div style="margin-top:3rem">
       <div class="cta-banner">
@@ -873,25 +929,56 @@ add_filter('the_content', function ($content) {
     }
   });
 
+  /* Category filter */
+  var navLinks = document.querySelectorAll('.plib-m .res-nav a');
+  var sections = document.querySelectorAll('.plib-m .res-section');
+  var activeFilter = 'all';
+
+  navLinks.forEach(function(link){
+    link.addEventListener('click', function(e){
+      e.preventDefault();
+      navLinks.forEach(function(l){ l.classList.remove('active'); });
+      this.classList.add('active');
+      activeFilter = this.getAttribute('data-filter');
+      sections.forEach(function(sec){
+        if(activeFilter === 'all' || sec.getAttribute('data-category') === activeFilter){
+          sec.style.display = '';
+        } else {
+          sec.style.display = 'none';
+        }
+      });
+      /* Reset search when switching categories */
+      searchInput.value = '';
+      applySearch('');
+    });
+  });
+
   /* Search */
   var searchInput = document.getElementById('plib-search');
   var countEl = document.getElementById('plib-count');
   var allSearchable = document.querySelectorAll('.plib-m .res-card, .plib-m .chapter-item');
   var totalCount = allSearchable.length;
 
-  searchInput.addEventListener('input', function(){
-    var q = this.value.toLowerCase().trim();
+  function applySearch(q){
     var visible = 0;
 
     /* Expand hidden chapters when searching */
-    var hiddenChapters = document.getElementById('plib-chapters-hidden');
+    var hiddenCh = document.getElementById('plib-chapters-hidden');
     var chToggle = document.getElementById('plib-chapter-toggle');
     if(q.length > 0){
-      hiddenChapters.classList.remove('chapters-hidden');
+      hiddenCh.classList.remove('chapters-hidden');
       chToggle.style.display = 'none';
     } else if(!chToggle.classList.contains('expanded')){
-      hiddenChapters.classList.add('chapters-hidden');
+      hiddenCh.classList.add('chapters-hidden');
       chToggle.style.display = '';
+    }
+
+    /* Reset category to all when searching */
+    if(q.length > 0 && activeFilter !== 'all'){
+      navLinks.forEach(function(l){ l.classList.remove('active'); });
+      navLinks[0].classList.add('active');
+      activeFilter = 'all';
+      sections.forEach(function(sec){ sec.style.display = ''; });
     }
 
     allSearchable.forEach(function(el){
@@ -922,10 +1009,14 @@ add_filter('the_content', function ($content) {
 
     if(q === ''){
       countEl.textContent = 'Showing all resources';
-      resSec.style.display = '';
+      resSec.style.display = (activeFilter === 'all' || activeFilter === 'resources') ? '' : 'none';
     } else {
       countEl.textContent = 'Showing ' + visible + ' of ' + totalCount + ' resources';
     }
+  }
+
+  searchInput.addEventListener('input', function(){
+    applySearch(this.value.toLowerCase().trim());
   });
 
   /* Chapter toggle */
