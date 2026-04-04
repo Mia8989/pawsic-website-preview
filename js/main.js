@@ -319,4 +319,28 @@ document.addEventListener('DOMContentLoaded', function() {
     sliderInner.innerHTML = cards + cards;
   }
 
+  // --- Vimeo Video Facade (click-to-load) ---
+  var facades = document.querySelectorAll('.video-facade');
+  facades.forEach(function(facade) {
+    function loadVideo() {
+      var id = facade.getAttribute('data-vimeo-id');
+      var iframe = document.createElement('iframe');
+      iframe.src = 'https://player.vimeo.com/video/' + id + '?badge=0&autopause=0&autoplay=1&player_id=0&app_id=58479';
+      iframe.setAttribute('frameborder', '0');
+      iframe.setAttribute('allow', 'autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share');
+      iframe.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
+      iframe.setAttribute('title', facade.getAttribute('data-vimeo-title') || '');
+      iframe.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;border-radius:inherit;';
+      facade.innerHTML = '';
+      facade.style.cursor = 'default';
+      facade.appendChild(iframe);
+      facade.removeAttribute('role');
+      facade.removeAttribute('tabindex');
+    }
+    facade.addEventListener('click', loadVideo);
+    facade.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); loadVideo(); }
+    });
+  });
+
 });

@@ -3550,3 +3550,9 @@
     gap: 0.6rem;
   }
 }
+
+/* Video facade (click-to-load Vimeo) */
+.video-facade:hover > div:last-child {
+  background: rgba(56, 182, 255, 0.85) !important;
+  transform: translate(-50%, -50%) scale(1.1);
+}
