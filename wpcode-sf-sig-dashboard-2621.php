@@ -841,11 +841,11 @@ add_filter('the_content', function ($content) {
           <ul class="res-nav">
             <li><a href="#" class="active" data-filter="all">
               <span><svg style="display:inline;vertical-align:-3px;width:16px;height:16px;margin-right:6px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>All Resources</span>
-              <span class="nav-count">18</span>
+              <span class="nav-count">13</span>
             </a></li>
             <li><a href="#" data-filter="skin-failure">
               <span><svg style="display:inline;vertical-align:-3px;width:16px;height:16px;margin-right:6px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Skin Failure</span>
-              <span class="nav-count">12</span>
+              <span class="nav-count">7</span>
             </a></li>
             <li><a href="#" data-filter="clinical-guide">
               <span><svg style="display:inline;vertical-align:-3px;width:16px;height:16px;margin-right:6px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Clinical Guides</span>
@@ -912,19 +912,6 @@ add_filter('the_content', function ($content) {
 
           <!-- ===== Skin Failure Materials ===== -->
 
-          <a href="https://memberships.pawsic.org/wp-content/uploads/2026/01/PAWSIC-Skin-Failure-References-Jan-2026_1.pdf" class="res-card" data-category="skin-failure" target="_blank">
-            <span class="res-type res-type-blue">Reference List</span>
-            <h3>PAWSIC Skin Failure References Jan 2026</h3>
-            <p>Comprehensive reference list supporting skin failure research and clinical practice standards. January 2026.</p>
-            <span class="res-link">Download PDF <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></span>
-          </a>
-
-          <a href="https://memberships.pawsic.org/wp-content/uploads/2025/11/PAWSIC-SF-SIG-Position-Statements-November-2025_compressed.pdf" class="res-card" data-category="skin-failure" target="_blank">
-            <span class="res-type res-type-purple">Position Statement</span>
-            <h3>PAWSIC SF SIG Position Statements, November 2025</h3>
-            <p>Official position statements from the PAWSIC Skin Failure Shared Interest Group. November 2025.</p>
-            <span class="res-link">Download PDF <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></span>
-          </a>
 
           <a href="https://memberships.pawsic.org/wp-content/uploads/2025/10/Pyoderma-for-Post-Acute-Care_compressed-.pdf" class="res-card" data-category="skin-failure" target="_blank">
             <span class="res-type res-type-green">Clinical Guide</span>
@@ -933,26 +920,6 @@ add_filter('the_content', function ($content) {
             <span class="res-link">Download PDF <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></span>
           </a>
 
-          <a href="https://memberships.pawsic.org/wp-content/uploads/2025/09/AADA_PAWSIC_SKIN_FAILURE_REVISED_CODE_PROPOSAL_Presented_September.pdf" class="res-card" data-category="skin-failure" target="_blank">
-            <span class="res-type res-type-gold">Code Proposal</span>
-            <h3>AADA/PAWSIC Skin Failure Revised Code Proposal, September 2025</h3>
-            <p>Revised code proposal for skin failure classification, developed in collaboration between AADA and PAWSIC. September 2025.</p>
-            <span class="res-link">Download PDF <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></span>
-          </a>
-
-          <a href="https://memberships.pawsic.org/wp-content/uploads/2025/09/PAWSIC-Skin-Failure-Clinical-Assessment-Guide-June-2025-1.pdf" class="res-card" data-category="skin-failure" target="_blank">
-            <span class="res-type res-type-green">Assessment Guide</span>
-            <h3>PAWSIC Skin Failure Clinical Assessment Guide, June 2025</h3>
-            <p>Clinical assessment guide for identifying and documenting skin failure, supporting differentiation from pressure injuries. June 2025.</p>
-            <span class="res-link">Download PDF <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></span>
-          </a>
-
-          <a href="https://memberships.pawsic.org/wp-content/uploads/2025/09/Skin-Failure-Commentary-John-La-Puma-August-2025.pdf" class="res-card" data-category="skin-failure" target="_blank">
-            <span class="res-type res-type-purple">Commentary</span>
-            <h3>Skin Failure Commentary, John La Puma, August 2025</h3>
-            <p>Expert commentary on skin failure by John La Puma, exploring clinical perspectives and implications for wound care practice. August 2025.</p>
-            <span class="res-link">Download PDF <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></span>
-          </a>
 
           <a href="https://memberships.pawsic.org/wp-content/uploads/2025/09/PAWSIC-SKIN-FAILURE-REFERENCES-AUGUST-2025.pdf" class="res-card" data-category="skin-failure" target="_blank">
             <span class="res-type res-type-blue">Reference List</span>
