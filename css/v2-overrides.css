@@ -432,6 +432,8 @@
 .v2-partners-grid .v2-sponsor-logo:nth-child(5) img { transform: scale(1.25); } /* Open Wound Research */
 .v2-partners-grid .v2-sponsor-logo:nth-child(6) img { transform: scale(1.25); } /* HMP Global WoundCon */
 .v2-sponsors-grid .v2-sponsor-logo:nth-child(9) img { transform: scale(1.85); } /* WoundVision */
+.v2-sponsors-grid .v2-sponsor-logo:nth-child(13) { max-width: 160px !important; width: 160px !important; } /* GreenTec */
+.v2-sponsors-grid .v2-sponsor-logo:nth-child(13) img { width: 160px !important; max-width: none !important; max-height: none !important; height: auto; } /* GreenTec */
 
 /* --------------------------------------------------------------------------
    MISSION & VISION -- Split layout with video placeholder
