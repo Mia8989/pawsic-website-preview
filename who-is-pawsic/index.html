@@ -71,28 +71,28 @@
 <body>
 
   <a href="#main-content" class="skip-link">Skip to main content</a>
-
-  <!-- ===== ANNOUNCEMENT BANNER ===== -->
-  <div class="announcement-banner" id="announcementBanner">
+    <div class="announcement-banner" id="announcementBanner">
     <div class="container">
       <span class="banner-text">
-        <strong>Come see us at SAWC!</strong> Visit our booth April 8-12 in Charlotte, NC.
+        <strong>Come see us at SAWC!</strong> Visit our booth #1821, April 8-12 in Charlotte, NC.
       </span>
       <button class="banner-close" aria-label="Dismiss banner">&times;</button>
     </div>
   </div>
-
-  <!-- ===== UTILITY BAR ===== -->
-  <nav class="utility-bar" aria-label="Utility navigation">
+    <nav class="utility-bar" aria-label="Utility navigation">
     <div class="container">
       <a href="/" class="utility-logo">
-        <img src="/images/pawsic-logo.png" alt="PAWSIC icon" class="logo-icon">
+        <picture><source srcset="/images/pawsic-logo.webp" type="image/webp"><img src="/images/pawsic-logo.png" alt="PAWSIC icon" class="logo-icon" width="80" height="62"></picture>
         <span class="logo-text">
           <span class="logo-name">PAWSIC</span>
           <span class="logo-tagline">Post-Acute Wound &amp; Skin Integrity Council</span>
         </span>
       </a>
       <div class="utility-links">
+        <a href="/patients/" class="utility-link v2-patient-link">
+          <svg aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          Patients &amp; Caregivers
+        </a>
         <a href="/resources/pawsic-brochure.pdf" class="utility-link" target="_blank" rel="noopener noreferrer">Download Brochure</a>
         <a href="https://memberships.pawsic.org/login/" class="utility-link" target="_blank" rel="noopener noreferrer">Member Login</a>
         <a href="https://memberships.pawsic.org/register/free/" class="utility-link utility-join" target="_blank" rel="noopener noreferrer">Join Free</a>
@@ -101,7 +101,6 @@
     </div>
   </nav>
 
-  <!-- ===== MAIN NAVIGATION ===== -->
   <nav class="main-nav" aria-label="Main navigation">
     <div class="container">
       <a href="https://memberships.pawsic.org/login/" class="mobile-login-icon" aria-label="Member Login" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></a>
@@ -112,12 +111,12 @@
         <li><a href="/">Home</a></li>
         <li class="mobile-nav-utility mobile-patients-link"><a href="/patients/">Patients &amp; Caregivers</a></li>
         <li>
-          <a href="/about/" class="has-dropdown active">About Us <span class="dropdown-arrow" aria-hidden="true"></span></a>
+          <a href="/about/" class="has-dropdown" aria-haspopup="true" aria-expanded="false">About Us <span class="dropdown-arrow" aria-hidden="true"></span></a>
           <ul class="dropdown">
             <li><a href="/about/">About PAWSIC</a></li>
             <li><a href="/board/">The Board</a></li>
             <li><a href="/advisory/">Advisory Committee</a></li>
-            <li><a href="/who-is-pawsic/" class="active">Who is PAWSIC?</a></li>
+            <li><a href="/who-is-pawsic/">Who is PAWSIC?</a></li>
             <li><a href="/services/">Services</a></li>
           </ul>
         </li>
@@ -545,7 +544,7 @@
     </div>
   </section>
 
-<footer class="site-footer">
+  <footer class="site-footer">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
