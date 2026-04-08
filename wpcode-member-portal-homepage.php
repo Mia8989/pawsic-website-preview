@@ -234,6 +234,8 @@ add_action('wp_footer', function () {
               <a href="https://memberships.pawsic.org/register/free/">Register for free</a>
               &nbsp;&middot;&nbsp;
               <a href="https://memberships.pawsic.org/register/premium/">Join Premium</a>
+              &nbsp;&middot;&nbsp;
+              <a href="https://memberships.pawsic.org/register/premium-monthly/">Premium Monthly</a>
             </p>
             <div class="pawsic-portal-footer">
               Post-Acute Wound &amp; Skin Integrity Council &nbsp;&middot;&nbsp; <a href="https://pawsic.org" style="color:rgba(255,255,255,0.35);text-decoration:none;">pawsic.org</a>
