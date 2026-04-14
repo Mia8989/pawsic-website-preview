@@ -298,11 +298,11 @@
 
         <!-- Monthly / Yearly Toggle -->
         <div class="pricing-toggle reveal reveal-delay-1">
-          <span class="toggle-label" id="toggleMonthly">Monthly</span>
-          <button class="toggle-switch" id="pricingToggle" aria-label="Switch to monthly pricing" aria-pressed="false">
+          <span class="toggle-label toggle-active" id="toggleMonthly">Monthly</span>
+          <button class="toggle-switch monthly" id="pricingToggle" aria-label="Switch to yearly pricing" aria-pressed="true">
             <span class="toggle-knob"></span>
           </button>
-          <span class="toggle-label toggle-active" id="toggleYearly">Yearly <span class="toggle-save">Save 15%</span></span>
+          <span class="toggle-label" id="toggleYearly">Yearly <span class="toggle-save">Save 15%</span></span>
         </div>
 
         <div class="pricing-row reveal reveal-delay-1">
@@ -327,8 +327,8 @@
           <div class="pricing-card featured">
             <div class="pricing-tier">Premium Member</div>
             <div class="pricing-amount">
-              <span class="price-yearly">$150 <span>/ year</span></span>
-              <span class="price-monthly" style="display:none;">$12.75 <span>/ month</span></span>
+              <span class="price-yearly" style="display:none;">$150 <span>/ year</span></span>
+              <span class="price-monthly">$12.75 <span>/ month</span></span>
             </div>
             <p class="pricing-desc">Full access to everything PAWSIC offers: courses, tools, and community.</p>
             <ul class="feature-list">
@@ -340,10 +340,10 @@
               <li><span class="check">&#10003;</span> Board Nomination Eligibility</li>
               <li><span class="check">&#10003;</span> Represent PAWSIC at Conferences</li>
             </ul>
-            <a href="https://memberships.pawsic.org/register/premium/" class="btn-primary premium-cta-yearly" target="_blank" rel="noopener noreferrer">Start 30-Day Free Trial <span class="btn-arrow">&rarr;</span></a>
-            <a href="https://memberships.pawsic.org/register/premium-monthly/" class="btn-primary premium-cta-monthly" style="display:none;" target="_blank" rel="noopener noreferrer">Start Monthly Premium <span class="btn-arrow">&rarr;</span></a>
-            <p class="pricing-micro premium-micro-yearly">Try free for 30 days. Cancel anytime</p>
-            <p class="pricing-micro premium-micro-monthly" style="display:none;">No trial. Lower monthly payment, cancel anytime</p>
+            <a href="https://memberships.pawsic.org/register/premium/" class="btn-primary premium-cta-yearly" style="display:none;" target="_blank" rel="noopener noreferrer">Start 30-Day Free Trial <span class="btn-arrow">&rarr;</span></a>
+            <a href="https://memberships.pawsic.org/register/premium-monthly/" class="btn-primary premium-cta-monthly" target="_blank" rel="noopener noreferrer">Start Monthly Premium <span class="btn-arrow">&rarr;</span></a>
+            <p class="pricing-micro premium-micro-yearly" style="display:none;">Try free for 30 days. Cancel anytime</p>
+            <p class="pricing-micro premium-micro-monthly">No trial. Lower monthly payment, cancel anytime</p>
           </div>
         </div>
         <p class="pricing-bottom-note reveal reveal-delay-2">Not sure? <a href="https://memberships.pawsic.org/register/free/" target="_blank" rel="noopener noreferrer">Join free first</a>. You can upgrade anytime.</p>
