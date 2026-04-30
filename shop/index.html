@@ -238,6 +238,42 @@
     .btn-shop svg { transition: transform 0.2s var(--ease); }
     .btn-shop:hover svg { transform: translateX(3px); }
 
+    /* Filter bar */
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-bottom: 3rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .filter-pill {
+      background: #fff;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 0.5rem 1.1rem;
+      border-radius: var(--r-pill);
+      cursor: pointer;
+      transition: all 0.2s var(--ease);
+      letter-spacing: 0.02em;
+    }
+    .filter-pill:hover {
+      border-color: var(--navy);
+      color: var(--navy);
+    }
+    .filter-pill.is-active {
+      background: var(--navy);
+      border-color: var(--navy);
+      color: #fff;
+    }
+    @media (max-width: 640px) {
+      .filter-bar { gap: 0.4rem; }
+      .filter-pill { font-size: 0.78rem; padding: 0.4rem 0.85rem; }
+    }
+
     /* Category group headers */
     .category-header {
       display: flex;
@@ -440,8 +476,20 @@
         <h2 class="section-title">Shop All Products</h2>
         <p class="section-desc">Branded merchandise for wound care and skin health professionals, caregivers, and supporters. Every item ships directly from our print partner.</p>
 
+        <div class="filter-bar" role="tablist" aria-label="Product categories">
+          <button class="filter-pill is-active" data-filter="all">All Products</button>
+          <button class="filter-pill" data-filter="drinkware">Drinkware</button>
+          <button class="filter-pill" data-filter="apparel">Apparel</button>
+          <button class="filter-pill" data-filter="headwear">Headwear</button>
+          <button class="filter-pill" data-filter="bags">Bags & Carriers</button>
+          <button class="filter-pill" data-filter="accessories">Accessories & Stationery</button>
+          <button class="filter-pill" data-filter="stickers">Stickers</button>
+          <button class="filter-pill" data-filter="home-office">Home & Office</button>
+        </div>
+
+
         <!-- Drinkware -->
-        <div class="category-block">
+        <div class="category-block" data-cat="drinkware" id="cat-drinkware">
           <div class="category-header">
             <h3>Drinkware</h3>
             <div class="category-line"></div>
@@ -463,10 +511,25 @@
                 </div>
               </div>
             </div>
-
-            <div class="product-card reveal reveal-delay-1">
+            <div class="product-card reveal reveal-delay-2">
+              <div class="product-img-wrap">
+                <img src="https://images-api.printify.com/mockup/69f291d4c326d7da170c2adf/44519/849/pawsic-20oz-tumbler.jpg?camera_label=front" alt="PAWSIC 20oz Tumbler" loading="lazy">
+                
+              </div>
+              <div class="product-body">
+                <p class="product-category">Drinkware</p>
+                <h3 class="product-name">20oz Tumbler</h3>
+                <p class="product-desc">The clinician's go-to for all-day hydration. Keeps drinks cold 24 hours, hot 12 hours.</p>
+                <div class="product-footer">
+                  <span class="product-price">$28</span>
+                  <a href="https://pawsic-shop.printify.me/product/28301085" class="btn-shop" target="_blank" rel="noopener noreferrer">Shop <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                </div>
+              </div>
+            </div>
+            <div class="product-card reveal reveal-delay-3">
               <div class="product-img-wrap">
                 <img src="https://images-api.printify.com/mockup/69f291d9cd8d04605103ea23/72912/17485/pawsic-22oz-copper-insulated-tumbler.jpg?camera_label=front" alt="PAWSIC 22oz Copper Insulated Tumbler" loading="lazy">
+                
               </div>
               <div class="product-body">
                 <p class="product-category">Drinkware</p>
@@ -483,14 +546,14 @@
         </div>
 
         <!-- Apparel -->
-        <div class="category-block">
+        <div class="category-block" data-cat="apparel" id="cat-apparel">
           <div class="category-header">
             <h3>Apparel</h3>
             <div class="category-line"></div>
           </div>
           <div class="product-grid">
 
-            <div class="product-card reveal">
+            <div class="product-card reveal reveal-delay-3">
               <div class="product-img-wrap">
                 <img src="https://images-api.printify.com/mockup/69f291f25f78c14a7b0a63f5/84121/108451/pawsic-quarter-zip-pullover.jpg?camera_label=front" alt="PAWSIC Quarter-Zip Pullover" loading="lazy">
                 
@@ -505,7 +568,7 @@
                 </div>
               </div>
             </div>
-            <div class="product-card reveal reveal-delay-1">
+            <div class="product-card reveal reveal-delay-4">
               <div class="product-img-wrap">
                 <img src="https://images-api.printify.com/mockup/69f291fe671cc7c7960b56e3/118289/110433/pawsic-embroidered-polo-shirt.jpg?camera_label=person-1-front" alt="PAWSIC Embroidered Polo Shirt" loading="lazy">
                 
@@ -520,7 +583,7 @@
                 </div>
               </div>
             </div>
-            <div class="product-card reveal reveal-delay-2">
+            <div class="product-card reveal reveal-delay-6">
               <div class="product-img-wrap">
                 <img src="https://images-api.printify.com/mockup/69f29203f151fec9b0041900/71076/108419/pawsic-baby-onesie.jpg?camera_label=front" alt="PAWSIC Baby Onesie" loading="lazy">
                 
@@ -540,7 +603,7 @@
         </div>
 
         <!-- Headwear -->
-        <div class="category-block">
+        <div class="category-block" data-cat="headwear" id="cat-headwear">
           <div class="category-header">
             <h3>Headwear</h3>
             <div class="category-line"></div>
@@ -577,7 +640,7 @@
                 </div>
               </div>
             </div>
-            <div class="product-card reveal reveal-delay-2">
+            <div class="product-card reveal reveal-delay-3">
               <div class="product-img-wrap">
                 <img src="https://images-api.printify.com/mockup/69f29212cd8d04605103ea33/119474/109868/pawsic-ribbed-knit-beanie.jpg?camera_label=front" alt="PAWSIC Ribbed Knit Beanie" loading="lazy">
                 
@@ -597,7 +660,7 @@
         </div>
 
         <!-- Bags & Carriers -->
-        <div class="category-block">
+        <div class="category-block" data-cat="bags" id="cat-bags">
           <div class="category-header">
             <h3>Bags & Carriers</h3>
             <div class="category-line"></div>
@@ -619,7 +682,7 @@
                 </div>
               </div>
             </div>
-            <div class="product-card reveal reveal-delay-1">
+            <div class="product-card reveal reveal-delay-2">
               <div class="product-img-wrap">
                 <img src="https://images-api.printify.com/mockup/69f2921f671cc7c7960b56ef/62037/3031/pawsic-laptop-sleeve.jpg?camera_label=context" alt="PAWSIC Laptop Sleeve" loading="lazy">
                 
@@ -634,7 +697,7 @@
                 </div>
               </div>
             </div>
-            <div class="product-card reveal reveal-delay-2">
+            <div class="product-card reveal reveal-delay-3">
               <div class="product-img-wrap">
                 <img src="https://images-api.printify.com/mockup/69f29224f151fec9b004190f/65045/6111/pawsic-fanny-pack.jpg?camera_label=lifestyle-man" alt="PAWSIC Fanny Pack" loading="lazy">
                 
@@ -649,7 +712,7 @@
                 </div>
               </div>
             </div>
-            <div class="product-card reveal reveal-delay-3">
+            <div class="product-card reveal reveal-delay-4">
               <div class="product-img-wrap">
                 <img src="https://images-api.printify.com/mockup/69f2922a357398ded80f81c3/61365/2999/pawsic-drawstring-bag.jpg?camera_label=front" alt="PAWSIC Drawstring Bag" loading="lazy">
                 
@@ -669,7 +732,7 @@
         </div>
 
         <!-- Accessories & Stationery -->
-        <div class="category-block">
+        <div class="category-block" data-cat="accessories" id="cat-accessories">
           <div class="category-header">
             <h3>Accessories & Stationery</h3>
             <div class="category-line"></div>
@@ -691,7 +754,7 @@
                 </div>
               </div>
             </div>
-            <div class="product-card reveal reveal-delay-1">
+            <div class="product-card reveal reveal-delay-2">
               <div class="product-img-wrap">
                 <img src="https://images-api.printify.com/mockup/69f2924dcd8d04605103ea7a/63360/94836/pawsic-phone-case.jpg?camera_label=front-and-side" alt="PAWSIC Phone Case" loading="lazy">
                 
@@ -706,7 +769,7 @@
                 </div>
               </div>
             </div>
-            <div class="product-card reveal reveal-delay-2">
+            <div class="product-card reveal reveal-delay-3">
               <div class="product-img-wrap">
                 <img src="https://images-api.printify.com/mockup/69f29242f151fec9b0041944/72762/16497/pawsic-keyring-tag.jpg?camera_label=front" alt="PAWSIC Keyring Tag" loading="lazy">
                 
@@ -721,7 +784,7 @@
                 </div>
               </div>
             </div>
-            <div class="product-card reveal reveal-delay-3">
+            <div class="product-card reveal reveal-delay-4">
               <div class="product-img-wrap">
                 <img src="https://images-api.printify.com/mockup/69f2bee39577aaffd506a16b/62070/98417/pawsic-pin-button.jpg?camera_label=front" alt="PAWSIC Pin Button" loading="lazy">
                 
@@ -741,7 +804,7 @@
         </div>
 
         <!-- Stickers -->
-        <div class="category-block">
+        <div class="category-block" data-cat="stickers" id="cat-stickers">
           <div class="category-header">
             <h3>Stickers</h3>
             <div class="category-line"></div>
@@ -783,7 +846,7 @@
         </div>
 
         <!-- Home & Office -->
-        <div class="category-block">
+        <div class="category-block" data-cat="home-office" id="cat-home-office">
           <div class="category-header">
             <h3>Home & Office</h3>
             <div class="category-line"></div>
@@ -915,6 +978,19 @@
         entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
       }, { threshold: 0.12 });
       els.forEach(el => io.observe(el));
+
+      // Category filter
+      const pills = document.querySelectorAll('.filter-pill');
+      const blocks = document.querySelectorAll('.category-block');
+      pills.forEach(pill => {
+        pill.addEventListener('click', () => {
+          const filter = pill.dataset.filter;
+          pills.forEach(p => p.classList.toggle('is-active', p === pill));
+          blocks.forEach(b => {
+            b.style.display = (filter === 'all' || b.dataset.cat === filter) ? '' : 'none';
+          });
+        });
+      });
     });
   </script>
 </body>
