@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PAWSIC Shop — Wear Your Mission</title>
+  <meta name="description" content="Every PAWSIC purchase supports wound care and skin health education. Shop mugs, totes, apparel, hats, and more.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://pawsic.org/shop">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/v2-overrides.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="../images/pawsic-favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../images/pawsic-apple-touch-icon.png">
+
+  <style>
+    /* ── Shop-specific styles ── */
+    .shop-hero {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--indigo) 60%, #1a4a7a 100%);
+      position: relative;
+      overflow: hidden;
+      padding: 5rem 0 4rem;
+      text-align: center;
+    }
+    .shop-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 100%, rgba(56,182,255,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .shop-hero-grain {
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      opacity: 0.4;
+      pointer-events: none;
+    }
+    .shop-hero-logo {
+      width: 80px;
+      height: auto;
+      margin: 0 auto 1.5rem;
+      opacity: 0.95;
+    }
+    .shop-hero h1 {
+      color: #fff;
+      font-size: clamp(2rem, 4.5vw, 3.2rem);
+      margin-bottom: 1rem;
+    }
+    .shop-hero h1 em {
+      color: var(--gold);
+      font-style: italic;
+    }
+    .shop-hero-sub {
+      color: rgba(255,255,255,0.82);
+      font-size: 1.1rem;
+      max-width: 560px;
+      margin: 0 auto 2rem;
+      line-height: 1.7;
+    }
+    .shop-hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: var(--r-pill);
+      padding: 0.4rem 1.1rem;
+      color: rgba(255,255,255,0.9);
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      backdrop-filter: blur(8px);
+    }
+    .shop-hero-badge svg { flex-shrink: 0; }
+
+    /* Mission strip */
+    .mission-strip {
+      background: var(--gold);
+      padding: 1rem 0;
+      text-align: center;
+    }
+    .mission-strip p {
+      color: var(--navy);
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      margin: 0;
+    }
+
+    /* Section titles */
+    .shop-section {
+      padding: 4.5rem 0;
+    }
+    .shop-section-alt {
+      background: var(--bg-warm);
+    }
+    .section-eyebrow {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--blue-accent);
+      margin-bottom: 0.6rem;
+    }
+    .section-title {
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      color: var(--navy);
+      margin-bottom: 0.75rem;
+    }
+    .section-desc {
+      color: var(--text-muted);
+      max-width: 520px;
+      font-size: 1rem;
+      margin-bottom: 2.5rem;
+    }
+
+    /* Product grid */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+    .product-card {
+      background: #fff;
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      transition: transform 0.3s var(--ease-spring), box-shadow 0.3s var(--ease);
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+    }
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-xl);
+    }
+    .product-img-wrap {
+      position: relative;
+      background: linear-gradient(135deg, var(--bg-ice) 0%, var(--bg-frost) 100%);
+      aspect-ratio: 1 / 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .product-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s var(--ease);
+    }
+    .product-card:hover .product-img-wrap img {
+      transform: scale(1.04);
+    }
+    .product-tag {
+      position: absolute;
+      top: 0.75rem;
+      left: 0.75rem;
+      background: var(--navy);
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.6rem;
+      border-radius: var(--r-pill);
+    }
+    .product-tag.tag-new { background: var(--teal); }
+    .product-tag.tag-popular { background: var(--coral); }
+    .product-body {
+      padding: 1.25rem 1.25rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .product-category {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--blue-accent);
+      margin-bottom: 0.3rem;
+    }
+    .product-name {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: 1.15rem;
+      color: var(--navy);
+      margin-bottom: 0.5rem;
+      line-height: 1.3;
+    }
+    .product-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 1.1rem;
+      flex: 1;
+    }
+    .product-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+    }
+    .product-price {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--navy);
+    }
+    .product-price-range {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+    .btn-shop {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: var(--navy);
+      color: #fff;
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 0.55rem 1.1rem;
+      border-radius: var(--r-pill);
+      transition: background 0.25s var(--ease), transform 0.2s var(--ease-spring);
+      white-space: nowrap;
+      text-decoration: none;
+    }
+    .btn-shop:hover {
+      background: var(--indigo);
+      color: #fff;
+      transform: scale(1.04);
+    }
+    .btn-shop svg { transition: transform 0.2s var(--ease); }
+    .btn-shop:hover svg { transform: translateX(3px); }
+
+    /* Category group headers */
+    .category-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .category-header h3 {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: 1.4rem;
+      font-weight: 400;
+      color: var(--navy);
+      white-space: nowrap;
+    }
+    .category-line {
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+    .category-block { margin-bottom: 3.5rem; }
+    .category-block:last-child { margin-bottom: 0; }
+
+    /* Cause section */
+    .cause-section {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+      padding: 5rem 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cause-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 80% at 50% 0%, rgba(56,182,255,0.08) 0%, transparent 70%);
+    }
+    .cause-section h2 {
+      color: #fff;
+      margin-bottom: 1rem;
+    }
+    .cause-section h2 em { color: var(--gold); }
+    .cause-section p {
+      color: rgba(255,255,255,0.75);
+      max-width: 580px;
+      margin: 0 auto 2rem;
+      font-size: 1.05rem;
+      line-height: 1.75;
+    }
+    .cause-stats {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      flex-wrap: wrap;
+      margin-bottom: 2.5rem;
+    }
+    .cause-stat { text-align: center; }
+    .cause-stat-num {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: 2.5rem;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+    .cause-stat-label {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.6);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 600;
+    }
+    .btn-cause {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--gold);
+      color: var(--navy);
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 0.85rem 2rem;
+      border-radius: var(--r-pill);
+      transition: transform 0.2s var(--ease-spring), box-shadow 0.25s;
+      text-decoration: none;
+    }
+    .btn-cause:hover {
+      transform: translateY(-2px) scale(1.03);
+      box-shadow: 0 8px 24px rgba(201,168,76,0.35);
+      color: var(--navy);
+    }
+
+    @media (max-width: 640px) {
+      .product-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+      .cause-stats { gap: 2rem; }
+      .shop-hero { padding: 3.5rem 0 3rem; }
+    }
+    @media (max-width: 400px) {
+      .product-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+    <nav class="utility-bar" aria-label="Utility navigation">
+    <div class="container">
+      <a href="/" class="utility-logo">
+        <picture><source srcset="/images/pawsic-logo.webp" type="image/webp"><img src="../images/pawsic-logo.png" alt="PAWSIC icon" class="logo-icon" width="80" height="62"></picture>
+        <span class="logo-text">
+          <span class="logo-name">PAWSIC</span>
+          <span class="logo-tagline">Post-Acute Wound &amp; Skin Integrity Council</span>
+        </span>
+      </a>
+      <div class="utility-links">
+        <a href="/patients/" class="utility-link v2-patient-link">
+          <svg aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          Patients &amp; Caregivers
+        </a>
+        <a href="../resources/pawsic-brochure.pdf" class="utility-link" target="_blank" rel="noopener noreferrer">Download Brochure</a>
+        <a href="https://memberships.pawsic.org/login/" class="utility-link" target="_blank" rel="noopener noreferrer">Member Login</a>
+        <a href="https://memberships.pawsic.org/register/free/" class="utility-link utility-join" target="_blank" rel="noopener noreferrer">Join Free</a>
+        <a href="https://donate.stripe.com/dRm8wQ1mC3oE8Ef8p7c7u0m" class="utility-link utility-donate" target="_blank" rel="noopener noreferrer">Donate ♥</a>
+      </div>
+    </div>
+  </nav>
+
+  <nav class="main-nav" aria-label="Main navigation">
+    <div class="container">
+      <a href="https://memberships.pawsic.org/login/" class="mobile-login-icon" aria-label="Member Login" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li class="mobile-nav-utility mobile-patients-link"><a href="/patients/">Patients &amp; Caregivers</a></li>
+        <li>
+          <a href="/about/" class="has-dropdown" aria-haspopup="true" aria-expanded="false">About Us <span class="dropdown-arrow" aria-hidden="true"></span></a>
+          <ul class="dropdown">
+            <li><a href="/about/">About PAWSIC</a></li>
+            <li><a href="/board/">The Board</a></li>
+            <li><a href="/advisory/">Advisory Committee</a></li>
+            <li><a href="/who-is-pawsic/">Who is PAWSIC?</a></li>
+            <li><a href="/services/">Services</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="/events/" class="has-dropdown" aria-haspopup="true" aria-expanded="false">Events <span class="dropdown-arrow" aria-hidden="true"></span></a>
+          <ul class="dropdown">
+            <li><a href="/events/">Upcoming Events</a></li>
+            <li><a href="/webinars/">Webinars</a></li>
+            <li><a href="/press-releases/">Press Releases</a></li>
+          </ul>
+        </li>
+        <li><a href="../resources/">Resources</a></li>
+        <li><a href="/programs/">Courses</a></li>
+        <li>
+          <a href="/community/" class="has-dropdown" aria-haspopup="true" aria-expanded="false">Community <span class="dropdown-arrow" aria-hidden="true"></span></a>
+          <ul class="dropdown">
+            <li><a href="/community/#forums">Forums</a></li>
+            <li class="has-sub-dropdown"><a href="/community/#sig-spaces" class="has-sub-arrow">Shared Interest Groups (SIG) <span class="sub-arrow" aria-hidden="true"></span></a><ul class="sub-dropdown"><li><a href="/community/skin-failure-sig/">Skin Failure SIG</a></li></ul></li>
+          </ul>
+        </li>
+        <li><a href="/membership/">Membership</a></li>
+        <li><a href="/sponsors/">Sponsorship</a></li>
+        <li class="mobile-nav-utility mobile-brochure-link"><a href="../resources/pawsic-brochure.pdf" target="_blank" rel="noopener noreferrer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download Brochure</a></li>
+        <li class="mobile-nav-utility mobile-login-link"><a href="https://memberships.pawsic.org/login/" target="_blank" rel="noopener noreferrer">Member Login</a></li>
+        <li class="mobile-nav-utility mobile-join-item"><a href="https://memberships.pawsic.org/register/free/" target="_blank" rel="noopener noreferrer">Join PAWSIC Free &rarr;</a></li>
+        <li class="mobile-nav-utility mobile-donate-item"><a href="https://donate.stripe.com/dRm8wQ1mC3oE8Ef8p7c7u0m" target="_blank" rel="noopener noreferrer">Donate ♥</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="mobile-overlay"></div>
+
+  <main id="main-content">
+
+    <!-- Hero -->
+    <section class="shop-hero">
+      <div class="shop-hero-grain"></div>
+      <div class="container">
+        <img src="../images/pawsic-logo-vert-wht.png" alt="PAWSIC" class="shop-hero-logo reveal reveal-delay-1">
+        <h1 class="reveal reveal-delay-2">Wear the <em>Mission</em></h1>
+        <p class="shop-hero-sub reveal reveal-delay-3">Every purchase supports wound care and skin health education for clinicians, caregivers, and patients across the country.</p>
+        <span class="shop-hero-badge reveal reveal-delay-4">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          Proceeds support PAWSIC's nonprofit mission
+        </span>
+      </div>
+    </section>
+
+    <!-- Mission strip -->
+    <div class="mission-strip">
+      <div class="container">
+        <p>501(c)(6) Nonprofit &nbsp;·&nbsp; Fulfilled via Printify &nbsp;·&nbsp; Ships across the USA</p>
+      </div>
+    </div>
+
+    <!-- Products -->
+    <section class="shop-section" id="products">
+      <div class="container">
+        <p class="section-eyebrow">PAWSIC Merch</p>
+        <h2 class="section-title">Shop All Products</h2>
+        <p class="section-desc">Branded merchandise for wound care and skin health professionals, caregivers, and supporters. Every item ships directly from our print partner.</p>
+
+        <!-- Drinkware -->
+        <div class="category-block">
+          <div class="category-header">
+            <h3>Drinkware</h3>
+            <div class="category-line"></div>
+          </div>
+          <div class="product-grid">
+
+            <div class="product-card reveal">
+              <div class="product-img-wrap">
+                <img src="https://images-api.printify.com/mockup/69f291ca5f78c14a7b0a63d4/72180/102752/pawsic-accent-coffee-mug.jpg?camera_label=front" alt="PAWSIC Accent Coffee Mug" loading="lazy">
+                <span class="product-tag tag-popular">Popular</span>
+              </div>
+              <div class="product-body">
+                <p class="product-category">Drinkware</p>
+                <h3 class="product-name">Accent Coffee Mug</h3>
+                <p class="product-desc">Start your clinical day with purpose. 11 oz accent mug with PAWSIC tagline on a crisp white body and contrasting handle.</p>
+                <div class="product-footer">
+                  <span class="product-price">$22</span>
+                  <a href="https://pawsic.printify.me" class="btn-shop" target="_blank" rel="noopener noreferrer">Shop <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                </div>
+              </div>
+            </div>
+
+            <div class="product-card reveal reveal-delay-1">
+              <div class="product-img-wrap">
+                <img src="https://images-api.printify.com/mockup/69f291d4c326d7da170c2adf/44519/849/pawsic-20oz-tumbler.jpg?camera_label=front" alt="PAWSIC 20oz Tumbler" loading="lazy">
+              </div>
+              <div class="product-body">
+                <p class="product-category">Drinkware</p>
+                <h3 class="product-name">20oz Tumbler</h3>
+                <p class="product-desc">The clinician's go-to for all-day hydration. Keeps drinks cold 24 hours, hot 12 hours.</p>
+                <div class="product-footer">
+                  <span class="product-price">$28</span>
+                  <a href="https://pawsic.printify.me" class="btn-shop" target="_blank" rel="noopener noreferrer">Shop <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                </div>
+              </div>
+            </div>
+
+            <div class="product-card reveal reveal-delay-2">
+              <div class="product-img-wrap">
+                <img src="https://images-api.printify.com/mockup/69f291d9cd8d04605103ea23/72912/17485/pawsic-22oz-copper-insulated-tumbler.jpg?camera_label=front" alt="PAWSIC 22oz Copper Insulated Tumbler" loading="lazy">
+              </div>
+              <div class="product-body">
+                <p class="product-category">Drinkware</p>
+                <h3 class="product-name">22oz Copper Tumbler</h3>
+                <p class="product-desc">Premium copper vacuum insulation keeps your drink perfect through an entire clinical day.</p>
+                <div class="product-footer">
+                  <span class="product-price">$38</span>
+                  <a href="https://pawsic.printify.me" class="btn-shop" target="_blank" rel="noopener noreferrer">Shop <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                </div>
+              </div>
+            </div>
+
+            <div class="product-card reveal reveal-delay-3">
+              <div class="product-img-wrap">
+                <img src="https://images-api.printify.com/mockup/69f291e4c326d7da170c2ae7/119926/120293/pawsic-protein-shaker.jpg?camera_label=front" alt="PAWSIC Protein Shaker" loading="lazy">
+              </div>
+              <div class="product-body">
+                <p class="product-category">Drinkware</p>
+                <h3 class="product-name">Protein Shaker</h3>
+                <p class="product-desc">For the clinician who takes care of themselves too. Branded PAWSIC shaker for every day.</p>
+                <div class="product-footer">
+                  <span class="product-price">$26</span>
+                  <a href="https://pawsic.printify.me" class="btn-shop" target="_blank" rel="noopener noreferrer">Shop <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Apparel -->
+        <div class="category-block">
+          <div class="category-header">
+            <h3>Apparel</h3>
+            <div class="category-line"></div>
+          </div>
+          <div class="product-grid">
+
+            <div class="product-card reveal">
+              <div class="product-img-wrap">
+                <img src="https://images-api.printify.com/mockup/69f291ec357398ded80f81aa/104115/101381/pawsic-lightweight-crewneck-sweatshirt.jpg?camera_label=front" alt="PAWSIC Lightweight Crewneck Sweatshirt" loading="lazy">
+                <span class="product-tag tag-new">New</span>
+              </div>
+              <div class="product-body">
+                <p class="product-category">Apparel</p>
+                <h3 class="product-name">Crewneck Sweatshirt</h3>
+                <p class="product-desc">Comfort Colors lightweight crewneck. Ideal for fall conferences, early rounds, and everyday wear.</p>
+                <div class="product-footer">
+                  <span class="product-price">$44</span>
+                  <a href="https://pawsic.printify.me" class="btn-shop" target="_blank" rel="noopener noreferrer">Shop <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                </div>
+              </div>
+            </div>
+
+            <div class="product-card reveal reveal-delay-1">
+              <div class="product-img-wrap">
+                <img src="https://images-api.printify.com/mockup/69f291f25f78c14a7b0a63f5/84121/108451/pawsic-quarter-zip-pullover.jpg?camera_label=front" alt="PAWSIC Quarter-Zip Pullover" loading="lazy">
+              </div>
+              <div class="product-body">
+                <p class="product-category">Apparel</p>
+                <h3 class="product-name">Quarter-Zip Pullover</h3>
+                <p class="product-desc">Sport-Tek unisex quarter-zip. Professional enough for the clinic, comfortable enough for everything else.</p>
+                <div class="product-footer">
+                  <span class="product-price">$52</span>
+                  <a href="https://pawsic.printify.me" class="btn-shop" target="_blank" rel="noopener noreferrer">Shop <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                </div>
+              </div>
+            </div>
+
+            <div class="product-card reveal reveal-delay-2">
+              <div class="product-img-wrap">
+                <img src="https://images-api.printify.com/mockup/69f291fe671cc7c7960b56e3/118289/110433/pawsic-embroidered-polo-shirt.jpg?camera_label=person-1-front" alt="PAWSIC Embroidered Polo Shirt" loading="lazy">
+              </div>
+              <div class="product-body">
+                <p class="product-category">Apparel</p>
+                <h3 class="product-name">Embroidered Polo Shirt</h3>
+                <p class="product-desc">PAWSIC logo precision-embroidered on the chest. Ideal for wound care professionals and team events.</p>
+                <div class="product-footer">
+                  <span class="product-price">$48</span>
+                  <a href="https://pawsic.printify.me" class="btn-shop" target="_blank" rel="noopener noreferrer">Shop <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                </div>
+              </div>
+            </div>
+
+            <div class="product-card reveal reveal-delay-3">
+              <div class="product-img-wrap">
+                <img src="https://images-api.printify.com/mockup/69f29203f151fec9b0041900/71076/108419/pawsic-baby-onesie.jpg?camera_label=front" alt="PAWSIC Baby Onesie" loading="lazy">
+              </div>
+              <div class="product-body">
+                <p class="product-category">Apparel</p>
+                <h3 class="product-name">Baby Onesie</h3>
+                <p class="product-desc">The newest wound care advocate in the family. Soft cotton snap-closure onesie with the PAWSIC logo.</p>
+                <div class="product-footer">
+                  <span class="product-price">$22</span>
+                  <a href="https://pawsic.printify.me" class="btn-shop" target="_blank" rel="noopener noreferrer">Shop <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Headwear -->
+        <div class="category-block">
+          <div class="category-header">
+            <h3>Headwear</h3>
+            <div class="category-line"></div>
+          </div>
+          <div class="product-grid">
+
+            <div class="product-card reveal">
+              <div class="product-img-wrap">
+                <img src="https://images-api.printify.com/mockup/69f292089b469f716d0e8bfc/116654/112500/pawsic-bucket-hat.jpg?camera_label=front" alt="PAWSIC Bucket Hat" loading="lazy">
+              </div>
+              <div class="product-body">
+                <p class="product-category">Headwear</p>
+                <h3 class="product-name">Bucket Hat</h3>
+                <p class="product-desc">AS Colour bucket hat with embroidered PAWSIC logo. Sun protection meets professional pride.</p>
+                <div class="product-footer">
+                  <span class="product-price">$34</span>
+                  <a href="https://pawsic.printify.me" class="btn-shop" target="_blank" rel="noopener noreferrer">Shop <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                </div>
+              </div>
+            </div>
+
+            <div class="product-card reveal reveal-delay-1">
+              <div class="product-img-wrap">
+                <img src="https://images-api.printify.com/mockup/69f2920d357398ded80f81b1/117050/112846/pawsic-snapback-hat.jpg?camera_label=front" alt="PAWSIC Snapback Hat" loading="lazy">
+              </div>
+              <div class="product-body">
+                <p class="product-category">Headwear</p>
+                <h3 class="product-name">Snapback Hat</h3>
+                <p class="product-desc">Yupoong structured snapback with embroidered PAWSIC logo. Adjustable fit, sharp look.</p>
+                <div class="product-footer">
+                  <span class="product-price">$32</span>
+                  <a href="https://pawsic.printify.me" class="btn-shop" target="_blank" rel="noopener noreferrer">Shop <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                </div>
+              </div>
+            </div>
+
+            <div class="product-card reveal reveal-delay-2">
+              <div class="product-img-wrap">
+                <img src="https://images-api.printify.com/mockup/69f29212cd8d04605103ea33/119474/109868/pawsic-ribbed-knit-beanie.jpg?camera_label=front" alt="PAWSIC Ribbed Knit Beanie" loading="lazy">
+              </div>
+              <div class="product-body">
+                <p class="product-category">Headwear</p>
+                <h3 class="product-name">Ribbed Knit Beanie</h3>
+                <p class="product-desc">Atlantis Headwear embroidered beanie. Perfect for fall conferences and cold clinical mornings.</p>
+                <div class="product-footer">
+                  <span class="product-price">$28</span>
+                  <a href="https://pawsic.printify.me" class="btn-shop" target="_blank" rel="noopener noreferrer">Shop <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Bags -->
+        <div class="category-block">
+          <div class="category-header">
+            <h3>Bags &amp; Carriers</h3>
+            <div class="category-line"></div>
+          </div>
+          <div class="product-grid">
+
+            <div class="product-card reveal">
+              <div class="product-img-wrap">
+                <img src="https://images-api.printify.com/mockup/69f292199b469f716d0e8c06/101409/93895/pawsic-cotton-canvas-tote-bag.jpg?camera_label=front" alt="PAWSIC Cotton Canvas Tote Bag" loading="lazy">
+              </div>
+              <div class="product-body">
+                <p class="product-category">Bags</p>
+                <h3 class="product-name">Cotton Canvas Tote</h3>
+                <p class="product-desc">Sturdy cotton canvas tote. Roomy enough for conference materials, CE workbooks, and everything in between.</p>
+                <div class="product-footer">
+                  <span class="product-price">$26</span>
+                  <a href="https://pawsic.printify.me" class="btn-shop" target="_blank" rel="noopener noreferrer">Shop <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                </div>
+              </div>
+            </div>
+
+            <div class="product-card reveal reveal-delay-1">
+              <div class="product-img-wrap">
+                <img src="https://images-api.printify.com/mockup/69f2921f671cc7c7960b56ef/62037/3031/pawsic-laptop-sleeve.jpg?camera_label=context" alt="PAWSIC Laptop Sleeve" loading="lazy">
+              </div>
+              <div class="product-body">
+                <p class="product-category">Bags</p>
+                <h3 class="product-name">Laptop Sleeve</h3>
+                <p class="product-desc">Padded laptop sleeve with PAWSIC design. Protect your tools and represent your profession.</p>
+                <div class="product-footer">
+                  <span class="product-price">$36</span>
+                  <a href="https://pawsic.printify.me" class="btn-shop" target="_blank" rel="noopener noreferrer">Shop <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                </div>
+              </div>
+            </div>
+
+            <div class="product-card reveal reveal-delay-2">
+              <div class="product-img-wrap">
+                <img src="https://images-api.printify.com/mockup/69f29224f151fec9b004190f/65045/6111/pawsic-fanny-pack.jpg?camera_label=lifestyle-man" alt="PAWSIC Fanny Pack" loading="lazy">
+              </div>
+              <div class="product-body">
+                <p class="product-category">Bags</p>
+                <h3 class="product-name">Fanny Pack</h3>
+                <p class="product-desc">Hands-free and ready for anything. Ideal for conferences, clinical outreach days, and community events.</p>
+                <div class="product-footer">
+                  <span class="product-price">$28</span>
+                  <a href="https://pawsic.printify.me" class="btn-shop" target="_blank" rel="noopener noreferrer">Shop <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                </div>
+              </div>
+            </div>
+
+            <div class="product-card reveal reveal-delay-3">
+              <div class="product-img-wrap">
+                <img src="https://images-api.printify.com/mockup/69f2922a357398ded80f81c3/61365/2999/pawsic-drawstring-bag.jpg?camera_label=front" alt="PAWSIC Drawstring Bag" loading="lazy">
+              </div>
+              <div class="product-body">
+                <p class="product-category">Bags</p>
+                <h3 class="product-name">Drawstring Bag</h3>
+                <p class="product-desc">Lightweight and durable. Perfect for conference day with PAWSIC design on the front.</p>
+                <div class="product-footer">
+                  <span class="product-price">$38</span>
+                  <a href="https://pawsic.printify.me" class="btn-shop" target="_blank" rel="noopener noreferrer">Shop <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Accessories & Stationery -->
+        <div class="category-block">
+          <div class="category-header">
+            <h3>Accessories &amp; Stationery</h3>
+            <div class="category-line"></div>
+          </div>
+          <div class="product-grid">
+
+            <div class="product-card reveal">
+              <div class="product-img-wrap">
+                <img src="https://images-api.printify.com/mockup/69f29253cd8d04605103ea7c/80167/55466/pawsic-hardcover-notebook.jpg?camera_label=flatlay" alt="PAWSIC Hardcover Notebook" loading="lazy">
+              </div>
+              <div class="product-body">
+                <p class="product-category">Stationery</p>
+                <h3 class="product-name">Hardcover Notebook</h3>
+                <p class="product-desc">Document breakthroughs and CE notes from every wound care conference. Premium hardcover.</p>
+                <div class="product-footer">
+                  <span class="product-price">$28</span>
+                  <a href="https://pawsic.printify.me" class="btn-shop" target="_blank" rel="noopener noreferrer">Shop <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                </div>
+              </div>
+            </div>
+
+            <div class="product-card reveal reveal-delay-1">
+              <div class="product-img-wrap">
+                <img src="https://images-api.printify.com/mockup/69f2924dcd8d04605103ea7a/63360/94836/pawsic-phone-case.jpg?camera_label=front-and-side" alt="PAWSIC Phone Case" loading="lazy">
+              </div>
+              <div class="product-body">
+                <p class="product-category">Accessories</p>
+                <h3 class="product-name">Phone Case</h3>
+                <p class="product-desc">Carry your commitment to wound care everywhere. Slim protective case for all major iPhone and Samsung models.</p>
+                <div class="product-footer">
+                  <span class="product-price">$24</span>
+                  <a href="https://pawsic.printify.me" class="btn-shop" target="_blank" rel="noopener noreferrer">Shop <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                </div>
+              </div>
+            </div>
+
+            <div class="product-card reveal reveal-delay-2">
+              <div class="product-img-wrap">
+                <img src="https://images-api.printify.com/mockup/69f29242f151fec9b0041944/72762/16497/pawsic-keyring-tag.jpg?camera_label=front" alt="PAWSIC Keyring Tag" loading="lazy">
+              </div>
+              <div class="product-body">
+                <p class="product-category">Accessories</p>
+                <h3 class="product-name">Keyring Tag</h3>
+                <p class="product-desc">A small daily reminder of why wound care and skin health matters. UV-printed PAWSIC logo, goes everywhere you do.</p>
+                <div class="product-footer">
+                  <span class="product-price">$12</span>
+                  <a href="https://pawsic.printify.me" class="btn-shop" target="_blank" rel="noopener noreferrer">Shop <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                </div>
+              </div>
+            </div>
+
+            <div class="product-card reveal reveal-delay-3">
+              <div class="product-img-wrap">
+                <img src="https://images-api.printify.com/mockup/69f2bee39577aaffd506a16b/62070/98417/pawsic-pin-button.jpg?camera_label=front" alt="PAWSIC Pin Button" loading="lazy">
+              </div>
+              <div class="product-body">
+                <p class="product-category">Accessories</p>
+                <h3 class="product-name">Pin Button</h3>
+                <p class="product-desc">Show your PAWSIC pride on your lanyard, lab coat, or bag. A small but meaningful way to represent the wound care community.</p>
+                <div class="product-footer">
+                  <span class="product-price">$8</span>
+                  <a href="https://pawsic.printify.me" class="btn-shop" target="_blank" rel="noopener noreferrer">Shop <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Stickers -->
+        <div class="category-block">
+          <div class="category-header">
+            <h3>Stickers</h3>
+            <div class="category-line"></div>
+          </div>
+          <div class="product-grid">
+
+            <div class="product-card reveal">
+              <div class="product-img-wrap">
+                <img src="https://images-api.printify.com/mockup/69f2922fcd8d04605103ea46/45740/2195/pawsic-square-stickers.jpg?camera_label=context" alt="PAWSIC Square Stickers" loading="lazy">
+              </div>
+              <div class="product-body">
+                <p class="product-category">Stickers</p>
+                <h3 class="product-name">Square Stickers</h3>
+                <p class="product-desc">Waterproof vinyl square stickers with the PAWSIC logo. For laptops, water bottles, and badge holders.</p>
+                <div class="product-footer">
+                  <span class="product-price">$6</span>
+                  <a href="https://pawsic.printify.me" class="btn-shop" target="_blank" rel="noopener noreferrer">Shop <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                </div>
+              </div>
+            </div>
+
+            <div class="product-card reveal reveal-delay-1">
+              <div class="product-img-wrap">
+                <img src="https://images-api.printify.com/mockup/69f2923429c1d0349a010675/72007/14855/pawsic-die-cut-sticker.jpg?camera_label=context-1" alt="PAWSIC Die-Cut Sticker" loading="lazy">
+              </div>
+              <div class="product-body">
+                <p class="product-category">Stickers</p>
+                <h3 class="product-name">Die-Cut Sticker</h3>
+                <p class="product-desc">Precision die-cut shaped to the PAWSIC logo. Vibrant waterproof vinyl for badge reels, bottles, and laptops.</p>
+                <div class="product-footer">
+                  <span class="product-price">$7</span>
+                  <a href="https://pawsic.printify.me" class="btn-shop" target="_blank" rel="noopener noreferrer">Shop <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Home & Office -->
+        <div class="category-block">
+          <div class="category-header">
+            <h3>Home &amp; Office</h3>
+            <div class="category-line"></div>
+          </div>
+          <div class="product-grid">
+
+            <div class="product-card reveal">
+              <div class="product-img-wrap">
+                <img src="https://images-api.printify.com/mockup/69f29258a7777da19710121c/95210/108189/pawsic-canvas-wall-art.jpg?camera_label=context-2" alt="PAWSIC Canvas Wall Art" loading="lazy">
+              </div>
+              <div class="product-body">
+                <p class="product-category">Home &amp; Office</p>
+                <h3 class="product-name">Canvas Wall Art</h3>
+                <p class="product-desc">Bring the PAWSIC mission into your clinic, office, or home. Premium stretched matte canvas in multiple sizes.</p>
+                <div class="product-footer">
+                  <span class="product-price">From $44</span>
+                  <a href="https://pawsic.printify.me" class="btn-shop" target="_blank" rel="noopener noreferrer">Shop <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Cause section -->
+    <section class="cause-section">
+      <div class="container" style="position:relative;">
+        <p class="section-eyebrow" style="color:var(--gold);">Why It Matters</p>
+        <h2>Supporting <em>Wound Care Education</em> Nationwide</h2>
+        <p>PAWSIC is a 501(c)(6) nonprofit. Every dollar from merch sales helps us provide free CE/CME education, build community resources, and advocate for better wound care and skin health standards across post-acute care settings.</p>
+        <div class="cause-stats">
+          <div class="cause-stat">
+            <div class="cause-stat-num">90+</div>
+            <div class="cause-stat-label">Partner institutions</div>
+          </div>
+          <div class="cause-stat">
+            <div class="cause-stat-num">Free</div>
+            <div class="cause-stat-label">CE/CME education</div>
+          </div>
+          <div class="cause-stat">
+            <div class="cause-stat-num">501(c)(6)</div>
+            <div class="cause-stat-label">Nonprofit status</div>
+          </div>
+        </div>
+        <a href="https://donate.stripe.com/dRm8wQ1mC3oE8Ef8p7c7u0m" class="btn-cause" target="_blank" rel="noopener noreferrer">
+          ♥ &nbsp;Donate Directly
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <img src="../images/pawsic-logo.png" alt="PAWSIC" class="logo-icon">
+            <span class="logo-text">
+              <span class="logo-name">PAWSIC</span>
+              <span class="logo-tagline">Post-Acute Wound &amp; Skin Integrity Council</span>
+            </span>
+          </div>
+          <p>Post-Acute Wound &amp; Skin Integrity Council, a 501(c)(6) nonprofit uniting wound care professionals through education, community, and advocacy.</p>
+          <div class="social-links">
+            <a href="https://www.facebook.com/profile.php?id=100064724872333" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+            <a href="https://www.instagram.com/pawsic_org/" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="https://www.linkedin.com/company/pawsic" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+            <a href="https://www.tiktok.com/@pawsic.org" aria-label="TikTok" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" viewBox="0 0 24 24" fill="white" stroke="none"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1v-3.52a6.37 6.37 0 0 0-.79-.05A6.34 6.34 0 0 0 3.15 15.2a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.73a8.19 8.19 0 0 0 4.76 1.52V6.8a4.84 4.84 0 0 1-1-.11z"/></svg></a>
+            <a href="https://www.youtube.com/@PAWSIC-Team" aria-label="YouTube" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" viewBox="0 0 24 24" fill="white" stroke="none"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+            <a href="https://x.com/PAWSIC1" aria-label="X" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" viewBox="0 0 24 24" fill="white" stroke="none"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="/about/">About Us</a></li>
+            <li><a href="/board/">The Board</a></li>
+            <li><a href="/membership/">Membership</a></li>
+            <li><a href="/programs/">CE/CME Courses</a></li>
+            <li><a href="../resources/">Resources</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Community</h4>
+          <ul>
+            <li><a href="/community/#forums">Forums</a></li>
+            <li><a href="/community/#sig-spaces">Shared Interest Groups</a></li>
+            <li class="footer-sub-item"><a href="/community/skin-failure-sig/">Skin Failure SIG</a></li>
+            <li><a href="/events/">Events</a></li>
+            <li><a href="/webinars/">Webinars</a></li>
+            <li><a href="/contact/">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="/sponsors/">Become a Sponsor</a></li>
+            <li><a href="https://donate.stripe.com/dRm8wQ1mC3oE8Ef8p7c7u0m" target="_blank" rel="noopener noreferrer">Donate</a></li>
+            <li><a href="https://memberships.pawsic.org/login/" target="_blank" rel="noopener noreferrer">Member Login</a></li>
+            <li><a href="/press-releases/">Press Releases</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-bottom-row">
+          <span>&copy; 2026 PAWSIC. All Rights Reserved. Donations/sponsorships are not tax deductible.</span>
+          <div class="footer-legal">
+          <a href="/privacy-policy/">Privacy Policy</a>
+          <a href="/disclaimers/">Website Disclaimer</a>
+          <a href="/disclaimers/#resource-disclaimer">Resource Disclaimer</a>
+          <a href="/accessibility/">Accessibility</a>
+          </div>
+        </div>
+        <p class="footer-credit">Website built and designed with care by <a href="https://aipowereddahlia.com/" target="_blank" rel="noopener noreferrer">AI Powered Dahlia</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      document.documentElement.classList.add('js-loaded');
+      const els = document.querySelectorAll('.reveal');
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+      }, { threshold: 0.12 });
+      els.forEach(el => io.observe(el));
+    });
+  </script>
+</body>
+</html>
