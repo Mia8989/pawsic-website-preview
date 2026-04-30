@@ -1,0 +1,42 @@
+name: Refresh shop from Printify
+
+on:
+  schedule:
+    # Daily at 06:00 UTC (~02:00 EST / ~01:00 EDT)
+    - cron: '0 6 * * *'
+  workflow_dispatch:  # allow manual trigger from GitHub UI
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Run refresh script
+        env:
+          PRINTIFY_TOKEN: ${{ secrets.PRINTIFY_TOKEN }}
+        run: python scripts/refresh-shop.py
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name  "pawsic-bot"
+          git config user.email "bot@pawsic.org"
+          if git diff --quiet shop/index.html; then
+            echo "No changes."
+          else
+            git add shop/index.html
+            git commit -m "chore(shop): daily refresh from Printify [skip ci]"
+            git push
+          fi
