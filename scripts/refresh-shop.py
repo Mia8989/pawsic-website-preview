@@ -35,8 +35,16 @@ INDEX_PATH = ROOT / "shop" / "index.html"
 # Map Printify product title -> on-page (display name, category, description, optional tag)
 SECTIONS = [
     ("Drinkware", [
-        ("PAWSIC Accent Coffee Mug", "Accent Coffee Mug", "Drinkware",
-         "Start your clinical day with purpose. 11 oz accent mug with PAWSIC tagline on a crisp white body and contrasting handle.", "Popular"),
+        ("PAWSIC Accent Coffee Mug", "Accent Coffee Mug — Logo", "Drinkware",
+         "Start your clinical day with purpose. 11 oz accent mug with the PAWSIC logo on a crisp white body and contrasting handle.", "Popular"),
+        ("PAWSIC Accent Coffee Mug — You've Got Skin", "Accent Mug — You've Got Skin", "Drinkware",
+         "Witty, warm, and on-brand. \"You've Got Skin, You're In.\" on an 11 oz accent mug.", None),
+        ("PAWSIC Accent Coffee Mug - Everyone has skin", "Accent Mug — Everyone Has Skin", "Drinkware",
+         "Bold, inclusive, unforgettable. \"Everyone Has Skin. Everyone Needs PAWSIC.\" on an 11 oz accent mug.", None),
+        ("PAWSIC Accent Coffee Mug - Skin Health Matters", "Accent Mug — Skin Health Matters", "Drinkware",
+         "A daily reminder that wound and skin care saves lives. \"Skin Health Matters.\" on an 11 oz accent mug.", None),
+        ("PAWSIC Accent Coffee Mug — Advancing Wound Care", "Accent Mug — Advancing Wound Care", "Drinkware",
+         "The mission, on your morning mug. \"Advancing Wound Care & Skin Health Education.\" on an 11 oz accent mug.", None),
         ("PAWSIC Ceramic Mug", "Ceramic Mug", "Drinkware",
          "Classic ceramic mug with the PAWSIC logo. Dishwasher- and microwave-safe.", None),
         ("PAWSIC 20oz Tumbler", "20oz Tumbler", "Drinkware",
@@ -144,9 +152,13 @@ ARROW = ('<svg width="14" height="14" viewBox="0 0 24 24" fill="none" '
 
 
 def fetch_published():
-    """Return {title: {url, price, price_max, img}} for live, deduped products."""
+    """Return {title: {url, price, price_max, img}} for live products.
+
+    If two products share a title, the LATER one (in API order) wins. Rename
+    duplicates in Printify to give every variant its own unique title and
+    every variant its own card on the page.
+    """
     products = requests.get(f"{BASE}/products.json", headers=HEADERS, timeout=30).json().get("data", [])
-    seen = set()
     out = {}
     for p in products:
         d = requests.get(f"{BASE}/products/{p['id']}.json", headers=HEADERS, timeout=30).json()
@@ -156,9 +168,6 @@ def fetch_published():
         if not handle:
             continue
         title = d["title"]
-        if title in seen:
-            continue
-        seen.add(title)
         prices = [v["price"] for v in d.get("variants", []) if v.get("is_enabled")]
         out[title] = {
             "url": handle,
