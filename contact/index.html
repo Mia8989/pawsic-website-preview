@@ -196,11 +196,11 @@
             <form action="https://formsubmit.co/info@pawsic.org" method="POST" class="v2-contact-form">
               <div class="v2-form-group">
                 <label for="name">Name</label>
-                <input type="text" id="name" name="name" placeholder="Your full name" required>
+                <input type="text" id="name" name="name" placeholder="Your full name" required autocomplete="name">
               </div>
               <div class="v2-form-group">
                 <label for="email">Email</label>
-                <input type="email" id="email" name="email" placeholder="your@email.com" required>
+                <input type="email" id="email" name="email" placeholder="your@email.com" required autocomplete="email">
               </div>
               <div class="v2-form-group">
                 <label for="subject">Subject</label>
@@ -218,10 +218,18 @@
                 <label for="message">Message</label>
                 <textarea id="message" name="message" rows="6" placeholder="How can we help?" required></textarea>
               </div>
+              <!-- Honeypot field: invisible to humans, bots fill everything and get caught. -->
+              <div style="position:absolute; left:-9999px; top:-9999px;" aria-hidden="true">
+                <label for="website-url">Leave this field empty</label>
+                <input type="text" id="website-url" name="_honey" tabindex="-1" autocomplete="off">
+              </div>
               <input type="hidden" name="_subject" value="New Contact from PAWSIC.org">
-              <input type="hidden" name="_captcha" value="false">
+              <input type="hidden" name="_captcha" value="true">
+              <input type="hidden" name="_template" value="table">
+              <input type="hidden" name="_blacklist" value="bitcoin,crypto,casino,viagra,seo services,backlinks,buy followers,cheap loans,xxx,porn,escort,investment opportunity">
+              <input type="hidden" name="_next" value="https://pawsic.org/thank-you/">
               <button type="submit" class="btn-primary" style="width:100%; padding:0.85rem 2rem; font-size:1rem;">Send Message <span class="btn-arrow">&rarr;</span></button>
-              <p style="text-align:center; margin-top:0.75rem; font-size:0.82rem; color:var(--text-muted);">Takes less than 2 minutes. Your information is secure.</p>
+              <p style="text-align:center; margin-top:0.75rem; font-size:0.82rem; color:var(--text-muted);">Takes less than 2 minutes. Your information is secure and protected from spam.</p>
             </form>
           </div>
         </div>
