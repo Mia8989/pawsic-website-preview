@@ -59,8 +59,12 @@ SECTIONS = [
          "Insulated travel mug to keep coffee hot through morning rounds.", None),
     ]),
     ("Apparel", [
+        ('PAWSIC "Every Wound Tells a Story" Tee — WE ARE PAWSIC', 'Every Wound Tee — We Are PAWSIC', "Apparel",
+         "Comfort Colors 1717 garment-dyed heavyweight tee. \"Every Wound Tells a Story.\" + \"WE ARE PAWSIC\" on the chest. The shirt the wound care community asked for.", "New"),
+        ('PAWSIC "Every Wound Tells a Story" Sweatshirt — WE ARE PAWSIC', 'Every Wound Sweatshirt — We Are PAWSIC', "Apparel",
+         "Comfort Colors 1466 garment-dyed heavyweight crewneck. \"Every Wound Tells a Story.\" + \"WE ARE PAWSIC\" on the chest. Premium 9.5 oz cotton fleece.", "New"),
         ("PAWSIC Garment-Dyed T-Shirt", "Garment-Dyed T-Shirt", "Apparel",
-         "Comfort Colors unisex tee. Soft, worn-in feel with the PAWSIC design.", "New"),
+         "Comfort Colors unisex tee. Soft, worn-in feel with the PAWSIC design.", None),
         ("PAWSIC T-Shirt", "T-Shirt", "Apparel",
          "Classic unisex tee with the PAWSIC design.", None),
         ("PAWSIC Lightweight Crewneck Sweatshirt", "Crewneck Sweatshirt", "Apparel",
