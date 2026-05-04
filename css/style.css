@@ -297,8 +297,9 @@ p { margin-bottom: 1rem; }
   color: #fff !important;
 }
 .utility-bar .utility-shop {
-  background: #1a7ab5;
-  color: #fff !important;
+  background: transparent;
+  color: #C9A84C !important;
+  border: 1.5px solid #C9A84C;
   padding: 0.3rem 1rem;
   border-radius: var(--r-pill);
   font-weight: 600;
@@ -306,7 +307,7 @@ p { margin-bottom: 1rem; }
   letter-spacing: 0.3px;
 }
 .utility-bar .utility-shop:hover {
-  background: #155f8e;
+  background: #C9A84C;
   color: #fff !important;
 }
 
