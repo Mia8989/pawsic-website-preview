@@ -296,6 +296,19 @@ p { margin-bottom: 1rem; }
   background: #b8963e;
   color: #fff !important;
 }
+.utility-bar .utility-shop {
+  background: #1a7ab5;
+  color: #fff !important;
+  padding: 0.3rem 1rem;
+  border-radius: var(--r-pill);
+  font-weight: 600;
+  font-size: 0.78rem;
+  letter-spacing: 0.3px;
+}
+.utility-bar .utility-shop:hover {
+  background: #155f8e;
+  color: #fff !important;
+}
 
 /* ============================================
    MAIN NAVIGATION
