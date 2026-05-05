@@ -431,6 +431,10 @@
 .v2-partners-grid .v2-sponsor-logo:nth-child(4) img { max-height: 58px; max-width: 180px; position: relative; top: -6px; }  /* Alliance of Wound Care Stakeholders */
 .v2-partners-grid .v2-sponsor-logo:nth-child(5) img { transform: scale(1.25); } /* Open Wound Research */
 .v2-partners-grid .v2-sponsor-logo:nth-child(6) img { transform: scale(1.25); } /* HMP Global WoundCon */
+.v2-partners-grid .v2-sponsor-logo:nth-child(8) { height: auto; min-height: 60px; }
+.v2-partners-grid .v2-sponsor-logo:nth-child(8) img { max-height: 80px; max-width: 320px; }  /* Long Term Care RISE -- Penn Medicine | Temple Health (extra large) */
+.v2-partners-grid .v2-sponsor-logo:nth-child(9) { height: auto; min-height: 60px; }
+.v2-partners-grid .v2-sponsor-logo:nth-child(9) img { max-height: 75px; max-width: 220px; }  /* South Central LTC RISE (~2x default) */
 .v2-sponsors-grid .v2-sponsor-logo:nth-child(9) img { transform: scale(1.85); } /* WoundVision */
 .v2-sponsors-grid .v2-sponsor-logo:nth-child(13) { max-width: 160px !important; width: 160px !important; } /* GreenTec */
 .v2-sponsors-grid .v2-sponsor-logo:nth-child(13) img { width: 160px !important; max-width: none !important; max-height: none !important; height: auto; } /* GreenTec */
