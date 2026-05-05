@@ -86,9 +86,15 @@
   </url>
   <url>
     <loc>https://pawsic.org/press-releases/</loc>
-    <lastmod>2026-03-30</lastmod>
+    <lastmod>2026-05-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://pawsic.org/press-releases/penn-state-rise/</loc>
+    <lastmod>2026-05-05</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://pawsic.org/patients/</loc>
