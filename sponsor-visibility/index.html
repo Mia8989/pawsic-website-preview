@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Platinum Sponsor Portal | PAWSIC</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/v2-overrides.css">
+  <link rel="stylesheet" href="/css/media-kit.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/pawsic-favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/pawsic-favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/pawsic-apple-touch-icon.png">
+  <style>
+    /* ── Password Gate ── */
+    #pw-gate {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: linear-gradient(135deg, #0c1f3f 0%, #122d55 50%, #0c1f3f 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+
+    .pw-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 16px;
+      padding: 3rem 2.5rem;
+      max-width: 440px;
+      width: 100%;
+      text-align: center;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 24px 64px rgba(0,0,0,0.5);
+    }
+
+    .pw-logo {
+      margin-bottom: 2rem;
+    }
+
+    .pw-logo img {
+      height: 48px;
+      width: auto;
+    }
+
+    .pw-badge {
+      display: inline-block;
+      background: rgba(201,168,76,0.15);
+      border: 1px solid rgba(201,168,76,0.4);
+      color: #C9A84C;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.85rem;
+      border-radius: 999px;
+      margin-bottom: 1.25rem;
+    }
+
+    .pw-card h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.75rem;
+      font-weight: 400;
+      color: #fff;
+      line-height: 1.25;
+      margin: 0 0 0.75rem;
+    }
+
+    .pw-card h1 em {
+      font-style: italic;
+      color: #38B6FF;
+    }
+
+    .pw-card p {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.92rem;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.6;
+      margin: 0 0 2rem;
+    }
+
+    .pw-input-row {
+      display: flex;
+      gap: 0.6rem;
+      margin-bottom: 0.75rem;
+    }
+
+    #pw-input {
+      flex: 1;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 8px;
+      padding: 0.75rem 1rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      color: #fff;
+      outline: none;
+      transition: border-color 0.2s;
+      letter-spacing: 0.05em;
+    }
+
+    #pw-input::placeholder {
+      color: rgba(255,255,255,0.3);
+      letter-spacing: 0;
+    }
+
+    #pw-input:focus {
+      border-color: rgba(43,124,202,0.7);
+      background: rgba(255,255,255,0.08);
+    }
+
+    #pw-submit {
+      background: #2B7CCA;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 0.75rem 1.25rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.1s;
+      white-space: nowrap;
+    }
+
+    #pw-submit:hover {
+      background: #1a6abf;
+    }
+
+    #pw-submit:active {
+      transform: scale(0.97);
+    }
+
+    #pw-error {
+      display: none;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.85rem;
+      color: #ff7070;
+      margin-top: 0.5rem;
+      text-align: left;
+    }
+
+    .pw-footer-note {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.3);
+      margin-top: 1.75rem;
+    }
+
+    .pw-footer-note a {
+      color: rgba(255,255,255,0.45);
+      text-decoration: none;
+    }
+
+    .pw-footer-note a:hover {
+      color: rgba(255,255,255,0.7);
+    }
+
+    /* ── Page Content (hidden until auth) ── */
+    #page-content {
+      display: none;
+    }
+
+    /* ── Minimal standalone header/footer ── */
+    .sp-standalone-header {
+      background: #0c1f3f;
+      padding: 1.25rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .sp-standalone-header img {
+      height: 40px;
+      width: auto;
+    }
+
+    .sp-standalone-footer {
+      background: #0c1f3f;
+      padding: 1.5rem 2rem;
+      text-align: center;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.4);
+    }
+
+    .sp-standalone-footer a {
+      color: rgba(255,255,255,0.55);
+      text-decoration: none;
+    }
+
+    .sp-standalone-footer a:hover {
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── PASSWORD GATE ── -->
+  <div id="pw-gate" role="dialog" aria-modal="true" aria-labelledby="pw-title">
+    <div class="pw-card">
+      <div class="pw-logo">
+        <img src="/images/pawsic-logo-vert-wht.png" alt="PAWSIC logo">
+      </div>
+      <div class="pw-badge">Platinum Sponsor Portal</div>
+      <h1 id="pw-title">Partner <em>Visibility Overview</em></h1>
+      <p>This page is shared exclusively with PAWSIC Platinum Sponsors. Please enter your access password to continue.</p>
+      <div class="pw-input-row">
+        <input type="password" id="pw-input" placeholder="Enter access password" autocomplete="current-password" aria-label="Access password">
+        <button id="pw-submit" type="button">View Portal</button>
+      </div>
+      <div id="pw-error" role="alert">Incorrect password. Please check with your PAWSIC representative.</div>
+      <p class="pw-footer-note">
+        Questions? Contact <a href="mailto:info@pawsic.org">info@pawsic.org</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- ── PAGE CONTENT (revealed after auth) ── -->
+  <div id="page-content">
+
+    <header class="sp-standalone-header">
+      <a href="https://pawsic.org">
+        <img src="/images/pawsic-logo-vert-wht.png" alt="PAWSIC — Post-Acute Wound and Skin Integrity Council">
+      </a>
+    </header>
+
+    <main id="main-content">
+      <a href="#main-content" class="skip-link" style="position:absolute;left:-999px;">Skip to main content</a>
+
+      <!-- ===== SECTION 1: HERO ===== -->
+      <section class="mk-hero">
+        <div class="mk-hero-bg"></div>
+        <div class="container">
+          <div class="mk-hero-content">
+            <span class="section-tag reveal">Sponsor Visibility</span>
+            <h1 class="reveal reveal-delay-1">See Exactly Where Your<br><em>Brand Is Recognized</em></h1>
+            <p class="mk-hero-sub reveal reveal-delay-2">PAWSIC sponsors receive year-round acknowledgment across our website, newsletters, educational events, social media, and podcast. This page shows you every touchpoint where your organization gains visibility with the wound care and skin health community.</p>
+            <div class="mk-hero-ctas reveal reveal-delay-3">
+              <a href="https://form.jotform.com/executiveteam_executiveteam874/pawsic-sponsorship-contact-form" class="btn-primary btn-lg" target="_blank" rel="noopener noreferrer">Schedule a Partnership Conversation <span class="btn-arrow">&rarr;</span></a>
+              <a href="https://pawsic.org/sponsors" class="btn-outline btn-lg">View Partnership Tiers</a>
+            </div>
+            <div class="mk-hero-trust reveal reveal-delay-3">
+              <div class="mk-trust-badge">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                501(c)(6) Nonprofit
+              </div>
+              <div class="mk-trust-badge">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+                CE/CME Accredited Programs
+              </div>
+              <div class="mk-trust-badge">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                Board-Certified Clinical Leadership
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ===== SECTION 2: AUDIENCE ===== -->
+      <section class="section section-light">
+        <div class="container">
+          <div class="section-header reveal">
+            <span class="section-tag">Who You Reach</span>
+            <h2>Your Brand Before the Wound Care and <em>Skin Health Community</em></h2>
+            <p>PAWSIC serves an engaged, multidisciplinary audience of healthcare professionals dedicated to improving patient outcomes in post-acute settings.</p>
+          </div>
+
+          <div class="mk-audience-roles reveal reveal-delay-1">
+            <div class="mk-role-card">
+              <div class="mk-audience-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+              </div>
+              <h3>Nurses &amp; Wound Clinicians</h3>
+              <p>WOC-certified nurses, wound care specialists, RNs, LPNs, and aspiring wound care nurses.</p>
+            </div>
+            <div class="mk-role-card">
+              <div class="mk-audience-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <h3>Physicians, NPs, PAs &amp; DPMs</h3>
+              <p>Medical directors, physicians, nurse practitioners, physician assistants, and podiatrists.</p>
+            </div>
+            <div class="mk-role-card">
+              <div class="mk-audience-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+              </div>
+              <h3>Therapists (PT, OT, SLP)</h3>
+              <p>Physical, occupational, and speech-language therapists involved in wound care and skin health.</p>
+            </div>
+            <div class="mk-role-card">
+              <div class="mk-audience-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+              </div>
+              <h3>Pharmacists, Dietitians &amp; Specialists</h3>
+              <p>Allied health professionals supporting wound care and skin health across care settings.</p>
+            </div>
+            <div class="mk-role-card">
+              <div class="mk-audience-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              </div>
+              <h3>Caregivers &amp; CNAs</h3>
+              <p>Frontline caregivers and certified nursing assistants providing hands-on wound care and skin health.</p>
+            </div>
+            <div class="mk-role-card">
+              <div class="mk-audience-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+              </div>
+              <h3>Nurse Educators &amp; Clinical Instructors</h3>
+              <p>Faculty and clinical educators delivering wound care education and CE/CME programs.</p>
+            </div>
+            <div class="mk-role-card">
+              <div class="mk-audience-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              </div>
+              <h3>Healthcare Leaders &amp; Operators</h3>
+              <p>Directors of Nursing, administrators, owners, and operators across post-acute care organizations.</p>
+            </div>
+            <div class="mk-role-card">
+              <div class="mk-audience-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+              </div>
+              <h3>Industry, Researchers &amp; Students</h3>
+              <p>Medical device companies, wound care manufacturers, clinical researchers, and students advancing wound care science.</p>
+            </div>
+            <div class="mk-role-card">
+              <div class="mk-audience-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              </div>
+              <h3>Patients &amp; Their Families</h3>
+              <p>Patients navigating wound care and skin health, and the families who support them.</p>
+            </div>
+          </div>
+
+          <div class="mk-settings-bar reveal reveal-delay-2">
+            <div class="mk-settings-label">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              Across Post-Acute Care Settings
+            </div>
+            <div class="mk-settings-tags">
+              <span>Skilled Nursing Facilities</span>
+              <span>Long-Term Care</span>
+              <span>Home Health &amp; Home Care</span>
+              <span>Assisted Living</span>
+              <span>Mobile Wound Care</span>
+              <span>Hospice</span>
+              <span>VBC / ACO</span>
+              <span>Pharmacy</span>
+              <span>Academia</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ===== SECTION 3: PLATINUM VISIBILITY TOUR ===== -->
+      <section class="section section-white" style="padding-bottom: 0;">
+        <div class="container">
+          <div class="section-header reveal">
+            <span class="section-tag">Platinum Tier</span>
+            <h2>The Platinum <em>Sponsor Experience</em></h2>
+            <p>As a Platinum Sponsor, your organization receives the most comprehensive recognition across every PAWSIC channel. Here is exactly where your brand appears.</p>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ── CHANNEL 1: WEBSITE ── -->
+      <section class="mk-channel-section mk-channel-light">
+        <div class="container">
+          <div class="mk-channel-banner reveal">
+            <span class="mk-channel-number">1</span>
+            <div class="mk-channel-banner-text">
+              <h3>Website Visibility</h3>
+              <p>Your logo and link appear across pawsic.org, providing year-round recognition for every visitor.</p>
+            </div>
+          </div>
+
+          <div class="mk-touchpoint reveal">
+            <div class="mk-touchpoint-visual">
+              <div class="mk-device mk-device-laptop">
+                <div class="mk-device-screen">
+                  <div class="mk-mockup-browser">
+                    <div class="mk-browser-bar">
+                      <span class="mk-browser-dots"><i></i><i></i><i></i></span>
+                      <span class="mk-browser-url">pawsic.org</span>
+                    </div>
+                    <div class="mk-browser-content">
+                      <div class="mk-mockup-announcement-bar">
+                        <span>&#9733; Sponsor of the Month: <strong>Your Company</strong> | Supporting wound care education nationwide</span>
+                      </div>
+                      <div class="mk-mockup-nav-placeholder"></div>
+                      <div class="mk-mockup-page-placeholder"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="mk-touchpoint-text">
+              <span class="mk-touchpoint-label">Announcement Bar</span>
+              <h4>Sponsor of the Month: Site-Wide</h4>
+              <p>The very top bar of every page on pawsic.org is reserved for a rotating Sponsor of the Month spotlight. This is the first thing every visitor sees, giving your organization prime, site-wide visibility. <strong>Available for a limited time only</strong>, as 501(c)(6) nonprofit guidelines restrict the duration of site-wide sponsor recognition to ensure acknowledgment does not constitute taxable advertising income.</p>
+              <a href="https://pawsic.org" class="mk-touchpoint-url" target="_blank" rel="noopener noreferrer">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                Visible on every page of pawsic.org
+              </a>
+            </div>
+          </div>
+
+          <div class="mk-touchpoint mk-touchpoint-reverse reveal">
+            <div class="mk-touchpoint-visual">
+              <div class="mk-device mk-device-laptop">
+                <div class="mk-device-screen">
+                  <img src="/images/sponsor-visibility/homepage-sponsor-showcase.png" alt="PAWSIC homepage showing Platinum sponsor logos in the Trusted By Our Sponsors showcase section" loading="lazy">
+                </div>
+              </div>
+            </div>
+            <div class="mk-touchpoint-text">
+              <span class="mk-touchpoint-label">Homepage, Top</span>
+              <h4>Platinum Sponsor Showcase</h4>
+              <p>Your logo is featured prominently in the "Trusted By Our Sponsors" section at the top of the homepage. Platinum sponsors appear in a dedicated showcase area above all other sponsor logos, with a direct link to your website.</p>
+              <a href="https://pawsic.org" class="mk-touchpoint-url" target="_blank" rel="noopener noreferrer">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                pawsic.org
+              </a>
+            </div>
+          </div>
+
+          <div class="mk-touchpoint reveal">
+            <div class="mk-touchpoint-visual">
+              <div class="mk-device mk-device-laptop">
+                <div class="mk-device-screen">
+                  <img src="/images/sponsor-visibility/homepage-partners-cta.png" alt="PAWSIC homepage For Sponsors and Partners section showing Platinum sponsor logos" loading="lazy">
+                </div>
+              </div>
+            </div>
+            <div class="mk-touchpoint-text">
+              <span class="mk-touchpoint-label">Homepage, Bottom</span>
+              <h4>Partnership Call-to-Action</h4>
+              <p>Your logo appears again in the "For Sponsors and Partners" section near the bottom of the homepage. This section highlights Platinum sponsors alongside PAWSIC's partnership invitation, giving your brand a second prominent placement on the most-visited page.</p>
+              <a href="https://pawsic.org" class="mk-touchpoint-url" target="_blank" rel="noopener noreferrer">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                pawsic.org
+              </a>
+            </div>
+          </div>
+
+          <div class="mk-touchpoint mk-touchpoint-reverse reveal">
+            <div class="mk-touchpoint-visual">
+              <div class="mk-device mk-device-laptop">
+                <div class="mk-device-screen">
+                  <img src="/images/sponsor-visibility/sponsors-page-featured.png" alt="PAWSIC sponsorship page showing featured Platinum sponsor logos at the top" loading="lazy">
+                </div>
+              </div>
+            </div>
+            <div class="mk-touchpoint-text">
+              <span class="mk-touchpoint-label">Sponsorship Page</span>
+              <h4>Featured Partner Display</h4>
+              <p>Your logo is displayed at the top of the PAWSIC sponsorship page in the featured sponsors area, larger than other tier logos. This page is shared with all prospective sponsors and partners, positioning your organization as a flagship partner.</p>
+              <a href="https://pawsic.org/sponsors" class="mk-touchpoint-url" target="_blank" rel="noopener noreferrer">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                pawsic.org/sponsors
+              </a>
+            </div>
+          </div>
+
+          <div class="mk-touchpoint reveal">
+            <div class="mk-touchpoint-visual">
+              <div class="mk-device mk-device-laptop">
+                <div class="mk-device-screen">
+                  <img src="/images/sponsor-visibility/press-releases-page.png" alt="PAWSIC Newsroom page showing press release announcing new Platinum sponsor partnership" loading="lazy">
+                </div>
+              </div>
+            </div>
+            <div class="mk-touchpoint-text">
+              <span class="mk-touchpoint-label">Newsroom</span>
+              <h4>Dedicated Press Release</h4>
+              <p>Every Platinum sponsor receives a dedicated press release published on the PAWSIC Newsroom page, formally announcing the partnership. The press release is shared across PAWSIC's newsletter and social media channels, amplifying the announcement to the full wound care and skin health community.</p>
+              <ul class="mk-touchpoint-highlights">
+                <li>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  Published on pawsic.org/press-releases
+                </li>
+                <li>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  Distributed via newsletter and social media
+                </li>
+                <li>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  Permanent record on the PAWSIC website
+                </li>
+              </ul>
+              <a href="https://pawsic.org/press-releases" class="mk-touchpoint-url" target="_blank" rel="noopener noreferrer">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                pawsic.org/press-releases
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ── CHANNEL 2: NEWSLETTERS ── -->
+      <section class="mk-channel-section mk-channel-white">
+        <div class="container">
+          <div class="mk-channel-banner reveal">
+            <span class="mk-channel-number">2</span>
+            <div class="mk-channel-banner-text">
+              <h3>Newsletter Recognition</h3>
+              <p>Three newsletter editions reach distinct audiences. Sponsor acknowledgment connects your brand with healthcare professionals who actively seek clinical education.</p>
+            </div>
+          </div>
+
+          <div class="mk-touchpoint reveal">
+            <div class="mk-touchpoint-visual">
+              <div class="mk-device mk-device-email">
+                <div class="mk-device-email-bar">
+                  <span class="mk-email-dots"><i></i><i></i><i></i></span>
+                  <span class="mk-email-subject">PAWSIC Newsletter: Sponsor Spotlight</span>
+                </div>
+                <div class="mk-device-screen">
+                  <img src="/images/sponsor-visibility/Newsletter Sponsor Spotlight.png" alt="PAWSIC newsletter Sponsor Spotlight card showing company logo, description, and representative quote" loading="lazy">
+                </div>
+              </div>
+            </div>
+            <div class="mk-touchpoint-text">
+              <span class="mk-touchpoint-label">Newsletter Feature</span>
+              <h4>Sponsor Spotlight Card</h4>
+              <p>Your organization receives a dedicated Sponsor Spotlight card in PAWSIC newsletters. This acknowledgment includes your company logo, a brief description of your organization, and a quote from a company representative. The Sponsor Spotlight reaches all newsletter recipients across Premium, Free, and Subscriber editions.</p>
+              <div class="mk-touchpoint-editions">
+                <span>&#9679; Premium Members</span>
+                <span>&#9679; Free Members</span>
+                <span>&#9679; Subscribers</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="mk-touchpoint mk-touchpoint-reverse reveal">
+            <div class="mk-touchpoint-visual">
+              <div class="mk-device mk-device-email">
+                <div class="mk-device-email-bar">
+                  <span class="mk-email-dots"><i></i><i></i><i></i></span>
+                  <span class="mk-email-subject">PAWSIC Newsletter: Footer Recognition</span>
+                </div>
+                <div class="mk-device-screen">
+                  <img src="/images/sponsor-visibility/Newsletter Platinum footer.png" alt="PAWSIC newsletter footer showing Special thanks to our Platinum sponsors with logo grid" loading="lazy">
+                </div>
+              </div>
+            </div>
+            <div class="mk-touchpoint-text">
+              <span class="mk-touchpoint-label">Every Edition</span>
+              <h4>Platinum Footer Acknowledgment</h4>
+              <p>Every PAWSIC newsletter includes a "Special thanks to our Platinum sponsors" section in the footer. Your logo appears alongside other Platinum partners in a dedicated recognition area included in every newsletter edition sent to the full PAWSIC community.</p>
+            </div>
+          </div>
+
+          <div class="mk-compliance-note reveal">
+            Sponsor acknowledgment in newsletters is provided periodically as recognition of partnership support, consistent with PAWSIC's 501(c)(6) nonprofit status.
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ── CHANNEL 3: EDUCATIONAL EVENTS ── -->
+      <section class="mk-channel-section mk-channel-light">
+        <div class="container">
+          <div class="mk-channel-banner reveal">
+            <span class="mk-channel-number">3</span>
+            <div class="mk-channel-banner-text">
+              <h3>Educational Events</h3>
+              <p>PAWSIC convenes wound care professionals through educational webinars and in-person events throughout the year. Event sponsors are acknowledged as supporters of clinical education.</p>
+            </div>
+          </div>
+
+          <div class="mk-touchpoint reveal">
+            <div class="mk-touchpoint-visual">
+              <div class="mk-device mk-device-laptop">
+                <div class="mk-device-screen">
+                  <img src="/images/webinars/End-of-Life-Skin-Wound-Changes-2024-1024x576.png" alt="PAWSIC wound care education webinar showing sponsor logo on event materials" loading="lazy">
+                </div>
+              </div>
+            </div>
+            <div class="mk-touchpoint-text">
+              <span class="mk-touchpoint-label">10+ Events Per Year</span>
+              <h4>Acknowledged at Every Major Event</h4>
+              <p>Platinum sponsors are acknowledged at more than 10 educational events per year, including webinars, in-person education sessions, and conference appearances. Your logo is included on event materials and invitations, and your organization receives a verbal acknowledgment during the event opening.</p>
+              <ul class="mk-touchpoint-highlights">
+                <li>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  Logo on all event materials and invitations
+                </li>
+                <li>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  Verbal acknowledgment at event openings
+                </li>
+                <li>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  Webinars, in-person sessions, and conferences
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ── CHANNEL 4: PODCAST ── -->
+      <section class="mk-channel-section mk-channel-white">
+        <div class="container">
+          <div class="mk-channel-banner reveal">
+            <span class="mk-channel-number">4</span>
+            <div class="mk-channel-banner-text">
+              <h3>PAWSIC Podcast</h3>
+              <p>PAWSIC is launching a podcast to bring wound care education directly to clinicians, caregivers, and patients. The first episode is recorded and launching soon.</p>
+            </div>
+          </div>
+
+          <div class="mk-touchpoint reveal">
+            <div class="mk-touchpoint-visual">
+              <div class="mk-device mk-device-phone">
+                <div class="mk-device-phone-notch"></div>
+                <div class="mk-device-screen">
+                  <img src="/images/sponsor-visibility/Healing-by-design-podcast.png" alt="PAWSIC Healing by Design podcast episode clip" loading="lazy">
+                </div>
+              </div>
+            </div>
+            <div class="mk-touchpoint-text">
+              <span class="mk-touchpoint-label">Founding Partner</span>
+              <h4>Founding Sponsor Recognition</h4>
+              <p>Platinum sponsors are recognized as founding partners, with acknowledgment in podcast episodes and promotional content shared across all channels.</p>
+              <div class="mk-podcast-premiere">
+                <div class="mk-podcast-premiere-label">&#9733; Premiere Episode</div>
+                <h4>The Patient Journey: The Story of <em>Amy Rivera</em></h4>
+                <p>Lymphatic patient and consultant turned nurse and lymphedema specialist sharing her journey of navigating the healthcare system, learning to become her own advocate, and transforming her most difficult experiences into her life's work.</p>
+              </div>
+              <a href="https://form.jotform.com/executiveteam_executiveteam874/pawsic-sponsorship-contact-form" class="btn-primary btn-sm" target="_blank" rel="noopener noreferrer" style="margin-top: 1rem;">Become a Founding Podcast Sponsor <span class="btn-arrow">&rarr;</span></a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ── CHANNEL 5: MEMBERSHIP ── -->
+      <section class="mk-channel-section mk-channel-light">
+        <div class="container">
+          <div class="mk-channel-banner reveal">
+            <span class="mk-channel-number">5</span>
+            <div class="mk-channel-banner-text">
+              <h3>PAWSIC Membership Portal</h3>
+              <p>Platinum sponsors are acknowledged within the PAWSIC membership portal, visible to every active member when they access their account and education library.</p>
+            </div>
+          </div>
+
+          <div class="mk-touchpoint reveal">
+            <div class="mk-touchpoint-visual">
+              <div class="mk-device mk-device-laptop">
+                <div class="mk-device-screen">
+                  <img src="/images/sponsor-visibility/Member login page.png" alt="PAWSIC membership portal showing Platinum sponsor acknowledgment on member profile page" loading="lazy">
+                </div>
+              </div>
+            </div>
+            <div class="mk-touchpoint-text">
+              <span class="mk-touchpoint-label">Member Portal</span>
+              <h4>Sponsor Acknowledgment + Gifted Memberships</h4>
+              <p>Platinum sponsor logos and names are displayed on the PAWSIC member profile page. Every member sees your brand acknowledgment when they log in to access the education library, courses, and webinar recordings.</p>
+              <div class="mk-highlight-box">
+                <strong>25 Gifted PAWSIC Memberships</strong>
+                <p>Platinum sponsors can distribute 25 individual PAWSIC memberships to their team members, clients, or partners. Each gifted membership includes full access to the PAWSIC education library with CE/CME accredited content.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ── CHANNEL 6: SOCIAL MEDIA ── -->
+      <section class="mk-channel-section mk-channel-white">
+        <div class="container">
+          <div class="mk-channel-banner reveal">
+            <span class="mk-channel-number">6</span>
+            <div class="mk-channel-banner-text">
+              <h3>Social Media</h3>
+              <p>PAWSIC maintains an active presence across six social media platforms, sharing clinical education, event highlights, and community updates with wound care professionals nationwide.</p>
+            </div>
+          </div>
+
+          <div class="mk-touchpoint reveal">
+            <div class="mk-touchpoint-visual">
+              <div class="mk-device mk-device-phone">
+                <div class="mk-device-phone-notch"></div>
+                <div class="mk-device-screen">
+                  <img src="/images/sponsor-visibility/social-media-example-for-sponsors.png" alt="PAWSIC social media sponsor gratitude post showing sponsor logo placement" loading="lazy">
+                </div>
+              </div>
+            </div>
+            <div class="mk-touchpoint-text">
+              <span class="mk-touchpoint-label">6 Platforms</span>
+              <h4>Dedicated Acknowledgment Posts</h4>
+              <p>Platinum sponsors receive periodic acknowledgment across PAWSIC's six social media platforms. This includes sponsor recognition posts and logo inclusion in event promotion content shared with the wound care and skin health community.</p>
+              <ul class="mk-touchpoint-highlights">
+                <li>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  Periodic sponsor recognition posts
+                </li>
+                <li>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  Logo inclusion in event promotion graphics
+                </li>
+                <li>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  Dedicated recognition features for Platinum sponsors
+                </li>
+              </ul>
+              <div class="mk-social-platforms-inline">
+                <a href="https://www.linkedin.com/company/pawsic/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <a href="https://www.youtube.com/@PAWSIC-Team" target="_blank" rel="noopener noreferrer">YouTube</a>
+                <a href="https://www.instagram.com/pawsic_org/" target="_blank" rel="noopener noreferrer">Instagram</a>
+                <a href="https://www.facebook.com/profile.php?id=100064724872333" target="_blank" rel="noopener noreferrer">Facebook</a>
+                <a href="https://x.com/PAWSIC1" target="_blank" rel="noopener noreferrer">X</a>
+                <a href="https://www.tiktok.com/@pawsic.org" target="_blank" rel="noopener noreferrer">TikTok</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ===== SECTION 5: PARTNERSHIP MATRIX ===== -->
+      <section class="section section-white" id="partnership-matrix">
+        <div class="container">
+          <div class="section-header reveal">
+            <span class="section-tag">At a Glance</span>
+            <h2>What Every Partnership <em>Tier Includes</em></h2>
+            <p>Each tier supports PAWSIC's mission to advance wound care and skin health education while providing your organization with meaningful recognition. For full tier details, visit the <a href="https://pawsic.org/sponsors" style="color:#2b7cca; font-weight:600;">Partnership Tiers page</a>.</p>
+          </div>
+
+          <div class="mk-matrix-wrapper reveal reveal-delay-1">
+            <table class="mk-matrix">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>
+                    <span class="mk-matrix-tier-name">Platinum</span>
+                    <span class="mk-matrix-tier-price">$25,000/year</span>
+                  </th>
+                  <th>
+                    <span class="mk-matrix-tier-name">Gold</span>
+                    <span class="mk-matrix-tier-price">$15,000/year</span>
+                  </th>
+                  <th>
+                    <span class="mk-matrix-tier-name">Silver</span>
+                    <span class="mk-matrix-tier-price">$10,000/year</span>
+                  </th>
+                  <th>
+                    <span class="mk-matrix-tier-name">Bronze</span>
+                    <span class="mk-matrix-tier-price">$5,000/year</span>
+                  </th>
+                  <th>
+                    <span class="mk-matrix-tier-name">Friends</span>
+                    <span class="mk-matrix-tier-price">$500+/year</span>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="mk-matrix-category"><td colspan="6">Website</td></tr>
+                <tr>
+                  <td>Sponsor of the Month (announcement bar)</td>
+                  <td><span class="mk-check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span></td>
+                  <td><span class="mk-dash">&ndash;</span></td>
+                  <td><span class="mk-dash">&ndash;</span></td>
+                  <td><span class="mk-dash">&ndash;</span></td>
+                  <td><span class="mk-dash">&ndash;</span></td>
+                </tr>
+                <tr>
+                  <td>Logo + link on sponsors page</td>
+                  <td><span class="mk-check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span></td>
+                  <td><span class="mk-check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span></td>
+                  <td><span class="mk-check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span></td>
+                  <td><span class="mk-check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span></td>
+                  <td><span class="mk-dash">&ndash;</span></td>
+                </tr>
+                <tr>
+                  <td>Homepage Platinum showcase</td>
+                  <td><span class="mk-check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span></td>
+                  <td><span class="mk-check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span></td>
+                  <td><span class="mk-dash">&ndash;</span></td>
+                  <td><span class="mk-dash">&ndash;</span></td>
+                  <td><span class="mk-dash">&ndash;</span></td>
+                </tr>
+                <tr>
+                  <td>Homepage Partners CTA section</td>
+                  <td><span class="mk-check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span></td>
+                  <td><span class="mk-check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span></td>
+                  <td><span class="mk-dash">&ndash;</span></td>
+                  <td><span class="mk-dash">&ndash;</span></td>
+                  <td><span class="mk-dash">&ndash;</span></td>
+                </tr>
+                <tr>
+                  <td>Press release acknowledgment</td>
+                  <td><span class="mk-check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span></td>
+                  <td><span class="mk-check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span></td>
+                  <td><span class="mk-check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span></td>
+                  <td><span class="mk-dash">&ndash;</span></td>
+                  <td><span class="mk-dash">&ndash;</span></td>
+                </tr>
+
+                <tr class="mk-matrix-category"><td colspan="6">Newsletter</td></tr>
+                <tr>
+                  <td>Sponsor Spotlight card</td>
+                  <td><span class="mk-check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span></td>
+                  <td><span class="mk-check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span></td>
+                  <td><span class="mk-dash">&ndash;</span></td>
+                  <td><span class="mk-dash">&ndash;</span></td>
+                  <td><span class="mk-dash">&ndash;</span></td>
+                </tr>
+                <tr>
+                  <td>Platinum footer recognition</td>
+                  <td><span class="mk-check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span></td>
+                  <td><span class="mk-dash">&ndash;</span></td>
+                  <td><span class="mk-dash">&ndash;</span></td>
+                  <td><span class="mk-dash">&ndash;</span></td>
+                  <td><span class="mk-dash">&ndash;</span></td>
+                </tr>
+                <tr>
+                  <td>Logo acknowledgment</td>
+                  <td><span class="mk-check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span></td>
+                  <td><span class="mk-check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span></td>
+                  <td><span class="mk-check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span></td>
+                  <td><span class="mk-check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span></td>
+                  <td><span class="mk-dash">&ndash;</span></td>
+                </tr>
+
+                <tr class="mk-matrix-category"><td colspan="6">Social Media</td></tr>
+                <tr>
+                  <td>Dedicated recognition features</td>
+                  <td><span class="mk-check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span></td>
+                  <td><span class="mk-dash">&ndash;</span></td>
+                  <td><span class="mk-dash">&ndash;</span></td>
+                  <td><span class="mk-dash">&ndash;</span></td>
+                  <td><span class="mk-dash">&ndash;</span></td>
+                </tr>
+                <tr>
+                  <td>Sponsor acknowledgment posts</td>
+                  <td><span class="mk-check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span></td>
+                  <td><span class="mk-check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span></td>
+                  <td><span class="mk-dash">&ndash;</span></td>
+                  <td><span class="mk-dash">&ndash;</span></td>
+                  <td><span class="mk-dash">&ndash;</span></td>
+                </tr>
+                <tr>
+                  <td>Event promotion tags</td>
+                  <td><span class="mk-check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span></td>
+                  <td><span class="mk-check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span></td>
+                  <td><span class="mk-check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span></td>
+                  <td><span class="mk-dash">&ndash;</span></td>
+                  <td><span class="mk-dash">&ndash;</span></td>
+                </tr>
+
+                <tr class="mk-matrix-category"><td colspan="6">Events</td></tr>
+                <tr>
+                  <td>Events acknowledged</td>
+                  <td><span class="mk-value">10+</span></td>
+                  <td><span class="mk-value">2</span></td>
+                  <td><span class="mk-dash">&ndash;</span></td>
+                  <td><span class="mk-dash">&ndash;</span></td>
+                  <td><span class="mk-dash">&ndash;</span></td>
+                </tr>
+                <tr>
+                  <td>Webinar sponsorship (a la carte)</td>
+                  <td><span class="mk-addon">Add-on</span></td>
+                  <td><span class="mk-addon">Add-on</span></td>
+                  <td><span class="mk-addon">Add-on</span></td>
+                  <td><span class="mk-addon">Add-on</span></td>
+                  <td><span class="mk-dash">&ndash;</span></td>
+                </tr>
+                <tr>
+                  <td>In-person education sponsorship</td>
+                  <td><span class="mk-addon">Add-on</span></td>
+                  <td><span class="mk-addon">Add-on</span></td>
+                  <td><span class="mk-addon">Add-on</span></td>
+                  <td><span class="mk-addon">Add-on</span></td>
+                  <td><span class="mk-dash">&ndash;</span></td>
+                </tr>
+
+                <tr class="mk-matrix-category"><td colspan="6">Education</td></tr>
+                <tr>
+                  <td>Full education library access</td>
+                  <td><span class="mk-check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span></td>
+                  <td><span class="mk-check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span></td>
+                  <td><span class="mk-check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span></td>
+                  <td><span class="mk-check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span></td>
+                  <td><span class="mk-check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span></td>
+                </tr>
+                <tr>
+                  <td>Gifted memberships</td>
+                  <td><span class="mk-value">25</span></td>
+                  <td><span class="mk-value">10</span></td>
+                  <td><span class="mk-value">5</span></td>
+                  <td><span class="mk-value">2</span></td>
+                  <td><span class="mk-dash">&ndash;</span></td>
+                </tr>
+
+                <tr class="mk-matrix-category"><td colspan="6">Podcast</td></tr>
+                <tr>
+                  <td>Founding partner recognition</td>
+                  <td><span class="mk-check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span></td>
+                  <td><span class="mk-check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span></td>
+                  <td><span class="mk-dash">&ndash;</span></td>
+                  <td><span class="mk-dash">&ndash;</span></td>
+                  <td><span class="mk-dash">&ndash;</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ===== CTA ===== -->
+      <section class="cta-section">
+        <div class="container">
+          <div class="cta-card reveal">
+            <div class="cta-content">
+              <h2>Ready to Partner<br>with PAWSIC?</h2>
+              <p>Connect with PAWSIC's partnership team to explore how your organization can support wound care and skin health education and gain meaningful recognition before thousands of dedicated healthcare professionals.</p>
+              <div style="display:flex; gap:1rem; flex-wrap:wrap;">
+                <a href="https://form.jotform.com/executiveteam_executiveteam874/pawsic-sponsorship-contact-form" class="btn-primary btn-lg" target="_blank" rel="noopener noreferrer">Schedule a Partnership Conversation <span class="btn-arrow">&rarr;</span></a>
+                <a href="https://pawsic.org/sponsors" class="btn-outline btn-lg">View All Partnership Tiers</a>
+              </div>
+            </div>
+            <div class="cta-visual">
+              <div class="cta-orb cta-orb-1"></div>
+              <div class="cta-orb cta-orb-2"></div>
+              <div class="cta-orb cta-orb-3"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="sp-standalone-footer">
+      &copy; 2026 Post-Acute Wound and Skin Integrity Council &nbsp;|&nbsp; <a href="https://pawsic.org">pawsic.org</a> &nbsp;|&nbsp; <a href="https://pawsic.org/privacy-policy">Privacy Policy</a>
+    </footer>
+
+  </div><!-- /#page-content -->
+
+  <script src="/js/main.js"></script>
+  <script>
+    (function () {
+      var HASH = "309ca62065cf003f7ab0ff89f3052e8628c0a7dfd30d5122d75f9bdf3dd93856";
+      var SESSION_KEY = "pawsic_sp_auth";
+
+      function unlock() {
+        document.getElementById("pw-gate").style.display = "none";
+        document.getElementById("page-content").style.display = "block";
+      }
+
+      async function checkPassword(input) {
+        var buf = await crypto.subtle.digest(
+          "SHA-256",
+          new TextEncoder().encode(input)
+        );
+        return Array.from(new Uint8Array(buf))
+          .map(function (b) { return b.toString(16).padStart(2, "0"); })
+          .join("");
+      }
+
+      if (sessionStorage.getItem(SESSION_KEY) === "1") {
+        unlock();
+      }
+
+      document.getElementById("pw-submit").addEventListener("click", async function () {
+        var val = document.getElementById("pw-input").value;
+        if (!val) return;
+        var hash = await checkPassword(val);
+        if (hash === HASH) {
+          sessionStorage.setItem(SESSION_KEY, "1");
+          unlock();
+        } else {
+          document.getElementById("pw-error").style.display = "block";
+          document.getElementById("pw-input").focus();
+        }
+      });
+
+      document.getElementById("pw-input").addEventListener("keydown", function (e) {
+        if (e.key === "Enter") {
+          document.getElementById("pw-submit").click();
+        }
+        if (document.getElementById("pw-error").style.display !== "none") {
+          document.getElementById("pw-error").style.display = "none";
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
