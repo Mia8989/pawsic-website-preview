@@ -420,6 +420,110 @@
       </div>
     </section>
 
+    <!-- ===== MEMBER VOICES ===== -->
+    <section class="section section-cream" id="member-voices">
+      <style>
+        .hp-testimonials-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+          gap: 1.75rem;
+          margin-top: 2.5rem;
+        }
+        .hp-testimonial-card {
+          background: var(--bg-white, #ffffff);
+          border-radius: 20px;
+          padding: 2rem 1.75rem;
+          box-shadow: var(--shadow-md);
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+          transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease);
+        }
+        .hp-testimonial-card:hover {
+          transform: translateY(-4px);
+          box-shadow: var(--shadow-lg);
+        }
+        .hp-testimonial-card img {
+          width: 96px;
+          height: 96px;
+          border-radius: 50%;
+          object-fit: cover;
+          margin-bottom: 1rem;
+          border: 4px solid var(--bg-cream, #faf8f4);
+          box-shadow: 0 2px 12px rgba(12,31,63,0.1);
+        }
+        .hp-testimonial-card blockquote {
+          font-family: 'DM Serif Display', serif;
+          font-size: 1rem;
+          line-height: 1.6;
+          color: var(--navy, #0c1f3f);
+          font-style: italic;
+          margin: 0 0 1.25rem;
+          flex: 1;
+        }
+        .hp-testimonial-card .member-name {
+          font-family: 'Inter', sans-serif;
+          font-size: 0.9rem;
+          font-weight: 600;
+          color: var(--navy, #0c1f3f);
+          margin: 0 0 0.15rem;
+        }
+        .hp-testimonial-card .member-role {
+          font-size: 0.8rem;
+          color: var(--text-muted, #7a8699);
+          margin: 0;
+        }
+        .hp-testimonials-cta {
+          text-align: center;
+          margin-top: 2.5rem;
+        }
+        .hp-testimonials-cta a {
+          font-size: 0.95rem;
+          font-weight: 600;
+          color: var(--indigo, #1e3a6e);
+          text-decoration: none;
+          border-bottom: 2px solid var(--blue-accent, #2B7CCA);
+          padding-bottom: 2px;
+          transition: color 0.2s, border-color 0.2s;
+        }
+        .hp-testimonials-cta a:hover { color: var(--blue-accent, #2B7CCA); border-color: var(--blue-accent, #2B7CCA); }
+      </style>
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">What Our Members Say</span>
+          <h2>Voices from the <em>PAWSIC community</em></h2>
+        </div>
+        <div class="hp-testimonials-grid">
+
+          <article class="hp-testimonial-card reveal">
+            <img src="/images/board/ronald-rosen.jpg" alt="Dr. Ron Rosen, Geriatrician and Hospice Physician">
+            <blockquote>"PAWSIC brings together clinicians committed to advancing wound care through evidence, collaboration, and practical innovation."</blockquote>
+            <p class="member-name">Dr. Ron Rosen</p>
+            <p class="member-role">Geriatrician &amp; Hospice Physician</p>
+          </article>
+
+          <article class="hp-testimonial-card reveal reveal-delay-1">
+            <img src="/images/board/amy-rivera.jpg" alt="Amy Rivera, RN, Founder of Rivera Hybrid Solutions">
+            <blockquote>"Patient voice is one of the most powerful drivers of innovation in healthcare. Patients bring lived experience that reveals gaps in care."</blockquote>
+            <p class="member-name">Amy Rivera, RN</p>
+            <p class="member-role">Founder, Rivera Hybrid Solutions &middot; PAWSIC Board</p>
+          </article>
+
+          <article class="hp-testimonial-card reveal reveal-delay-2">
+            <img src="/assets/alec-mccall/alec-headshot.jpg" alt="Alec McCall, Ph.D., Co-Founder of Red Maple LifeSciences" onerror="this.style.display='none'">
+            <blockquote>"PAWSIC provides an incredible opportunity to connect with experts in the field and build relationships that help accelerate the translation of our technology into meaningful patient impact."</blockquote>
+            <p class="member-name">Alec McCall, Ph.D.</p>
+            <p class="member-role">Co-Founder, Red Maple LifeSciences</p>
+          </article>
+
+        </div>
+        <div class="hp-testimonials-cta reveal">
+          <a href="/testimonials/">Read all member spotlights &rarr;</a>
+        </div>
+      </div>
+    </section>
+
     <!-- ===== WHY PAWSIC (V2 -- plain language, no jargon) ===== -->
     <section class="section section-white">
       <div class="container">

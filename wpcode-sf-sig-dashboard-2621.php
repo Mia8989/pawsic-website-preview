@@ -98,6 +98,17 @@ add_action('wp_head', function () {
       .sfsig-m-hero h1 { font-size: clamp(1.6rem, 3.5vw, 2.4rem) !important; color: #fff !important; margin-bottom: 0.35rem !important; }
       .sfsig-m-hero .hero-sub { color: rgba(255,255,255,0.6); font-size: 0.95rem; line-height: 1.6; max-width: 600px; }
       .sfsig-m-hero .hero-tag { display: inline-block; background: rgba(56,182,255,0.15); border: 1px solid rgba(56,182,255,0.25); color: #38b6ff; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 0.3rem 0.9rem; border-radius: 100px; margin-bottom: 0.75rem; }
+      .sfsig-m-register { background: linear-gradient(135deg, #38b6ff 0%, #2b7cca 60%, #1e3a6e 100%) !important; padding: 2.25rem 0 !important; position: relative; overflow: hidden; border-top: 1px solid rgba(255,255,255,0.1); }
+      .sfsig-m-register::before { content: ''; position: absolute; top: -50%; right: -10%; width: 320px; height: 320px; background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%); border-radius: 50%; pointer-events: none; }
+      .sfsig-m-register .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1.75rem; flex-wrap: wrap; position: relative; z-index: 1; }
+      .sfsig-m-register .reg-text { flex: 1; min-width: 280px; }
+      .sfsig-m-register .reg-tag { display: inline-block; background: rgba(255,255,255,0.18); border: 1px solid rgba(255,255,255,0.25); color: #fff; font-family: 'Inter', sans-serif; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 0.3rem 0.9rem; border-radius: 100px; margin-bottom: 0.6rem; }
+      .sfsig-m-register h2 { color: #fff !important; font-size: clamp(1.3rem, 2.4vw, 1.65rem) !important; margin-bottom: 0.35rem !important; font-family: 'DM Serif Display', Georgia, serif !important; font-weight: 400 !important; line-height: 1.2 !important; }
+      .sfsig-m-register p { color: rgba(255,255,255,0.92); font-size: 0.95rem; line-height: 1.55; margin-bottom: 0; max-width: 580px; }
+      .sfsig-m-register .reg-btn { display: inline-flex; align-items: center; gap: 0.5rem; background: #fff !important; color: #0c1f3f !important; padding: 0.9rem 1.85rem !important; border-radius: 100px; font-family: 'Inter', sans-serif; font-weight: 700 !important; font-size: 0.92rem; text-decoration: none !important; box-shadow: 0 6px 20px rgba(0,0,0,0.18); transition: all 0.3s ease; flex-shrink: 0; }
+      .sfsig-m-register .reg-btn:hover { background: #faf8f4 !important; color: #0c1f3f !important; transform: translateY(-2px); box-shadow: 0 10px 28px rgba(0,0,0,0.25); }
+      .sfsig-m-register .reg-btn svg { transition: transform 0.3s; }
+      .sfsig-m-register .reg-btn:hover svg { transform: translateX(3px); }
       .sfsig-m-tabs { background: #fff !important; border-bottom: 1px solid #e8edf2; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 8px rgba(12,31,63,0.04); }
       .sfsig-m-tabs .wrap { display: flex; gap: 0; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
       .sfsig-m-tabs .wrap::-webkit-scrollbar { display: none; }
@@ -254,6 +265,20 @@ add_filter('the_content', function ($content) {
       <h1>Skin Failure Shared Interest Group</h1>
       <p class="hero-sub">Your membership includes access to exclusive webinar recordings, clinical resources, and the SF SIG peer community forum.</p>
     </div>
+  </div>
+</section>
+
+<section class="sfsig-m-register">
+  <div class="wrap">
+    <div class="reg-text">
+      <span class="reg-tag">SF SIG Members | Register for Meetings</span>
+      <h2>Register for Upcoming SF SIG Meetings</h2>
+      <p>All SF SIG members can register here for upcoming Skin Failure SIG meetings. After registering, Zoom will email you a personal join link unique to your account.</p>
+    </div>
+    <a href="https://us06web.zoom.us/meeting/register/Nbjo8ZlUQxGNXOPKSITkMQ" target="_blank" rel="noopener" class="reg-btn">
+      Register on Zoom
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
   </div>
 </section>
 
@@ -534,16 +559,21 @@ add_filter('the_content', function ($content) {
   <section class="sec sec-frost">
     <div class="wrap">
       <div class="sec-header">
-        <span class="sec-label">Our Purpose</span>
+        <span class="sec-label">About</span>
         <h2>About the <em>Skin Failure Shared Interest Group</em></h2>
         <p>The SF SIG is a focused community within PAWSIC dedicated to advancing the recognition, assessment, and clinical understanding of skin failure.</p>
       </div>
       <div class="about-split">
         <div class="about-content">
-          <span class="sec-label">Mission</span>
-          <h2>Our <em>Mission</em></h2>
-          <p>The Skin Failure Shared Interest Group exists to advance the clinical recognition and understanding of skin failure as a distinct condition, separate from pressure injuries. We bring together wound care and skin health professionals, researchers, and industry partners to develop evidence-based frameworks, clinical assessment tools, and educational resources that support accurate identification and compassionate care for patients experiencing skin failure.</p>
-          <p>Through collaborative research, shared clinical expertise, and peer-to-peer learning, the SF SIG works to ensure that every patient experiencing skin failure receives accurate diagnosis and appropriate care.</p>
+          <span class="sec-label">Purpose</span>
+          <h2>Our <em>Purpose</em></h2>
+          <p>The Skin Failure Shared Interest Group (SF SIG) under PAWSIC is a patient-centered, interprofessional team committed to improving the recognition and management of skin failure within post-acute care settings.</p>
+          <p style="margin-bottom:0.5rem;">Its core purpose is to:</p>
+          <ul style="margin:0 0 1rem 1.25rem;padding:0;color:#3d4a5c;font-size:0.95rem;line-height:1.75;">
+            <li style="margin-bottom:0.5rem;">Serve as an authoritative source and advocate for the recognition of skin failure as a unique clinical condition.</li>
+            <li style="margin-bottom:0.5rem;">Promote the evidence-based differentiation of skin failure from pressure injuries and other wound etiologies.</li>
+            <li style="margin-bottom:0.5rem;">Act as a primary communication channel within PAWSIC to advance research, education, and policy development on skin failure.</li>
+          </ul>
         </div>
         <div class="about-highlight">
           <h3>Why Skin Failure Matters</h3>
@@ -558,13 +588,39 @@ add_filter('the_content', function ($content) {
       <div class="about-split">
         <div class="about-highlight">
           <h3>Our Vision for the Future</h3>
-          <p>We envision a healthcare landscape where skin failure is universally recognized, properly coded, and managed with the same clinical rigor as any other medical condition. A future where clinicians are equipped with the tools, knowledge, and peer support to confidently identify and document skin failure, improving outcomes and reducing misattribution.</p>
+          <p>The vision of SF SIG is to establish skin failure as a distinct clinical entity associated with systemic or localized multi-organ dysfunction or failure.</p>
+          <p style="margin-top:1rem;margin-bottom:0.5rem;color:rgba(255,255,255,0.7) !important;">The group envisions a future where:</p>
+          <ul style="margin:0 0 0 1.25rem;padding:0;color:rgba(255,255,255,0.7);font-size:0.9rem;line-height:1.7;">
+            <li style="margin-bottom:0.4rem;">Skin failure is widely recognized in clinical, academic, and regulatory settings.</li>
+            <li style="margin-bottom:0.4rem;">The integumentary system is understood and treated as a vital organ system, reflecting internal organ dysfunction when compromised.</li>
+            <li style="margin-bottom:0.4rem;">SF SIG is the authoritative voice guiding the evolution of understanding regarding skin failure&rsquo;s clinical significance.</li>
+            <li style="margin-bottom:0;">Cross-disciplinary collaboration enhances the development of unified, evidence-based standards of care.</li>
+          </ul>
         </div>
         <div class="about-content">
           <span class="sec-label">Vision</span>
-          <h2>Where We're <em>Heading</em></h2>
-          <p>The SF SIG is actively working toward establishing skin failure as a recognized medical diagnosis with its own ICD code. Our revised code proposal, developed in collaboration with AADA, represents a significant step toward this goal.</p>
-          <p>We continue to grow our evidence base through collaborative research, position statements, and clinical commentary from leading wound care and skin health experts. Every webinar, resource, and forum discussion brings us closer to transforming how the healthcare system understands and responds to skin failure.</p>
+          <h2>Our <em>Vision</em></h2>
+          <p>We see a future where the integumentary system is treated as a vital organ, where skin failure is universally recognized across clinical, academic, and regulatory settings, and where cross-disciplinary collaboration produces unified, evidence-based standards of care.</p>
+          <p>The SF SIG works to be the authoritative voice guiding the clinical understanding of skin failure as it evolves.</p>
+        </div>
+      </div>
+      <div class="about-split">
+        <div class="about-content">
+          <span class="sec-label">Mission</span>
+          <h2>Our <em>Mission</em></h2>
+          <p>The long-term mission of the SF SIG encompasses a broad scope of educational and clinical goals aimed at systemic healthcare improvement:</p>
+          <ul style="margin:0 0 0 1.25rem;padding:0;color:#3d4a5c;font-size:0.95rem;line-height:1.75;">
+            <li style="margin-bottom:0.5rem;">Gain acceptance of skin failure as a health condition that can occur across the life span, especially prevalent among the elderly and those near the end of life.</li>
+            <li style="margin-bottom:0.5rem;">Provide comprehensive, evidence-based information and resources to diverse healthcare providers.</li>
+            <li style="margin-bottom:0.5rem;">Ensure that all patients, regardless of age, ethnicity, or background, receive informed and equitable care for conditions involving skin failure.</li>
+            <li style="margin-bottom:0.5rem;">Synthesize and translate research into clinical practice using expert contributions from within PAWSIC and aligned global organizations.</li>
+            <li style="margin-bottom:0;">Navigate the complexities of regulatory and reimbursement systems while maintaining high standards for care and education.</li>
+          </ul>
+        </div>
+        <div class="about-highlight">
+          <h3>Driving Systemic Change</h3>
+          <p>Through clinical research, education, policy advocacy, and interprofessional collaboration, the SF SIG works to transform how skin failure is recognized, documented, and managed across post-acute care.</p>
+          <p style="margin-top:1rem;">Every webinar, position statement, code proposal, and resource we publish moves the field one step closer to equitable, evidence-based care for every patient.</p>
         </div>
       </div>
     </div>

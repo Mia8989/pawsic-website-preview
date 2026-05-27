@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1080">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  width: 1080px;
+  height: 1350px;
+  overflow: hidden;
+  font-family: 'Inter', -apple-system, sans-serif;
+}
+
+.card {
+  width: 1080px;
+  height: 1350px;
+  background: linear-gradient(160deg, #0C1F3F 0%, #1E3A6E 100%);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* subtle texture overlay */
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 70% 20%, rgba(56,182,255,0.08) 0%, transparent 60%),
+              radial-gradient(ellipse at 20% 80%, rgba(201,168,76,0.06) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+/* ── TOP BAR ── */
+.top-bar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 48px 64px 0 64px;
+  position: relative;
+  z-index: 1;
+}
+
+.logo-img {
+  height: 130px;
+  width: auto;
+  display: block;
+}
+
+.spotlight-badge {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.badge-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #C9A84C;
+  flex-shrink: 0;
+}
+
+.badge-label {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #C9A84C;
+}
+
+/* ── DIVIDER ── */
+.divider {
+  width: calc(100% - 128px);
+  height: 1px;
+  background: rgba(255,255,255,0.15);
+  margin: 32px 64px 0 64px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── HEADSHOTS ROW ── */
+.headshots-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 72px;
+  margin-top: 60px;
+  position: relative;
+  z-index: 1;
+}
+
+.person {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.photo-ring {
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #C9A84C, #E8D07A, #C9A84C);
+  padding: 4px;
+  box-shadow: 0 16px 48px rgba(0,0,0,0.4);
+  flex-shrink: 0;
+}
+
+.photo-inner {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #0C1F3F;
+}
+
+.photo-inner img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center 15%;
+  display: block;
+}
+
+.person-name {
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-size: 30px;
+  font-weight: 400;
+  color: #ffffff;
+  text-align: center;
+  line-height: 1.2;
+}
+
+.person-cred {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  color: #38B6FF;
+  text-align: center;
+  margin-top: -10px;
+}
+
+/* ── COMPANY BLOCK ── */
+.company-block {
+  margin-top: 44px;
+  text-align: center;
+  padding: 0 64px;
+  position: relative;
+  z-index: 1;
+}
+
+.company-name {
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-size: 34px;
+  font-weight: 400;
+  color: #ffffff;
+}
+
+.company-tag {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  color: #38B6FF;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-top: 10px;
+}
+
+/* ── QUOTE BLOCK ── */
+.quote-block {
+  margin: 48px 64px 0 64px;
+  padding: 40px 48px;
+  border: 1px solid rgba(255,255,255,0.12);
+  border-left: 4px solid #C9A84C;
+  border-radius: 4px;
+  background: rgba(255,255,255,0.04);
+  position: relative;
+  z-index: 1;
+}
+
+.quote-text {
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-style: italic;
+  font-size: 28px;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.92);
+}
+
+.quote-attr {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  color: #C9A84C;
+  margin-top: 20px;
+  letter-spacing: 0.04em;
+}
+
+/* ── BOTTOM BAR ── */
+.bottom-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 1080px;
+  height: 108px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 64px;
+  background: rgba(0,0,0,0.2);
+}
+
+.bottom-logo-img {
+  height: 72px;
+  width: auto;
+  display: block;
+}
+
+.bottom-url {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  letter-spacing: 0.08em;
+  color: rgba(255,255,255,0.45);
+}
+</style>
+</head>
+<body>
+<div class="card">
+
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    <img class="logo-img" src="file:///Users/dahlia.imanbay/dahlia-ai-brain/brands/PAWSIC/PAWSIC.org/pawsic-website/assets/alec-mccall/pawsic-logo-vert-wht-cropped.png" alt="PAWSIC">
+    <div class="spotlight-badge">
+      <div class="badge-dot"></div>
+      <div class="badge-label">Member Spotlight</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- HEADSHOTS -->
+  <div class="headshots-row">
+    <div class="person">
+      <div class="photo-ring">
+        <div class="photo-inner">
+          <img src="file:///Users/dahlia.imanbay/dahlia-ai-brain/brands/PAWSIC/PAWSIC.org/pawsic-website/assets/alec-mccall/alec-headshot.jpg" alt="Alec McCall">
+        </div>
+      </div>
+      <div class="person-name">Alec McCall, Ph.D.</div>
+      <div class="person-cred">Chief Executive Officer</div>
+    </div>
+    <div class="person">
+      <div class="photo-ring">
+        <div class="photo-inner">
+          <img src="file:///Users/dahlia.imanbay/dahlia-ai-brain/brands/PAWSIC/PAWSIC.org/pawsic-website/assets/alec-mccall/william-ash.jpg" alt="William Ash">
+        </div>
+      </div>
+      <div class="person-name">William J. Ash III, MS</div>
+      <div class="person-cred">Chief Operating Officer</div>
+    </div>
+  </div>
+
+  <!-- COMPANY -->
+  <div class="company-block">
+    <div class="company-name">Red Maple LifeSciences</div>
+    <div class="company-tag">NSF I-Corps Cohort &middot; Brown University</div>
+  </div>
+
+  <!-- QUOTE -->
+  <div class="quote-block">
+    <div class="quote-text">"PAWSIC provides an incredible opportunity to connect with experts in the field and build relationships that help accelerate the translation of our technology into meaningful patient impact."</div>
+    <div class="quote-attr">— Alec McCall, Ph.D., PAWSIC Member</div>
+  </div>
+
+  <!-- BOTTOM BAR -->
+  <div class="bottom-bar">
+    <img class="bottom-logo-img" src="file:///Users/dahlia.imanbay/dahlia-ai-brain/brands/PAWSIC/PAWSIC.org/pawsic-website/assets/alec-mccall/pawsic-logo-vert-wht-cropped.png" alt="PAWSIC">
+    <div class="bottom-url">pawsic.org</div>
+  </div>
+
+</div>
+</body>
+</html>
