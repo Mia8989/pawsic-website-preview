@@ -379,7 +379,7 @@
     </section>
 
     <!-- ===== VIDEO PLAYER ===== -->
-    <section class="watch-video-section">
+    <section class="watch-video-section" id="video-section">
       <div class="container">
         <div class="watch-video-wrap">
           <iframe src="https://player.vimeo.com/video/1196531439?h=e669c48167&badge=0&autopause=0&player_id=0&app_id=58479"
@@ -391,6 +391,58 @@
       </div>
     </section>
     <script src="https://player.vimeo.com/api/player.js"></script>
+
+    <!-- ===== ACCESS CLOSED (shown automatically after June 24 11:59 PM ET) ===== -->
+    <section class="watch-closed-section" id="closed-section" style="display:none; padding: 5rem 0; background: linear-gradient(135deg, #0C1F3F 0%, #1B3A6A 100%);">
+      <div class="container">
+        <div style="max-width: 720px; margin: 0 auto; text-align: center; color: #fff;">
+          <span style="display:inline-flex; align-items:center; gap:0.5rem; background:rgba(212,175,55,0.18); border:1px solid rgba(212,175,55,0.4); color:#F2D77A; padding:0.45rem 1.1rem; border-radius:100px; font-size:0.78rem; font-weight:600; letter-spacing:0.05em; text-transform:uppercase; margin-bottom:1.5rem;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Access Window Closed
+          </span>
+          <h2 style="font-family:'DM Serif Display',serif; font-size:clamp(1.8rem,4vw,2.8rem); color:#fff; margin:0 0 1rem; line-height:1.15;">The 72-hour access window for<br><em style="color:#38B6FF;">Wound Basics 101</em> has closed.</h2>
+          <p style="font-size:1.05rem; color:rgba(255,255,255,0.8); line-height:1.65; max-width:580px; margin:0 auto 2.5rem;">Thank you for your interest in this course. PAWSIC members can access the full course library year-round. Not yet a member? Joining is free.</p>
+
+          <!-- CTA cards -->
+          <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1.2rem; margin-bottom:2.5rem; text-align:left;">
+
+            <div style="background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.15); border-radius:16px; padding:1.6rem;">
+              <p style="margin:0 0 0.4rem; font-size:0.72rem; font-weight:700; color:#38B6FF; text-transform:uppercase; letter-spacing:0.1em;">Already a member?</p>
+              <p style="margin:0 0 1.2rem; font-size:0.95rem; color:rgba(255,255,255,0.85); line-height:1.5;">Log in to your PAWSIC account to access the full course library and your certificate.</p>
+              <a href="https://memberships.pawsic.org/login/" target="_blank" rel="noopener noreferrer" style="display:inline-block; background:#38B6FF; color:#fff; font-size:0.88rem; font-weight:600; padding:0.7rem 1.4rem; border-radius:100px; text-decoration:none;">Log In to PAWSIC &rarr;</a>
+            </div>
+
+            <div style="background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.15); border-radius:16px; padding:1.6rem;">
+              <p style="margin:0 0 0.4rem; font-size:0.72rem; font-weight:700; color:#D4AF37; text-transform:uppercase; letter-spacing:0.1em;">Not a member yet?</p>
+              <p style="margin:0 0 1.2rem; font-size:0.95rem; color:rgba(255,255,255,0.85); line-height:1.5;">Join PAWSIC for free and get access to courses, resources, and the clinical community.</p>
+              <a href="https://pawsic.org/membership/" target="_blank" rel="noopener noreferrer" style="display:inline-block; background:#D4AF37; color:#0C1F3F; font-size:0.88rem; font-weight:700; padding:0.7rem 1.4rem; border-radius:100px; text-decoration:none;">Become a Member &rarr;</a>
+            </div>
+
+            <div style="background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.15); border-radius:16px; padding:1.6rem;">
+              <p style="margin:0 0 0.4rem; font-size:0.72rem; font-weight:700; color:#38B6FF; text-transform:uppercase; letter-spacing:0.1em;">Coming Up</p>
+              <p style="margin:0 0 1.2rem; font-size:0.95rem; color:rgba(255,255,255,0.85); line-height:1.5;">Join us for a Live Q&amp;A with the Wound Basics 101 faculty. Register now to save your spot.</p>
+              <a href="https://pawsic.org/webinars/" target="_blank" rel="noopener noreferrer" style="display:inline-block; background:rgba(255,255,255,0.12); border:1px solid rgba(255,255,255,0.3); color:#fff; font-size:0.88rem; font-weight:600; padding:0.7rem 1.4rem; border-radius:100px; text-decoration:none;">Register for Live Q&amp;A &rarr;</a>
+            </div>
+
+          </div>
+
+          <p style="font-size:0.85rem; color:rgba(255,255,255,0.45);">Questions? Email us at <a href="mailto:info@pawsic.org" style="color:rgba(255,255,255,0.6); text-decoration:none; font-weight:600;">info@pawsic.org</a></p>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      // Close date: June 25, 2026 at 00:00 ET (EDT = UTC-4)
+      var closeDate = new Date('2026-06-25T04:00:00Z');
+      var now = new Date();
+      if (now >= closeDate) {
+        document.getElementById('video-section').style.display = 'none';
+        document.getElementById('closed-section').style.display = 'block';
+        // Also hide the access window banner since it no longer applies
+        var banner = document.querySelector('.watch-window');
+        if (banner) banner.style.display = 'none';
+      }
+    </script>
 
     <!-- ===== WHAT YOU'LL LEARN ===== -->
     <section class="watch-modules">
