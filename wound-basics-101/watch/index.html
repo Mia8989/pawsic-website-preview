@@ -264,8 +264,140 @@
     .watch-help-card a { color: #1B5E9E; font-weight: 700; text-decoration: none; }
     .watch-help-card a:hover { text-decoration: underline; }
 
+    /* Countdown section */
+    .watch-countdown-section {
+      background: linear-gradient(135deg, #0C1F3F 0%, #1B3A6A 100%);
+      padding: 5rem 0 4rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .watch-countdown-section::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle at 25% 40%, rgba(56,182,255,0.15), transparent 50%),
+                        radial-gradient(circle at 75% 60%, rgba(212,175,55,0.1), transparent 50%);
+      pointer-events: none;
+    }
+    .watch-countdown-section .container { position: relative; }
+    .countdown-inner {
+      max-width: 760px;
+      margin: 0 auto;
+      color: #fff;
+    }
+    .countdown-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(212,175,55,0.18);
+      border: 1px solid rgba(212,175,55,0.4);
+      color: #F2D77A;
+      padding: 0.45rem 1.1rem;
+      border-radius: 100px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+    .countdown-headline {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      color: #fff;
+      margin: 0 0 2rem;
+      line-height: 1.2;
+    }
+    .countdown-timer {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+    .countdown-unit {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 90px;
+    }
+    .countdown-number {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(3rem, 8vw, 5.5rem);
+      color: #38B6FF;
+      line-height: 1;
+      font-weight: 400;
+      letter-spacing: -0.02em;
+    }
+    .countdown-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.55);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-top: 0.4rem;
+    }
+    .countdown-sep {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      color: rgba(56,182,255,0.4);
+      line-height: 1;
+      padding-top: 0.2rem;
+    }
+    .countdown-subtext {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.65);
+      margin: 0 0 2.5rem;
+    }
+    .countdown-cal-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+    .countdown-btn-blue {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: #38B6FF;
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.92rem;
+      padding: 0.8rem 1.6rem;
+      border-radius: 100px;
+      text-decoration: none;
+      box-shadow: 0 4px 16px rgba(56,182,255,0.35);
+      transition: background 0.2s, transform 0.2s;
+    }
+    .countdown-btn-blue:hover { background: #2da0e8; transform: translateY(-1px); }
+    .countdown-btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: transparent;
+      color: #fff;
+      font-weight: 600;
+      font-size: 0.92rem;
+      padding: 0.8rem 1.6rem;
+      border-radius: 100px;
+      border: 1.5px solid rgba(255,255,255,0.45);
+      text-decoration: none;
+      transition: border-color 0.2s, background 0.2s, transform 0.2s;
+    }
+    .countdown-btn-outline:hover { border-color: #fff; background: rgba(255,255,255,0.08); transform: translateY(-1px); }
+    .countdown-note {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.45);
+      margin: 0;
+    }
+
     @media (max-width: 600px) {
       .watch-module-grid { grid-template-columns: 1fr; }
+      .countdown-unit { min-width: 70px; }
+      .countdown-cal-buttons { flex-direction: column; align-items: center; }
+      .countdown-btn-blue, .countdown-btn-outline { width: 100%; max-width: 300px; justify-content: center; }
     }
   </style>
 </head>
@@ -378,6 +510,60 @@
       </div>
     </section>
 
+    <!-- ===== NOT YET OPEN: COUNTDOWN ===== -->
+    <section class="watch-countdown-section" id="countdown-section" style="display:none;">
+      <div class="container">
+        <div class="countdown-inner">
+          <div class="countdown-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Coming Soon
+          </div>
+          <h2 class="countdown-headline">Wound Basics 101 opens in</h2>
+
+          <div class="countdown-timer" aria-live="polite" aria-label="Time until course opens">
+            <div class="countdown-unit">
+              <span class="countdown-number" id="cd-days">00</span>
+              <span class="countdown-label">Days</span>
+            </div>
+            <div class="countdown-sep" aria-hidden="true">:</div>
+            <div class="countdown-unit">
+              <span class="countdown-number" id="cd-hours">00</span>
+              <span class="countdown-label">Hours</span>
+            </div>
+            <div class="countdown-sep" aria-hidden="true">:</div>
+            <div class="countdown-unit">
+              <span class="countdown-number" id="cd-minutes">00</span>
+              <span class="countdown-label">Minutes</span>
+            </div>
+            <div class="countdown-sep" aria-hidden="true">:</div>
+            <div class="countdown-unit">
+              <span class="countdown-number" id="cd-seconds">00</span>
+              <span class="countdown-label">Seconds</span>
+            </div>
+          </div>
+
+          <p class="countdown-subtext">June 22, 2026 at 12:00 AM ET &nbsp;&middot;&nbsp; 72-hour free access</p>
+
+          <div class="countdown-cal-buttons">
+            <a class="countdown-btn-blue"
+               href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Wound+Basics+101+%E2%80%94+Free+On-Demand+Course+%28PAWSIC%29&dates=20260622T040000Z%2F20260625T035900Z&details=Your+free+72-hour+on-demand+access+to+Wound+Basics+101+is+now+live.+Watch+at+https%3A%2F%2Fpawsic.org%2Fwound-basics-101%2Fwatch%2F&location=https%3A%2F%2Fpawsic.org%2Fwound-basics-101%2Fwatch%2F"
+               target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px;"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              Add to Google Calendar
+            </a>
+            <a class="countdown-btn-outline"
+               href="/wound-basics-101/wound-basics-101.ics"
+               download="wound-basics-101.ics">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px;"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              Add to Apple / Outlook
+            </a>
+          </div>
+
+          <p class="countdown-note">A launch email with your watch link will arrive June 22 at 7 AM ET.</p>
+        </div>
+      </div>
+    </section>
+
     <!-- ===== VIDEO PLAYER ===== -->
     <section class="watch-video-section" id="video-section">
       <div class="container">
@@ -432,16 +618,55 @@
     </section>
 
     <script>
-      // Close date: June 25, 2026 at 00:00 ET (EDT = UTC-4)
+      // Open date: June 22, 2026 at 00:00 ET (EDT = UTC-4, so 04:00 UTC)
+      var openDate  = new Date('2026-06-22T04:00:00Z');
+      // Close date: June 25, 2026 at 00:00 ET (EDT = UTC-4, so 04:00 UTC)
       var closeDate = new Date('2026-06-25T04:00:00Z');
-      var now = new Date();
-      if (now >= closeDate) {
-        document.getElementById('video-section').style.display = 'none';
-        document.getElementById('closed-section').style.display = 'block';
-        // Also hide the access window banner since it no longer applies
-        var banner = document.querySelector('.watch-window');
-        if (banner) banner.style.display = 'none';
+
+      function pad(n) { return String(n).padStart(2, '0'); }
+
+      function updateState() {
+        var now = new Date();
+
+        if (now < openDate) {
+          // NOT YET OPEN: show countdown, hide video
+          document.getElementById('video-section').style.display    = 'none';
+          document.getElementById('closed-section').style.display   = 'none';
+          document.getElementById('countdown-section').style.display = 'block';
+
+          // Tick the countdown
+          var diff = openDate - now;
+          var days    = Math.floor(diff / (1000 * 60 * 60 * 24));
+          var hours   = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          var minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+          var seconds = Math.floor((diff % (1000 * 60)) / 1000);
+          document.getElementById('cd-days').textContent    = pad(days);
+          document.getElementById('cd-hours').textContent   = pad(hours);
+          document.getElementById('cd-minutes').textContent = pad(minutes);
+          document.getElementById('cd-seconds').textContent = pad(seconds);
+
+        } else if (now >= openDate && now < closeDate) {
+          // OPEN: show video, hide countdown + closed
+          document.getElementById('countdown-section').style.display = 'none';
+          document.getElementById('closed-section').style.display    = 'none';
+          document.getElementById('video-section').style.display     = 'block';
+          if (countdownTimer) { clearInterval(countdownTimer); countdownTimer = null; }
+
+        } else {
+          // CLOSED: show closed section, hide video + countdown
+          document.getElementById('video-section').style.display     = 'none';
+          document.getElementById('countdown-section').style.display = 'none';
+          document.getElementById('closed-section').style.display    = 'block';
+          // Also hide the access window banner since it no longer applies
+          var banner = document.querySelector('.watch-window');
+          if (banner) banner.style.display = 'none';
+          if (countdownTimer) { clearInterval(countdownTimer); countdownTimer = null; }
+        }
       }
+
+      // Run immediately, then tick every second while countdown is active
+      var countdownTimer = setInterval(updateState, 1000);
+      updateState();
     </script>
 
     <!-- ===== WHAT YOU'LL LEARN ===== -->
