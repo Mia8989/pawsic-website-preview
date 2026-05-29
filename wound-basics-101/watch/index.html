@@ -12,7 +12,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Watch Wound Basics 101 | PAWSIC On-Demand</title>
-  <meta name="description" content="Watch PAWSIC's Wound Basics 101 course on-demand. Four expert-led modules covering wound evaluation, pressure injuries, treatments, and patient-centered care.">
+  <meta name="description" content="Watch PAWSIC's Wound Basics 101 course on-demand. Expert-led modules covering wound evaluation, pressure injuries, treatments, and patient-centered care.">
   <meta name="robots" content="noindex, nofollow">
   <link rel="canonical" href="https://pawsic.org/wound-basics-101/watch/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,7 +29,7 @@
     .watch-hero {
       background: linear-gradient(135deg, #0C1F3F 0%, #1B3A6A 100%);
       color: #fff;
-      padding: 5rem 0 3rem;
+      padding: 4rem 0 3rem;
       text-align: center;
       position: relative;
       overflow: hidden;
@@ -62,7 +62,7 @@
     .watch-hero h1 {
       color: #fff;
       font-family: 'DM Serif Display', serif;
-      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      font-size: clamp(2rem, 5vw, 3.2rem);
       line-height: 1.1;
       margin: 0 0 1rem;
       letter-spacing: -0.02em;
@@ -72,7 +72,7 @@
       color: #38B6FF;
     }
     .watch-hero p {
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       line-height: 1.6;
       color: rgba(255,255,255,0.85);
       max-width: 620px;
@@ -92,96 +92,26 @@
     .watch-access-meta svg { width: 18px; height: 18px; color: #38B6FF; }
     .watch-access-meta strong { color: #fff; font-weight: 700; }
 
-    /* Sticky module nav */
-    .watch-nav {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      background: #fff;
-      border-bottom: 1px solid rgba(12,31,63,0.08);
-      box-shadow: 0 2px 10px rgba(12,31,63,0.04);
-    }
-    .watch-nav-inner {
-      display: flex;
-      gap: 0.5rem;
-      overflow-x: auto;
+    /* Access reminder banner */
+    .watch-window {
+      background: #fff8e1;
+      border-bottom: 1px solid rgba(212,175,55,0.3);
       padding: 0.9rem 0;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: thin;
-    }
-    .watch-nav-btn {
-      flex-shrink: 0;
-      background: #f0f4f8;
-      border: 1px solid transparent;
-      color: #0C1F3F;
-      padding: 0.55rem 1.1rem;
-      border-radius: 100px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    .watch-nav-btn:hover { background: #e0e8f0; }
-    .watch-nav-btn.active {
-      background: #1B5E9E;
-      color: #fff;
-      border-color: #1B5E9E;
-    }
-    .watch-nav-num {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 22px;
-      height: 22px;
-      background: rgba(255,255,255,0.2);
-      border-radius: 50%;
-      font-size: 0.72rem;
-      font-weight: 700;
-    }
-    .watch-nav-btn:not(.active) .watch-nav-num {
-      background: rgba(12,31,63,0.1);
-    }
-
-    /* Module video sections */
-    .watch-module {
-      padding: 4rem 0;
-      border-bottom: 1px solid rgba(12,31,63,0.08);
-    }
-    .watch-module:nth-child(even) { background: #f7f9fb; }
-    .watch-module-header {
-      max-width: 880px;
-      margin: 0 auto 2rem;
       text-align: center;
+      font-size: 0.9rem;
+      color: #6b5a1a;
+      font-weight: 600;
     }
-    .watch-module-label {
-      display: inline-block;
-      font-size: 0.75rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: #1B5E9E;
-      font-weight: 700;
-      margin-bottom: 0.6rem;
-    }
-    .watch-module-header h2 {
-      color: #0C1F3F;
-      font-size: clamp(1.6rem, 3vw, 2.2rem);
-      margin: 0 0 0.7rem;
-      line-height: 1.2;
-    }
-    .watch-module-speaker {
-      color: #3a4a5c;
-      font-size: 1rem;
-      font-style: italic;
-    }
-    .watch-module-speaker strong { color: #0C1F3F; font-style: normal; font-weight: 700; }
+    .watch-window span { display: inline-flex; align-items: center; gap: 0.5rem; }
+    .watch-window svg { width: 16px; height: 16px; }
 
-    /* Vimeo embed wrapper - responsive 16:9 */
+    /* Main video section */
+    .watch-video-section {
+      padding: 3.5rem 0 4rem;
+      background: #f7f9fb;
+    }
     .watch-video-wrap {
-      max-width: 980px;
+      max-width: 1020px;
       margin: 0 auto;
       position: relative;
       padding-bottom: 56.25%;
@@ -200,57 +130,84 @@
       border: 0;
     }
 
-    /* Placeholder state — shown when no Vimeo ID is set */
-    .watch-video-placeholder {
-      max-width: 980px;
+    /* What you'll learn */
+    .watch-modules {
+      padding: 4rem 0;
+      background: #fff;
+    }
+    .watch-modules-header {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 2.5rem;
+    }
+    .watch-modules-header .section-tag {
+      margin-bottom: 0.8rem;
+    }
+    .watch-modules-header h2 {
+      color: #0C1F3F;
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      margin: 0 0 0.6rem;
+    }
+    .watch-modules-header p {
+      color: #3a4a5c;
+      font-size: 1rem;
+      line-height: 1.6;
+      margin: 0;
+    }
+    .watch-module-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      max-width: 1100px;
       margin: 0 auto;
-      aspect-ratio: 16 / 9;
+    }
+    .watch-module-card {
+      background: #f7f9fb;
+      border: 1px solid rgba(12,31,63,0.08);
       border-radius: 14px;
-      background: linear-gradient(135deg, #0C1F3F 0%, #1B3A6A 100%);
-      color: #fff;
-      display: flex;
-      flex-direction: column;
+      padding: 1.8rem 1.6rem;
+      position: relative;
+    }
+    .watch-module-num {
+      display: inline-flex;
       align-items: center;
       justify-content: center;
-      text-align: center;
-      padding: 2rem;
-      box-shadow: 0 24px 60px rgba(12,31,63,0.18);
-      border: 2px dashed rgba(56,182,255,0.4);
+      width: 36px;
+      height: 36px;
+      background: #0C1F3F;
+      color: #38B6FF;
+      border-radius: 50%;
+      font-size: 0.8rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
     }
-    .watch-video-placeholder svg { width: 64px; height: 64px; color: #38B6FF; margin-bottom: 1rem; opacity: 0.6; }
-    .watch-video-placeholder h3 { color: #fff; font-size: 1.3rem; margin: 0 0 0.6rem; }
-    .watch-video-placeholder p { color: rgba(255,255,255,0.7); font-size: 0.92rem; margin: 0; max-width: 480px; }
-
-    /* Module learning objectives */
-    .watch-module-objectives {
-      max-width: 880px;
-      margin: 2rem auto 0;
-      background: #fff;
-      border: 1px solid rgba(12,31,63,0.08);
-      border-radius: 12px;
-      padding: 1.5rem 2rem;
-    }
-    .watch-module-objectives h4 {
-      font-size: 0.75rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: #1B5E9E;
-      margin: 0 0 0.8rem;
+    .watch-module-card h3 {
+      color: #0C1F3F;
+      font-size: 1rem;
       font-weight: 700;
+      margin: 0 0 0.4rem;
+      line-height: 1.3;
     }
-    .watch-module-objectives ul {
+    .watch-module-card .watch-speaker {
+      font-size: 0.82rem;
+      color: #1B5E9E;
+      font-weight: 600;
+      margin: 0 0 0.8rem;
+    }
+    .watch-module-card ul {
       margin: 0;
-      padding-left: 1.2rem;
+      padding-left: 1.1rem;
       color: #3a4a5c;
-      font-size: 0.95rem;
-      line-height: 1.6;
+      font-size: 0.88rem;
+      line-height: 1.55;
     }
-    .watch-module-objectives li { margin-bottom: 0.4rem; }
+    .watch-module-card li { margin-bottom: 0.3rem; }
 
-    /* Certificate CTA after final module */
+    /* Certificate CTA */
     .watch-certificate {
       background: linear-gradient(135deg, #fdf8e7 0%, #fff 100%);
       padding: 4rem 0;
+      border-top: 1px solid rgba(212,175,55,0.2);
     }
     .watch-cert-card {
       max-width: 760px;
@@ -283,19 +240,6 @@
       margin: 0 0 1.5rem;
     }
 
-    /* Access reminder banner */
-    .watch-window {
-      background: #fff8e1;
-      border-bottom: 1px solid rgba(212,175,55,0.3);
-      padding: 0.9rem 0;
-      text-align: center;
-      font-size: 0.9rem;
-      color: #6b5a1a;
-      font-weight: 600;
-    }
-    .watch-window span { display: inline-flex; align-items: center; gap: 0.5rem; }
-    .watch-window svg { width: 16px; height: 16px; }
-
     /* Help section */
     .watch-help {
       background: #f0f4f8;
@@ -319,6 +263,10 @@
     }
     .watch-help-card a { color: #1B5E9E; font-weight: 700; text-decoration: none; }
     .watch-help-card a:hover { text-decoration: underline; }
+
+    @media (max-width: 600px) {
+      .watch-module-grid { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
@@ -415,131 +363,88 @@
           You're registered
         </span>
         <h1>Welcome to <em>Wound Basics 101</em></h1>
-        <p>Stream all four modules on-demand at your own pace. Your free PAWSIC membership is active and a welcome email is on its way with your login details.</p>
-        <div class="watch-access-meta">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
-          <span>Complete all 4 modules to earn your <strong>PAWSIC Certificate</strong></span>
+        <p>Stream the full course on-demand at your own pace. Your free PAWSIC membership is active and a welcome email is on its way with your login details.</p>
+        <div class="watch-access-meta" style="gap:1.2rem; flex-wrap:wrap; justify-content:center;">
+          <span style="display:inline-flex;align-items:center;gap:0.5rem;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px;color:#38B6FF"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span><strong>3 hours</strong> · 4 modules</span>
+          </span>
+          <span style="opacity:0.4;">|</span>
+          <span style="display:inline-flex;align-items:center;gap:0.5rem;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px;color:#38B6FF"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+            <span>Watch in full to earn your <strong>Certificate of Completion</strong></span>
+          </span>
         </div>
       </div>
     </section>
 
-    <!-- ===== MODULE NAV ===== -->
-    <nav class="watch-nav" aria-label="Module navigation">
+    <!-- ===== VIDEO PLAYER ===== -->
+    <section class="watch-video-section">
       <div class="container">
-        <div class="watch-nav-inner">
-          <a href="#module-1" class="watch-nav-btn active"><span class="watch-nav-num">1</span> Evaluating a Wound</a>
-          <a href="#module-2" class="watch-nav-btn"><span class="watch-nav-num">2</span> Pressure Injuries vs. Non-PIs</a>
-          <a href="#module-3" class="watch-nav-btn"><span class="watch-nav-num">3</span> Treatments 101</a>
-          <a href="#module-4" class="watch-nav-btn"><span class="watch-nav-num">4</span> Patient-Centered Care</a>
-        </div>
-      </div>
-    </nav>
-
-    <!-- ===== MODULE 1 ===== -->
-    <section class="watch-module" id="module-1">
-      <div class="container">
-        <div class="watch-module-header">
-          <span class="watch-module-label">Module 01</span>
-          <h2>Evaluating a Wound: Key Observations</h2>
-          <p class="watch-module-speaker">Presented by <strong>Jennifer Bierhup, RN, CWS</strong> · Director of Education, THP</p>
-        </div>
-
-        <!-- TODO: Replace VIMEO_ID_M1 with your actual Vimeo video ID -->
-        <div class="watch-video-placeholder" data-module="1">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-          <h3>Video coming June 22, 2026</h3>
-          <p>The Wound Basics 101 module videos will be embedded here. Replace this block with the Vimeo iframe before launch.</p>
-        </div>
-        <!-- Production embed (uncomment + add Vimeo ID):
         <div class="watch-video-wrap">
-          <iframe src="https://player.vimeo.com/video/VIMEO_ID_M1?title=0&byline=0&portrait=0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Module 1: Evaluating a Wound"></iframe>
-        </div>
-        -->
-
-        <div class="watch-module-objectives">
-          <h4>Learning Objectives</h4>
-          <ul>
-            <li>Understanding tissue types, wound edges, skin integrity, and drainage</li>
-            <li>Identifying wound characteristics without clinical assessment terminology</li>
-          </ul>
+          <iframe src="https://player.vimeo.com/video/1153767613?h=3cfc43c24d&badge=0&autopause=0&player_id=0&app_id=58479"
+            frameborder="0"
+            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            title="Wound Basics 101"></iframe>
         </div>
       </div>
     </section>
+    <script src="https://player.vimeo.com/api/player.js"></script>
 
-    <!-- ===== MODULE 2 ===== -->
-    <section class="watch-module" id="module-2">
+    <!-- ===== WHAT YOU'LL LEARN ===== -->
+    <section class="watch-modules">
       <div class="container">
-        <div class="watch-module-header">
-          <span class="watch-module-label">Module 02</span>
-          <h2>Pressure Injuries vs. Non-PIs</h2>
-          <p class="watch-module-speaker">Presented by <strong>Donna Boyer, RN, CWS</strong> · Director of Education, GHC</p>
+        <div class="watch-modules-header">
+          <span class="section-tag">Course Overview</span>
+          <h2>What's Covered</h2>
+          <p>Four expert-led modules designed for nurses and clinicians working in post-acute wound care settings.</p>
         </div>
+        <div class="watch-module-grid">
 
-        <div class="watch-video-placeholder" data-module="2">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-          <h3>Video coming June 22, 2026</h3>
-          <p>Replace this block with the Vimeo iframe for Module 2 before launch.</p>
-        </div>
+          <div class="watch-module-card">
+            <div class="watch-module-num">1</div>
+            <h3>Evaluating a Wound: Key Observations</h3>
+            <p class="watch-speaker">Jennifer Bierhup, RN, CWS · THP</p>
+            <ul>
+              <li>Tissue types, wound edges, skin integrity, and drainage</li>
+              <li>Identifying wound characteristics accurately</li>
+            </ul>
+          </div>
 
-        <div class="watch-module-objectives">
-          <h4>Learning Objectives</h4>
-          <ul>
-            <li>Differentiating pressure injuries from other wound types</li>
-            <li>Staging PIs using NPIAP and MDS (Section M)</li>
-            <li>Management strategies aligned with F686 regulations</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+          <div class="watch-module-card">
+            <div class="watch-module-num">2</div>
+            <h3>Pressure Injuries vs. Non-PIs</h3>
+            <p class="watch-speaker">Donna Boyer, RN, CWS · GHC</p>
+            <ul>
+              <li>Differentiating pressure injuries from other wound types</li>
+              <li>Staging PIs using NPIAP and MDS (Section M)</li>
+              <li>Management aligned with F686 regulations</li>
+            </ul>
+          </div>
 
-    <!-- ===== MODULE 3 ===== -->
-    <section class="watch-module" id="module-3">
-      <div class="container">
-        <div class="watch-module-header">
-          <span class="watch-module-label">Module 03</span>
-          <h2>Treatments 101: Foundational Approaches</h2>
-          <p class="watch-module-speaker">Presented by <strong>Mary Martin, RN, CWS, THP</strong></p>
-        </div>
+          <div class="watch-module-card">
+            <div class="watch-module-num">3</div>
+            <h3>Treatments 101: Foundational Approaches</h3>
+            <p class="watch-speaker">Mary Martin, RN, CWS, THP</p>
+            <ul>
+              <li>Basic treatment principles and interventions</li>
+              <li>Selecting appropriate wound care products</li>
+              <li>Addressing wound healing challenges</li>
+            </ul>
+          </div>
 
-        <div class="watch-video-placeholder" data-module="3">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-          <h3>Video coming June 22, 2026</h3>
-          <p>Replace this block with the Vimeo iframe for Module 3 before launch.</p>
-        </div>
+          <div class="watch-module-card">
+            <div class="watch-module-num">4</div>
+            <h3>Patient-Centered Care and the 4M Framework</h3>
+            <p class="watch-speaker">Jeanine Maguire, PhD, MPT, CWS · President, PAWSIC</p>
+            <ul>
+              <li>Patient-centered care in wound management</li>
+              <li>Mobility, Medications, Mentation, and What Matters</li>
+              <li>Holistic approaches to skin and wound care</li>
+            </ul>
+          </div>
 
-        <div class="watch-module-objectives">
-          <h4>Learning Objectives</h4>
-          <ul>
-            <li>Basic treatment principles and interventions</li>
-            <li>Selecting appropriate wound care products</li>
-            <li>Addressing wound healing challenges</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== MODULE 4 ===== -->
-    <section class="watch-module" id="module-4">
-      <div class="container">
-        <div class="watch-module-header">
-          <span class="watch-module-label">Module 04</span>
-          <h2>Patient-Centered Care &amp; the 4M Framework</h2>
-          <p class="watch-module-speaker">Presented by <strong>Jeanine Maguire, PhD, MPT, CWS</strong> · Chief Clinical Officer, THP · President, PAWSIC</p>
-        </div>
-
-        <div class="watch-video-placeholder" data-module="4">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-          <h3>Video coming June 22, 2026</h3>
-          <p>Replace this block with the Vimeo iframe for Module 4 before launch.</p>
-        </div>
-
-        <div class="watch-module-objectives">
-          <h4>Learning Objectives</h4>
-          <ul>
-            <li>Defining patient-centered care in wound management</li>
-            <li>Applying the 4M Framework: Mobility, Medications, Mentation, and What Matters</li>
-            <li>Integrating holistic approaches to skin and wound care</li>
-          </ul>
         </div>
       </div>
     </section>
@@ -552,7 +457,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
           </div>
           <h2>Earn Your Certificate of Completion</h2>
-          <p>After watching all four modules, log into your PAWSIC member account to download your Certificate of Completion. Share it with your Director of Nursing, CNO, or education coordinator to document team training.</p>
+          <p>After watching the full course, log into your PAWSIC member account to download your Certificate of Completion. Share it with your Director of Nursing, CNO, or education coordinator to document team training.</p>
           <a href="https://memberships.pawsic.org/login/" class="btn-primary btn-lg" target="_blank" rel="noopener noreferrer">Log In to PAWSIC <span class="btn-arrow">&rarr;</span></a>
         </div>
       </div>
@@ -563,7 +468,7 @@
       <div class="container">
         <div class="watch-help-card">
           <h3>Need help or have questions?</h3>
-          <p>For technical issues, group enrollment, or any questions about the course, contact us at <a href="mailto:info@pawsic.org">info@pawsic.org</a>. Trouble logging in? <a href="https://memberships.pawsic.org/forgot-password/" target="_blank" rel="noopener noreferrer">Reset your password</a>.</p>
+          <p>For technical issues, group enrollment, or course questions, contact us at <a href="mailto:info@pawsic.org">info@pawsic.org</a>. Trouble logging in? <a href="https://memberships.pawsic.org/forgot-password/" target="_blank" rel="noopener noreferrer">Reset your password</a>.</p>
         </div>
       </div>
     </section>
@@ -637,26 +542,6 @@
       </div>
     </div>
   </footer>
-
-  <script>
-    // Active state for sticky nav
-    (function() {
-      const navBtns = document.querySelectorAll('.watch-nav-btn');
-      const modules = ['module-1', 'module-2', 'module-3', 'module-4'].map(id => document.getElementById(id));
-
-      function updateActive() {
-        const scrollY = window.scrollY + 200;
-        let activeIdx = 0;
-        modules.forEach((m, i) => {
-          if (m && m.offsetTop <= scrollY) activeIdx = i;
-        });
-        navBtns.forEach((b, i) => b.classList.toggle('active', i === activeIdx));
-      }
-
-      window.addEventListener('scroll', updateActive, { passive: true });
-      updateActive();
-    })();
-  </script>
 
   <script src="/js/main.js"></script>
 </body>
