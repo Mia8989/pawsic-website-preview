@@ -11,30 +11,169 @@
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Accessibility Statement | PAWSIC</title>
-  <meta name="description" content="PAWSIC's commitment to web accessibility. Learn how we work to meet WCAG 2.1 AA standards and how to report accessibility barriers.">
-  <meta property="og:title" content="Accessibility Statement | PAWSIC">
-  <meta property="og:description" content="PAWSIC is committed to making our website accessible to everyone, including people with disabilities.">
-  <meta property="og:url" content="https://pawsic.org/accessibility/">
+  <title>Clinical Insights | PAWSIC</title>
+  <meta name="description" content="Monthly clinical insights, commentary, and evidence-based perspectives from the Post-Acute Wound & Skin Integrity Council leadership and contributors.">
+  <meta name="robots" content="index, follow">
+
+  <meta property="og:title" content="Clinical Insights | PAWSIC">
+  <meta property="og:description" content="Monthly clinical insights and evidence-based perspectives from PAWSIC leadership.">
+  <meta property="og:url" content="https://pawsic.org/insights/">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://pawsic.org/images/pawsic-og-image.jpg">
+
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Accessibility Statement | PAWSIC">
-  <meta name="twitter:description" content="PAWSIC is committed to making our website accessible to everyone, including people with disabilities.">
+  <meta name="twitter:title" content="Clinical Insights | PAWSIC">
+  <meta name="twitter:description" content="Monthly clinical insights from PAWSIC.">
   <meta name="twitter:image" content="https://pawsic.org/images/pawsic-og-image.jpg">
-  <link rel="canonical" href="https://pawsic.org/accessibility/">
+
+  <link rel="canonical" href="https://pawsic.org/insights/">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "PAWSIC Clinical Insights",
+    "url": "https://pawsic.org/insights/",
+    "description": "Monthly clinical insights and evidence-based commentary on wound care, skin integrity, and post-acute practice.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "PAWSIC",
+      "url": "https://pawsic.org",
+      "logo": { "@type": "ImageObject", "url": "https://pawsic.org/images/pawsic-logo.png" }
+    }
+  }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/css/v2-overrides.css">
+
+  <style>
+    .insights-hero {
+      background: linear-gradient(145deg, #0c1f3f 0%, #162d55 50%, #1a3660 100%);
+      color: #fff;
+      padding: 5rem 0 4rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .insights-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 30% 50%, rgba(56,182,255,0.10) 0%, transparent 60%),
+        radial-gradient(ellipse at 75% 30%, rgba(43,124,202,0.08) 0%, transparent 55%);
+      pointer-events: none;
+    }
+    .insights-hero .container { position: relative; }
+    .insights-eyebrow {
+      display: inline-block;
+      background: rgba(56,182,255,0.15);
+      border: 1px solid rgba(56,182,255,0.3);
+      color: #38B6FF;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.4rem 1rem;
+      border-radius: 20px;
+      margin-bottom: 1.25rem;
+    }
+    .insights-hero h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      color: #fff !important;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+    .insights-hero h1 em { color: #38B6FF; font-style: italic; }
+    .insights-hero p {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.78);
+      max-width: 720px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    .insights-grid-section { padding: 4rem 0 5rem; background: #f6f8fb; }
+    .insights-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .insight-card {
+      background: #fff;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 2px 14px rgba(12,31,63,0.06);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+      color: inherit;
+    }
+    .insight-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 32px rgba(12,31,63,0.12);
+    }
+    .insight-card-image {
+      aspect-ratio: 1200 / 630;
+      width: 100%;
+      object-fit: cover;
+      background: #e8ecf1;
+    }
+    .insight-card-body { padding: 1.6rem 1.6rem 1.4rem; flex: 1; display: flex; flex-direction: column; }
+    .insight-card-tag {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #2B7CCA;
+      margin-bottom: 0.65rem;
+    }
+    .insight-card-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.3rem;
+      color: #0c1f3f;
+      line-height: 1.35;
+      margin: 0 0 0.75rem;
+    }
+    .insight-card-excerpt {
+      font-size: 0.95rem;
+      color: #555;
+      line-height: 1.65;
+      flex: 1;
+      margin-bottom: 1.1rem;
+    }
+    .insight-card-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      font-size: 0.85rem;
+      color: #5a6573;
+      padding-top: 1rem;
+      border-top: 1px solid #eef2f7;
+    }
+    .insight-card-meta img { width: 30px; height: 30px; border-radius: 50%; object-fit: cover; }
+    .insight-card-meta strong { color: #0c1f3f; }
+
+    @media (max-width: 640px) {
+      .insights-hero { padding: 3.5rem 0 3rem; }
+      .insights-grid-section { padding: 2.5rem 0 3.5rem; }
+    }
+  </style>
+
   <link rel="icon" type="image/png" sizes="32x32" href="/images/pawsic-favicon-32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/pawsic-favicon-16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/pawsic-apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="/images/pawsic-favicon-192.png">
 </head>
 <body>
-
   <a href="#main-content" class="skip-link">Skip to main content</a>
     <div class="announcement-banner" id="announcementBanner">
     <div class="container">
@@ -126,88 +265,66 @@
 
   <main id="main-content">
 
-    <!-- ===== PAGE HERO ===== -->
-    <section class="v2-page-hero" style="padding:4rem 0 3rem;">
-      <div class="v2-page-hero-bg"></div>
+    <section class="insights-hero">
       <div class="container">
-        <span class="section-tag reveal">Accessibility</span>
-        <h1 class="reveal reveal-delay-1">Accessibility <em>Statement</em></h1>
-        <p class="v2-page-hero-sub reveal reveal-delay-2">PAWSIC is committed to making this website accessible to everyone, including people with disabilities.</p>
+        <span class="insights-eyebrow">PAWSIC Clinical Insights</span>
+        <h1>Evidence Meets <em>Practice</em></h1>
+        <p>Monthly clinical commentary from PAWSIC leadership on wound care, skin integrity, and the systems issues shaping post-acute practice.</p>
       </div>
     </section>
 
-    <!-- ===== CONTENT ===== -->
-    <section class="section section-white">
+    <section class="insights-grid-section">
       <div class="container">
-        <div class="v2-legal-content reveal" style="max-width:760px; margin:0 auto;">
+        <div class="insights-grid">
 
-          <h2>Our Commitment</h2>
-          <p>PAWSIC believes that access to health education and professional resources should be available to everyone. We are actively working to ensure that our website meets the Web Content Accessibility Guidelines (WCAG) 2.1 at Level AA -- the internationally recognized standard for web accessibility.</p>
-          <p>This means we work to make our content perceivable, operable, understandable, and robust for all users, including those who use assistive technologies such as screen readers, keyboard-only navigation, or voice control software.</p>
+          <!-- HIDDEN UNTIL 2026-08-15
+          <a href="/insights/cms-snf-validation-systems-view/" class="insight-card">
+            <img src="/images/insights/cms-snf-validation-systems-view-og.png" alt="Everything Is Connected: A Systems View of Skin, Falls, and the Human Condition" class="insight-card-image" loading="lazy">
+            <div class="insight-card-body">
+              <span class="insight-card-tag">August 2026 &nbsp;·&nbsp; Clinical Insight</span>
+              <h2 class="insight-card-title">Everything Is Connected: A Systems View of Skin, Falls, and the Human Condition</h2>
+              <p class="insight-card-excerpt">The CMS SNF Validation Program is auditing pressure injuries, falls, and medications. They are not random outcomes. PAWSIC President Jeanine Maguire on why these are the final common pathway of systemic failure, and the reserve-based reframe post-acute care needs.</p>
+              <div class="insight-card-meta">
+                <img src="/images/board/jeanine-maguire.jpg" alt="Jeanine Maguire">
+                <span>By <strong>Jeanine Maguire, PhD, MPT, CWS, FCPP</strong> &nbsp;·&nbsp; 7 min read</span>
+              </div>
+            </div>
+          </a>
+          END HIDDEN -->
 
-          <h2>What We Have Done</h2>
-          <p>As part of our ongoing accessibility work, this website includes:</p>
-          <ul>
-            <li>Descriptive text alternatives (alt text) for images</li>
-            <li>Clear heading structure to help users navigate content</li>
-            <li>Keyboard-accessible navigation throughout the site</li>
-            <li>ARIA labels on interactive elements and icon buttons</li>
-            <li>Skip-to-content link at the top of every page</li>
-            <li>Sufficient color contrast across all text and backgrounds</li>
-            <li>Accessible form labels and error descriptions</li>
-            <li>Focus indicators for keyboard navigation</li>
-            <li>Semantic HTML landmarks (nav, main, footer) to support screen readers</li>
-            <li>Captions available on embedded video content</li>
-          </ul>
+          <!-- HIDDEN UNTIL 2026-07-15
+          <a href="/insights/amputation-rate-structural-verdict/" class="insight-card">
+            <img src="/images/insights/amputation-rate-structural-verdict-og.png" alt="The Amputation Rate Is a Structural Verdict: A Global Call to Action" class="insight-card-image" loading="lazy">
+            <div class="insight-card-body">
+              <span class="insight-card-tag">July 2026 &nbsp;·&nbsp; Clinical Insight</span>
+              <h2 class="insight-card-title">The Amputation Rate Is a Structural Verdict: A Global Call to Action</h2>
+              <p class="insight-card-excerpt">A non-traumatic amputation is the terminal endpoint of a cascade of upstream failures. A new comparative analysis from PAWSIC President Jeanine Maguire and Dr. Mohamed Magdy Badr on what four global health system models reveal about who keeps their limb, and who does not.</p>
+              <div class="insight-card-meta">
+                <img src="/images/board/jeanine-maguire.jpg" alt="Jeanine Maguire">
+                <span>By <strong>Jeanine Maguire</strong> with <strong>Dr. Mohamed Magdy Badr</strong> &nbsp;·&nbsp; 6 min read</span>
+              </div>
+            </div>
+          </a>
+          END HIDDEN -->
 
-          <h2>Known Limitations</h2>
-          <p>We are aware that some areas of the site may not yet fully meet WCAG 2.1 AA standards. We are actively working to resolve these. If you encounter a specific barrier, please let us know using the contact information below.</p>
-
-          <h2>Third-Party Content</h2>
-          <p>Some content on this site is provided by third parties, including embedded videos (Vimeo, YouTube), membership platform pages (memberships.pawsic.org), and sponsor materials. We do not control the accessibility of third-party platforms, but we encourage all of our partners to meet accessibility standards.</p>
-
-          <h2>How to Report an Accessibility Barrier</h2>
-          <p>If you experience difficulty accessing any content on this website, please contact us. We take all accessibility feedback seriously and aim to respond within 5 business days.</p>
-          <ul>
-            <li><strong>Email:</strong> <a href="mailto:info@pawsic.org">info@pawsic.org</a></li>
-            <li><strong>Contact form:</strong> <a href="/contact/">pawsic.org/contact</a></li>
-          </ul>
-          <p>When reporting an issue, please describe the page you were visiting, the barrier you encountered, and the assistive technology or browser you were using. This helps us resolve the issue more quickly.</p>
-
-          <h2>Standard and Scope</h2>
-          <p>This website aims to conform to WCAG 2.1 Level AA. This statement applies to all pages at <strong>pawsic.org</strong>.</p>
-
-          <h2>Last Reviewed</h2>
-          <p>This accessibility statement was last reviewed and updated in <strong>March 2026</strong>.</p>
+          <a href="/insights/falls-and-wounds-post-acute-care/" class="insight-card">
+            <img src="/images/insights/falls-and-wounds-post-acute-care-og.png" alt="Falls and Wounds in Post-Acute Care: The Conundrum We Can No Longer Ignore" class="insight-card-image" loading="lazy">
+            <div class="insight-card-body">
+              <span class="insight-card-tag">June 2026 &nbsp;·&nbsp; Clinical Insight</span>
+              <h2 class="insight-card-title">Falls and Wounds in Post-Acute Care: The Conundrum We Can No Longer Ignore</h2>
+              <p class="insight-card-excerpt">CMS just issued new Falls with Injury and QM Respecification training. But the patient who falls is very often the patient who has a wound. PAWSIC President Jeanine Maguire on the bidirectional risk profile, the clinical conundrum where interventions oppose each other, and a call for integrated post-acute care.</p>
+              <div class="insight-card-meta">
+                <img src="/images/board/jeanine-maguire.jpg" alt="Jeanine Maguire">
+                <span>By <strong>Jeanine Maguire, PhD, MPT, CWS, FCPP</strong> &nbsp;·&nbsp; 5 min read</span>
+              </div>
+            </div>
+          </a>
 
         </div>
       </div>
     </section>
 
   </main>
-
-  <!-- ===== FOOTER ===== -->
-  <section class="v2-footer-photo-strip" aria-hidden="true">
-    <span class="v2-photo-strip-label">PAWSIC Community</span>
-    <div class="v2-photo-strip-track">
-      <div class="v2-photo-strip-item"><img src="/images/events/community/aapcn-2026/photo-6.jpg" alt="PAWSIC booth AAPACN 2026" loading="lazy"></div>
-      <div class="v2-photo-strip-item"><img src="/images/events/community/sawc-fall-2025/photo-2.jpg" alt="PAWSIC presentation at SAWC Fall 2025" loading="lazy"></div>
-      <div class="v2-photo-strip-item"><img src="/images/events/community/wocn-northeast-2025/photo-2.jpg" alt="" loading="lazy"></div>
-      <div class="v2-photo-strip-item"><img src="/images/events/community/sawc-fall-2025/photo-3.jpg" alt="" loading="lazy"></div>
-      <div class="v2-photo-strip-item"><img src="/images/events/community/wocn-northeast-2025/photo-4.jpg" alt="" loading="lazy"></div>
-      <div class="v2-photo-strip-item"><img src="/images/events/community/sawc-fall-2025/photo-1.jpg" alt="PAWSIC booth SAWC" loading="lazy"></div>
-      <div class="v2-photo-strip-item"><img src="/images/events/community/wocn-northeast-2025/photo-5.jpg" alt="" loading="lazy"></div>
-      <div class="v2-photo-strip-item"><img src="/images/events/community/aapacn-2025/photo-2.jpg" alt="" loading="lazy"></div>
-      <div class="v2-photo-strip-item" aria-hidden="true"><img src="/images/events/community/aapcn-2026/photo-6.jpg" alt="" loading="lazy"></div>
-      <div class="v2-photo-strip-item" aria-hidden="true"><img src="/images/events/community/sawc-fall-2025/photo-2.jpg" alt="" loading="lazy"></div>
-      <div class="v2-photo-strip-item" aria-hidden="true"><img src="/images/events/community/wocn-northeast-2025/photo-2.jpg" alt="" loading="lazy"></div>
-      <div class="v2-photo-strip-item" aria-hidden="true"><img src="/images/events/community/sawc-fall-2025/photo-3.jpg" alt="" loading="lazy"></div>
-      <div class="v2-photo-strip-item" aria-hidden="true"><img src="/images/events/community/wocn-northeast-2025/photo-4.jpg" alt="" loading="lazy"></div>
-      <div class="v2-photo-strip-item" aria-hidden="true"><img src="/images/events/community/sawc-fall-2025/photo-1.jpg" alt="" loading="lazy"></div>
-      <div class="v2-photo-strip-item" aria-hidden="true"><img src="/images/events/community/wocn-northeast-2025/photo-5.jpg" alt="" loading="lazy"></div>
-      <div class="v2-photo-strip-item" aria-hidden="true"><img src="/images/events/community/aapacn-2025/photo-2.jpg" alt="" loading="lazy"></div>
-    </div>
-  </section>
 
   <footer class="site-footer">
     <div class="container">
@@ -276,7 +393,6 @@
       </div>
     </div>
   </footer>
-
   <script src="/js/main.js"></script>
 </body>
 </html>
