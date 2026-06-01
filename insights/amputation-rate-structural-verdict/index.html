@@ -63,6 +63,23 @@
     "keywords": "amputation rate, limb preservation, diabetic foot, lower extremity amputation, global health systems, value-based care, MENA wound care, multidisciplinary wound care",
     "wordCount": 1200,
     "inLanguage": "en-US",
+    "isAccessibleForFree": true,
+    "audience": {
+      "@type": "MedicalAudience",
+      "audienceType": "Clinician",
+      "healthCondition": [
+        { "@type": "MedicalCondition", "name": "Lower-extremity amputation" },
+        { "@type": "MedicalCondition", "name": "Diabetic foot ulcer" },
+        { "@type": "MedicalCondition", "name": "Peripheral arterial disease" }
+      ]
+    },
+    "speakable": {
+      "@type": "SpeakableSpecification",
+      "cssSelector": [".insight-hero h1", ".insight-deck", ".insight-tldr p"]
+    },
+    "citation": [
+      { "@type": "ScholarlyArticle", "name": "Global Perspectives on Limb Preservation: A Comparative Analysis of Health System Models and Clinical Realities", "author": "Badr M, Maguire J", "datePublished": "2026", "isPartOf": "Limb Preservation Journal", "identifier": "10.56885/012720hqwcaz" }
+    ],
     "author": [
       {
         "@type": "Person",
@@ -116,6 +133,39 @@
       { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://pawsic.org/" },
       { "@type": "ListItem", "position": 2, "name": "Insights", "item": "https://pawsic.org/insights/" },
       { "@type": "ListItem", "position": 3, "name": "The Amputation Rate Is a Structural Verdict", "item": "https://pawsic.org/insights/amputation-rate-structural-verdict/" }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Why is the lower-extremity amputation rate called a structural verdict?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Because a non-traumatic amputation is the terminal endpoint of a cascade of upstream failures: uncontrolled hyperglycemia, undetected peripheral arterial disease, nutritional insecurity, and low health literacy. The amputation rate reflects, with devastating precision, whether a health system has chosen to invest in prevention or wait for crisis."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why does the United States have higher amputation rates despite higher healthcare spending?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The United States spends a world-leading 17.3 percent of GDP on healthcare, yet its combined amputation rate rose to roughly 21 per 100,000 by 2021, three to four times the rate of peer nations. The Mixed Model rewards procedural volume over the coordinated, multidisciplinary management required to prevent the wound in the first place."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much can integrated multidisciplinary care reduce amputations?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Treating the whole patient rather than the localized hole, by deploying multidisciplinary teams that integrate glycemic control, vascular assessment, and infection management, reduces major amputation risk by 48 percent compared with siloed care."
+        }
+      }
     ]
   }
   </script>
@@ -576,6 +626,112 @@
       .insight-refs { padding: 1.5rem 1.25rem; }
       .insight-callout { padding: 1.5rem 1.25rem; }
       .journal-banner { grid-template-columns: 1fr; }
+      .insight-faq h2 { font-size: 1.4rem; }
+    }
+
+    /* ===== FAQ (AEO) ===== */
+    .insight-faq { margin: 3rem 0 2rem; }
+    .insight-faq h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(1.55rem, 2.4vw, 1.95rem);
+      color: var(--navy);
+      margin: 0 0 1.25rem;
+      scroll-margin-top: 100px;
+    }
+    .insight-faq h2 .accent { color: var(--blue); font-style: italic; }
+    .faq-item {
+      border: 1px solid var(--rule);
+      border-radius: 12px;
+      margin-bottom: 0.85rem;
+      overflow: hidden;
+      background: #fff;
+    }
+    .faq-item summary {
+      cursor: pointer;
+      list-style: none;
+      padding: 1.1rem 1.4rem;
+      font-weight: 700;
+      color: var(--navy);
+      font-size: 1.02rem;
+      line-height: 1.45;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::after {
+      content: '+';
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: var(--blue);
+      flex-shrink: 0;
+      transition: transform 0.2s;
+    }
+    .faq-item[open] summary::after { transform: rotate(45deg); }
+    .faq-item .faq-answer {
+      padding: 0 1.4rem 1.25rem;
+      font-size: 1rem;
+      line-height: 1.75;
+      color: var(--ink);
+    }
+
+    /* ===== Related Insights (topic cluster) ===== */
+    .related-insights {
+      margin: 3rem 0 1rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--rule);
+    }
+    .related-insights h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.4rem;
+      color: var(--navy);
+      margin: 0 0 1.25rem;
+    }
+    .related-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    .related-card {
+      display: block;
+      border: 1px solid var(--rule);
+      border-radius: 12px;
+      padding: 1.25rem 1.4rem;
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+      background: #fff;
+    }
+    .related-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(12,31,63,0.10);
+      border-color: var(--blue);
+    }
+    .related-card .related-tag {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--blue);
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .related-card h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.08rem;
+      color: var(--navy);
+      line-height: 1.35;
+      margin: 0 0 0.4rem;
+    }
+    .related-card p {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.55;
+      margin: 0;
+    }
+    @media (max-width: 640px) {
+      .related-grid { grid-template-columns: 1fr; }
     }
   </style>
 
@@ -846,6 +1002,26 @@
               <p>A healed wound is the most concrete expression of a successful healthcare system. Let us build a world where that success is the rule, not the exception.</p>
             </div>
 
+            <!-- FAQ (AEO) -->
+            <section class="insight-faq" aria-label="Frequently asked questions">
+              <h2 id="faq">Frequently Asked <span class="accent">Questions</span></h2>
+
+              <details class="faq-item">
+                <summary>Why is the lower-extremity amputation rate called a structural verdict?</summary>
+                <div class="faq-answer">Because a non-traumatic amputation is the terminal endpoint of a cascade of upstream failures: uncontrolled hyperglycemia, undetected peripheral arterial disease, nutritional insecurity, and low health literacy. The amputation rate reflects, with devastating precision, whether a health system has chosen to invest in prevention or wait for crisis.</div>
+              </details>
+
+              <details class="faq-item">
+                <summary>Why does the United States have higher amputation rates despite higher healthcare spending?</summary>
+                <div class="faq-answer">The United States spends a world-leading 17.3 percent of GDP on healthcare, yet its combined amputation rate rose to roughly 21 per 100,000 by 2021, three to four times the rate of peer nations. The Mixed Model rewards procedural volume over the coordinated, multidisciplinary management required to prevent the wound in the first place.</div>
+              </details>
+
+              <details class="faq-item">
+                <summary>How much can integrated multidisciplinary care reduce amputations?</summary>
+                <div class="faq-answer">Treating the whole patient rather than the localized hole, by deploying multidisciplinary teams that integrate glycemic control, vascular assessment, and infection management, reduces major amputation risk by 48 percent compared with siloed care.</div>
+              </details>
+            </section>
+
             <!-- AUTHOR BIOS -->
             <div class="author-cards">
               <div class="insight-author-card">
@@ -891,6 +1067,23 @@
               </ol>
             </div>
 
+            <!-- RELATED INSIGHTS (topic cluster) -->
+            <nav class="related-insights" aria-label="Related insights">
+              <h2>Related Insights</h2>
+              <div class="related-grid">
+                <a href="/insights/falls-and-wounds-post-acute-care/" class="related-card">
+                  <span class="related-tag">Falls &amp; Wounds</span>
+                  <h3>Falls and Wounds in Post-Acute Care: The Conundrum</h3>
+                  <p>Why the patient who falls is so often the patient who has a wound, and where prevention strategies collide.</p>
+                </a>
+                <a href="/insights/cms-snf-validation-systems-view/" class="related-card">
+                  <span class="related-tag">Systems &amp; CMS</span>
+                  <h3>Everything Is Connected: A Systems View</h3>
+                  <p>How the CMS SNF Validation Program's audit of pressure injuries, falls, and medications points to one systems problem.</p>
+                </a>
+              </div>
+            </nav>
+
           </article>
 
           <!-- TOC -->
@@ -904,6 +1097,7 @@
               <li><a href="#hole-whole">"Hole" vs. "Whole"</a></li>
               <li><a href="#three-architectures">Three Architectures</a></li>
               <li><a href="#final">A Final Thought</a></li>
+              <li><a href="#faq">FAQ</a></li>
               <li><a href="#references">Citation</a></li>
             </ul>
           </aside>

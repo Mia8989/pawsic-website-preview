@@ -62,6 +62,19 @@
     "keywords": "falls and wounds, post-acute care, wound care, fall prevention, CMS QM respecification, pressure injury, skin integrity, interdisciplinary care, long-term care, SNF",
     "wordCount": 1100,
     "inLanguage": "en-US",
+    "isAccessibleForFree": true,
+    "audience": {
+      "@type": "MedicalAudience",
+      "audienceType": "Clinician",
+      "healthCondition": [
+        { "@type": "MedicalCondition", "name": "Falls in older adults" },
+        { "@type": "MedicalCondition", "name": "Chronic wounds" }
+      ]
+    },
+    "speakable": {
+      "@type": "SpeakableSpecification",
+      "cssSelector": [".insight-hero h1", ".insight-deck", ".insight-tldr p"]
+    },
     "author": {
       "@type": "Person",
       "name": "Jeanine Maguire",
@@ -104,6 +117,39 @@
       { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://pawsic.org/" },
       { "@type": "ListItem", "position": 2, "name": "Insights", "item": "https://pawsic.org/insights/" },
       { "@type": "ListItem", "position": 3, "name": "Falls and Wounds in Post-Acute Care", "item": "https://pawsic.org/insights/falls-and-wounds-post-acute-care/" }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Are falls and wounds connected in post-acute care?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Peer-reviewed literature establishes a bidirectional relationship. Falls cause acute wounds such as skin tears, lacerations, and abrasions, while chronic wounds cause falls through pain-altered gait, restricted mobility, and the mechanical burden of treatment. In post-acute care, the patient who falls is very often the same patient who has a wound."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What risk factors do falls and chronic wounds share?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Falls and wounds share an almost identical risk profile: advanced age, diabetes mellitus, peripheral vascular disease, malnutrition, cognitive impairment, polypharmacy, functional dependence, dehydration, and depression. Each of these raises fall risk and wound risk, or impairs healing, at the same time."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why do fall-prevention and wound-care interventions sometimes conflict?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Because optimizing one outcome can worsen the other. A high-specification pressure-redistribution mattress protects skin but is difficult to move on, raising fall risk. Mobility with assistance reduces falls but accelerates deconditioning that harms skin. Tethered wound devices aid healing but can disrupt gait and balance. Teams must weigh both risks together."
+        }
+      }
     ]
   }
   </script>
@@ -527,6 +573,112 @@
       .insight-author-card img { margin: 0 auto; }
       .insight-refs { padding: 1.5rem 1.25rem; }
       .insight-callout { padding: 1.5rem 1.25rem; }
+      .insight-faq h2 { font-size: 1.4rem; }
+    }
+
+    /* ===== FAQ (AEO) ===== */
+    .insight-faq { margin: 3rem 0 2rem; }
+    .insight-faq h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(1.55rem, 2.4vw, 1.95rem);
+      color: var(--navy);
+      margin: 0 0 1.25rem;
+      scroll-margin-top: 100px;
+    }
+    .insight-faq h2 .accent { color: var(--blue); font-style: italic; }
+    .faq-item {
+      border: 1px solid var(--rule);
+      border-radius: 12px;
+      margin-bottom: 0.85rem;
+      overflow: hidden;
+      background: #fff;
+    }
+    .faq-item summary {
+      cursor: pointer;
+      list-style: none;
+      padding: 1.1rem 1.4rem;
+      font-weight: 700;
+      color: var(--navy);
+      font-size: 1.02rem;
+      line-height: 1.45;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::after {
+      content: '+';
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: var(--blue);
+      flex-shrink: 0;
+      transition: transform 0.2s;
+    }
+    .faq-item[open] summary::after { transform: rotate(45deg); }
+    .faq-item .faq-answer {
+      padding: 0 1.4rem 1.25rem;
+      font-size: 1rem;
+      line-height: 1.75;
+      color: var(--ink);
+    }
+
+    /* ===== Related Insights (topic cluster) ===== */
+    .related-insights {
+      margin: 3rem 0 1rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--rule);
+    }
+    .related-insights h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.4rem;
+      color: var(--navy);
+      margin: 0 0 1.25rem;
+    }
+    .related-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    .related-card {
+      display: block;
+      border: 1px solid var(--rule);
+      border-radius: 12px;
+      padding: 1.25rem 1.4rem;
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+      background: #fff;
+    }
+    .related-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(12,31,63,0.10);
+      border-color: var(--blue);
+    }
+    .related-card .related-tag {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--blue);
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .related-card h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.08rem;
+      color: var(--navy);
+      line-height: 1.35;
+      margin: 0 0 0.4rem;
+    }
+    .related-card p {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.55;
+      margin: 0;
+    }
+    @media (max-width: 640px) {
+      .related-grid { grid-template-columns: 1fr; }
     }
   </style>
 
@@ -764,6 +916,26 @@
               </p>
             </div>
 
+            <!-- FAQ (AEO) -->
+            <section class="insight-faq" aria-label="Frequently asked questions">
+              <h2 id="faq">Frequently Asked <span class="accent">Questions</span></h2>
+
+              <details class="faq-item">
+                <summary>Are falls and wounds connected in post-acute care?</summary>
+                <div class="faq-answer">Yes. Peer-reviewed literature establishes a bidirectional relationship. Falls cause acute wounds such as skin tears, lacerations, and abrasions, while chronic wounds cause falls through pain-altered gait, restricted mobility, and the mechanical burden of treatment. In post-acute care, the patient who falls is very often the same patient who has a wound.</div>
+              </details>
+
+              <details class="faq-item">
+                <summary>What risk factors do falls and chronic wounds share?</summary>
+                <div class="faq-answer">Falls and wounds share an almost identical risk profile: advanced age, diabetes mellitus, peripheral vascular disease, malnutrition, cognitive impairment, polypharmacy, functional dependence, dehydration, and depression. Each of these raises fall risk and wound risk, or impairs healing, at the same time.</div>
+              </details>
+
+              <details class="faq-item">
+                <summary>Why do fall-prevention and wound-care interventions sometimes conflict?</summary>
+                <div class="faq-answer">Because optimizing one outcome can worsen the other. A high-specification pressure-redistribution mattress protects skin but is difficult to move on, raising fall risk. Mobility with assistance reduces falls but accelerates deconditioning that harms skin. Tethered wound devices aid healing but can disrupt gait and balance. Teams must weigh both risks together.</div>
+              </details>
+            </section>
+
             <!-- AUTHOR BIO -->
             <div class="insight-author-card">
               <img src="/images/board/jeanine-maguire.jpg" alt="Jeanine Maguire">
@@ -805,6 +977,23 @@
               </ol>
             </div>
 
+            <!-- RELATED INSIGHTS (topic cluster) -->
+            <nav class="related-insights" aria-label="Related insights">
+              <h2>Related Insights</h2>
+              <div class="related-grid">
+                <a href="/insights/amputation-rate-structural-verdict/" class="related-card">
+                  <span class="related-tag">Limb Preservation</span>
+                  <h3>The Amputation Rate Is a Structural Verdict</h3>
+                  <p>Why a non-traumatic amputation is the terminal endpoint of upstream system failures, across four global health models.</p>
+                </a>
+                <a href="/insights/cms-snf-validation-systems-view/" class="related-card">
+                  <span class="related-tag">Systems &amp; CMS</span>
+                  <h3>Everything Is Connected: A Systems View</h3>
+                  <p>How the CMS SNF Validation Program's audit of pressure injuries, falls, and medications points to one underlying systems problem.</p>
+                </a>
+              </div>
+            </nav>
+
           </article>
 
           <!-- TOC SIDEBAR -->
@@ -815,6 +1004,7 @@
               <li><a href="#risk-factors">Shared Risk Factors</a></li>
               <li><a href="#conundrum">The Clinical Conundrum</a></li>
               <li><a href="#naming">Naming the Problem</a></li>
+              <li><a href="#faq">FAQ</a></li>
               <li><a href="#references">References</a></li>
             </ul>
           </aside>

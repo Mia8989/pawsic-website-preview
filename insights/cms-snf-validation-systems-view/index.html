@@ -63,6 +63,24 @@
     "keywords": "CMS SNF Validation Program, pressure injuries, falls with major injury, medication management, person-centered care, polypharmacy, anticholinergic burden, safety vs autonomy",
     "wordCount": 1500,
     "inLanguage": "en-US",
+    "isAccessibleForFree": true,
+    "audience": {
+      "@type": "MedicalAudience",
+      "audienceType": "Clinician",
+      "healthCondition": [
+        { "@type": "MedicalCondition", "name": "Pressure injury" },
+        { "@type": "MedicalCondition", "name": "Falls in older adults" }
+      ]
+    },
+    "speakable": {
+      "@type": "SpeakableSpecification",
+      "cssSelector": [".insight-hero h1", ".insight-deck", ".insight-tldr p"]
+    },
+    "citation": [
+      { "@type": "ScholarlyArticle", "name": "Malnutrition and pressure injury risk in vulnerable populations: Application of the 2019 International Clinical Practice Guideline", "author": "Munoz N, et al.", "datePublished": "2022", "isPartOf": "Advances in Skin & Wound Care", "identifier": "10.1097/01.ASW.0000817416.40994.4a" },
+      { "@type": "ScholarlyArticle", "name": "Polypharmacy and cumulative anticholinergic burden in older adults hospitalized with falls", "author": "Wong HL, et al.", "datePublished": "2023", "isPartOf": "Aging Medicine", "identifier": "10.1002/agm2.12250" },
+      { "@type": "ScholarlyArticle", "name": "The safety-autonomy grid: A flexible framework for navigating protection and independence for older adults", "author": "Marnfeldt K, Wilber K", "datePublished": "2025", "isPartOf": "The Gerontologist", "identifier": "10.1093/geront/gnaf111" }
+    ],
     "author": {
       "@type": "Person",
       "name": "Jeanine Maguire",
@@ -97,6 +115,39 @@
       { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://pawsic.org/" },
       { "@type": "ListItem", "position": 2, "name": "Insights", "item": "https://pawsic.org/insights/" },
       { "@type": "ListItem", "position": 3, "name": "Everything Is Connected: A Systems View", "item": "https://pawsic.org/insights/cms-snf-validation-systems-view/" }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is the CMS SNF Validation Program?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The SNF Validation Program is a federal audit launched by CMS in early 2026 that reviews the accuracy of quality data submitted by skilled nursing facilities. Three of its core measures are pressure injuries, falls with major injury, and medication management, and it checks whether MDS data matches the clinical record."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the reserve framework for pressure injuries and falls?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Rather than checking isolated risk factors, the reserve frame asks what capacity a person still has to protect themselves. As age, disease, malnutrition, and cognitive decline deplete that reserve, the threshold for harm drops, so the same two-hour chair sit that is harmless for one person becomes a pressure injury for another."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why can audits alone not improve pressure injury and fall outcomes?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Audits measure outputs, not systems. They record whether a fall or pressure injury occurred, but not the upstream conditions that made it likely. A facility caring for the most medically fragile, reserve-depleted population will show more events than one with a healthier population, not because it provides worse care, but because it works with systems under greater strain."
+        }
+      }
     ]
   }
   </script>
@@ -584,6 +635,112 @@
       .insight-callout { padding: 1.5rem 1.25rem; }
       .reserve-bar { grid-template-columns: 140px 1fr 36px; font-size: 0.85rem; }
       .audit-banner { grid-template-columns: 1fr; }
+      .insight-faq h2 { font-size: 1.4rem; }
+    }
+
+    /* ===== FAQ (AEO) ===== */
+    .insight-faq { margin: 3rem 0 2rem; }
+    .insight-faq h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(1.55rem, 2.4vw, 1.95rem);
+      color: var(--navy);
+      margin: 0 0 1.25rem;
+      scroll-margin-top: 100px;
+    }
+    .insight-faq h2 .accent { color: var(--blue); font-style: italic; }
+    .faq-item {
+      border: 1px solid var(--rule);
+      border-radius: 12px;
+      margin-bottom: 0.85rem;
+      overflow: hidden;
+      background: #fff;
+    }
+    .faq-item summary {
+      cursor: pointer;
+      list-style: none;
+      padding: 1.1rem 1.4rem;
+      font-weight: 700;
+      color: var(--navy);
+      font-size: 1.02rem;
+      line-height: 1.45;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::after {
+      content: '+';
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: var(--blue);
+      flex-shrink: 0;
+      transition: transform 0.2s;
+    }
+    .faq-item[open] summary::after { transform: rotate(45deg); }
+    .faq-item .faq-answer {
+      padding: 0 1.4rem 1.25rem;
+      font-size: 1rem;
+      line-height: 1.75;
+      color: var(--ink);
+    }
+
+    /* ===== Related Insights (topic cluster) ===== */
+    .related-insights {
+      margin: 3rem 0 1rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--rule);
+    }
+    .related-insights h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.4rem;
+      color: var(--navy);
+      margin: 0 0 1.25rem;
+    }
+    .related-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    .related-card {
+      display: block;
+      border: 1px solid var(--rule);
+      border-radius: 12px;
+      padding: 1.25rem 1.4rem;
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+      background: #fff;
+    }
+    .related-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(12,31,63,0.10);
+      border-color: var(--blue);
+    }
+    .related-card .related-tag {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--blue);
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .related-card h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.08rem;
+      color: var(--navy);
+      line-height: 1.35;
+      margin: 0 0 0.4rem;
+    }
+    .related-card p {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.55;
+      margin: 0;
+    }
+    @media (max-width: 640px) {
+      .related-grid { grid-template-columns: 1fr; }
     }
   </style>
 
@@ -868,6 +1025,26 @@
               <p>Because it is all connected. The body and the building. The molecule and the movement. The person and the place. It always has been.</p>
             </div>
 
+            <!-- FAQ (AEO) -->
+            <section class="insight-faq" aria-label="Frequently asked questions">
+              <h2 id="faq">Frequently Asked <span class="accent">Questions</span></h2>
+
+              <details class="faq-item">
+                <summary>What is the CMS SNF Validation Program?</summary>
+                <div class="faq-answer">The SNF Validation Program is a federal audit launched by CMS in early 2026 that reviews the accuracy of quality data submitted by skilled nursing facilities. Three of its core measures are pressure injuries, falls with major injury, and medication management, and it checks whether MDS data matches the clinical record.</div>
+              </details>
+
+              <details class="faq-item">
+                <summary>What is the reserve framework for pressure injuries and falls?</summary>
+                <div class="faq-answer">Rather than checking isolated risk factors, the reserve frame asks what capacity a person still has to protect themselves. As age, disease, malnutrition, and cognitive decline deplete that reserve, the threshold for harm drops, so the same two-hour chair sit that is harmless for one person becomes a pressure injury for another.</div>
+              </details>
+
+              <details class="faq-item">
+                <summary>Why can audits alone not improve pressure injury and fall outcomes?</summary>
+                <div class="faq-answer">Audits measure outputs, not systems. They record whether a fall or pressure injury occurred, but not the upstream conditions that made it likely. A facility caring for the most medically fragile, reserve-depleted population will show more events than one with a healthier population, not because it provides worse care, but because it works with systems under greater strain.</div>
+              </details>
+            </section>
+
             <!-- AUTHOR -->
             <div class="insight-author-card">
               <img src="/images/board/jeanine-maguire.jpg" alt="Jeanine Maguire">
@@ -912,6 +1089,23 @@
               </ol>
             </div>
 
+            <!-- RELATED INSIGHTS (topic cluster) -->
+            <nav class="related-insights" aria-label="Related insights">
+              <h2>Related Insights</h2>
+              <div class="related-grid">
+                <a href="/insights/falls-and-wounds-post-acute-care/" class="related-card">
+                  <span class="related-tag">Falls &amp; Wounds</span>
+                  <h3>Falls and Wounds in Post-Acute Care: The Conundrum</h3>
+                  <p>Why the patient who falls is so often the patient who has a wound, and where prevention strategies collide.</p>
+                </a>
+                <a href="/insights/amputation-rate-structural-verdict/" class="related-card">
+                  <span class="related-tag">Limb Preservation</span>
+                  <h3>The Amputation Rate Is a Structural Verdict</h3>
+                  <p>Why a non-traumatic amputation is the terminal endpoint of upstream system failures, across four global health models.</p>
+                </a>
+              </div>
+            </nav>
+
           </article>
 
           <!-- TOC -->
@@ -923,6 +1117,7 @@
               <li><a href="#external-system">The External System</a></li>
               <li><a href="#cms-measures">What CMS Measures</a></li>
               <li><a href="#new-conversation">A New Conversation</a></li>
+              <li><a href="#faq">FAQ</a></li>
               <li><a href="#references">References</a></li>
             </ul>
           </aside>
