@@ -216,7 +216,9 @@
       max-width: 1100px;
       margin: 0 auto;
     }
-    .insight-main { max-width: 760px; }
+    .insight-main { max-width: 760px; min-width: 0; }
+    .insight-main p, .insight-main h2, .insight-main h3, .insight-main li { overflow-wrap: anywhere; word-break: normal; }
+    .insight-refs a, .journal-banner .info a, .insight-author-card a { overflow-wrap: anywhere; word-break: break-word; }
 
     .insight-toc {
       position: sticky;
@@ -560,7 +562,7 @@
     .insight-back:hover { color: #1a5a9e; }
 
     @media (max-width: 960px) {
-      .insight-grid { grid-template-columns: 1fr; gap: 0; }
+      .insight-grid { grid-template-columns: minmax(0, 1fr); gap: 0; }
       .insight-toc { display: none; }
     }
     @media (max-width: 640px) {
