@@ -406,6 +406,176 @@
     @media (max-width: 400px) {
       .product-grid { grid-template-columns: 1fr; }
     }
+
+    /* ── CNA Bulk Order Banner ── */
+    .cna-bulk-section {
+      background: linear-gradient(135deg, #0C1F3F 0%, #0a3a4a 60%, #056C7B 100%);
+      padding: 3.5rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .cna-bulk-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 80% at 80% 50%, rgba(0,194,203,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .cna-bulk-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+    .cna-bulk-left {}
+    .cna-bulk-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(0,194,203,0.15);
+      border: 1px solid rgba(0,194,203,0.35);
+      border-radius: var(--r-pill);
+      padding: 0.3rem 0.9rem;
+      color: #00C2CB;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .cna-bulk-title {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: clamp(1.6rem, 3vw, 2.3rem);
+      color: #fff;
+      line-height: 1.2;
+      margin-bottom: 0.75rem;
+    }
+    .cna-bulk-title em {
+      color: #C9A84C;
+      font-style: italic;
+    }
+    .cna-bulk-desc {
+      color: rgba(255,255,255,0.78);
+      font-size: 0.97rem;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+      max-width: 420px;
+    }
+    .cna-bulk-stats {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.75rem;
+    }
+    .cna-bulk-stat {
+      text-align: left;
+    }
+    .cna-bulk-stat-num {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: 2rem;
+      color: #C9A84C;
+      line-height: 1;
+      margin-bottom: 0.2rem;
+    }
+    .cna-bulk-stat-label {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.6);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 600;
+    }
+    .cna-bulk-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      align-items: center;
+    }
+    .btn-bulk-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: #C9A84C;
+      color: #0C1F3F;
+      font-weight: 700;
+      font-size: 0.92rem;
+      padding: 0.75rem 1.6rem;
+      border-radius: var(--r-pill);
+      text-decoration: none;
+      transition: transform 0.2s var(--ease-spring), box-shadow 0.25s;
+    }
+    .btn-bulk-primary:hover {
+      transform: translateY(-2px) scale(1.03);
+      box-shadow: 0 8px 24px rgba(201,168,76,0.4);
+      color: #0C1F3F;
+    }
+    .btn-bulk-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: rgba(255,255,255,0.85);
+      font-size: 0.88rem;
+      font-weight: 600;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      transition: color 0.2s;
+    }
+    .btn-bulk-secondary:hover { color: #00C2CB; }
+    .cna-bulk-right {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.75rem;
+    }
+    .cna-mini-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 12px;
+      overflow: hidden;
+      text-decoration: none;
+      transition: transform 0.25s var(--ease-spring), border-color 0.2s;
+    }
+    .cna-mini-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(0,194,203,0.5);
+    }
+    .cna-mini-card img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      display: block;
+    }
+    .cna-mini-card-body {
+      padding: 0.65rem 0.75rem 0.75rem;
+    }
+    .cna-mini-card-name {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.3;
+      margin-bottom: 0.2rem;
+    }
+    .cna-mini-card-price {
+      font-size: 0.72rem;
+      color: #00C2CB;
+      font-weight: 600;
+    }
+    .cna-bulk-note {
+      margin-top: 0.75rem;
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.45);
+      text-align: center;
+    }
+    @media (max-width: 900px) {
+      .cna-bulk-inner {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      .cna-bulk-desc { max-width: 100%; }
+    }
+    @media (max-width: 640px) {
+      .cna-bulk-section { padding: 2.5rem 0; }
+      .cna-bulk-right { grid-template-columns: repeat(3, 1fr); gap: 0.5rem; }
+      .cna-bulk-stats { gap: 1.25rem; }
+    }
   </style>
 </head>
 <body>
@@ -467,7 +637,13 @@
           <ul class="dropdown">
             <li><a href="/events/">Upcoming Events</a></li>
             <li><a href="/webinars/">Webinars</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="/press-releases/" class="has-dropdown" aria-haspopup="true" aria-expanded="false">News &amp; Insights <span class="dropdown-arrow" aria-hidden="true"></span></a>
+          <ul class="dropdown">
             <li><a href="/press-releases/">Press Releases</a></li>
+            <li><a href="/insights/" class="nav-coming-soon">Clinical Insights <span class="nav-soon-badge">Coming Soon</span></a></li>
           </ul>
         </li>
         <li><a href="/resources/">Resources</a></li>
@@ -477,6 +653,7 @@
           <ul class="dropdown">
             <li><a href="/community/#forums">Forums</a></li>
             <li class="has-sub-dropdown"><a href="/community/#sig-spaces" class="has-sub-arrow">Shared Interest Groups (SIG) <span class="sub-arrow" aria-hidden="true"></span></a><ul class="sub-dropdown"><li><a href="/community/skin-failure-sig/">Skin Failure SIG</a></li></ul></li>
+            <li><a href="/testimonials/">Member Spotlights</a></li>
           </ul>
         </li>
         <li><a href="/membership/">Membership</a></li>
@@ -515,6 +692,70 @@
       </div>
     </div>
 
+    <!-- CNA Bulk Order Banner -->
+    <section class="cna-bulk-section" id="cna-bulk">
+      <div class="container">
+        <div class="cna-bulk-inner">
+
+          <div class="cna-bulk-left">
+            <span class="cna-bulk-eyebrow">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 7H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/><polyline points="16 3 12 7 8 3"/></svg>
+              Bulk Orders Available
+            </span>
+            <h2 class="cna-bulk-title">CNA Collection — <em>Order for Your Team</em></h2>
+            <p class="cna-bulk-desc">Celebrate Certified Nursing Assistants with meaningful, mission-aligned gifts. Order 51 or more units of any CNA item and unlock up to 46% off production costs. Perfect for conferences, CNA Week, facility gifting, and team recognition.</p>
+            <div class="cna-bulk-stats">
+              <div class="cna-bulk-stat">
+                <div class="cna-bulk-stat-num">51+</div>
+                <div class="cna-bulk-stat-label">Units for bulk pricing</div>
+              </div>
+              <div class="cna-bulk-stat">
+                <div class="cna-bulk-stat-num">46%</div>
+                <div class="cna-bulk-stat-label">Off production costs</div>
+              </div>
+              <div class="cna-bulk-stat">
+                <div class="cna-bulk-stat-num">50%</div>
+                <div class="cna-bulk-stat-label">Off shipping (20+ units)</div>
+              </div>
+            </div>
+            <div class="cna-bulk-actions">
+              <a href="mailto:info@pawsic.org?subject=CNA%20Bulk%20Order%20Request&body=Hi%20PAWSIC%20team%2C%0A%0AI%20am%20interested%20in%20placing%20a%20bulk%20order%20for%20the%20CNA%20Collection.%0A%0AProduct(s)%20of%20interest%3A%0AEstimated%20quantity%3A%0AShip-to%20state%2Flocation%3A%0ANeeded%20by%3A%0A%0AThank%20you!" class="btn-bulk-primary">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                Request a Bulk Quote
+              </a>
+              <a href="#cna-products" class="btn-bulk-secondary">Browse individual items ↓</a>
+            </div>
+          </div>
+
+          <div class="cna-bulk-right">
+            <a href="https://pawsic-shop.printify.me/product/29025678" target="_blank" rel="noopener noreferrer" class="cna-mini-card">
+              <img src="https://images-api.printify.com/mockup/6a1df61d01e6af877003e98f/72180/102756/pawsic-cna-definition-accent-mug.jpg?camera_label=left" alt="CNA Definition Accent Mug" loading="lazy">
+              <div class="cna-mini-card-body">
+                <div class="cna-mini-card-name">CNA Accent Mug</div>
+                <div class="cna-mini-card-price">From $15</div>
+              </div>
+            </a>
+            <a href="https://pawsic-shop.printify.me/product/29025771" target="_blank" rel="noopener noreferrer" class="cna-mini-card">
+              <img src="https://images-api.printify.com/mockup/6a1df6213df4f944ef09c557/101409/94286/pawsic-cna-definition-tote-bag.jpg?camera_label=person-front" alt="CNA Definition Tote Bag" loading="lazy">
+              <div class="cna-mini-card-body">
+                <div class="cna-mini-card-name">CNA Tote Bag</div>
+                <div class="cna-mini-card-price">Shop now</div>
+              </div>
+            </a>
+            <a href="https://pawsic-shop.printify.me/product/29025824" target="_blank" rel="noopener noreferrer" class="cna-mini-card">
+              <img src="https://images-api.printify.com/mockup/6a1df60f756fe6d28b0a865a/45744/2197/pawsic-cna-definition-square-sticker.jpg?camera_label=context" alt="CNA Definition Square Sticker" loading="lazy">
+              <div class="cna-mini-card-body">
+                <div class="cna-mini-card-name">CNA Sticker</div>
+                <div class="cna-mini-card-price">From $4</div>
+              </div>
+            </a>
+            <p class="cna-bulk-note" style="grid-column:1/-1">Bulk discounts apply at 51+ units per item. <a href="mailto:info@pawsic.org?subject=CNA%20Bulk%20Order%20Request" style="color:rgba(0,194,203,0.7);text-decoration:underline;">Email us</a> to get started.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
     <!-- Products -->
     <section class="shop-section" id="products">
       <div class="container">
@@ -544,7 +785,7 @@
             <div class="product-card reveal">
               <div class="product-img-wrap">
                 <img src="https://images-api.printify.com/mockup/6a1df61d01e6af877003e98f/72180/102756/pawsic-cna-definition-accent-mug.jpg?camera_label=left" alt="PAWSIC CNA Definition Accent Mug" loading="lazy">
-                <span class="product-tag tag-new">New</span>
+                <span class="product-tag tag-new" id="cna-products">New</span>
               </div>
               <div class="product-body">
                 <p class="product-category">Drinkware</p>
