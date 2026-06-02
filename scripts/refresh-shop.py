@@ -35,6 +35,8 @@ INDEX_PATH = ROOT / "shop" / "index.html"
 # Map Printify product title -> on-page (display name, category, description, optional tag)
 SECTIONS = [
     ("Drinkware", [
+        ("PAWSIC CNA Definition Accent Mug", "CNA Definition Accent Mug", "Drinkware",
+         "A warm tribute to Certified Nursing Assistants. The CNA \"definition\" on an 11 oz accent mug — for the scrub-wearing, smile-bringing, skin-saving rockstars who show up every day.", "New"),
         ("PAWSIC Accent Coffee Mug", "Accent Coffee Mug — Logo", "Drinkware",
          "Start your clinical day with purpose. 11 oz accent mug with the PAWSIC logo on a crisp white body and contrasting handle.", "Popular"),
         ("PAWSIC Accent Coffee Mug — You've Got Skin", "Accent Mug — You've Got Skin", "Drinkware",
@@ -91,6 +93,8 @@ SECTIONS = [
          "Atlantis Headwear embroidered beanie. Perfect for fall conferences and cold clinical mornings.", None),
     ]),
     ("Bags & Carriers", [
+        ("PAWSIC CNA Definition Tote Bag", "CNA Definition Tote", "Bags",
+         "Carry the love for Certified Nursing Assistants. The CNA \"definition\" on a sturdy cotton canvas tote — roomy enough for shift bags, conference materials, and everyday essentials.", "New"),
         ("PAWSIC Cotton Canvas Tote Bag", "Cotton Canvas Tote", "Bags",
          "Sturdy cotton canvas tote. Roomy enough for conference materials, CE workbooks, and everything in between.", None),
         ("PAWSIC Tote Bag", "Tote Bag", "Bags",
@@ -121,6 +125,8 @@ SECTIONS = [
          "Comfortable lanyard with the PAWSIC logo for badges, keys, or ID cards.", None),
     ]),
     ("Stickers", [
+        ("PAWSIC CNA Definition Square Sticker", "CNA Definition Sticker", "Stickers",
+         "The CNA \"definition\" on waterproof vinyl. A little daily appreciation for Certified Nursing Assistants — perfect for laptops, badge reels, and water bottles.", "New"),
         ("PAWSIC Square Stickers", "Square Stickers", "Stickers",
          "Waterproof vinyl square stickers with the PAWSIC logo. For laptops, water bottles, and badge holders.", None),
         ("PAWSIC Die-Cut Sticker", "Die-Cut Sticker", "Stickers",
