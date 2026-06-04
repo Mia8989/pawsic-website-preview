@@ -953,8 +953,8 @@
               </div>
 
               <div class="pc-check">
-                <input id="pc-news" name="newsletter" type="checkbox" value="yes">
-                <label for="pc-news">Yes, send me the PAWSIC newsletter with wound care education updates.</label>
+                <input id="pc-news" name="newsletter" type="checkbox" value="yes" required>
+                <label for="pc-news">Yes, send me the PAWSIC newsletter with wound care education updates. <span class="pc-req">*</span></label>
               </div>
 
               <div class="pc-check">
@@ -1106,7 +1106,7 @@
 
         if (!form.checkValidity()) {
           statusEl.className = "pc-status pc-error";
-          statusEl.textContent = "Please complete the required fields, including the consent box.";
+          statusEl.textContent = "Please complete the required fields, including the newsletter and consent boxes.";
           form.reportValidity();
           return;
         }
