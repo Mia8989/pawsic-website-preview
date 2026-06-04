@@ -924,12 +924,12 @@
 
               <div class="pc-row">
                 <div class="pc-field">
-                  <label for="pc-title">Job Title / Role</label>
-                  <input id="pc-title" name="jobTitle" type="text" autocomplete="organization-title">
+                  <label for="pc-title">Job Title / Role <span class="pc-req">*</span></label>
+                  <input id="pc-title" name="jobTitle" type="text" autocomplete="organization-title" required>
                 </div>
                 <div class="pc-field">
-                  <label for="pc-org">Company / Organization / Facility</label>
-                  <input id="pc-org" name="organization" type="text" autocomplete="organization">
+                  <label for="pc-org">Company / Organization / Facility <span class="pc-req">*</span></label>
+                  <input id="pc-org" name="organization" type="text" autocomplete="organization" required>
                 </div>
               </div>
 
@@ -948,8 +948,9 @@
               </div>
 
               <div class="pc-field">
-                <label for="pc-address">Address</label>
-                <input id="pc-address" name="address" type="text" autocomplete="street-address" placeholder="Optional">
+                <label for="pc-address">Address <span class="pc-req">*</span></label>
+                <input id="pc-address" name="address" type="text" autocomplete="street-address" placeholder="Street, City, State, ZIP" required>
+                <p style="font-size:0.78rem; color:#6b7785; margin:0.45rem 0 0; line-height:1.45;">Your registration creates your free PAWSIC membership, so we ask for your role, organization, and address to complete your member record.</p>
               </div>
 
               <div class="pc-check">
