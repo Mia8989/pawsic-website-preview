@@ -948,28 +948,6 @@
               </div>
 
               <div class="pc-field">
-                <label for="pc-address">Street Address <span class="pc-req">*</span></label>
-                <input id="pc-address" name="address" type="text" autocomplete="address-line1" placeholder="123 Main St" required>
-              </div>
-              <div class="pc-field">
-                <label for="pc-address2">Apt / Suite / Unit</label>
-                <input id="pc-address2" name="address2" type="text" autocomplete="address-line2" placeholder="Optional">
-              </div>
-              <div class="pc-field">
-                <label for="pc-city">City <span class="pc-req">*</span></label>
-                <input id="pc-city" name="city" type="text" autocomplete="address-level2" required>
-              </div>
-              <div class="pc-row">
-                <div class="pc-field">
-                  <label for="pc-state">State <span class="pc-req">*</span></label>
-                  <input id="pc-state" name="state" type="text" autocomplete="address-level1" required>
-                </div>
-                <div class="pc-field">
-                  <label for="pc-zip">ZIP / Postal Code <span class="pc-req">*</span></label>
-                  <input id="pc-zip" name="zip" type="text" autocomplete="postal-code" required>
-                </div>
-              </div>
-              <div class="pc-field">
                 <label for="pc-country">Country <span class="pc-req">*</span></label>
                 <select id="pc-country" name="country" autocomplete="country" required>
                   <option value="US" selected>United States</option>
@@ -1173,7 +1151,33 @@
                   <option value="ZW">Zimbabwe</option>
                 </select>
               </div>
-              <p style="font-size:0.78rem; color:#6b7785; margin:0.45rem 0 0; line-height:1.45;">Your registration creates your free PAWSIC membership, so we use your role, organization, and address to complete your member record. Your browser may offer to fill your address for you.</p>
+
+              <div id="pc-address-fields">
+                <div class="pc-field">
+                  <label for="pc-address">Street Address <span class="pc-req">*</span></label>
+                  <input id="pc-address" name="address" type="text" autocomplete="address-line1" placeholder="123 Main St" required>
+                </div>
+                <div class="pc-field">
+                  <label for="pc-address2">Apt / Suite / Unit</label>
+                  <input id="pc-address2" name="address2" type="text" autocomplete="address-line2" placeholder="Optional">
+                </div>
+                <div class="pc-field">
+                  <label for="pc-city">City <span class="pc-req">*</span></label>
+                  <input id="pc-city" name="city" type="text" autocomplete="address-level2" required>
+                </div>
+                <div class="pc-row">
+                  <div class="pc-field">
+                    <label for="pc-state">State <span class="pc-req">*</span></label>
+                    <input id="pc-state" name="state" type="text" autocomplete="address-level1" required>
+                  </div>
+                  <div class="pc-field">
+                    <label for="pc-zip">ZIP <span class="pc-req">*</span></label>
+                    <input id="pc-zip" name="zip" type="text" autocomplete="postal-code" inputmode="numeric" required>
+                  </div>
+                </div>
+                <p style="font-size:0.78rem; color:#6b7785; margin:0.1rem 0 0; line-height:1.45;">Your browser may offer to fill your address for you.</p>
+              </div>
+              <p style="font-size:0.78rem; color:#6b7785; margin:0.45rem 0 0; line-height:1.45;">Your registration creates your free PAWSIC membership, so we use your role, organization, and location to complete your member record.</p>
 
               <div class="pc-check">
                 <input id="pc-news" name="newsletter" type="checkbox" value="yes" required>
@@ -1308,6 +1312,25 @@
       </div>
     </div>
   </footer>
+
+  <!-- US-only address: the street/city/state/ZIP block shows (and is required) only when Country is US.
+       For any other country the fields are hidden AND disabled, so they are skipped by validation and
+       left out of the form submission entirely. Country itself is always sent. -->
+  <script>
+    (function () {
+      var country = document.getElementById("pc-country");
+      var wrap = document.getElementById("pc-address-fields");
+      if (!country || !wrap) return;
+      var fields = wrap.querySelectorAll("input");
+      function sync() {
+        var isUS = country.value === "US";
+        wrap.hidden = !isUS;
+        for (var i = 0; i < fields.length; i++) { fields[i].disabled = !isUS; }
+      }
+      country.addEventListener("change", sync);
+      sync();
+    })();
+  </script>
 
   <!-- Registration form submit: posts directly to the PAWSIC Make webhook, then opens the watch page.
        Sent as application/x-www-form-urlencoded in no-cors mode so this static page can reach Make
