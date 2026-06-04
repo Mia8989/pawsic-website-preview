@@ -948,10 +948,28 @@
               </div>
 
               <div class="pc-field">
-                <label for="pc-address">Address <span class="pc-req">*</span></label>
-                <input id="pc-address" name="address" type="text" autocomplete="street-address" placeholder="Street, City, State, ZIP" required>
-                <p style="font-size:0.78rem; color:#6b7785; margin:0.45rem 0 0; line-height:1.45;">Your registration creates your free PAWSIC membership, so we ask for your role, organization, and address to complete your member record.</p>
+                <label for="pc-address">Street Address <span class="pc-req">*</span></label>
+                <input id="pc-address" name="address" type="text" autocomplete="address-line1" placeholder="123 Main St" required>
               </div>
+              <div class="pc-field">
+                <label for="pc-address2">Apt / Suite / Unit</label>
+                <input id="pc-address2" name="address2" type="text" autocomplete="address-line2" placeholder="Optional">
+              </div>
+              <div class="pc-field">
+                <label for="pc-city">City <span class="pc-req">*</span></label>
+                <input id="pc-city" name="city" type="text" autocomplete="address-level2" required>
+              </div>
+              <div class="pc-row">
+                <div class="pc-field">
+                  <label for="pc-state">State <span class="pc-req">*</span></label>
+                  <input id="pc-state" name="state" type="text" autocomplete="address-level1" required>
+                </div>
+                <div class="pc-field">
+                  <label for="pc-zip">ZIP <span class="pc-req">*</span></label>
+                  <input id="pc-zip" name="zip" type="text" autocomplete="postal-code" inputmode="numeric" required>
+                </div>
+              </div>
+              <p style="font-size:0.78rem; color:#6b7785; margin:0.45rem 0 0; line-height:1.45;">Your registration creates your free PAWSIC membership, so we use your role, organization, and address to complete your member record. Your browser may offer to fill your address for you.</p>
 
               <div class="pc-check">
                 <input id="pc-news" name="newsletter" type="checkbox" value="yes" required>
