@@ -1123,9 +1123,13 @@
         statusEl.className = "pc-status pc-ok";
         statusEl.textContent = "You're in. Taking you to the course...";
 
-        var go = function () { window.location.href = WATCH_URL; };
-        fetch(MAKE_WEBHOOK, { method: "POST", mode: "no-cors", body: params }).then(go).catch(go);
-        setTimeout(go, 2500); // safety net if the network stalls
+        var redirected = false;
+        var go = function () { if (redirected) return; redirected = true; window.location.href = WATCH_URL; };
+        // keepalive lets the POST body finish sending even though we navigate away next.
+        fetch(MAKE_WEBHOOK, { method: "POST", mode: "no-cors", body: params, keepalive: true })
+          .then(function () { setTimeout(go, 500); })
+          .catch(function () { setTimeout(go, 500); });
+        setTimeout(go, 3000); // safety net if the network stalls
       });
     })();
   </script>
