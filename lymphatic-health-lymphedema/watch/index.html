@@ -335,7 +335,7 @@
     <div class="watch-window">
       <span>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        Free 72-hour window &middot; June 8 to June 11, 2026 &middot; opens 9am ET
+        Watch now &middot; free access closes in <strong id="cd" style="margin:0 0.25rem;color:#6b5a1a;">&mdash;</strong> &middot; ends Sunday, June 7, 12 PM ET
       </span>
     </div>
 
@@ -347,7 +347,7 @@
           You're registered
         </span>
         <h1>Welcome to <em>Lymphatic Health</em></h1>
-        <p>You're registered. Your free PAWSIC membership is active, and the full course unlocks right here for 72 hours only, June 8 to June 11. A welcome email is on its way with your login details.</p>
+        <p>You're registered, and the full course is unlocked right here now. Your free PAWSIC membership is active, and you have 72 hours to watch, until Sunday, June 7 at 12 PM ET. A welcome email is on its way with your login details.</p>
         <div class="watch-access-meta" style="gap:1.2rem; flex-wrap:wrap; justify-content:center;">
           <span style="display:inline-flex;align-items:center;gap:0.5rem;">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px;color:#38B6FF"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
@@ -362,19 +362,7 @@
       </div>
     </section>
 
-    <!-- ===== NOT YET OPEN: COUNTDOWN (shown before June 8, 9am ET) ===== -->
-    <section class="watch-video-section" id="countdown-section" style="display:none;">
-      <div class="container">
-        <div style="max-width:760px;margin:0 auto;text-align:center;background:linear-gradient(135deg,#0C1F3F 0%,#1B3A6A 100%);color:#fff;border-radius:18px;padding:3rem 2rem;">
-          <p style="color:#F2D77A;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;font-size:0.8rem;margin:0 0 1rem;">Opens Monday, June 8 &middot; 9am ET</p>
-          <h2 style="font-family:'DM Serif Display',serif;font-size:clamp(1.6rem,4vw,2.4rem);margin:0 0 1.5rem;color:#fff;line-height:1.2;">Your 72-hour window opens in</h2>
-          <div id="cd" style="font-family:'DM Serif Display',serif;font-size:clamp(2rem,6vw,3.4rem);color:#38B6FF;letter-spacing:0.02em;">&mdash;</div>
-          <p style="color:rgba(255,255,255,0.72);margin:1.5rem auto 0;font-size:0.95rem;line-height:1.6;max-width:560px;">You're registered. The full course unlocks right here on Monday, June 8 at 9am ET, and stays open for 72 hours only (through June 11). We'll email you when it goes live.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== VIDEO PLAYER (shown June 8 to June 11) ===== -->
+    <!-- ===== VIDEO PLAYER (open now, until Sun Jun 7 12pm ET) ===== -->
     <section class="watch-video-section" id="video-section">
       <div class="container">
         <div class="watch-video-wrap">
@@ -388,7 +376,7 @@
     </section>
     <script src="https://player.vimeo.com/api/player.js"></script>
 
-    <!-- ===== ACCESS CLOSED (shown after June 11, 9am ET) ===== -->
+    <!-- ===== ACCESS CLOSED (shown after Sun Jun 7, 12pm ET) ===== -->
     <section class="watch-video-section" id="closed-section" style="display:none;">
       <div class="container">
         <div style="max-width:760px;margin:0 auto;text-align:center;background:linear-gradient(135deg,#0C1F3F 0%,#1B3A6A 100%);color:#fff;border-radius:18px;padding:3rem 2rem;">
@@ -400,28 +388,25 @@
       </div>
     </section>
 
-    <!-- Window control: opens Mon Jun 8 9am ET, closes Wed Jun 11 9am ET (EDT = UTC-4) -->
+    <!-- Window control: OPEN NOW, closes Sun Jun 7 2026 12pm ET (EDT = UTC-4 => 16:00 UTC) -->
     <script>
       (function () {
-        var openDate  = new Date('2026-06-08T13:00:00Z');
-        var closeDate = new Date('2026-06-11T13:00:00Z');
+        var closeDate = new Date('2026-06-07T16:00:00Z');
         var video = document.getElementById('video-section');
-        var countdown = document.getElementById('countdown-section');
         var closed = document.getElementById('closed-section');
         var cd = document.getElementById('cd');
+        var banner = document.querySelector('.watch-window');
         function pad(n){ return String(n).padStart(2,'0'); }
         function tick(){
           var now = new Date();
-          if (now < openDate) {
-            video.style.display = 'none'; closed.style.display = 'none'; countdown.style.display = 'block';
-            var d = openDate - now;
+          if (now < closeDate) {
+            closed.style.display = 'none'; video.style.display = 'block';
+            var d = closeDate - now;
             var days = Math.floor(d/864e5), h = Math.floor(d%864e5/36e5), m = Math.floor(d%36e5/6e4), s = Math.floor(d%6e4/1e3);
             if (cd) cd.textContent = days + 'd ' + pad(h) + 'h ' + pad(m) + 'm ' + pad(s) + 's';
-          } else if (now < closeDate) {
-            countdown.style.display = 'none'; closed.style.display = 'none'; video.style.display = 'block';
           } else {
-            video.style.display = 'none'; countdown.style.display = 'none'; closed.style.display = 'block';
-            var b = document.querySelector('.watch-window'); if (b) b.style.display = 'none';
+            video.style.display = 'none'; closed.style.display = 'block';
+            if (banner) banner.style.display = 'none';
           }
         }
         tick(); setInterval(tick, 1000);
