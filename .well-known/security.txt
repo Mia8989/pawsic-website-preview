@@ -1,0 +1,8 @@
+# PAWSIC (Professional Association for Wound and Skin Integrity Care)
+# Security contact and responsible disclosure information.
+# Format: https://www.rfc-editor.org/rfc/rfc9116
+
+Contact: mailto:executiveteam@pawsic.org
+Expires: 2027-06-09T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://pawsic.org/.well-known/security.txt
