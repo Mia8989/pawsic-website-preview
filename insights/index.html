@@ -11,23 +11,38 @@
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Clinical Insights | Coming June 15, 2026 | PAWSIC</title>
-  <meta name="description" content="PAWSIC Clinical Insights launches June 15, 2026: monthly evidence-based commentary from the Post-Acute Wound & Skin Integrity Council on the systems issues shaping post-acute practice.">
-  <!-- SCHEDULED: 2026-06-15. After Blog 1 reveal, change robots to "index, follow" and remove the Coming Soon hero. -->
-  <meta name="robots" content="noindex, follow">
+  <title>Clinical Insights | PAWSIC</title>
+  <meta name="description" content="Monthly clinical insights, commentary, and evidence-based perspectives from the Post-Acute Wound & Skin Integrity Council leadership and contributors.">
+  <meta name="robots" content="index, follow">
 
-  <meta property="og:title" content="Clinical Insights | Coming June 15, 2026 | PAWSIC">
-  <meta property="og:description" content="A new monthly clinical commentary series from PAWSIC President Jeanine Maguire, launching June 15.">
+  <meta property="og:title" content="Clinical Insights | PAWSIC">
+  <meta property="og:description" content="Monthly clinical insights and evidence-based perspectives from PAWSIC leadership.">
   <meta property="og:url" content="https://pawsic.org/insights/">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://pawsic.org/images/pawsic-og-image.jpg">
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Clinical Insights | Coming June 15, 2026 | PAWSIC">
-  <meta name="twitter:description" content="A new monthly clinical commentary series from PAWSIC, launching June 15.">
+  <meta name="twitter:title" content="Clinical Insights | PAWSIC">
+  <meta name="twitter:description" content="Monthly clinical insights from PAWSIC.">
   <meta name="twitter:image" content="https://pawsic.org/images/pawsic-og-image.jpg">
 
   <link rel="canonical" href="https://pawsic.org/insights/">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "PAWSIC Clinical Insights",
+    "url": "https://pawsic.org/insights/",
+    "description": "Monthly clinical insights and evidence-based commentary on wound care, skin integrity, and post-acute practice.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "PAWSIC",
+      "url": "https://pawsic.org",
+      "logo": { "@type": "ImageObject", "url": "https://pawsic.org/images/pawsic-logo.png" }
+    }
+  }
+  </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -39,7 +54,7 @@
     .insights-hero {
       background: linear-gradient(145deg, #0c1f3f 0%, #162d55 50%, #1a3660 100%);
       color: #fff;
-      padding: 5.5rem 0 4.5rem;
+      padding: 5rem 0 4rem;
       text-align: center;
       position: relative;
       overflow: hidden;
@@ -54,215 +69,36 @@
       pointer-events: none;
     }
     .insights-hero .container { position: relative; }
-    .insights-soon-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.55rem;
-      background: rgba(56,182,255,0.18);
-      border: 1px solid rgba(56,182,255,0.4);
+    .insights-eyebrow {
+      display: inline-block;
+      background: rgba(56,182,255,0.15);
+      border: 1px solid rgba(56,182,255,0.3);
       color: #38B6FF;
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       font-weight: 700;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      padding: 0.55rem 1.1rem;
-      border-radius: 100px;
-      margin-bottom: 1.5rem;
-    }
-    .insights-soon-pill .pulse {
-      width: 9px; height: 9px;
-      border-radius: 50%;
-      background: #38B6FF;
-      box-shadow: 0 0 0 0 rgba(56,182,255,0.6);
-      animation: pulse 1.8s infinite;
-    }
-    @keyframes pulse {
-      0% { box-shadow: 0 0 0 0 rgba(56,182,255,0.6); }
-      70% { box-shadow: 0 0 0 12px rgba(56,182,255,0); }
-      100% { box-shadow: 0 0 0 0 rgba(56,182,255,0); }
+      padding: 0.4rem 1rem;
+      border-radius: 20px;
+      margin-bottom: 1.25rem;
     }
     .insights-hero h1 {
       font-family: 'DM Serif Display', serif;
-      font-size: clamp(2.4rem, 5.5vw, 3.8rem);
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
       color: #fff !important;
-      line-height: 1.15;
+      line-height: 1.2;
       margin-bottom: 1rem;
     }
     .insights-hero h1 em { color: #38B6FF; font-style: italic; }
-    .insights-hero p.lede {
-      font-size: 1.15rem;
-      color: rgba(255,255,255,0.82);
-      max-width: 720px;
-      margin: 0 auto 2rem;
-      line-height: 1.7;
-    }
-    .insights-launch-date {
-      display: inline-block;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.15);
-      color: #fff;
-      padding: 0.85rem 1.5rem;
-      border-radius: 12px;
-      font-size: 1rem;
-      font-weight: 600;
-    }
-    .insights-launch-date strong { color: #38B6FF; }
-
-    /* Schedule preview section */
-    .schedule-section {
-      padding: 4rem 0 5rem;
-      background: #f6f8fb;
-    }
-    .schedule-header {
-      text-align: center;
-      max-width: 720px;
-      margin: 0 auto 3rem;
-    }
-    .schedule-header .eyebrow {
-      display: inline-block;
-      font-size: 0.75rem;
-      font-weight: 800;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: #2B7CCA;
-      margin-bottom: 0.6rem;
-    }
-    .schedule-header h2 {
-      font-family: 'DM Serif Display', serif;
-      font-size: clamp(1.7rem, 3vw, 2.3rem);
-      color: #0c1f3f;
-      line-height: 1.3;
-      margin-bottom: 0.85rem;
-    }
-    .schedule-header p {
-      font-size: 1.02rem;
-      color: #555;
-      line-height: 1.7;
-    }
-
-    .schedule-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-    .schedule-card {
-      background: #fff;
-      border-radius: 14px;
-      overflow: hidden;
-      box-shadow: 0 2px 14px rgba(12,31,63,0.06);
-      display: flex;
-      flex-direction: column;
-      position: relative;
-    }
-    .schedule-card-image {
-      aspect-ratio: 1200 / 630;
-      width: 100%;
-      object-fit: cover;
-      background: #e8ecf1;
-      filter: grayscale(15%) brightness(0.92);
-      position: relative;
-    }
-    .schedule-card-image-wrap {
-      position: relative;
-    }
-    .schedule-card-image-wrap::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, transparent 0%, rgba(12,31,63,0.25) 100%);
-      pointer-events: none;
-    }
-    .schedule-card-lockbadge {
-      position: absolute;
-      top: 14px;
-      right: 14px;
-      background: rgba(12,31,63,0.85);
-      backdrop-filter: blur(4px);
-      color: #fff;
-      padding: 0.4rem 0.7rem;
-      border-radius: 8px;
-      font-size: 0.7rem;
-      font-weight: 700;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      z-index: 2;
-    }
-    .schedule-card-body {
-      padding: 1.5rem;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-    }
-    .schedule-card-date {
-      display: inline-block;
-      background: linear-gradient(135deg, #0c1f3f, #1a3660);
-      color: #fff;
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      padding: 0.35rem 0.8rem;
-      border-radius: 100px;
-      margin-bottom: 0.85rem;
-      width: fit-content;
-    }
-    .schedule-card-title {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.18rem;
-      color: #0c1f3f;
-      line-height: 1.35;
-      margin: 0 0 0.65rem;
-    }
-    .schedule-card-excerpt {
-      font-size: 0.9rem;
-      color: #5a6573;
-      line-height: 1.6;
-      flex: 1;
-      margin-bottom: 1rem;
-    }
-    .schedule-card-author {
-      display: flex;
-      align-items: center;
-      gap: 0.55rem;
-      padding-top: 0.85rem;
-      border-top: 1px solid #eef2f7;
-      font-size: 0.82rem;
-      color: #5a6573;
-    }
-    .schedule-card-author img { width: 28px; height: 28px; border-radius: 50%; object-fit: cover; }
-    .schedule-card-author strong { color: #0c1f3f; }
-
-    /* Subscribe CTA section */
-    .insights-subscribe {
-      background: #fff;
-      padding: 4rem 0;
-    }
-    .insights-subscribe .inner {
+    .insights-hero p {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.78);
       max-width: 720px;
       margin: 0 auto;
-      text-align: center;
-      padding: 0 1.5rem;
-    }
-    .insights-subscribe h2 {
-      font-family: 'DM Serif Display', serif;
-      color: #0c1f3f;
-      font-size: clamp(1.5rem, 2.5vw, 1.9rem);
-      margin-bottom: 0.85rem;
-    }
-    .insights-subscribe p {
-      font-size: 1rem;
-      color: #555;
       line-height: 1.7;
-      margin-bottom: 1.75rem;
     }
 
-    /* Hidden production grid - revealed at full launch -->*/
-    .insights-grid-section { display: none; }
+    .insights-grid-section { padding: 4rem 0 5rem; background: #f6f8fb; }
     .insights-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
@@ -327,12 +163,9 @@
     .insight-card-meta img { width: 30px; height: 30px; border-radius: 50%; object-fit: cover; }
     .insight-card-meta strong { color: #0c1f3f; }
 
-    @media (max-width: 900px) {
-      .schedule-grid { grid-template-columns: 1fr; }
-    }
     @media (max-width: 640px) {
       .insights-hero { padding: 3.5rem 0 3rem; }
-      .schedule-section { padding: 2.5rem 0 3.5rem; }
+      .insights-grid-section { padding: 2.5rem 0 3.5rem; }
     }
   </style>
 
@@ -432,131 +265,17 @@
 
   <main id="main-content">
 
-    <!-- ========================================================== -->
-    <!-- COMING SOON HERO - REMOVE/REPLACE WITH PRODUCTION HERO ON  -->
-    <!-- 2026-06-15 WHEN BLOG 1 GOES LIVE                            -->
-    <!-- ========================================================== -->
     <section class="insights-hero">
       <div class="container">
-        <span class="insights-soon-pill"><span class="pulse"></span> Coming Soon</span>
-        <h1>Clinical <em>Insights</em></h1>
-        <p class="lede">A new monthly evidence-based commentary series from PAWSIC leadership on wound care, skin integrity, and the systems issues shaping post-acute practice.</p>
-        <div class="insights-launch-date">Launching <strong>June 15, 2026</strong></div>
+        <span class="insights-eyebrow">PAWSIC Clinical Insights</span>
+        <h1>Evidence Meets <em>Practice</em></h1>
+        <p>Monthly clinical commentary from PAWSIC leadership on wound care, skin integrity, and the systems issues shaping post-acute practice.</p>
       </div>
     </section>
 
-    <!-- ========================================================== -->
-    <!-- SCHEDULE PREVIEW (no links, image preview, lock badge)      -->
-    <!-- After 2026-06-15 launch this section can be removed and    -->
-    <!-- the .insights-grid-section below uncommented.              -->
-    <!-- ========================================================== -->
-    <section class="schedule-section">
-      <div class="container">
-        <div class="schedule-header">
-          <span class="eyebrow">What's Coming</span>
-          <h2>Three Months. Three Conversations Post-Acute Care Needs to Have.</h2>
-          <p>From the convergence of falls and wounds to the structural verdict of global amputation rates to what CMS's new SNF Validation Program is really measuring, written by PAWSIC President Dr. Jeanine Maguire.</p>
-        </div>
-
-        <div class="schedule-grid">
-
-          <article class="schedule-card">
-            <div class="schedule-card-image-wrap">
-              <span class="schedule-card-lockbadge">
-                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-                Locked
-              </span>
-              <img src="/images/insights/falls-and-wounds-post-acute-care-og.png" alt="Falls and Wounds in Post-Acute Care preview" class="schedule-card-image" loading="lazy">
-            </div>
-            <div class="schedule-card-body">
-              <span class="schedule-card-date">June 15, 2026</span>
-              <h3 class="schedule-card-title">Falls and Wounds in Post-Acute Care: The Conundrum We Can No Longer Ignore</h3>
-              <p class="schedule-card-excerpt">CMS just issued new Falls with Injury and QM Respecification training. But the patient who falls is very often the patient who has a wound. The bidirectional risk profile and the clinical conundrum where interventions oppose each other.</p>
-              <div class="schedule-card-author">
-                <img src="/images/board/jeanine-maguire.jpg" alt="Jeanine Maguire">
-                <span>By <strong>Jeanine Maguire, PhD, MPT, CWS, FCPP</strong></span>
-              </div>
-            </div>
-          </article>
-
-          <article class="schedule-card">
-            <div class="schedule-card-image-wrap">
-              <span class="schedule-card-lockbadge">
-                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-                Locked
-              </span>
-              <img src="/images/insights/amputation-rate-structural-verdict-og.png" alt="The Amputation Rate Is a Structural Verdict preview" class="schedule-card-image" loading="lazy">
-            </div>
-            <div class="schedule-card-body">
-              <span class="schedule-card-date">July 15, 2026</span>
-              <h3 class="schedule-card-title">The Amputation Rate Is a Structural Verdict: A Global Call to Action</h3>
-              <p class="schedule-card-excerpt">A non-traumatic amputation is the terminal endpoint of a cascade of upstream failures. A comparative analysis across four global health system models, co-authored with Dr. Mohamed Magdy Badr.</p>
-              <div class="schedule-card-author">
-                <img src="/images/board/jeanine-maguire.jpg" alt="Jeanine Maguire">
-                <span>By <strong>Jeanine Maguire</strong> &amp; <strong>Dr. Mohamed Magdy Badr</strong></span>
-              </div>
-            </div>
-          </article>
-
-          <article class="schedule-card">
-            <div class="schedule-card-image-wrap">
-              <span class="schedule-card-lockbadge">
-                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-                Locked
-              </span>
-              <img src="/images/insights/cms-snf-validation-systems-view-og.png" alt="Everything Is Connected: A Systems View preview" class="schedule-card-image" loading="lazy">
-            </div>
-            <div class="schedule-card-body">
-              <span class="schedule-card-date">August 15, 2026</span>
-              <h3 class="schedule-card-title">Everything Is Connected: A Systems View of Skin, Falls, and the Human Condition</h3>
-              <p class="schedule-card-excerpt">The CMS SNF Validation Program is auditing pressure injuries, falls, and medications. Why these are the final common pathway of systemic failure, and the reserve-based reframe post-acute care needs.</p>
-              <div class="schedule-card-author">
-                <img src="/images/board/jeanine-maguire.jpg" alt="Jeanine Maguire">
-                <span>By <strong>Jeanine Maguire, PhD, MPT, CWS, FCPP</strong></span>
-              </div>
-            </div>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ========================================================== -->
-    <!-- SUBSCRIBE CTA                                              -->
-    <!-- ========================================================== -->
-    <section class="insights-subscribe">
-      <div class="inner">
-        <h2>Be First to Read When It Launches</h2>
-        <p>Join PAWSIC free to receive new Clinical Insights in your inbox each month, alongside webinar invitations, evidence-based resources, and updates from the wound and skin integrity field.</p>
-        <a href="https://memberships.pawsic.org/register/free/" class="btn-primary btn-lg" target="_blank" rel="noopener noreferrer">Join PAWSIC Free <span class="btn-arrow">&rarr;</span></a>
-      </div>
-    </section>
-
-    <!-- ========================================================== -->
-    <!-- PRODUCTION GRID - HIDDEN UNTIL POST-LAUNCH                  -->
-    <!-- After 2026-06-15: remove the "display: none" from           -->
-    <!-- .insights-grid-section in the CSS above, remove the         -->
-    <!-- Coming Soon hero + schedule preview sections, and reveal    -->
-    <!-- the relevant card from the HIDDEN UNTIL comment blocks.     -->
-    <!-- ========================================================== -->
     <section class="insights-grid-section">
       <div class="container">
         <div class="insights-grid">
-
-          <!--
-            ====================================================================
-            SCHEDULED POSTS - PRE-STAGED ON GITHUB, HIDDEN FROM LANDING PAGE
-            ====================================================================
-            Posts below this comment are uploaded but not yet linked publicly.
-            On the publish date, REMOVE the surrounding comment markers around
-            the relevant card AND change the post's robots meta from
-            "noindex, follow" to "index, follow" inside its index.html.
-
-            NEXT TO REVEAL: 2026-06-15  falls-and-wounds-post-acute-care
-            THEN:           2026-07-15  amputation-rate-structural-verdict
-            THEN:           2026-08-15  cms-snf-validation-systems-view
-            ====================================================================
-          -->
 
           <!-- HIDDEN UNTIL 2026-08-15
           <a href="/insights/cms-snf-validation-systems-view/" class="insight-card">
@@ -588,7 +307,6 @@
           </a>
           END HIDDEN -->
 
-          <!-- HIDDEN UNTIL 2026-06-15
           <a href="/insights/falls-and-wounds-post-acute-care/" class="insight-card">
             <img src="/images/insights/falls-and-wounds-post-acute-care-og.png" alt="Falls and Wounds in Post-Acute Care: The Conundrum We Can No Longer Ignore" class="insight-card-image" loading="lazy">
             <div class="insight-card-body">
@@ -601,7 +319,6 @@
               </div>
             </div>
           </a>
-          END HIDDEN -->
 
         </div>
       </div>
