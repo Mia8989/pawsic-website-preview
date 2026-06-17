@@ -444,6 +444,20 @@
       color: var(--ahca-blue);
     }
 
+    /* Registration option cards */
+    .qapi-reg-options { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; margin-top:2.5rem; text-align:left; }
+    @media (max-width:768px){ .qapi-reg-options{ grid-template-columns:1fr; } }
+    .qapi-reg-card { background:#fff; border:1px solid var(--cream-border); border-radius:16px; padding:1.8rem; display:flex; flex-direction:column; box-shadow:0 12px 32px rgba(12,31,63,0.07); }
+    .qapi-reg-card.featured { border:2px solid var(--ahca-blue); }
+    .qapi-reg-tag { font-size:0.72rem; font-weight:700; letter-spacing:1.2px; text-transform:uppercase; color:var(--ahca-blue); margin-bottom:0.5rem; }
+    .qapi-reg-card h3 { font-family:'Playfair Display',Georgia,serif; font-size:1.4rem; color:var(--navy); margin:0 0 0.6rem; line-height:1.2; }
+    .qapi-reg-price { font-size:1.8rem; font-weight:800; color:var(--navy); margin-bottom:0.6rem; }
+    .qapi-reg-price .was { text-decoration:line-through; color:#8a94a3; font-size:1.1rem; font-weight:600; margin-right:0.5rem; }
+    .qapi-reg-card p { font-size:0.92rem; color:var(--text-body); line-height:1.55; flex:1; margin-bottom:1.2rem; }
+    .qapi-reg-btn { display:inline-block; text-align:center; background:var(--gold); color:var(--navy); font-weight:800; padding:0.9rem 1.4rem; border-radius:100px; text-decoration:none; transition:transform 0.2s, box-shadow 0.2s; }
+    .qapi-reg-btn:hover { transform:translateY(-1px); box-shadow:0 10px 28px rgba(201,168,76,0.35); color:var(--navy); }
+    .qapi-reg-btn.soon { background:#e8e8ee; color:#6b7484; cursor:default; pointer-events:none; }
+
     /* FEATURE TABLE */
     .qapi-feature-table {
       width: 100%;
@@ -709,28 +723,23 @@
         <div class="qapi-register-wrap">
           <span class="qapi-section-tag">Register</span>
           <h2>Reserve your facility's <em>access</em></h2>
-          <p class="lead">Registration is exclusively for AHCA/NCAL member facilities. Your 20% member discount applies automatically. Complete the form below and a PAWSIC team member will confirm your enrollment within one business day.</p>
+          <p class="lead">Registration is exclusively for AHCA/NCAL member facilities. Choose your option below; your 20% member discount is already applied at checkout.</p>
 
-          <div class="qapi-form-card">
-            <!--
-              ====================================================================
-              JOTFORM EMBED — REPLACE FORM ID BELOW WITH THE REAL AHCA QAPI FORM ID
-              Pattern matches /wound-basics-101/ which uses Jotform form 261476375679070
-              Once you create the AHCA QAPI form via Jotform (PAWSIC account), swap:
-                  261481726227156  →  the new 15-digit form ID
-              in BOTH the iframe src and id, AND the jotformEmbedHandler call below.
-              ====================================================================
-            -->
-            <iframe
-              id="JotFormIFrame-261481726227156"
-              title="Beyond the Bandage QAPI — AHCA/NCAL Member Registration"
-              onload="window.parent.scrollTo(0,0)"
-              allowtransparency="true"
-              allow="geolocation; microphone; camera; fullscreen"
-              src="https://form.jotform.com/261481726227156"
-              class="qapi-jotform-iframe"
-              scrolling="no">
-            </iframe>
+          <div class="qapi-reg-options">
+            <div class="qapi-reg-card">
+              <div class="qapi-reg-tag">Option 1</div>
+              <h3>QAPI Program</h3>
+              <div class="qapi-reg-price"><span class="was">$359</span>$287.20</div>
+              <p>The Beyond the Bandage QAPI Program on its own. One-time payment, 60-day enrollment window for your facility.</p>
+              <a href="https://memberships.pawsic.org/register/qapi-workshop-ahca-ncal-member/?coupon=AHCA20OFF" class="qapi-reg-btn">Register for $287.20 &rarr;</a>
+            </div>
+            <div class="qapi-reg-card featured">
+              <div class="qapi-reg-tag">Option 2 &middot; Best Value</div>
+              <h3>QAPI Program + PAWSIC Premium Membership</h3>
+              <div class="qapi-reg-price"><span class="was">$349</span>$279.20</div>
+              <p>Everything in Option 1 plus a one-year PAWSIC Premium membership and full member library access. Premium renews at $150/year.</p>
+              <a class="qapi-reg-btn soon">Bundle registration opening shortly</a>
+            </div>
           </div>
 
           <div class="qapi-trust-row">
@@ -866,12 +875,6 @@
       </div>
     </div>
   </footer>
-
-  <!-- Jotform auto-resize handler — update form ID when swapping placeholder above -->
-  <script src="https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js"></script>
-  <script>
-    window.jotformEmbedHandler("iframe[id='JotFormIFrame-261481726227156']", "https://form.jotform.com/");
-  </script>
 
   <script src="/js/main.js"></script>
 </body>
