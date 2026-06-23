@@ -408,8 +408,11 @@
     }
 
     /* ── CNA Bulk Order Banner ── */
+    /* Reusable seasonal / awareness-day feature band. Muted premium navy so it
+       reads as calm and evergreen, not as a loud active campaign. Swap the
+       eyebrow, title, copy and 4 product cards per occasion. */
     .cna-bulk-section {
-      background: linear-gradient(135deg, #0C1F3F 0%, #0a3a4a 60%, #056C7B 100%);
+      background: linear-gradient(135deg, #18283f 0%, #213650 100%);
       padding: 3.5rem 0;
       position: relative;
       overflow: hidden;
@@ -418,7 +421,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: radial-gradient(ellipse 70% 80% at 80% 50%, rgba(0,194,203,0.12) 0%, transparent 70%);
+      background: radial-gradient(ellipse 70% 80% at 80% 50%, rgba(255,255,255,0.05) 0%, transparent 70%);
       pointer-events: none;
     }
     .cna-bulk-inner {
@@ -432,11 +435,11 @@
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      background: rgba(0,194,203,0.15);
-      border: 1px solid rgba(0,194,203,0.35);
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(201,168,76,0.4);
       border-radius: var(--r-pill);
       padding: 0.3rem 0.9rem;
-      color: #00C2CB;
+      color: #D7C088;
       font-size: 0.75rem;
       font-weight: 700;
       letter-spacing: 0.1em;
@@ -519,7 +522,7 @@
       text-underline-offset: 3px;
       transition: color 0.2s;
     }
-    .btn-bulk-secondary:hover { color: #00C2CB; }
+    .btn-bulk-secondary:hover { color: #D7C088; }
     .cna-bulk-right {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -535,7 +538,7 @@
     }
     .cna-mini-card:hover {
       transform: translateY(-4px);
-      border-color: rgba(0,194,203,0.5);
+      border-color: rgba(201,168,76,0.45);
     }
     .cna-mini-card img {
       width: 100%;
@@ -555,7 +558,7 @@
     }
     .cna-mini-card-price {
       font-size: 0.72rem;
-      color: #00C2CB;
+      color: #C9B280;
       font-weight: 600;
     }
     .cna-bulk-note {
@@ -692,7 +695,7 @@
       </div>
     </div>
 
-    <!-- CNA Week Featured Collection Banner -->
+    <!-- Seasonal / Awareness-Day Featured Collection Band (reusable: swap eyebrow, title, copy, 4 cards) -->
     <section class="cna-bulk-section" id="cna-week">
       <div class="container">
         <div class="cna-bulk-inner">
@@ -700,7 +703,7 @@
           <div class="cna-bulk-left">
             <span class="cna-bulk-eyebrow">
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-              CNA Week · June 15–21, 2026
+              Featured Collection
             </span>
             <h2 class="cna-bulk-title">Honoring CNAs — <em>Every Single Day</em></h2>
             <p class="cna-bulk-desc">Certified Nursing Assistants are the heartbeat of post-acute care. Shop the CNA Collection — meaningful, mission-aligned merch created to celebrate the clinicians, caregivers, and supporters who show up every day for patients.</p>
