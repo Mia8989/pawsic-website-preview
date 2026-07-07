@@ -13,6 +13,14 @@
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="../css/v2-overrides.css">
   <link rel="icon" type="image/png" sizes="32x32" href="../images/pawsic-favicon-32.png">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2VRLWNKKNS"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-2VRLWNKKNS');
+  </script>
   <link rel="apple-touch-icon" sizes="180x180" href="../images/pawsic-apple-touch-icon.png">
 
   <style>
@@ -1309,8 +1317,8 @@
                 <p class="product-desc" style="font-size:0.8rem; margin-bottom:0.25rem; color:var(--navy); font-style:italic;">by Janet S. MacKenzie MD</p>
                 <p class="product-desc">A practical guide for family caregivers managing wounds after hospital or nursing home discharge, written by a physician and designed for readers with no medical background.</p>
                 <div class="product-footer" style="flex-wrap:wrap; gap:8px;">
-                  <a href="https://www.amazon.com/Wound-Care-Home-Families-Caregivers/dp/1665787864/" class="btn-shop" target="_blank" rel="noopener noreferrer" style="flex:1; min-width:120px; justify-content:center; text-align:center;">Amazon <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-                  <a href="https://www.barnesandnoble.com/w/wound-care-at-home-janet-s-mackenzie-md/1149400665?ean=9781665787864" class="btn-shop" target="_blank" rel="noopener noreferrer" style="flex:1; min-width:120px; justify-content:center; text-align:center; background:var(--teal-mid, #2D7A8A);">Barnes &amp; Noble <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                  <a href="https://www.amazon.com/Wound-Care-Home-Families-Caregivers/dp/1665787864/" class="btn-shop" target="_blank" rel="noopener noreferrer" data-book-link="amazon" style="flex:1; min-width:120px; justify-content:center; text-align:center;">Amazon <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                  <a href="https://www.barnesandnoble.com/w/wound-care-at-home-janet-s-mackenzie-md/1149400665?ean=9781665787864" class="btn-shop" target="_blank" rel="noopener noreferrer" data-book-link="barnes-noble" style="flex:1; min-width:120px; justify-content:center; text-align:center; background:var(--teal-mid, #2D7A8A);">Barnes &amp; Noble <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
                 </div>
               </div>
             </div>
@@ -1487,6 +1495,20 @@
           blocks.forEach(b => {
             b.style.display = (filter === 'all' || b.dataset.cat === filter) ? '' : 'none';
           });
+        });
+      });
+
+      // Book link click tracking
+      document.querySelectorAll('[data-book-link]').forEach(link => {
+        link.addEventListener('click', () => {
+          if (typeof gtag === 'function') {
+            gtag('event', 'book_link_click', {
+              retailer: link.dataset.bookLink,
+              book_title: 'Wound Care at Home',
+              event_category: 'outbound',
+              event_label: link.href
+            });
+          }
         });
       });
     });
