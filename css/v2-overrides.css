@@ -103,6 +103,16 @@
   /* Show mobile utility items in hamburger menu */
   .mobile-nav-utility { display: list-item; }
 
+  /* Podcast: hide the desktop pill on mobile, show the utility item instead */
+  .nav-links > li.nav-podcast { display: none; }
+  .mobile-nav-utility.mobile-podcast-item > a {
+    display: flex !important;
+    align-items: center;
+    gap: 0.5rem;
+    color: #3a9e8f !important;
+    font-weight: 600 !important;
+  }
+
   /* Patients & Caregivers mobile link */
   .mobile-nav-utility.mobile-patients-link > a {
     color: #38B6FF !important;
