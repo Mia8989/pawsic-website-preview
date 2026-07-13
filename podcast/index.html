@@ -14,7 +14,7 @@
   <title>Healing by Design Podcast | PAWSIC</title>
   <meta name="description" content="Healing by Design is the PAWSIC podcast for wound care clinicians. Hosted by Jennifer Bierhup and Therese Laub, each episode brings real stories and clinical insight from post-acute and home health wound care.">
   <meta property="og:title" content="Healing by Design Podcast | PAWSIC">
-  <meta property="og:description" content="The PAWSIC podcast for wound care clinicians. Episode 1: 32 Years Without a Diagnosis, Amy Rivera's Lymphedema.">
+  <meta property="og:description" content="The PAWSIC podcast for wound care clinicians. Now streaming: Episode 3, Healing Is a Partnership with Joe Balusik.">
   <meta property="og:url" content="https://pawsic.org/podcast/">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://pawsic.org/images/healing-by-design-logo.png">
@@ -74,6 +74,26 @@
         "name": "Healing by Design",
         "url": "https://pawsic.org/podcast/"
       }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "PodcastEpisode",
+      "url": "https://pawsic.org/podcast/",
+      "name": "Why CNAs Matter in Wound Care",
+      "episodeNumber": 2,
+      "description": "Hosts Jennifer Bierhup and Therese Laub talk with Isaac Zralii about why Certified Nursing Assistants are central to wound care and skin integrity across the care team.",
+      "associatedMedia": { "@type": "MediaObject", "contentUrl": "https://youtu.be/I-gG8KWVI0U" },
+      "partOfSeries": { "@type": "PodcastSeries", "name": "Healing by Design", "url": "https://pawsic.org/podcast/" }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "PodcastEpisode",
+      "url": "https://pawsic.org/podcast/",
+      "name": "Healing Is a Partnership: Joe Balusik",
+      "episodeNumber": 3,
+      "description": "Joe Balusik has lived with a spinal cord injury since 1995. He joins hosts Jennifer Bierhup and Therese Laub to share his journey through paralysis, pressure injuries, rehabilitation, and the partnership he built with his wound care team.",
+      "associatedMedia": { "@type": "MediaObject", "contentUrl": "https://youtu.be/dbn5yYMpza8" },
+      "partOfSeries": { "@type": "PodcastSeries", "name": "Healing by Design", "url": "https://pawsic.org/podcast/" }
     }
   ]
   </script>
@@ -257,6 +277,17 @@
       transition: background 0.15s ease, color 0.15s ease;
     }
     .hbd-ep-listen a:hover { background: var(--hbd-navy); color: #fff; }
+
+    .hbd-ep-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(430px, 1fr));
+      gap: 32px;
+      max-width: 1000px;
+      margin: 40px auto 0;
+    }
+    .hbd-ep-grid .hbd-ep-card { max-width: none; margin: 0; }
+    .hbd-ep-grid .hbd-ep-title { font-size: 24px; }
+    @media (max-width: 900px) { .hbd-ep-grid { grid-template-columns: 1fr; } }
 
     .hbd-hosts {
       display: grid;
@@ -455,35 +486,89 @@
       </div>
     </section>
 
-    <!-- ===== FEATURED EPISODE ===== -->
+    <!-- ===== LATEST EPISODE (Ep 3) ===== -->
     <section class="hbd-section">
       <div class="container">
         <div style="text-align: center;">
-          <span class="section-tag reveal">Episode 1 · Now Streaming</span>
-          <h2 class="reveal reveal-delay-1">Listen to the <em>launch episode</em></h2>
+          <span class="section-tag reveal">Episode 3 · Now Streaming</span>
+          <h2 class="reveal reveal-delay-1">Healing is a <em>partnership</em></h2>
         </div>
 
         <article class="hbd-ep-card reveal">
           <div class="hbd-ep-video">
             <iframe
-              src="https://www.youtube-nocookie.com/embed/2T13dlK4xvc?rel=0&modestbranding=1"
-              title="Healing by Design Episode 1: 32 Years Without a Diagnosis, Amy Rivera's Lymphedema"
+              src="https://www.youtube-nocookie.com/embed/dbn5yYMpza8?rel=0&modestbranding=1"
+              title="Healing by Design Episode 3: Healing Is a Partnership with Joe Balusik"
               loading="lazy"
               allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowfullscreen></iframe>
           </div>
           <div class="hbd-ep-body">
-            <div class="hbd-ep-num">Episode 01</div>
-            <h3 class="hbd-ep-title">32 Years Without a Diagnosis: Amy Rivera's Lymphedema</h3>
-            <p class="hbd-ep-desc">Amy Rivera waited 32 years before her lymphedema was named. In our launch episode she shares her decades-long path to a diagnosis with PAWSIC clinicians Jennifer Bierhup and Therese Laub, and what every home health and post-acute clinician can learn from a story that should not have taken that long.</p>
+            <div class="hbd-ep-num">Episode 03</div>
+            <h3 class="hbd-ep-title">Healing Is a Partnership: Joe Balusik</h3>
+            <p class="hbd-ep-desc">Joe Balusik has lived with a spinal cord injury since 1995, navigating decades of rehabilitation, chronic wound care, and the realities of healing from the patient's perspective. Hosts Jennifer Bierhup and Therese Laub sit down with Joe to explore his journey through paralysis, pressure injuries, and the partnership he built with his wound care team, and why listening to the patient perspective leads to better outcomes.</p>
             <div class="hbd-ep-listen">
-              <a href="https://podcasts.apple.com/us/podcast/32-years-without-a-diagnosis-amy-riveras-lymphedema/id1896843055?i=1000770206416" target="_blank" rel="noopener">🍎 Apple Podcasts</a>
-              <a href="https://open.spotify.com/episode/0nzP5KTyVlufV2XZbsDbaW" target="_blank" rel="noopener">🟢 Spotify</a>
+              <a href="https://youtu.be/dbn5yYMpza8" target="_blank" rel="noopener">🎥 YouTube</a>
+              <a href="https://podcasts.apple.com/us/podcast/id1896843055" target="_blank" rel="noopener">🍎 Apple Podcasts</a>
               <a href="https://music.amazon.com/podcasts/e536fb38-8f88-467f-93f4-0fad0e020f22/healing-by-design" target="_blank" rel="noopener">📦 Amazon Music</a>
-              <a href="https://youtu.be/2T13dlK4xvc" target="_blank" rel="noopener">🎥 YouTube</a>
             </div>
           </div>
         </article>
+      </div>
+    </section>
+
+    <!-- ===== MORE EPISODES (Ep 2, Ep 1) ===== -->
+    <section class="hbd-section hbd-section-light">
+      <div class="container">
+        <div style="text-align: center;">
+          <span class="section-tag reveal">The Full Series</span>
+          <h2 class="reveal reveal-delay-1">More <em>episodes</em></h2>
+        </div>
+
+        <div class="hbd-ep-grid">
+          <article class="hbd-ep-card reveal">
+            <div class="hbd-ep-video">
+              <iframe
+                src="https://www.youtube-nocookie.com/embed/I-gG8KWVI0U?rel=0&modestbranding=1"
+                title="Healing by Design Episode 2: Why CNAs Matter in Wound Care with Isaac Zralii"
+                loading="lazy"
+                allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+            </div>
+            <div class="hbd-ep-body">
+              <div class="hbd-ep-num">Episode 02</div>
+              <h3 class="hbd-ep-title">Why CNAs Matter in Wound Care</h3>
+              <p class="hbd-ep-desc">Certified Nursing Assistants are often the first to notice a change in the skin and the daily front line of prevention. Hosts Jennifer Bierhup and Therese Laub talk with Isaac Zralii about why CNAs are central to wound care, and how supporting them strengthens outcomes across the team.</p>
+              <div class="hbd-ep-listen">
+                <a href="https://youtu.be/I-gG8KWVI0U" target="_blank" rel="noopener">🎥 YouTube</a>
+                <a href="https://podcasts.apple.com/us/podcast/id1896843055" target="_blank" rel="noopener">🍎 Apple Podcasts</a>
+                <a href="https://music.amazon.com/podcasts/e536fb38-8f88-467f-93f4-0fad0e020f22/healing-by-design" target="_blank" rel="noopener">📦 Amazon Music</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="hbd-ep-card reveal reveal-delay-1">
+            <div class="hbd-ep-video">
+              <iframe
+                src="https://www.youtube-nocookie.com/embed/2T13dlK4xvc?rel=0&modestbranding=1"
+                title="Healing by Design Episode 1: 32 Years Without a Diagnosis, Amy Rivera's Lymphedema"
+                loading="lazy"
+                allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+            </div>
+            <div class="hbd-ep-body">
+              <div class="hbd-ep-num">Episode 01</div>
+              <h3 class="hbd-ep-title">32 Years Without a Diagnosis: Amy Rivera's Lymphedema</h3>
+              <p class="hbd-ep-desc">Amy Rivera waited 32 years before her lymphedema was named. In our launch episode she shares her decades-long path to a diagnosis with PAWSIC clinicians Jennifer Bierhup and Therese Laub, and what every home health and post-acute clinician can learn from a story that should not have taken that long.</p>
+              <div class="hbd-ep-listen">
+                <a href="https://podcasts.apple.com/us/podcast/32-years-without-a-diagnosis-amy-riveras-lymphedema/id1896843055?i=1000770206416" target="_blank" rel="noopener">🍎 Apple Podcasts</a>
+                <a href="https://open.spotify.com/episode/0nzP5KTyVlufV2XZbsDbaW" target="_blank" rel="noopener">🟢 Spotify</a>
+                <a href="https://music.amazon.com/podcasts/e536fb38-8f88-467f-93f4-0fad0e020f22/healing-by-design" target="_blank" rel="noopener">📦 Amazon Music</a>
+                <a href="https://youtu.be/2T13dlK4xvc" target="_blank" rel="noopener">🎥 YouTube</a>
+              </div>
+            </div>
+          </article>
+        </div>
       </div>
     </section>
 
