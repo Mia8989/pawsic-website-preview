@@ -1,180 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2VRLWNKKNS"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-2VRLWNKKNS');
-  </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Clinical Insights | PAWSIC</title>
-  <meta name="description" content="Monthly clinical insights, commentary, and evidence-based perspectives from the Post-Acute Wound & Skin Integrity Council leadership and contributors.">
-  <meta name="robots" content="index, follow">
-
-  <meta property="og:title" content="Clinical Insights | PAWSIC">
-  <meta property="og:description" content="Monthly clinical insights and evidence-based perspectives from PAWSIC leadership.">
-  <meta property="og:url" content="https://pawsic.org/insights/">
+  <title>Page Not Found | PAWSIC</title>
+  <meta name="description" content="The page you were looking for could not be found. Explore PAWSIC programs, membership, courses, and clinical resources for post-acute wound care professionals.">
+  <meta name="robots" content="noindex, follow">
+  <meta property="og:title" content="Page Not Found | PAWSIC">
+  <meta property="og:description" content="The page you were looking for could not be found. Explore PAWSIC programs, membership, and resources.">
+  <meta property="og:url" content="https://pawsic.org/404">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://pawsic.org/images/pawsic-og-image.jpg">
-
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Clinical Insights | PAWSIC">
-  <meta name="twitter:description" content="Monthly clinical insights from PAWSIC.">
-  <meta name="twitter:image" content="https://pawsic.org/images/pawsic-og-image.jpg">
-
-  <link rel="canonical" href="https://pawsic.org/insights/">
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Blog",
-    "name": "PAWSIC Clinical Insights",
-    "url": "https://pawsic.org/insights/",
-    "description": "Monthly clinical insights and evidence-based commentary on wound care, skin integrity, and post-acute practice.",
-    "publisher": {
-      "@type": "Organization",
-      "name": "PAWSIC",
-      "url": "https://pawsic.org",
-      "logo": { "@type": "ImageObject", "url": "https://pawsic.org/images/pawsic-logo.png" }
-    }
-  }
-  </script>
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/style.css?v=20260713b">
   <link rel="stylesheet" href="/css/v2-overrides.css?v=20260713b">
-
   <style>
-    .insights-hero {
-      background: linear-gradient(145deg, #0c1f3f 0%, #162d55 50%, #1a3660 100%);
+    .nf-hero {
+      background: linear-gradient(160deg, #081428 0%, #0c1f3f 50%, #1e3a6e 100%);
       color: #fff;
       padding: 5rem 0 4rem;
       text-align: center;
       position: relative;
       overflow: hidden;
     }
-    .insights-hero::before {
+    .nf-hero::before {
       content: '';
       position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(ellipse at 30% 50%, rgba(56,182,255,0.10) 0%, transparent 60%),
-        radial-gradient(ellipse at 75% 30%, rgba(43,124,202,0.08) 0%, transparent 55%);
-      pointer-events: none;
+      top: -50%; right: -15%;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(56,182,255,0.12) 0%, transparent 70%);
+      border-radius: 50%;
     }
-    .insights-hero .container { position: relative; }
-    .insights-eyebrow {
-      display: inline-block;
-      background: rgba(56,182,255,0.15);
-      border: 1px solid rgba(56,182,255,0.3);
-      color: #38B6FF;
-      font-size: 0.78rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      padding: 0.4rem 1rem;
-      border-radius: 20px;
-      margin-bottom: 1.25rem;
+    .nf-hero .container { position: relative; z-index: 2; }
+    .nf-code {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: clamp(4rem, 14vw, 8rem);
+      line-height: 1;
+      margin: 0;
+      color: #ffce4a;
+      letter-spacing: 0.02em;
     }
-    .insights-hero h1 {
-      font-family: 'DM Serif Display', serif;
-      font-size: clamp(2.2rem, 5vw, 3.5rem);
-      color: #fff !important;
-      line-height: 1.2;
-      margin-bottom: 1rem;
+    .nf-title {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      margin: 0.75rem 0 0.5rem;
+      color: #fff;
     }
-    .insights-hero h1 em { color: #38B6FF; font-style: italic; }
-    .insights-hero p {
+    .nf-lead {
       font-size: 1.1rem;
-      color: rgba(255,255,255,0.78);
-      max-width: 720px;
-      margin: 0 auto;
-      line-height: 1.7;
+      max-width: 620px;
+      margin: 0.5rem auto 0;
+      color: rgba(255,255,255,0.82);
+      line-height: 1.6;
     }
-
-    .insights-grid-section { padding: 4rem 0 5rem; background: #f6f8fb; }
-    .insights-grid {
+    .nf-links {
+      max-width: 900px;
+      margin: -2.5rem auto 4rem;
+      padding: 0 1.25rem;
+      position: relative;
+      z-index: 3;
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-      gap: 2rem;
-      max-width: 1200px;
-      margin: 0 auto;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
     }
-    .insight-card {
+    .nf-card {
       background: #fff;
+      border: 1px solid #e6ebf2;
       border-radius: 14px;
-      overflow: hidden;
-      box-shadow: 0 2px 14px rgba(12,31,63,0.06);
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
-      display: flex;
-      flex-direction: column;
+      padding: 1.5rem 1.4rem;
       text-decoration: none;
-      color: inherit;
-    }
-    .insight-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 10px 32px rgba(12,31,63,0.12);
-    }
-    .insight-card-image {
-      aspect-ratio: 1200 / 630;
-      width: 100%;
-      object-fit: cover;
-      background: #e8ecf1;
-    }
-    .insight-card-body { padding: 1.6rem 1.6rem 1.4rem; flex: 1; display: flex; flex-direction: column; }
-    .insight-card-tag {
-      display: inline-block;
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: #2B7CCA;
-      margin-bottom: 0.65rem;
-    }
-    .insight-card-title {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.3rem;
       color: #0c1f3f;
-      line-height: 1.35;
-      margin: 0 0 0.75rem;
+      box-shadow: 0 10px 30px rgba(8,20,40,0.08);
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+      display: block;
     }
-    .insight-card-excerpt {
+    .nf-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 40px rgba(8,20,40,0.14);
+    }
+    .nf-card h3 {
+      margin: 0 0 0.35rem;
+      font-size: 1.15rem;
+      color: #1e3a6e;
+    }
+    .nf-card p {
+      margin: 0;
       font-size: 0.95rem;
-      color: #555;
-      line-height: 1.65;
-      flex: 1;
-      margin-bottom: 1.1rem;
+      color: #4a5568;
+      line-height: 1.5;
     }
-    .insight-card-meta {
-      display: flex;
-      align-items: center;
-      gap: 0.65rem;
-      font-size: 0.85rem;
-      color: #5a6573;
-      padding-top: 1rem;
-      border-top: 1px solid #eef2f7;
+    .nf-search-note {
+      text-align: center;
+      max-width: 620px;
+      margin: 0 auto 3.5rem;
+      padding: 0 1.25rem;
+      color: #4a5568;
+      font-size: 1rem;
+      line-height: 1.6;
     }
-    .insight-card-meta img { width: 30px; height: 30px; border-radius: 50%; object-fit: cover; }
-    .insight-card-meta strong { color: #0c1f3f; }
-
-    @media (max-width: 640px) {
-      .insights-hero { padding: 3.5rem 0 3rem; }
-      .insights-grid-section { padding: 2.5rem 0 3.5rem; }
-    }
+    .nf-search-note a { color: #1e3a6e; font-weight: 600; }
   </style>
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/pawsic-favicon-32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/pawsic-favicon-16.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/pawsic-apple-touch-icon.png">
 </head>
 <body>
-  <a href="#main-content" class="skip-link">Skip to main content</a>
     <div class="announcement-banner" id="announcementBanner">
     <div class="container">
       <span class="banner-text">
@@ -265,79 +194,44 @@
 
   <div class="mobile-overlay"></div>
 
-  <main id="main-content">
+  <section class="nf-hero">
+    <div class="container">
+      <p class="nf-code">404</p>
+      <h1 class="nf-title">We could not find that page</h1>
+      <p class="nf-lead">The link may be outdated or the page may have moved. Let us point you to where you were likely headed.</p>
+    </div>
+  </section>
 
-    <section class="insights-hero">
-      <div class="container">
-        <span class="insights-eyebrow">PAWSIC Clinical Insights</span>
-        <h1>Evidence Meets <em>Practice</em></h1>
-        <p>Monthly clinical commentary from PAWSIC leadership on wound care, skin integrity, and the systems issues shaping post-acute practice.</p>
-      </div>
-    </section>
+  <nav class="nf-links" aria-label="Popular destinations">
+    <a class="nf-card" href="/">
+      <h3>Home</h3>
+      <p>Start at the PAWSIC homepage.</p>
+    </a>
+    <a class="nf-card" href="/membership/">
+      <h3>Membership</h3>
+      <p>Join PAWSIC and access member benefits and CE.</p>
+    </a>
+    <a class="nf-card" href="/webinars/">
+      <h3>Courses &amp; Webinars</h3>
+      <p>Browse accredited continuing education programs.</p>
+    </a>
+    <a class="nf-card" href="/insights/">
+      <h3>Clinical Insights</h3>
+      <p>Evidence-based articles on post-acute wound care.</p>
+    </a>
+    <a class="nf-card" href="/resources/">
+      <h3>Resources</h3>
+      <p>Clinical tools, guidelines, and downloads.</p>
+    </a>
+    <a class="nf-card" href="/contact/">
+      <h3>Contact</h3>
+      <p>Reach the PAWSIC team with any question.</p>
+    </a>
+  </nav>
 
-    <section class="insights-grid-section">
-      <div class="container">
-        <div class="insights-grid">
-
-          <!-- HIDDEN UNTIL 2026-08-15
-          <a href="/insights/cms-snf-validation-systems-view/" class="insight-card">
-            <img src="/images/insights/cms-snf-validation-systems-view-og.png" alt="Everything Is Connected: A Systems View of Skin, Falls, and the Human Condition" class="insight-card-image" loading="lazy">
-            <div class="insight-card-body">
-              <span class="insight-card-tag">August 2026 &nbsp;·&nbsp; Clinical Insight</span>
-              <h2 class="insight-card-title">Everything Is Connected: A Systems View of Skin, Falls, and the Human Condition</h2>
-              <p class="insight-card-excerpt">The CMS SNF Validation Program is auditing pressure injuries, falls, and medications. They are not random outcomes. PAWSIC President Jeanine Maguire on why these are the final common pathway of systemic failure, and the reserve-based reframe post-acute care needs.</p>
-              <div class="insight-card-meta">
-                <img src="/images/board/jeanine-maguire.jpg" alt="Jeanine Maguire">
-                <span>By <strong>Jeanine Maguire, PhD, MPT, CWS, FCPP</strong> &nbsp;·&nbsp; 7 min read</span>
-              </div>
-            </div>
-          </a>
-          END HIDDEN -->
-
-          <a href="/insights/architecture-of-accountability/" class="insight-card">
-            <img src="/images/insights/architecture-of-accountability-og.png" alt="The Architecture of Accountability: Decoding the 2025 to 2027 Strategic Pivot in CMS Payment Models" class="insight-card-image" loading="lazy">
-            <div class="insight-card-body">
-              <span class="insight-card-tag">August 2026 &nbsp;·&nbsp; Policy Intelligence</span>
-              <h2 class="insight-card-title">The Architecture of Accountability: Decoding the 2025 to 2027 Strategic Pivot in CMS Payment Models</h2>
-              <p class="insight-card-excerpt">CMS payment is shifting from short pilots to long-term, rule-driven models where quality, data integrity, and operational accountability drive the money. PAWSIC Treasurer Julie Rhodovi decodes the 2025 to 2027 pivot and what it means for wound care.</p>
-              <div class="insight-card-meta">
-                <img src="/images/board/julie-rhodovi.jpg" alt="Julie Rhodovi">
-                <span>By <strong>Julie Rhodovi, MBA, CWCA, LBBH</strong> &nbsp;·&nbsp; 5 min read</span>
-              </div>
-            </div>
-          </a>
-
-          <a href="/insights/amputation-rate-structural-verdict/" class="insight-card">
-            <img src="/images/insights/amputation-rate-structural-verdict-og.png" alt="The Amputation Rate Is a Structural Verdict: A Global Call to Action" class="insight-card-image" loading="lazy">
-            <div class="insight-card-body">
-              <span class="insight-card-tag">July 2026 &nbsp;·&nbsp; Clinical Insight</span>
-              <h2 class="insight-card-title">The Amputation Rate Is a Structural Verdict: A Global Call to Action</h2>
-              <p class="insight-card-excerpt">A non-traumatic amputation is the terminal endpoint of a cascade of upstream failures. A new comparative analysis from PAWSIC President Jeanine Maguire and Dr. Mohamed Magdy Badr on what four global health system models reveal about who keeps their limb, and who does not.</p>
-              <div class="insight-card-meta">
-                <img src="/images/board/jeanine-maguire.jpg" alt="Jeanine Maguire">
-                <span>By <strong>Jeanine Maguire</strong> with <strong>Dr. Mohamed Magdy Badr</strong> &nbsp;·&nbsp; 6 min read</span>
-              </div>
-            </div>
-          </a>
-
-          <a href="/insights/falls-and-wounds-post-acute-care/" class="insight-card">
-            <img src="/images/insights/falls-and-wounds-post-acute-care-og.png" alt="Falls and Wounds in Post-Acute Care: The Conundrum We Can No Longer Ignore" class="insight-card-image" loading="lazy">
-            <div class="insight-card-body">
-              <span class="insight-card-tag">June 2026 &nbsp;·&nbsp; Clinical Insight</span>
-              <h2 class="insight-card-title">Falls and Wounds in Post-Acute Care: The Conundrum We Can No Longer Ignore</h2>
-              <p class="insight-card-excerpt">CMS just issued new Falls with Injury and QM Respecification training. But the patient who falls is very often the patient who has a wound. PAWSIC President Jeanine Maguire on the bidirectional risk profile, the clinical conundrum where interventions oppose each other, and a call for integrated post-acute care.</p>
-              <div class="insight-card-meta">
-                <img src="/images/board/jeanine-maguire.jpg" alt="Jeanine Maguire">
-                <span>By <strong>Jeanine Maguire, PhD, MPT, CWS, FCPP</strong> &nbsp;·&nbsp; 5 min read</span>
-              </div>
-            </div>
-          </a>
-
-        </div>
-      </div>
-    </section>
-
-  </main>
+  <p class="nf-search-note">
+    Looking for something specific? Visit our <a href="/">homepage</a> or <a href="/contact/">contact us</a> and we will help you find it.
+  </p>
 
   <footer class="site-footer">
     <div class="container">
@@ -408,6 +302,5 @@
       </div>
     </div>
   </footer>
-  <script src="/js/main.js"></script>
 </body>
 </html>
