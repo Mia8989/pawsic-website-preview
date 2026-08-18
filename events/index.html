@@ -337,8 +337,8 @@
         </div>
 
         <!-- Event 1: Full-width featured: Transitions of Wound Care Webinar -->
-        <div class="v2-event-featured is-stack reveal reveal-delay-1">
-          <div class="v2-event-featured-img">
+        <div class="v2-event-featured reveal reveal-delay-1">
+          <div class="v2-event-featured-img is-fit">
             <picture><source srcset="/images/events/transitions-of-wound-care-2026.webp" type="image/webp"><img src="/images/events/transitions-of-wound-care-2026.png" alt="Transitions of Wound Care webinar on September 9, 2026, featuring Jenn Bistrack, Jennifer Bierhup, and Mary Martin" loading="lazy" width="1200" height="675"></picture>
           </div>
           <div class="v2-event-featured-body">
@@ -355,12 +355,9 @@
 
         <!-- Learning objectives + faculty for the Transitions of Wound Care webinar -->
         <style>
-          /* Stacked featured card: full-width banner on top, body below (shows the promo image uncropped) */
-          .v2-event-featured.is-stack { grid-template-columns:1fr; gap:0; align-items:stretch; }
-          .v2-event-featured.is-stack .v2-event-featured-img { min-height:0; height:auto; background:#0C2F5F; }
-          .v2-event-featured.is-stack .v2-event-featured-img img { height:auto; object-fit:contain; }
-          .v2-event-featured.is-stack .v2-event-featured-body { padding:1.9rem 2.5rem 2.1rem; }
-          @media (max-width:900px){ .v2-event-featured.is-stack .v2-event-featured-img { min-height:0; } .v2-event-featured.is-stack .v2-event-featured-body { padding:1.5rem; } }
+          /* Show the full webinar promo image (zoomed out) inside the side-by-side card, no cropping */
+          .v2-event-featured-img.is-fit { background:linear-gradient(180deg,#15487F 0%,#0C2A4E 55%,#040D18 100%); }
+          .v2-event-featured-img.is-fit img { object-fit:contain; }
           .wc-track { margin-top:2rem; background:#FAF8F4; border:1px solid #E8ECF1; border-radius:16px; padding:2rem 2.25rem; }
           .wc-track-head { display:flex; align-items:baseline; justify-content:space-between; flex-wrap:wrap; gap:.4rem 1rem; margin-bottom:1.4rem; }
           .wc-track-head h3 { font-family:'DM Serif Display',serif; font-weight:400; font-size:1.5rem; color:var(--navy,#0C1F3F); margin:0; }
