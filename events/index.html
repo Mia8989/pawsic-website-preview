@@ -336,8 +336,13 @@
           <a href="#meet-in-person" class="emt-item">Meet in Person <span class="btn-arrow">&rarr;</span></a>
         </div>
 
-        <!-- Event 1: Full-width featured: Transitions of Wound Care Webinar -->
-        <div class="v2-event-featured reveal reveal-delay-1">
+        <!-- Event 1: Transitions of Wound Care Webinar (image + details + objectives as ONE card) -->
+        <style>
+          .webinar-unit { background:#fff; border:1px solid #e8ecf2; border-radius:16px; overflow:hidden; margin-bottom:2rem; }
+          .webinar-unit .v2-event-featured { border:0; border-radius:0; margin:0; overflow:visible; }
+        </style>
+        <div class="webinar-unit reveal reveal-delay-1">
+        <div class="v2-event-featured">
           <div class="v2-event-featured-img is-fit">
             <picture><source srcset="/images/events/transitions-of-wound-care-2026.webp" type="image/webp"><img src="/images/events/transitions-of-wound-care-2026.png" alt="Transitions of Wound Care webinar on September 9, 2026, featuring Jenn Bistrack, Jennifer Bierhup, and Mary Martin" loading="lazy" width="1200" height="675"></picture>
           </div>
@@ -358,7 +363,7 @@
           /* Show the full webinar promo image (zoomed out) inside the side-by-side card, no cropping */
           .v2-event-featured-img.is-fit { background:linear-gradient(180deg,#15487F 0%,#0C2A4E 55%,#040D18 100%); }
           .v2-event-featured-img.is-fit img { object-fit:contain; }
-          .wc-track { margin-top:2rem; background:#FAF8F4; border:1px solid #E8ECF1; border-radius:16px; padding:2rem 2.25rem; }
+          .wc-track { margin:0; background:#FAF8F4; border:0; border-top:1px solid #e8ecf2; border-radius:0; padding:1.9rem 2.25rem 2rem; }
           .wc-track-head { display:flex; align-items:baseline; justify-content:space-between; flex-wrap:wrap; gap:.4rem 1rem; margin-bottom:1.4rem; }
           .wc-track-head h3 { font-family:'DM Serif Display',serif; font-weight:400; font-size:1.5rem; color:var(--navy,#0C1F3F); margin:0; }
           .wc-track-head .wc-when { font-size:.82rem; font-weight:700; letter-spacing:.6px; color:#1A5494; text-transform:uppercase; }
@@ -373,10 +378,9 @@
           .wc-faculty .nm strong { font-weight:700; color:var(--navy,#0C1F3F); }
           @media (max-width:700px){ .wc-track-grid{ grid-template-columns:1fr; } .wc-track{ padding:1.5rem; } }
         </style>
-        <div class="wc-track reveal reveal-delay-2">
+        <div class="wc-track">
           <div class="wc-track-head">
             <h3>What You Will Learn</h3>
-            <span class="wc-when">Sept 9, 2026 &nbsp;&middot;&nbsp; 3:00 PM EST &nbsp;&middot;&nbsp; Online</span>
           </div>
           <div class="wc-track-grid">
             <div class="wc-sess">
@@ -398,6 +402,7 @@
             <span class="nm"><strong>Jennifer Bierhup</strong>, RN, WCC, CCM, IRNPA, FACCWS</span>
             <span class="nm"><strong>Mary Martin</strong>, BSN, RN, CWS</span>
           </div>
+        </div>
         </div>
 
         <!-- Event 2: WoundCon Fall 2026 -->
@@ -789,13 +794,13 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <div class="footer-logo">
+          <a href="/" class="footer-logo" aria-label="PAWSIC home" style="text-decoration:none;color:inherit;">
             <img src="/images/pawsic-logo.png" alt="PAWSIC" class="logo-icon">
             <span class="logo-text">
               <span class="logo-name">PAWSIC</span>
               <span class="logo-tagline">Post-Acute Wound &amp; Skin Integrity Council</span>
             </span>
-          </div>
+          </a>
           <p>Post-Acute Wound &amp; Skin Integrity Council, a 501(c)(6) nonprofit uniting wound care professionals through education, community, and advocacy.</p>
           <div class="social-links">
             <a href="https://www.facebook.com/profile.php?id=100064724872333" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
