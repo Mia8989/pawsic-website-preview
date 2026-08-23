@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /qapi-ahca/
 
 Sitemap: https://pawsic.org/sitemap.xml

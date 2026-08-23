@@ -60,6 +60,12 @@
     .dl-btn:hover { background: var(--logo-blue); }
     .dl-btn:active { transform: translateY(1px); }
     .dl-note { font-size: 13px; color: var(--muted); margin-top: 14px; }
+
+    /* Embedded scrollable paper viewer */
+    .viewer-frame { position: relative; width: 100%; height: 78vh; min-height: 480px; margin: 18px 0 6px; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; background: #fff; box-shadow: inset 0 0 0 1px rgba(12,31,63,0.03); }
+    .viewer-frame iframe { width: 100%; height: 100%; border: 0; display: block; }
+    .viewer-actions { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; align-items: center; margin-top: 4px; }
+    @media (max-width: 560px) { .viewer-frame { height: 68vh; min-height: 380px; } }
     .pending { background: var(--cream); border: 1.5px solid #EBE2CC; border-radius: 11px; padding: 20px 22px; margin-top: 10px; }
     .pending strong { color: var(--navy); }
 
@@ -114,7 +120,7 @@
 
   <main class="wrap">
 
-    <!-- DOWNLOAD -->
+    <!-- READ + DOWNLOAD -->
     <section class="card download">
       <svg class="doc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
@@ -122,13 +128,18 @@
         <line x1="12" y1="12" x2="12" y2="18"></line>
         <polyline points="9 15 12 18 15 15"></polyline>
       </svg>
-      <h2>Download the Position Paper</h2>
+      <h2>Read the Position Paper</h2>
 
-      <!-- PDF AVAILABLE: full document is live and downloadable -->
+      <!-- PDF AVAILABLE: full document is embedded to read on-page and download -->
       <div id="dl-available" style="display:none;">
-        <p class="lead">The full PAWSIC Skin Failure Codes Position Paper, in PDF.</p>
-        <a class="dl-btn" id="dl-link" href="/skin-failure-position-paper/PSFCPP.pdf" download>Download the PDF</a>
-        <p class="dl-note">PDF, published by the Post Acute Wound and Skin Integrity Council. September 2026.</p>
+        <p class="lead">Read the full PAWSIC Skin Failure Codes Position Paper below, or download your own copy.</p>
+        <div class="viewer-frame">
+          <iframe id="paper-iframe" title="PAWSIC Skin Failure Codes Position Paper" src="" loading="lazy"></iframe>
+        </div>
+        <div class="viewer-actions">
+          <a class="dl-btn" id="dl-link" href="/skin-failure-position-paper/PSFCPP.pdf" download>Download the PDF</a>
+        </div>
+        <p class="dl-note">PDF, published by the Post Acute Wound and Skin Integrity Council. September 2026. If the paper does not display above, use the download button.</p>
       </div>
 
       <!-- PDF PENDING: shown until the board-approved paper is released -->
@@ -235,12 +246,18 @@
 
   <script>
     (function () {
-      // Flip to true and place the approved PDF at /skin-failure-position-paper/PSFCPP.pdf to enable direct download.
-      var PDF_AVAILABLE = false;
+      // Flip to true and place the approved PDF at /skin-failure-position-paper/PSFCPP.pdf
+      // to embed the paper for on-page reading + download.
+      var PDF_AVAILABLE = true;
+      var PDF_URL = "/skin-failure-position-paper/PSFCPP.pdf";
       document.getElementById(PDF_AVAILABLE ? "dl-available" : "dl-pending").style.display = "block";
       document.getElementById(PDF_AVAILABLE ? "dl-pending" : "dl-available").style.display = "none";
       if (PDF_AVAILABLE) {
+        // Load the embedded viewer (FitH = fit page width, scrollable).
+        var frame = document.getElementById("paper-iframe");
+        if (frame) frame.src = PDF_URL + "#view=FitH&toolbar=1";
         var dl = document.getElementById("dl-link");
+        dl.setAttribute("href", PDF_URL);
         dl.addEventListener("click", function () {
           if (typeof gtag === "function") gtag("event", "position_paper_download", { page_location: window.location.href });
         });
