@@ -15,8 +15,8 @@
   <title>PAWSIC Skin Failure Codes Position Paper | Access the Paper</title>
   <meta name="description" content="Access the PAWSIC Skin Failure Codes Position Paper, which makes the case for ICD-10-CM diagnostic codes for skin failure. Enter your details to read and endorse the paper.">
 
-  <!-- Unlisted page: not indexed, not in nav or sitemap. Shareable by direct link only. -->
-  <meta name="robots" content="noindex, nofollow">
+  <!-- Indexable: dissemination goal is broad reach + AI/search citation. -->
+  <meta name="robots" content="index, follow">
 
   <meta property="og:title" content="PAWSIC Skin Failure Codes Position Paper">
   <meta property="og:description" content="The case for ICD-10-CM diagnostic codes for skin failure. Access and endorse the paper.">
@@ -120,6 +120,11 @@
           <p class="lead">Enter your details to read the full Position Paper and add your endorsement. Fields marked with an asterisk are required.</p>
         </div>
         <form id="regForm" novalidate>
+          <!-- Honeypot: hidden from humans; bots that fill it are silently rejected. -->
+          <div aria-hidden="true" style="position:absolute;left:-9999px;top:-9999px;width:1px;height:1px;overflow:hidden;">
+            <label for="rf-website">Website (leave blank)</label>
+            <input id="rf-website" name="website" type="text" tabindex="-1" autocomplete="off">
+          </div>
           <div class="two">
             <div class="field">
               <label for="rf-first">First name <span class="req">*</span></label>
@@ -205,11 +210,20 @@
 
       if (!form) return;
       var sent = false;
+      var formLoadedAt = Date.now();
 
       form.addEventListener("submit", function (e) {
         e.preventDefault();
         statusEl.className = "status";
         statusEl.textContent = "";
+
+        // Bot traps: honeypot filled, or submitted implausibly fast (< 2.5s).
+        // Silently send the visitor to the paper without recording a junk lead.
+        var hp = document.getElementById("rf-website");
+        if ((hp && hp.value) || (Date.now() - formLoadedAt < 2500)) {
+          window.location.href = READ_URL;
+          return;
+        }
 
         if (!form.checkValidity()) {
           statusEl.className = "status err";
