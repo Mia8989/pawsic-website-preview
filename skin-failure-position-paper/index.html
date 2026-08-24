@@ -31,6 +31,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
+  <!-- Cloudflare Turnstile: invisible/managed bot verification -->
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+
   <style>
     :root {
       --navy: #0C1F3F; --indigo: #1E3A6E; --logo-blue: #1A5494; --accent: #2B7CCA;
@@ -171,6 +174,7 @@
           <input type="hidden" id="rf-medium" name="medium" value="">
           <input type="hidden" id="rf-campaign" name="campaign" value="">
 
+          <div class="cf-turnstile" data-sitekey="0x4AAAAAAEZj8TNNsyEYR9AY" data-theme="light" style="margin:4px 0 16px;"></div>
           <button class="btn" id="rf-submit" type="submit">Read the Position Paper</button>
           <div class="status" id="rf-status" role="status" aria-live="polite"></div>
           <p class="fineprint">PAWSIC is a 501(c)(6) nonprofit. Your information is used only for this initiative and PAWSIC communications. It is never sold.</p>
@@ -229,6 +233,12 @@
           statusEl.className = "status err";
           statusEl.textContent = "Please complete your name, a valid email, and the consent box.";
           form.reportValidity();
+          return;
+        }
+        var tsField = form.querySelector('[name="cf-turnstile-response"]');
+        if (!tsField || !tsField.value) {
+          statusEl.className = "status err";
+          statusEl.textContent = "Please complete the 'I am human' verification, then submit again.";
           return;
         }
         if (sent) return;
