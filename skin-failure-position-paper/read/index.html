@@ -201,6 +201,12 @@
             <div class="field full">
               <label for="pf-email">Email <span class="req">*</span></label>
               <input id="pf-email" name="email" type="email" autocomplete="email" required>
+              <p id="pf-email-suggest" style="display:none;font-size:13px;color:var(--logo-blue);margin-top:6px;cursor:pointer;font-weight:600;"></p>
+            </div>
+            <div class="field full">
+              <label for="pf-email2">Confirm email <span class="req">*</span></label>
+              <input id="pf-email2" type="email" autocomplete="off" required>
+              <p id="pf-email-match" style="display:none;font-size:13px;color:#C0392B;margin-top:6px;">The emails do not match.</p>
             </div>
             <div class="field full">
               <label for="pf-comment">Comments (optional)</label>
@@ -286,6 +292,11 @@
       var sent = false;
       var formLoadedAt = Date.now();
 
+      // "Did you mean?" helper: catches common email-domain typos without any extra step.
+      function _lev(a, b){var m=a.length,n=b.length,d=[];if(!m)return n;if(!n)return m;for(var i=0;i<=m;i++)d[i]=[i];for(var j=0;j<=n;j++)d[0][j]=j;for(i=1;i<=m;i++){for(j=1;j<=n;j++){var c=a.charAt(i-1)===b.charAt(j-1)?0:1;d[i][j]=Math.min(d[i-1][j]+1,d[i][j-1]+1,d[i-1][j-1]+c);}}return d[m][n];}
+      function _suggest(email){email=(email||"").trim().toLowerCase();var at=email.lastIndexOf("@");if(at<1)return null;var local=email.slice(0,at),domain=email.slice(at+1);if(!domain||domain.indexOf(".")<0)return null;var list=["gmail.com","yahoo.com","hotmail.com","outlook.com","icloud.com","aol.com","comcast.net","live.com","msn.com","me.com","protonmail.com","proton.me"];if(list.indexOf(domain)>-1)return null;var best=null,bd=99;for(var i=0;i<list.length;i++){var dd=_lev(domain,list[i]);if(dd<bd){bd=dd;best=list[i];}}return (best&&bd>0&&bd<=2)?local+"@"+best:null;}
+      (function(){var e=document.getElementById("pf-email"),s=document.getElementById("pf-email-suggest");if(!e||!s)return;e.addEventListener("blur",function(){var g=_suggest(e.value);if(g){s.textContent="Did you mean "+g+"? (tap to fix)";s.style.display="block";s.onclick=function(){e.value=g;s.style.display="none";};}else{s.style.display="none";}});e.addEventListener("input",function(){s.style.display="none";});})();
+
       form.addEventListener("submit", function (e) {
         e.preventDefault();
         statusEl.className = "status";
@@ -304,6 +315,14 @@
           statusEl.className = "status err";
           statusEl.textContent = "Please complete the required fields, including the endorsement and consent boxes.";
           form.reportValidity();
+          return;
+        }
+        var _e1 = document.getElementById("pf-email"), _e2 = document.getElementById("pf-email2");
+        if (_e1 && _e2 && _e1.value.trim().toLowerCase() !== _e2.value.trim().toLowerCase()) {
+          document.getElementById("pf-email-match").style.display = "block";
+          statusEl.className = "status err";
+          statusEl.textContent = "The two email addresses do not match. Please re-enter them.";
+          _e2.focus();
           return;
         }
         var tsField = form.querySelector('[name="cf-turnstile-response"]');
