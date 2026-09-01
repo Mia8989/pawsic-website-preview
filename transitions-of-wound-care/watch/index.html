@@ -595,14 +595,16 @@
           </a>
         </div>
         <div class="watch-qa-form-card">
-          <iframe id="qaJotform"
+          <iframe
+            id="JotFormIFrame-262433574999070"
             title="Submit a question for the live Q&amp;A"
-            src="https://form.jotform.com/262433574999070"
-            allow="geolocation; microphone; camera; fullscreen"
+            onload="window.parent.scrollTo(0,0)"
             allowtransparency="true"
+            allow="geolocation; microphone; camera; fullscreen"
+            src="https://form.jotform.com/262433574999070"
             frameborder="0"
             scrolling="no"
-            style="width:100%;min-height:900px;border:0;display:block;"></iframe>
+            style="width:100%;min-height:700px;border:0;display:block;"></iframe>
         </div>
       </div>
     </section>
@@ -735,6 +737,12 @@
       </div>
     </div>
   </footer>
+
+  <!-- Jotform auto-resize handler: grows the Q&A iframe to fit the whole form (incl. the Next/Submit button) -->
+  <script src="https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js"></script>
+  <script>
+    window.jotformEmbedHandler("iframe[id='JotFormIFrame-262433574999070']", "https://form.jotform.com/");
+  </script>
 
   <script src="/js/main.js"></script>
 </body>
