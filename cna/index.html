@@ -94,29 +94,39 @@
     }
     .cna-video-wrap iframe { display: block; }
 
-    /* FAQ clip grid */
+    /* Video library: sidebar filter + uniform card grid */
     .cna-faq { background: var(--frost, #f5f7fa); }
-    .cna-faq-grid {
-      columns: 2; column-gap: 1.6rem; margin-top: 2.4rem;
+    .cna-lib { display: grid; grid-template-columns: 240px 1fr; gap: 2.5rem; align-items: start; margin-top: 2.5rem; }
+    .cna-lib-side { position: sticky; top: 5rem; }
+    .cna-lib-side-title { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: #7a8699; margin-bottom: 1rem; }
+    .cna-filter { list-style: none; display: flex; flex-direction: column; gap: 0.25rem; padding: 0; margin: 0; }
+    .cna-filter li { list-style: none; }
+    .cna-filter a { display: flex; align-items: center; justify-content: space-between; padding: 0.65rem 1rem; border-radius: 10px; font-size: 0.88rem; font-weight: 500; color: #3d4a5c; text-decoration: none; transition: all 0.2s ease; }
+    .cna-filter a:hover { background: #eef5f8; color: #1e3a6e; }
+    .cna-filter a.active { background: #0c1f3f; color: #fff; }
+    .cna-filter a .cnt { font-size: 0.72rem; font-weight: 600; color: #7a8699; background: #f0f3f6; padding: 0.15rem 0.55rem; border-radius: 100px; }
+    .cna-filter a.active .cnt { color: rgba(255,255,255,0.6); background: rgba(255,255,255,0.15); }
+    .cna-vgrid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.4rem; }
+    .cna-vcard { background: #fff; border: 1px solid #e8edf2; border-radius: 16px; overflow: hidden; transition: transform 0.25s, box-shadow 0.25s, border-color 0.2s; display: flex; flex-direction: column; }
+    .cna-vcard:hover { transform: translateY(-4px); box-shadow: 0 16px 36px rgba(12,31,63,0.1); border-color: #38b6ff; }
+    .cna-vcard .vf { position: relative; background: #0c1f3f; }
+    .cna-vcard .vf-soon { padding-top: 56.25%; position: relative; background: linear-gradient(135deg, #0c1f3f 0%, #1e3a6e 100%); }
+    .cna-vcard .vf-soon .soon { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.5rem; color: rgba(255,255,255,0.9); }
+    .cna-vcard .vf-soon .soon span { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.04em; }
+    .cna-vcard-body { padding: 1rem 1.15rem 1.2rem; display: flex; flex-direction: column; gap: 0.45rem; }
+    .cna-vbadge { align-self: flex-start; font-size: 0.63rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; padding: 0.2rem 0.6rem; border-radius: 100px; }
+    .cna-vbadge.t-assess { color: #2b7cca; background: rgba(43,124,202,0.09); }
+    .cna-vbadge.t-prevent { color: #2e8b57; background: rgba(46,139,87,0.09); }
+    .cna-vbadge.t-treat { color: #b8942e; background: rgba(184,148,46,0.1); }
+    .cna-vcard h3 { font-family: 'Inter', sans-serif; font-size: 0.98rem; font-weight: 600; color: var(--navy, #0c1f3f); line-height: 1.4; margin: 0; }
+    .cna-vnum { font-family: 'DM Serif Display', Georgia, serif; font-style: italic; color: #2b7cca; }
+    @media (max-width: 900px) {
+      .cna-lib { grid-template-columns: 1fr; gap: 1.5rem; }
+      .cna-lib-side { position: static; }
+      .cna-filter { flex-direction: row; flex-wrap: wrap; gap: 0.5rem; }
+      .cna-filter a { padding: 0.5rem 0.85rem; font-size: 0.82rem; }
     }
-    @media (max-width: 720px) { .cna-faq-grid { columns: 1; } }
-    .cna-clip {
-      break-inside: avoid; margin-bottom: 1.6rem;
-      background: #fff; border: 1px solid #e8edf2; border-radius: 16px;
-      overflow: hidden; transition: transform 0.25s, box-shadow 0.25s, border-color 0.2s;
-    }
-    .cna-clip:hover { transform: translateY(-4px); box-shadow: 0 16px 36px rgba(12,31,63,0.12); border-color: #38b6ff; }
-    .cna-clip-video { position: relative; background: #0c1f3f; }
-    .cna-clip-label {
-      padding: 0.85rem 1.1rem 1rem;
-      font-family: 'DM Serif Display', Georgia, serif;
-      font-size: 1.05rem; color: var(--navy, #0c1f3f); line-height: 1.3;
-    }
-    .cna-clip-label span {
-      display: block; font-family: 'Inter', sans-serif; font-size: 0.72rem;
-      font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
-      color: #2b7cca; margin-bottom: 0.3rem;
-    }
+    @media (max-width: 600px) { .cna-vgrid { grid-template-columns: 1fr; } }
 
     /* CNA shop band (reused from shop page) */
     .cna-bulk-section {
@@ -314,44 +324,57 @@
       </div>
     </section>
 
-    <!-- ===== FAQ VIDEO SERIES ===== -->
+    <!-- ===== Q&A VIDEO LIBRARY ===== -->
     <section class="section cna-faq" id="series">
       <div class="container">
         <div class="section-header reveal" style="text-align:center;">
-          <span class="section-tag">CNA Q&amp;A Series</span>
-          <h2>Frequently Asked <em>Questions</em></h2>
-          <p style="max-width:640px; margin:1rem auto 0; color:#3a4a5c; line-height:1.6;">Short clips from the CNA Q&amp;A, answering the questions CNAs ask most about skin and wound observation.</p>
+          <span class="section-tag">Q&amp;A Video Library</span>
+          <h2>Browse by <em>Topic</em></h2>
+          <p style="max-width:640px; margin:1rem auto 0; color:#3a4a5c; line-height:1.6;">Each clip answers one real question from the CNA Q&amp;A. Filter by topic to find what you need.</p>
         </div>
 
-        <div class="cna-faq-grid">
-          <div class="cna-clip reveal">
-            <div class="cna-clip-video"><div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1223126025?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="1 Clips from CNA Q&amp;A"></iframe></div></div>
-            <div class="cna-clip-label"><span>Clip 1</span>CNA Q&amp;A</div>
-          </div>
+        <div class="cna-lib reveal">
+          <nav class="cna-lib-side">
+            <div class="cna-lib-side-title">Topics</div>
+            <ul class="cna-filter">
+              <li><a href="#" class="active" data-filter="all">All Clips <span class="cnt">6</span></a></li>
+              <li><a href="#" data-filter="assess">Assessment &amp; Warning Signs <span class="cnt">2</span></a></li>
+              <li><a href="#" data-filter="prevent">Prevention &amp; Positioning <span class="cnt">2</span></a></li>
+              <li><a href="#" data-filter="treat">Treatments &amp; Products <span class="cnt">2</span></a></li>
+            </ul>
+          </nav>
+          <div class="cna-vgrid">
 
-          <div class="cna-clip reveal reveal-delay-1">
-            <div class="cna-clip-video"><div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1223126022?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="2 Clips from CNA Q&amp;A"></iframe></div></div>
-            <div class="cna-clip-label"><span>Clip 2</span>CNA Q&amp;A</div>
-          </div>
+            <div class="cna-vcard" data-category="treat">
+              <div class="vf"><div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1223126025?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Wound VACs: what they are, how they work, and why they are used"></iframe></div></div>
+              <div class="cna-vcard-body"><span class="cna-vbadge t-treat">Treatments &amp; Products</span><h3><span class="cna-vnum">Q2.</span> Wound VACs: what they are, how they work, and why they are used</h3></div>
+            </div>
 
-          <div class="cna-clip reveal">
-            <div class="cna-clip-video"><div style="padding:75% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1223126024?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="3 Clips from CNA Q&amp;A"></iframe></div></div>
-            <div class="cna-clip-label"><span>Clip 3</span>CNA Q&amp;A</div>
-          </div>
+            <div class="cna-vcard" data-category="prevent">
+              <div class="vf"><div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1223126022?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Preventing fungal infections and moisture damage in larger residents"></iframe></div></div>
+              <div class="cna-vcard-body"><span class="cna-vbadge t-prevent">Prevention &amp; Positioning</span><h3><span class="cna-vnum">Q3.</span> Preventing fungal infections and moisture damage in larger residents</h3></div>
+            </div>
 
-          <div class="cna-clip reveal reveal-delay-1">
-            <div class="cna-clip-video"><div style="padding:75% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1223126023?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="4 CNA Q&amp;A"></iframe></div></div>
-            <div class="cna-clip-label"><span>Clip 4</span>CNA Q&amp;A</div>
-          </div>
+            <div class="cna-vcard" data-category="treat">
+              <div class="vf-soon"><div class="soon"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 7 12 12 15 14"/></svg><span>Video coming soon</span></div></div>
+              <div class="cna-vcard-body"><span class="cna-vbadge t-treat">Treatments &amp; Products</span><h3><span class="cna-vnum">Q4.</span> Why clinicians choose certain wound products over others</h3></div>
+            </div>
 
-          <div class="cna-clip reveal">
-            <div class="cna-clip-video"><div style="padding:75% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1223126030?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="5 Clips from CNA Q&amp;A"></iframe></div></div>
-            <div class="cna-clip-label"><span>Clip 5</span>CNA Q&amp;A</div>
-          </div>
+            <div class="cna-vcard" data-category="prevent">
+              <div class="vf-soon"><div class="soon"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 7 12 12 15 14"/></svg><span>Video coming soon</span></div></div>
+              <div class="cna-vcard-body"><span class="cna-vbadge t-prevent">Prevention &amp; Positioning</span><h3><span class="cna-vnum">Q5.</span> Repositioning and cushioning bony residents beyond the 2-hour rule</h3></div>
+            </div>
 
-          <div class="cna-clip reveal reveal-delay-1">
-            <div class="cna-clip-video"><div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1223126031?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="6 Clips from CNA Q&amp;A"></iframe></div></div>
-            <div class="cna-clip-label"><span>Clip 6</span>CNA Q&amp;A</div>
+            <div class="cna-vcard" data-category="assess">
+              <div class="vf-soon"><div class="soon"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 7 12 12 15 14"/></svg><span>Video coming soon</span></div></div>
+              <div class="cna-vcard-body"><span class="cna-vbadge t-assess">Assessment &amp; Warning Signs</span><h3><span class="cna-vnum">Q6.</span> Do wounds have a smell, and what can it tell you?</h3></div>
+            </div>
+
+            <div class="cna-vcard" data-category="assess">
+              <div class="vf-soon"><div class="soon"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 7 12 12 15 14"/></svg><span>Video coming soon</span></div></div>
+              <div class="cna-vcard-body"><span class="cna-vbadge t-assess">Assessment &amp; Warning Signs</span><h3><span class="cna-vnum">Q7.</span> What is the Braden Score?</h3></div>
+            </div>
+
           </div>
         </div>
       </div>
@@ -497,6 +520,23 @@
   </footer>
 
   <script src="https://player.vimeo.com/api/player.js"></script>
+  <script>
+  (function(){
+    var links = document.querySelectorAll('.cna-filter a[data-filter]');
+    var cards = document.querySelectorAll('.cna-vcard[data-category]');
+    links.forEach(function(link){
+      link.addEventListener('click', function(e){
+        e.preventDefault();
+        var f = this.getAttribute('data-filter');
+        links.forEach(function(l){ l.classList.remove('active'); });
+        this.classList.add('active');
+        cards.forEach(function(c){
+          c.style.display = (f === 'all' || c.getAttribute('data-category') === f) ? '' : 'none';
+        });
+      });
+    });
+  })();
+  </script>
   <script src="/js/main.js"></script>
 </body>
 </html>
