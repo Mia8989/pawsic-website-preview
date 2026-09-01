@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2VRLWNKKNS"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-2VRLWNKKNS');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Watch: Transitions of Wound Care | PAWSIC On-Demand</title>
+  <meta name="description" content="Watch PAWSIC's free on-demand webinar on safe wound care transitions across the continuum, plus the PAWSIC Universal Wound Transition Checklist.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="canonical" href="https://pawsic.org/transitions-of-wound-care/watch/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css?v=20260713b">
+  <link rel="stylesheet" href="/css/v2-overrides.css?v=20260713b">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/pawsic-favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/pawsic-favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/pawsic-apple-touch-icon.png">
+
+  <style>
+    /* ===== Watch page styles ===== */
+    .watch-hero {
+      background: linear-gradient(135deg, #0C1F3F 0%, #1B3A6A 100%);
+      color: #fff;
+      padding: 4rem 0 3rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .watch-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle at 30% 40%, rgba(56,182,255,0.15), transparent 50%),
+                        radial-gradient(circle at 70% 60%, rgba(212,175,55,0.1), transparent 50%);
+      pointer-events: none;
+    }
+    .watch-hero .container { position: relative; }
+    .watch-welcome-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(212,175,55,0.18);
+      border: 1px solid rgba(212,175,55,0.4);
+      color: #F2D77A;
+      padding: 0.45rem 1.1rem;
+      border-radius: 100px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+    .watch-welcome-tag svg { width: 14px; height: 14px; }
+    .watch-hero h1 {
+      color: #fff;
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2rem, 4.6vw, 3rem);
+      line-height: 1.15;
+      margin: 0 0 1rem;
+      letter-spacing: -0.02em;
+    }
+    .watch-hero h1 em {
+      font-style: italic;
+      color: #38B6FF;
+    }
+    .watch-hero p {
+      font-size: 1.05rem;
+      line-height: 1.6;
+      color: rgba(255,255,255,0.85);
+      max-width: 660px;
+      margin: 0 auto 1.8rem;
+    }
+    .watch-access-meta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.7rem;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.18);
+      padding: 0.75rem 1.3rem;
+      border-radius: 100px;
+      font-size: 0.92rem;
+      color: rgba(255,255,255,0.92);
+    }
+    .watch-access-meta svg { width: 18px; height: 18px; color: #38B6FF; }
+    .watch-access-meta strong { color: #fff; font-weight: 700; }
+
+    /* Available now banner */
+    .watch-window {
+      background: #fff8e1;
+      border-bottom: 1px solid rgba(212,175,55,0.3);
+      padding: 0.9rem 0;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #6b5a1a;
+      font-weight: 600;
+    }
+    .watch-window span { display: inline-flex; align-items: center; gap: 0.5rem; }
+    .watch-window svg { width: 16px; height: 16px; }
+
+    /* Main video section */
+    .watch-video-section {
+      padding: 3.5rem 0 4rem;
+      background: #f7f9fb;
+    }
+    .watch-video-wrap {
+      max-width: 1020px;
+      margin: 0 auto;
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 24px 60px rgba(12,31,63,0.18);
+      background: #000;
+    }
+    .watch-video-wrap iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    /* Speaker card */
+    .watch-speaker-section {
+      padding: 4rem 0;
+      background: #fff;
+    }
+    .watch-speaker-card {
+      max-width: 760px;
+      margin: 0 auto;
+      background: #f7f9fb;
+      border: 1px solid rgba(12,31,63,0.08);
+      border-radius: 16px;
+      padding: 2rem;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 1.8rem;
+      align-items: center;
+    }
+    .watch-speaker-card img {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: top center;
+      border: 4px solid #D4AF37;
+      box-shadow: 0 6px 18px rgba(12,31,63,0.12);
+      display: block;
+      flex-shrink: 0;
+    }
+    .watch-speaker-card h3 {
+      color: #0C1F3F;
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.4rem;
+      margin: 0 0 0.3rem;
+      line-height: 1.2;
+    }
+    .watch-speaker-card .watch-speaker-creds {
+      font-size: 0.78rem;
+      color: #1B5E9E;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin: 0 0 0.6rem;
+    }
+    .watch-speaker-card .watch-speaker-role {
+      font-size: 0.93rem;
+      color: #3a4a5c;
+      line-height: 1.55;
+      margin: 0;
+    }
+
+    /* Certificate CTA */
+    .watch-certificate {
+      background: linear-gradient(135deg, #fdf8e7 0%, #fff 100%);
+      padding: 4rem 0;
+      border-top: 1px solid rgba(212,175,55,0.2);
+    }
+    .watch-cert-card {
+      max-width: 760px;
+      margin: 0 auto;
+      text-align: center;
+      padding: 2.5rem 2rem;
+    }
+    .watch-cert-badge {
+      width: 100px;
+      height: 100px;
+      margin: 0 auto 1.5rem;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #D4AF37 0%, #b8941f 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      box-shadow: 0 12px 30px rgba(212,175,55,0.4);
+    }
+    .watch-cert-badge svg { width: 50px; height: 50px; }
+    .watch-cert-card h2 {
+      color: #0C1F3F;
+      font-size: 1.8rem;
+      margin: 0 0 0.7rem;
+    }
+    .watch-cert-card p {
+      color: #3a4a5c;
+      font-size: 1rem;
+      line-height: 1.6;
+      margin: 0 0 1.5rem;
+    }
+
+    /* Help section */
+    .watch-help {
+      background: #f0f4f8;
+      padding: 3rem 0;
+    }
+    .watch-help-card {
+      max-width: 760px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .watch-help-card h3 {
+      color: #0C1F3F;
+      font-size: 1.4rem;
+      margin: 0 0 0.6rem;
+    }
+    .watch-help-card p {
+      color: #3a4a5c;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin: 0;
+    }
+    .watch-help-card a { color: #1B5E9E; font-weight: 700; text-decoration: none; }
+    .watch-help-card a:hover { text-decoration: underline; }
+
+    /* Live Q&A section */
+    .watch-qa {
+      background: #0C1F3F;
+      padding: 4rem 0;
+      background-image: radial-gradient(circle at 15% 20%, rgba(56,182,255,0.14), transparent 45%),
+                        radial-gradient(circle at 85% 80%, rgba(212,175,55,0.1), transparent 50%);
+    }
+    .watch-qa-head { max-width: 760px; margin: 0 auto 2.2rem; text-align: center; }
+    .watch-qa-tag {
+      display: inline-block;
+      background: rgba(56,182,255,0.15);
+      border: 1px solid rgba(56,182,255,0.35);
+      color: #BCE3FF;
+      padding: 0.45rem 1rem;
+      border-radius: 100px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .watch-qa-head h2 {
+      color: #fff;
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(1.7rem, 4vw, 2.4rem);
+      line-height: 1.2;
+      margin: 0 0 0.9rem;
+    }
+    .watch-qa-head h2 em { font-style: italic; color: #38B6FF; }
+    .watch-qa-head p {
+      color: rgba(255,255,255,0.85);
+      font-size: 1.02rem;
+      line-height: 1.6;
+      margin: 0 auto 1.6rem;
+      max-width: 640px;
+    }
+    .watch-qa-head p strong { color: #fff; }
+    .watch-qa-linkedin {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: #38B6FF;
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 0.8rem 1.5rem;
+      border-radius: 100px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .watch-qa-linkedin:hover { background: #2da0e8; }
+    .watch-qa-linkedin svg { width: 20px; height: 20px; }
+    .watch-qa-form-card {
+      max-width: 760px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.28);
+    }
+
+    @media (max-width: 700px) {
+      .watch-speaker-card { grid-template-columns: 1fr; text-align: center; padding: 1.6rem; }
+      .watch-speaker-card img { margin: 0 auto; }
+    }
+  </style>
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+    <nav class="utility-bar" aria-label="Utility navigation">
+    <div class="container">
+      <a href="/" class="utility-logo">
+        <picture><source srcset="/images/pawsic-logo.webp" type="image/webp"><img src="/images/pawsic-logo.png" alt="PAWSIC icon" class="logo-icon" width="80" height="62"></picture>
+        <span class="logo-text">
+          <span class="logo-name">PAWSIC</span>
+          <span class="logo-tagline">Post-Acute Wound &amp; Skin Integrity Council</span>
+        </span>
+      </a>
+      <div class="utility-links">
+        <a href="/patients/" class="utility-link v2-patient-link">
+          <svg aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          Patients &amp; Caregivers
+        </a>
+        <a href="/resources/pawsic-brochure.pdf" class="utility-link" target="_blank" rel="noopener noreferrer">Download Brochure</a>
+        <a href="https://memberships.pawsic.org/login/" class="utility-link" target="_blank" rel="noopener noreferrer">Member Login</a>
+        <a href="https://memberships.pawsic.org/register/free/" class="utility-link utility-join" target="_blank" rel="noopener noreferrer">Join Free</a>
+        <a href="/shop/" class="utility-link utility-shop">Donate by Shopping</a>
+        <a href="https://donate.stripe.com/dRm8wQ1mC3oE8Ef8p7c7u0m" class="utility-link utility-donate" target="_blank" rel="noopener noreferrer">Donate ♥</a>
+      </div>
+    </div>
+  </nav>
+
+  <nav class="main-nav" aria-label="Main navigation">
+    <div class="container">
+      <a href="https://memberships.pawsic.org/login/" class="mobile-login-icon" aria-label="Member Login" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li class="mobile-nav-utility mobile-patients-link"><a href="/patients/">Patients &amp; Caregivers</a></li>
+        <li>
+          <a href="/about/" class="has-dropdown" aria-haspopup="true" aria-expanded="false">About Us <span class="dropdown-arrow" aria-hidden="true"></span></a>
+          <ul class="dropdown">
+            <li><a href="/about/">About PAWSIC</a></li>
+            <li><a href="/board/">The Board</a></li>
+            <li><a href="/advisory/">Advisory Committee</a></li>
+            <li><a href="/who-is-pawsic/">Who is PAWSIC?</a></li>
+            <li><a href="/services/">Services</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="/events/" class="has-dropdown" aria-haspopup="true" aria-expanded="false">Events <span class="dropdown-arrow" aria-hidden="true"></span></a>
+          <ul class="dropdown">
+            <li><a href="/events/">Upcoming Events</a></li>
+            <li><a href="/webinars/">Webinars</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="/press-releases/" class="has-dropdown" aria-haspopup="true" aria-expanded="false">News &amp; Insights <span class="dropdown-arrow" aria-hidden="true"></span></a>
+          <ul class="dropdown">
+            <li><a href="/press-releases/">Press Releases</a></li>
+            <li><a href="/insights/">Clinical Insights</a></li>
+          </ul>
+        </li>
+        <li class="nav-podcast"><a href="/podcast/"><svg class="nav-podcast-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>Podcast</a></li>
+        <li><a href="/resources/">Resources</a></li>
+        <li><a href="/programs/">Courses</a></li>
+        <li>
+          <a href="/community/" class="has-dropdown" aria-haspopup="true" aria-expanded="false">Community <span class="dropdown-arrow" aria-hidden="true"></span></a>
+          <ul class="dropdown">
+            <li><a href="/community/#forums">Forums</a></li>
+            <li class="has-sub-dropdown"><a href="/community/#sig-spaces" class="has-sub-arrow">Shared Interest Groups (SIG) <span class="sub-arrow" aria-hidden="true"></span></a><ul class="sub-dropdown"><li><a href="/community/skin-failure-sig/">Skin Failure SIG</a></li></ul></li>
+            <li><a href="/testimonials/">Member Spotlights</a></li>
+          </ul>
+        </li>
+        <li><a href="/membership/">Membership</a></li>
+        <li><a href="/sponsors/">Sponsorship</a></li>
+        <li class="mobile-nav-utility mobile-podcast-item"><a href="/podcast/"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg> Listen to Our Podcast</a></li>
+        <li class="mobile-nav-utility mobile-brochure-link"><a href="/resources/pawsic-brochure.pdf" target="_blank" rel="noopener noreferrer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download Brochure</a></li>
+        <li class="mobile-nav-utility mobile-login-link"><a href="https://memberships.pawsic.org/login/" target="_blank" rel="noopener noreferrer">Member Login</a></li>
+        <li class="mobile-nav-utility mobile-join-item"><a href="https://memberships.pawsic.org/register/free/" target="_blank" rel="noopener noreferrer">Join PAWSIC Free &rarr;</a></li>
+        <li class="mobile-nav-utility mobile-shop-item"><a href="/shop/">Donate by Shopping</a></li>
+        <li class="mobile-nav-utility mobile-donate-item"><a href="https://donate.stripe.com/dRm8wQ1mC3oE8Ef8p7c7u0m" target="_blank" rel="noopener noreferrer">Donate ♥</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="mobile-overlay"></div>
+
+  <main id="main-content">
+
+    <!-- ===== ON-DEMAND BANNER ===== -->
+    <div class="watch-window">
+      <span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Available on demand &middot; watch any time with your free PAWSIC membership
+      </span>
+    </div>
+
+    <!-- ===== WELCOME HERO ===== -->
+    <section class="watch-hero">
+      <div class="container">
+        <span class="watch-welcome-tag">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+          You're registered
+        </span>
+        <h1>Welcome to <em>Transitions of Wound Care</em></h1>
+        <p>You're registered, and the full webinar is unlocked right here. Your free PAWSIC membership is active, and you can watch any time, on demand. A welcome email is on its way with your login details. After you watch, submit your questions below for our live LinkedIn Q&amp;A.</p>
+        <div class="watch-access-meta" style="gap:1.2rem; flex-wrap:wrap; justify-content:center;">
+          <span style="display:inline-flex;align-items:center;gap:0.5rem;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px;color:#38B6FF"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span><strong>~1 hour</strong> &middot; Self-paced</span>
+          </span>
+          <span style="opacity:0.4;">|</span>
+          <span style="display:inline-flex;align-items:center;gap:0.5rem;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px;color:#38B6FF"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+            <span>Watch in full to earn your <strong>Certificate of Completion</strong></span>
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== VIDEO PLAYER (on demand) ===== -->
+    <section class="watch-video-section" id="video-section">
+      <div class="container">
+        <div class="watch-video-wrap">
+          <iframe src="https://player.vimeo.com/video/1223027197?h=b8c8609295&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+            frameborder="0"
+            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            title="Transitions of Wound Care: Ensuring Safe Continuity of Care Across the Continuum"></iframe>
+        </div>
+      </div>
+    </section>
+    <script src="https://player.vimeo.com/api/player.js"></script>
+
+    <!-- ===== LIVE Q&A ===== -->
+    <section class="watch-qa" id="qa">
+      <div class="container">
+        <div class="watch-qa-head">
+          <span class="watch-qa-tag">Live Q&amp;A on LinkedIn</span>
+          <h2>Have a question? <em>Ask it live.</em></h2>
+          <p>Submit your questions about wound care transitions below. We will answer them in a <strong>live Q&amp;A session on the PAWSIC LinkedIn channel, 72 hours after the webinar.</strong> Follow PAWSIC on LinkedIn so you do not miss it.</p>
+          <a class="watch-qa-linkedin" href="https://www.linkedin.com/company/pawsic/" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.8 0 0 .78 0 1.74v20.52C0 23.22.8 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.74V1.74C24 .78 23.2 0 22.22 0z"/></svg>
+            Follow PAWSIC on LinkedIn
+          </a>
+        </div>
+        <div class="watch-qa-form-card">
+          <iframe id="qaJotform"
+            title="Submit a question for the live Q&amp;A"
+            src="https://form.jotform.com/262433574999070"
+            allow="geolocation; microphone; camera; fullscreen"
+            allowtransparency="true"
+            frameborder="0"
+            scrolling="no"
+            style="width:100%;min-height:900px;border:0;display:block;"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FACULTY ===== -->
+    <section class="watch-speaker-section">
+      <div class="container">
+        <h2 style="text-align:center;color:#0C1F3F;font-family:'DM Serif Display',serif;font-size:1.7rem;margin:0 0 1.8rem;">Your Faculty</h2>
+        <!-- TODO(image): add /images/board/jenn-bistrack.png (headshot pending from Dahlia) -->
+        <div class="watch-speaker-card" style="margin-bottom:1.2rem;">
+          <img src="/images/board/jenn-bistrack.png" alt="Jenn Bistrack, MPH, MS, RN">
+          <div>
+            <h3>Jenn Bistrack</h3>
+            <div class="watch-speaker-creds">MPH, MS, RN</div>
+            <p class="watch-speaker-role">Post-Acute Program Manager, UM Baltimore Washington Medical Center. Jenn works across acute, post-acute, and outpatient partners to extend best practices across the care continuum, with a focus on transitions of care for complex patients after discharge.</p>
+          </div>
+        </div>
+        <div class="watch-speaker-card" style="margin-bottom:1.2rem;">
+          <img src="/images/board/jennifer-bierhup.png" alt="Jennifer Bierhup, RN, WCC, CCM, iRNPA, FACCWS">
+          <div>
+            <h3>Jennifer Bierhup</h3>
+            <div class="watch-speaker-creds">RN, WCC, CCM, iRNPA, FACCWS</div>
+            <p class="watch-speaker-role">Wound care innovator and educator with nearly two decades of experience across acute and post-acute care. Creator of multiple nationally adopted wound care frameworks, with advanced WCC (NAWCO) and CCM (CCMC) certifications.</p>
+          </div>
+        </div>
+        <div class="watch-speaker-card">
+          <img src="/images/board/mary-martin.jpg" alt="Mary Martin, BSN, RN, CWS">
+          <div>
+            <h3>Mary Martin</h3>
+            <div class="watch-speaker-creds">BSN, RN, CWS</div>
+            <p class="watch-speaker-role">Board-certified wound specialist and nursing leader, now Clinical Quality Lead at Tissue Health Plus. She has reduced facility-acquired pressure injuries to zero as a Skin Integrity Coordinator and led skin health across 16 facilities.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CERTIFICATE ===== -->
+    <section class="watch-certificate">
+      <div class="container">
+        <div class="watch-cert-card">
+          <div class="watch-cert-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+          </div>
+          <h2>Earn Your Certificate of Completion</h2>
+          <p>You can watch right here, anytime. To also earn your PAWSIC Certificate of Completion, watch the course while signed in to your PAWSIC member account, where your progress is tracked and your certificate is issued automatically the moment you finish. <strong>Premium members</strong> can also download the full presentation slides to revisit or share with their team. Once you have your certificate, it makes a simple, professional record of training for your Director of Nursing, CNO, or education coordinator.</p>
+          <!-- TODO(cert-url): replace with the real MemberPress LMS course URL for Transitions of Wound Care -->
+          <a href="https://memberships.pawsic.org/courses/" class="btn-primary btn-lg" target="_blank" rel="noopener noreferrer">Watch on Your Member Account <span class="btn-arrow">&rarr;</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== HELP ===== -->
+    <section class="watch-help">
+      <div class="container">
+        <div class="watch-help-card">
+          <h3>Need help or have questions?</h3>
+          <p>For technical issues, group enrollment, or course questions, contact us at <a href="mailto:info@pawsic.org">info@pawsic.org</a>. Trouble logging in? <a href="https://memberships.pawsic.org/forgot-password/" target="_blank" rel="noopener noreferrer">Reset your password</a>.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/" class="footer-logo" aria-label="PAWSIC home" style="text-decoration:none;color:inherit;">
+            <img src="/images/pawsic-logo.png" alt="PAWSIC" class="logo-icon">
+            <span class="logo-text">
+              <span class="logo-name">PAWSIC</span>
+              <span class="logo-tagline">Post-Acute Wound &amp; Skin Integrity Council</span>
+            </span>
+          </a>
+          <p>Post-Acute Wound &amp; Skin Integrity Council, a 501(c)(6) nonprofit uniting wound care professionals through education, community, and advocacy.</p>
+          <div class="social-links">
+            <a href="https://www.facebook.com/profile.php?id=100064724872333" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+            <a href="https://www.instagram.com/pawsic_org/" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="https://www.linkedin.com/company/pawsic" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+            <a href="https://www.tiktok.com/@pawsic.org" aria-label="TikTok" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" viewBox="0 0 24 24" fill="white" stroke="none"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1v-3.52a6.37 6.37 0 0 0-.79-.05A6.34 6.34 0 0 0 3.15 15.2a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.73a8.19 8.19 0 0 0 4.76 1.52V6.8a4.84 4.84 0 0 1-1-.11z"/></svg></a>
+            <a href="https://www.youtube.com/@PAWSIC-Team" aria-label="YouTube" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" viewBox="0 0 24 24" fill="white" stroke="none"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+            <a href="https://x.com/PAWSIC1" aria-label="X" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" viewBox="0 0 24 24" fill="white" stroke="none"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+          </div>
+          <a href="/podcast/" class="footer-podcast-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg> Listen: Healing by Design Podcast</a>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="/about/">About Us</a></li>
+            <li><a href="/board/">The Board</a></li>
+            <li><a href="/membership/">Membership</a></li>
+            <li><a href="/programs/">CE/CME Courses</a></li>
+            <li><a href="/resources/">Resources</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Community</h4>
+          <ul>
+            <li><a href="/community/#forums">Forums</a></li>
+            <li><a href="/community/#sig-spaces">Shared Interest Groups</a></li>
+            <li class="footer-sub-item"><a href="/community/skin-failure-sig/">Skin Failure SIG</a></li>
+            <li><a href="/events/">Events</a></li>
+            <li><a href="/webinars/">Webinars</a></li>
+            <li><a href="/podcast/">Podcast</a></li>
+            <li><a href="/contact/">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="/sponsors/">Become a Sponsor</a></li>
+            <li><a href="https://donate.stripe.com/dRm8wQ1mC3oE8Ef8p7c7u0m" target="_blank" rel="noopener noreferrer">Donate</a></li>
+            <li><a href="/shop/">Donate by Shopping</a></li>
+            <li><a href="https://memberships.pawsic.org/login/" target="_blank" rel="noopener noreferrer">Member Login</a></li>
+            <li><a href="/press-releases/">Press Releases</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-bottom-row">
+          <span>&copy; 2026 PAWSIC. All Rights Reserved. Donations/sponsorships are not tax deductible.</span>
+          <div class="footer-legal">
+          <a href="/privacy-policy/">Privacy Policy</a>
+          <a href="/disclaimers/">Website Disclaimer</a>
+          <a href="/disclaimers/#resource-disclaimer">Resource Disclaimer</a>
+          <a href="/accessibility/">Accessibility</a>
+          </div>
+        </div>
+        <p class="footer-credit">Website built and designed with care by <a href="https://aipowereddahlia.com/" target="_blank" rel="noopener noreferrer">AI Powered Dahlia</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>
