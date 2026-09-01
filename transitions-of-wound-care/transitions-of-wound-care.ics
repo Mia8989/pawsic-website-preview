@@ -1,0 +1,43 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//PAWSIC//Transitions of Wound Care//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VTIMEZONE
+TZID:America/New_York
+BEGIN:STANDARD
+TZNAME:EST
+TZOFFSETFROM:-0400
+TZOFFSETTO:-0500
+DTSTART:19701101T020000
+RRULE:FREQ=YEARLY;BYDAY=1SU;BYMONTH=11
+END:STANDARD
+BEGIN:DAYLIGHT
+TZNAME:EDT
+TZOFFSETFROM:-0500
+TZOFFSETTO:-0400
+DTSTART:19700308T020000
+RRULE:FREQ=YEARLY;BYDAY=2SU;BYMONTH=3
+END:DAYLIGHT
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:transitions-of-wound-care-2026@pawsic.org
+SUMMARY:Transitions of Wound Care — Free On-Demand Webinar (PAWSIC)
+DTSTART;TZID=America/New_York:20260909T150000
+DTEND;TZID=America/New_York:20260912T150000
+DESCRIPTION:Your free 72-hour on-demand access to Transitions of Wound Care
+  opens September 9 at 3:00 PM ET. Watch at pawsic.org/transitions-of-wound-
+ care/watch/ and submit your questions for the live LinkedIn Q&A. Earn your
+  PAWSIC Certificate of Completion by watching through your member account.
+URL:https://pawsic.org/transitions-of-wound-care/watch/
+LOCATION:Online — pawsic.org/transitions-of-wound-care/watch/
+ORGANIZER;CN=PAWSIC:mailto:info@pawsic.org
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Transitions of Wound Care opens in 30 minutes — go to pawsic.org/transitions-of-wound-care/watch/
+END:VALARM
+END:VEVENT
+END:VCALENDAR
