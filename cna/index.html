@@ -11,8 +11,8 @@
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>For CNAs: Skin in the Game | A CNA Q&amp;A | PAWSIC</title>
-  <meta name="description" content="Certified Nursing Assistants are the front line of skin and wound observation in post-acute care. Watch Skin in the Game, a CNA Q&amp;A, browse the CNA video series, and shop the CNA Collection from PAWSIC.">
+  <title>CNA Wound Care Q&amp;A: Skin Checks, Pressure Injuries &amp; More | PAWSIC</title>
+  <meta name="description" content="Free wound care education for CNAs and aides. PAWSIC experts answer 8 real questions from Certified Nursing Assistants: skin checks, wound VACs, pressure injuries, the Braden Score, skin tears, and more. Watch the videos and download the guide.">
   <meta property="og:title" content="For CNAs: Skin in the Game | A CNA Q&amp;A | PAWSIC">
   <meta property="og:description" content="Certified Nursing Assistants are the front line of skin and wound observation. Watch the CNA Q&amp;A video series and shop the CNA Collection from PAWSIC.">
   <meta property="og:url" content="https://pawsic.org/cna/">
@@ -31,17 +31,64 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "VideoObject",
-    "name": "Skin in the Game: A CNA Q&A",
-    "description": "A Certified Nursing Assistant Q&A on the CNA's role in skin and wound observation in post-acute care, presented by PAWSIC.",
-    "thumbnailUrl": "https://pawsic.org/images/pawsic-og-image.jpg",
-    "uploadDate": "2026-09-01",
-    "publisher": {
-      "@type": "Organization",
-      "name": "PAWSIC",
-      "logo": { "@type": "ImageObject", "url": "https://pawsic.org/images/pawsic-logo.png" }
-    },
-    "embedUrl": "https://player.vimeo.com/video/1223089605"
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://pawsic.org/#org",
+        "name": "PAWSIC",
+        "legalName": "Post Acute Wound & Skin Integrity Council Inc",
+        "url": "https://pawsic.org",
+        "logo": "https://pawsic.org/images/pawsic-logo.png",
+        "description": "PAWSIC (Post-Acute Wound & Skin Integrity Council) is a nonprofit council that advances wound care and skin integrity education for clinicians and caregivers in post-acute settings.",
+        "sameAs": [
+          "https://www.linkedin.com/company/pawsic/",
+          "https://www.youtube.com/@PAWSIC-Team",
+          "https://www.instagram.com/pawsic_org/"
+        ]
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://pawsic.org/cna/#webpage",
+        "url": "https://pawsic.org/cna/",
+        "name": "CNA Wound Care Q&A: Skin Checks, Pressure Injuries & More",
+        "isPartOf": { "@id": "https://pawsic.org/#org" },
+        "description": "Free wound care education for CNAs and aides: PAWSIC experts answer 8 real questions from Certified Nursing Assistants about skin and wound care in post-acute settings.",
+        "dateModified": "2026-09-02",
+        "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".cna-faq-item h3", ".cna-faq-item p"] }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://pawsic.org/" },
+          { "@type": "ListItem", "position": 2, "name": "For CNAs", "item": "https://pawsic.org/cna/" }
+        ]
+      },
+      {
+        "@type": "VideoObject",
+        "name": "Skin in the Game: A CNA Q&A on Skin Health and Wound Care",
+        "description": "PAWSIC experts answer questions from Certified Nursing Assistants about skin checks, wound care, pressure injuries, and prevention in post-acute settings.",
+        "thumbnailUrl": "https://pawsic.org/images/pawsic-og-image.jpg",
+        "uploadDate": "2026-09-01",
+        "publisher": { "@id": "https://pawsic.org/#org" },
+        "embedUrl": "https://player.vimeo.com/video/1223089605"
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "How should a skin check look for a CNA or home health aide?", "acceptedAnswer": { "@type": "Answer", "text": "A skin check uses all your senses. Because the old idea that all skin is pink misses problems on darker or lighter skin tones, look for a color that differs from the rest of that person's own skin, check the whole body including skin folds and under any device you may remove, and feel for areas that feel different, like a water balloon under the skin. Report any abnormality early, and use descriptive words so the nurse or therapist knows what to expect." } },
+          { "@type": "Question", "name": "What is a wound VAC, how does it work, and why is it used?", "acceptedAnswer": { "@type": "Answer", "text": "A wound VAC is negative pressure wound therapy: filler in the wound, a sealed cover, and gentle suction through a tube that pulls drainage out. As a CNA, watch that it stays sealed and audibly working, keep track of where the tubing runs, and report a broken seal, an alarm, or frank red blood right away. When in doubt about placement or bathing over it, ask the nurse." } },
+          { "@type": "Question", "name": "How do we prevent fungal infections and moisture damage in skin folds?", "acceptedAnswer": { "@type": "Answer", "text": "Keep skin folds healthy by cleaning, inspecting, and patting each fold dry, dab to dry rather than scrub, and never stuff material into a fold. Use only pH-balanced products the facility stocks or the physician orders, not scented products from home. If you see moisture, a fungal look, or an odor in a fold, report it so the team can act." } },
+          { "@type": "Question", "name": "Why do clinicians choose certain skin products over others?", "acceptedAnswer": { "@type": "Answer", "text": "There are thousands of skin products, and each is chosen for a reason, because different ingredients suit sensitive, dry, or constantly moist skin. Follow the care plan, do not substitute or add products from home, and ask the nurse or educator how much to use and where. It is always better to ask than to assume." } },
+          { "@type": "Question", "name": "Are there better ways to reposition people than every two hours, and how do I cushion bony residents?", "acceptedAnswer": { "@type": "Answer", "text": "Turning everyone every two hours is not evidence-based; repositioning is individual, and a resident with a pressure injury is usually turned every one to two hours. Work repositioning into brief changes, toileting, and daily care, and document it. Keep heels off the bed with a pillow under the calf or an ordered offloading boot, and keep turning residents even on specialty mattresses." } },
+          { "@type": "Question", "name": "Do wounds have a smell, and what should I do about it?", "acceptedAnswer": { "@type": "Answer", "text": "A covered, clean wound should not have a strong odor, so a new strong, foul, sweet, or fecal smell is worth reporting. First check that the dressing is still in place, then describe the smell and when you noticed it. Taking socks off daily is a common way to find hidden wounds or fungal issues." } },
+          { "@type": "Question", "name": "What is the Braden Score?", "acceptedAnswer": { "@type": "Answer", "text": "The Braden Score measures risk factors for pressure injuries: moisture, nutrition, mobility, sensation and cognition, and friction and shear. Focus on those categories and the interventions tied to them rather than the number. Because you see the resident most, tell the team when an intervention is not working for that person." } },
+          { "@type": "Question", "name": "What is the difference between a wound, a pressure injury, skin failure, and a skin tear?", "acceptedAnswer": { "@type": "Answer", "text": "A wound is injured skin, which can break down from the outside or from the inside when blood flow is poor. A pressure injury comes from sustained pressure over bony areas; skin failure is a diagnosis tied to end of life or organ failure, not pressure; and a skin tear is a traumatic wound common in older, fragile skin. These are medical diagnoses, so describe what you see and report it." } }
+        ]
+      },
+      { "@type": "Person", "name": "Jeanine Maguire", "honorificSuffix": "PhD, MPT, CWS, FCPP", "jobTitle": "President, PAWSIC", "worksFor": { "@id": "https://pawsic.org/#org" } },
+      { "@type": "Person", "name": "Jennifer Bierhup", "honorificSuffix": "RN, WCC, CCM, IRNPA, FACCWS", "jobTitle": "Board Member, PAWSIC", "worksFor": { "@id": "https://pawsic.org/#org" } },
+      { "@type": "Person", "name": "Isaac Zralii", "jobTitle": "Certified Nursing Assistant and Board Member, PAWSIC", "worksFor": { "@id": "https://pawsic.org/#org" } }
+    ]
   }
   </script>
 
@@ -196,6 +243,18 @@
     .cna-cta-btns { display: flex; gap: 0.9rem; justify-content: center; flex-wrap: wrap; }
     .cna-cta .btn-outline { color: #fff; border-color: rgba(255,255,255,0.5); }
     .cna-cta .btn-outline:hover { background: rgba(255,255,255,0.12); border-color: #fff; }
+
+    /* Direct answer + FAQ (AEO) */
+    .cna-answer { max-width: 780px; margin: 0 auto; background: #eef5f8; border: 1px solid #d6e6f2; border-radius: 14px; padding: 1.3rem 1.6rem; }
+    .cna-answer p { margin: 0; color: #2d3e52; line-height: 1.6; font-size: 1rem; }
+    .cna-answer strong { color: #0c1f3f; }
+    .cna-faqlist { max-width: 800px; margin: 2.2rem auto 0; }
+    .cna-faq-item { padding: 1.3rem 0; border-bottom: 1px solid #e8edf2; }
+    .cna-faq-item:last-child { border-bottom: none; }
+    .cna-faq-item h3 { font-family: 'DM Serif Display', Georgia, serif; font-size: 1.2rem; color: #0c1f3f; line-height: 1.3; margin: 0 0 0.5rem; }
+    .cna-faq-item p { color: #3a4a5c; line-height: 1.65; margin: 0; font-size: 0.97rem; }
+    .cna-updated { text-align: center; color: #7a8699; font-size: 0.8rem; margin-top: 1.6rem; }
+    .cna-faq-disc { max-width: 800px; margin: 0.8rem auto 0; text-align: center; color: #9aa5b3; font-size: 0.8rem; line-height: 1.5; }
   </style>
 </head>
 <body>
@@ -312,13 +371,13 @@
     <section class="section section-white cna-feature" id="feature">
       <div class="container">
         <div class="section-header reveal" style="text-align:center;">
-          <span class="section-tag">Featured Q&amp;A</span>
+          <span class="section-tag">Question 1 · Featured</span>
           <h2>Skin in the Game: <em>A CNA Q&amp;A</em></h2>
-          <p style="max-width:640px; margin:1rem auto 0; color:#3a4a5c; line-height:1.6;">A conversation about the CNA's role in observing, reporting, and protecting patient skin in post-acute settings.</p>
+          <p style="max-width:660px; margin:1rem auto 0; color:#3a4a5c; line-height:1.6;">The opening question: what a skin check should look like for a CNA or aide, and how to spot the early signs of a wound across every skin tone. Then explore each question as a clip below.</p>
         </div>
         <div class="cna-video-wrap reveal" style="margin-top:2.2rem;">
           <div style="padding:54.68% 0 0 0;position:relative;">
-            <iframe src="https://player.vimeo.com/video/1223089605?h=41888d094b&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Skin in the Game. A CNA Q&amp;A"></iframe>
+            <iframe src="https://player.vimeo.com/video/1223089605?h=41888d094b&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Question 1: What a skin check should look like"></iframe>
           </div>
         </div>
         <p class="reveal" style="text-align:center;margin-top:1.1rem;font-size:0.9rem;color:#7a8699;line-height:1.55;">Featuring <strong style="color:#3d4a5c;">Jeanine Maguire</strong>, PhD, MPT, CWS, FCPP &nbsp;·&nbsp; <strong style="color:#3d4a5c;">Jennifer Bierhup</strong>, RN, WCC, CCM, IRNPA, FACCWS &nbsp;·&nbsp; <strong style="color:#3d4a5c;">Isaac Zralii</strong></p>
@@ -383,6 +442,31 @@
 
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- ===== FAQ (AEO) ===== -->
+    <section class="section section-white" id="faq">
+      <div class="container">
+        <div class="section-header reveal" style="text-align:center;">
+          <span class="section-tag">Frequently Asked Questions</span>
+          <h2>CNA Wound Care Questions, <em>Answered</em></h2>
+        </div>
+        <div class="cna-answer reveal" style="margin-top:1.6rem;">
+          <p><strong>Skin in the Game</strong> is a free PAWSIC video series in which wound care experts answer the eight questions Certified Nursing Assistants ask most about skin and wound care in post-acute settings, from skin checks and pressure injuries to wound VACs, the Braden Score, and skin tears. Short answers are below; watch the clips above for the full conversation.</p>
+        </div>
+        <div class="cna-faqlist">
+          <div class="cna-faq-item reveal"><h3>How should a skin check look for a CNA or home health aide?</h3><p>A skin check uses all your senses. Because the old idea that all skin is pink misses problems on darker or lighter skin tones, look for a color that differs from the rest of that person's own skin, check the whole body including skin folds and under any device you may remove, and feel for areas that feel different, like a water balloon under the skin. Report any abnormality early, and use descriptive words so the nurse or therapist knows what to expect.</p></div>
+          <div class="cna-faq-item reveal"><h3>What is a wound VAC, how does it work, and why is it used?</h3><p>A wound VAC is negative pressure wound therapy: filler in the wound, a sealed cover, and gentle suction through a tube that pulls drainage out. As a CNA, watch that it stays sealed and audibly working, keep track of where the tubing runs, and report a broken seal, an alarm, or frank red blood right away. When in doubt about placement or bathing over it, ask the nurse.</p></div>
+          <div class="cna-faq-item reveal"><h3>How do we prevent fungal infections and moisture damage in skin folds?</h3><p>Keep skin folds healthy by cleaning, inspecting, and patting each fold dry, dab to dry rather than scrub, and never stuff material into a fold. Use only pH-balanced products the facility stocks or the physician orders, not scented products from home. If you see moisture, a fungal look, or an odor in a fold, report it so the team can act.</p></div>
+          <div class="cna-faq-item reveal"><h3>Why do clinicians choose certain skin products over others?</h3><p>There are thousands of skin products, and each is chosen for a reason, because different ingredients suit sensitive, dry, or constantly moist skin. Follow the care plan, do not substitute or add products from home, and ask the nurse or educator how much to use and where. It is always better to ask than to assume.</p></div>
+          <div class="cna-faq-item reveal"><h3>Are there better ways to reposition people than every two hours, and how do I cushion bony residents?</h3><p>Turning everyone every two hours is not evidence-based; repositioning is individual, and a resident with a pressure injury is usually turned every one to two hours. Work repositioning into brief changes, toileting, and daily care, and document it. Keep heels off the bed with a pillow under the calf or an ordered offloading boot, and keep turning residents even on specialty mattresses.</p></div>
+          <div class="cna-faq-item reveal"><h3>Do wounds have a smell, and what should I do about it?</h3><p>A covered, clean wound should not have a strong odor, so a new strong, foul, sweet, or fecal smell is worth reporting. First check that the dressing is still in place, then describe the smell and when you noticed it. Taking socks off daily is a common way to find hidden wounds or fungal issues.</p></div>
+          <div class="cna-faq-item reveal"><h3>What is the Braden Score?</h3><p>The Braden Score measures risk factors for pressure injuries: moisture, nutrition, mobility, sensation and cognition, and friction and shear. Focus on those categories and the interventions tied to them rather than the number. Because you see the resident most, tell the team when an intervention is not working for that person.</p></div>
+          <div class="cna-faq-item reveal"><h3>What is the difference between a wound, a pressure injury, skin failure, and a skin tear?</h3><p>A wound is injured skin, which can break down from the outside or from the inside when blood flow is poor. A pressure injury comes from sustained pressure over bony areas; skin failure is a diagnosis tied to end of life or organ failure, not pressure; and a skin tear is a traumatic wound common in older, fragile skin. These are medical diagnoses, so describe what you see and report it.</p></div>
+        </div>
+        <p class="cna-updated">Last updated September 2026</p>
+        <p class="cna-faq-disc">Educational only, not medical advice. Always follow your facility's policies, the resident's care plan, and the direction of the nurse, therapist, or physician.</p>
       </div>
     </section>
 
