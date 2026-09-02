@@ -22,7 +22,8 @@
   <meta name="twitter:title" content="For CNAs: Skin in the Game | A CNA Q&amp;A | PAWSIC">
   <meta name="twitter:description" content="Certified Nursing Assistants are the front line of skin and wound observation. Watch the CNA Q&amp;A video series and shop the CNA Collection from PAWSIC.">
   <meta name="twitter:image" content="https://pawsic.org/images/pawsic-og-image.jpg">
-  <link rel="canonical" href="https://pawsic.org/cna/">
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://pawsic.org/cna/watch/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -255,49 +256,6 @@
     .cna-faq-item p { color: #3a4a5c; line-height: 1.65; margin: 0; font-size: 0.97rem; }
     .cna-updated { text-align: center; color: #7a8699; font-size: 0.8rem; margin-top: 1.6rem; }
     .cna-faq-disc { max-width: 800px; margin: 0.8rem auto 0; text-align: center; color: #9aa5b3; font-size: 0.8rem; line-height: 1.5; }
-
-    /* Registration / gated funnel */
-    .cna-reg { background: linear-gradient(135deg, #0c1f3f 0%, #162d54 55%, #1e3a6e 100%); position: relative; overflow: hidden; }
-    .cna-reg::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 55% 60% at 15% 20%, rgba(56,182,255,0.14) 0%, transparent 65%); pointer-events: none; }
-    .cna-reg .container { position: relative; z-index: 1; }
-    .cna-reg .section-tag { background: rgba(56,182,255,0.16); color: #9fd4ff; }
-    .cna-reg h2 { color: #fff; } .cna-reg h2 em { color: #38b6ff; }
-    .cna-reg .section-header p { color: rgba(255,255,255,0.8) !important; }
-    .cna-reg-grid { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 2.5rem; align-items: start; margin-top: 2.6rem; }
-    .cna-unlock { color: #fff; }
-    .cna-unlock h3 { font-family: 'DM Serif Display', Georgia, serif; font-size: 1.4rem; color: #fff; margin: 0 0 1.1rem; }
-    .cna-unlock ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.7rem; }
-    .cna-unlock li { display: flex; align-items: flex-start; gap: 0.7rem; font-size: 0.95rem; line-height: 1.45; color: rgba(255,255,255,0.9); }
-    .cna-unlock li svg { flex-shrink: 0; width: 20px; height: 20px; stroke: #38b6ff; margin-top: 2px; }
-    .cna-unlock .bonus { margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.15); }
-    .cna-reg-card { background: #fff; border-radius: 18px; box-shadow: 0 24px 60px rgba(0,0,0,0.28); overflow: hidden; }
-    /* form (PAWSIC reusable) */
-    .pc-form { display: grid; gap: 1rem; }
-    .pc-form .pc-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-    .pc-field { display: flex; flex-direction: column; gap: 0.35rem; }
-    .pc-field label { font-size: 0.8rem; font-weight: 600; color: #0C1F3F; }
-    .pc-field .pc-req { color: #c0392b; }
-    .pc-field input, .pc-field select { font-family: inherit; font-size: 0.95rem; color: #0C1F3F; padding: 0.7rem 0.9rem; border: 1px solid rgba(12,31,63,0.2); border-radius: 10px; background: #fff; transition: border-color 0.15s, box-shadow 0.15s; }
-    .pc-field input:focus, .pc-field select:focus { outline: none; border-color: #38B6FF; box-shadow: 0 0 0 3px rgba(56,182,255,0.15); }
-    .pc-check { display: flex; align-items: flex-start; gap: 0.6rem; }
-    .pc-check input { margin-top: 0.2rem; width: 18px; height: 18px; flex-shrink: 0; }
-    .pc-check label { font-size: 0.83rem; color: #3a4a5c; line-height: 1.5; font-weight: 500; }
-    .pc-check a { color: #1B5E9E; font-weight: 600; }
-    .pc-submit { appearance: none; border: 0; cursor: pointer; width: 100%; background: #38B6FF; color: #fff; font-family: inherit; font-size: 1.02rem; font-weight: 700; padding: 1rem 1.5rem; border-radius: 100px; transition: background 0.2s; }
-    .pc-submit:hover { background: #2da0e8; } .pc-submit:disabled { background: #9bd3f5; cursor: not-allowed; }
-    .pc-status { font-size: 0.9rem; line-height: 1.5; padding: 0.2rem 0; min-height: 1.2rem; }
-    .pc-status.pc-error { color: #c0392b; font-weight: 600; } .pc-status.pc-ok { color: #1e7e34; font-weight: 600; }
-    .pc-form-pad { padding: 2rem 1.9rem; }
-    .pc-note { background: #eef5fb; border-left: 3px solid #1B5E9E; border-radius: 8px; padding: 0.8rem 1rem; font-size: 0.83rem; line-height: 1.5; color: #3a4a5c; }
-    .pc-note strong { color: #0C1F3F; }
-    .cna-reg-trust { display: flex; gap: 1.6rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem; }
-    .cna-reg-trust span { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; color: rgba(255,255,255,0.75); font-weight: 500; }
-    .cna-reg-trust svg { width: 16px; height: 16px; stroke: #38b6ff; }
-    .cna-reg-disc { max-width: 760px; margin: 1.4rem auto 0; text-align: center; font-size: 0.78rem; color: rgba(255,255,255,0.55); line-height: 1.5; }
-    @media (max-width: 820px) {
-      .cna-reg-grid { grid-template-columns: 1fr; gap: 1.8rem; }
-      .pc-form .pc-row { grid-template-columns: 1fr; }
-    }
   </style>
 </head>
 <body>
@@ -398,14 +356,14 @@
     <section class="cna-hero">
       <div class="container">
         <span class="cna-hero-tag reveal">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-          For Certified Nursing Assistants
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+          You're in &middot; CNA Member Access
         </span>
-        <h1 class="reveal reveal-delay-1">Skin in the <em>Game</em></h1>
-        <p class="cna-hero-sub reveal reveal-delay-2">Certified Nursing Assistants are the front line of skin and wound observation in post-acute care, and what you notice matters. Watch the opening question free below, then join PAWSIC at no cost to unlock all eight questions on demand and a printable guide.</p>
+        <h1 class="reveal reveal-delay-1">Welcome to <em>Skin in the Game</em></h1>
+        <p class="cna-hero-sub reveal reveal-delay-2">You now have full access to the CNA Q&amp;A. Watch the complete session and all eight questions below, and download the printable guide to keep the answers on hand at the bedside.</p>
         <div class="cna-hero-ctas reveal reveal-delay-3">
-          <a href="#register" class="btn-primary btn-lg">Get Free Access <span class="btn-arrow">&rarr;</span></a>
-          <a href="#feature" class="btn-outline btn-lg">Watch the Intro</a>
+          <a href="#series" class="btn-primary btn-lg">Watch the Series <span class="btn-arrow">&rarr;</span></a>
+          <a href="https://pawsic.org/cna/skin-in-the-game-cna-qa-guide.pdf" target="_blank" rel="noopener noreferrer" class="btn-outline btn-lg">Download the Guide</a>
         </div>
       </div>
     </section>
@@ -416,7 +374,7 @@
         <div class="section-header reveal" style="text-align:center;">
           <span class="section-tag">Question 1 · Featured</span>
           <h2>Skin in the Game: <em>A CNA Q&amp;A</em></h2>
-          <p style="max-width:660px; margin:1rem auto 0; color:#3a4a5c; line-height:1.6;">The opening question: what a skin check should look like for a CNA or aide, and how to spot the early signs of a wound across every skin tone. Join free below to unlock the remaining seven questions.</p>
+          <p style="max-width:660px; margin:1rem auto 0; color:#3a4a5c; line-height:1.6;">The opening question: what a skin check should look like for a CNA or aide, and how to spot the early signs of a wound across every skin tone. Then explore each question as a clip below.</p>
         </div>
         <div class="cna-video-wrap reveal" style="margin-top:2.2rem;">
           <div style="padding:54.68% 0 0 0;position:relative;">
@@ -427,83 +385,64 @@
       </div>
     </section>
 
-    <!-- ===== REGISTER TO WATCH (gated funnel) ===== -->
-    <section class="section cna-reg" id="register">
+    <!-- ===== Q&A VIDEO LIBRARY ===== -->
+    <section class="section cna-faq" id="series">
       <div class="container">
         <div class="section-header reveal" style="text-align:center;">
-          <span class="section-tag">Free Membership</span>
-          <h2>Watch the Full Series, <em>Free</em></h2>
-          <p style="max-width:640px; margin:1rem auto 0; line-height:1.6;">Register for a free PAWSIC membership to unlock all eight questions on demand, plus the printable CNA guide. It takes a minute, and there is no cost and no credit card.</p>
+          <span class="section-tag">Q&amp;A Video Library</span>
+          <h2>Browse by <em>Topic</em></h2>
+          <p style="max-width:640px; margin:1rem auto 0; color:#3a4a5c; line-height:1.6;">Each clip answers one real question from the CNA Q&amp;A. Filter by topic to find what you need.</p>
         </div>
 
-        <div class="cna-reg-grid">
-          <div class="cna-unlock reveal">
-            <h3>Your free membership unlocks</h3>
-            <ul>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>The full Skin in the Game session, plus every question as its own clip</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Wound VACs, and where the tubing and device should sit</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Preventing moisture and fungal damage in skin folds</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Why clinicians pick certain products, and repositioning beyond the 2-hour rule</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Wound odor, the Braden Score, and telling wound types apart</li>
-              <li class="bonus"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 18 15 15"/></svg><strong style="color:#fff;">Bonus:</strong>&nbsp;the printable CNA Q&amp;A guide, and the full PAWSIC member library</li>
+        <div class="cna-lib reveal">
+          <nav class="cna-lib-side">
+            <div class="cna-lib-side-title">Topics</div>
+            <ul class="cna-filter">
+              <li><a href="#" class="active" data-filter="all">All Clips <span class="cnt">8</span></a></li>
+              <li><a href="#" data-filter="assess">Assessment &amp; Warning Signs <span class="cnt">4</span></a></li>
+              <li><a href="#" data-filter="prevent">Prevention &amp; Positioning <span class="cnt">2</span></a></li>
+              <li><a href="#" data-filter="treat">Treatments &amp; Products <span class="cnt">2</span></a></li>
             </ul>
-          </div>
+          </nav>
+          <div class="cna-vgrid">
 
-          <div class="cna-reg-card reveal reveal-delay-1">
-            <form id="pcRegForm" class="pc-form pc-form-pad" novalidate>
-              <div class="pc-row">
-                <div class="pc-field"><label for="pc-first">First Name <span class="pc-req">*</span></label><input id="pc-first" name="firstName" type="text" autocomplete="given-name" required></div>
-                <div class="pc-field"><label for="pc-last">Last Name <span class="pc-req">*</span></label><input id="pc-last" name="lastName" type="text" autocomplete="family-name" required></div>
-              </div>
-              <div class="pc-row">
-                <div class="pc-field"><label for="pc-email">Email <span class="pc-req">*</span></label><input id="pc-email" name="email" type="email" autocomplete="email" required></div>
-                <div class="pc-field"><label for="pc-phone">Phone</label><input id="pc-phone" name="phone" type="tel" autocomplete="tel"></div>
-              </div>
-              <div class="pc-row">
-                <div class="pc-field"><label for="pc-title">Job Title / Role <span class="pc-req">*</span></label><input id="pc-title" name="jobTitle" type="text" autocomplete="organization-title" required></div>
-                <div class="pc-field"><label for="pc-org">Facility / Organization <span class="pc-req">*</span></label><input id="pc-org" name="organization" type="text" autocomplete="organization" required></div>
-              </div>
-              <div class="pc-field">
-                <label for="pc-hear">How did you hear about PAWSIC?</label>
-                <select id="pc-hear" name="hearAbout">
-                  <option value="">Select one (optional)</option>
-                  <option>Colleague or referral</option><option>Conference or event</option><option>Social media</option><option>Email from PAWSIC</option><option>Web search</option><option>Employer or facility</option><option>Other</option>
-                </select>
-              </div>
-              <div class="pc-field">
-                <label for="pc-country">Country <span class="pc-req">*</span></label>
-                <select id="pc-country" name="country" autocomplete="country" required>
-                  <option value="US" selected>United States</option><option value="CA">Canada</option><option value="GB">United Kingdom</option><option value="AU">Australia</option><option value="IE">Ireland</option><option value="NZ">New Zealand</option><option value="" disabled>──────────</option>
-                  <option value="IN">India</option><option value="PH">Philippines</option><option value="NG">Nigeria</option><option value="ZA">South Africa</option><option value="DE">Germany</option><option value="FR">France</option><option value="MX">Mexico</option><option value="BR">Brazil</option><option value="OTHER">Other country</option>
-                </select>
-              </div>
-              <div id="pc-address-fields">
-                <div class="pc-field"><label for="pc-address">Street Address <span class="pc-req">*</span></label><input id="pc-address" name="address" type="text" autocomplete="address-line1" placeholder="123 Main St" required></div>
-                <div class="pc-field"><label for="pc-address2">Apt / Suite / Unit</label><input id="pc-address2" name="address2" type="text" autocomplete="address-line2" placeholder="Optional"></div>
-                <div class="pc-field"><label for="pc-city">City <span class="pc-req">*</span></label><input id="pc-city" name="city" type="text" autocomplete="address-level2" required></div>
-                <div class="pc-row">
-                  <div class="pc-field"><label for="pc-state">State <span class="pc-req">*</span></label><input id="pc-state" name="state" type="text" autocomplete="address-level1" required></div>
-                  <div class="pc-field"><label for="pc-zip">ZIP <span class="pc-req">*</span></label><input id="pc-zip" name="zip" type="text" autocomplete="postal-code" inputmode="numeric" required></div>
-                </div>
-              </div>
-              <div class="pc-check"><input id="pc-news" name="newsletter" type="checkbox" value="yes" required><label for="pc-news">Yes, send me the PAWSIC newsletter with wound care education updates. <span class="pc-req">*</span></label></div>
-              <div class="pc-check"><input id="pc-consent" name="consent" type="checkbox" value="yes" required><label for="pc-consent">I agree to PAWSIC's <a href="https://www.pawsic.org/privacy-policy" target="_blank" rel="noopener noreferrer">Privacy Policy</a> and <a href="https://www.pawsic.org/terms" target="_blank" rel="noopener noreferrer">Terms of Use</a>, and consent to receive my watch link and welcome email. <span class="pc-req">*</span></label></div>
-              <div class="pc-note"><strong>You'll become a free PAWSIC member.</strong> Registering creates your free PAWSIC membership at no cost and with no credit card, and takes you straight to the videos.</div>
-              <input type="hidden" name="courseId" value="cna-qa">
-              <input type="hidden" name="courseName" value="Skin in the Game: A CNA Q&amp;A">
-              <input type="hidden" name="watchUrl" value="https://pawsic.org/cna/watch/">
-              <button type="submit" class="pc-submit" id="pc-submit">Get Free Access &rarr;</button>
-              <p class="pc-status" id="pc-status" role="status" aria-live="polite"></p>
-            </form>
+            <div class="cna-vcard" data-category="treat">
+              <div class="vf"><div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1223126022?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Wound VACs: what they are, how they work, and why they are used"></iframe></div></div>
+              <div class="cna-vcard-body"><span class="cna-vbadge t-treat">Treatments &amp; Products</span><h3><span class="cna-vnum">Q2.</span> Wound VACs: what they are, how they work, and why they are used</h3></div>
+            </div>
+
+            <div class="cna-vcard" data-category="prevent">
+              <div class="vf"><div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1223126025?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Preventing fungal infections and moisture damage in larger residents"></iframe></div></div>
+              <div class="cna-vcard-body"><span class="cna-vbadge t-prevent">Prevention &amp; Positioning</span><h3><span class="cna-vnum">Q3.</span> Preventing fungal infections and moisture damage in larger residents</h3></div>
+            </div>
+
+            <div class="cna-vcard" data-category="treat">
+              <div class="vf"><div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1223219162?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Why clinicians choose certain wound products over others"></iframe></div></div>
+              <div class="cna-vcard-body"><span class="cna-vbadge t-treat">Treatments &amp; Products</span><h3><span class="cna-vnum">Q4.</span> Why clinicians choose certain wound products over others</h3></div>
+            </div>
+
+            <div class="cna-vcard" data-category="prevent">
+              <div class="vf"><div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1223219821?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Repositioning and cushioning bony residents beyond the 2-hour rule"></iframe></div></div>
+              <div class="cna-vcard-body"><span class="cna-vbadge t-prevent">Prevention &amp; Positioning</span><h3><span class="cna-vnum">Q5.</span> Repositioning and cushioning bony residents beyond the 2-hour rule</h3></div>
+            </div>
+
+            <div class="cna-vcard" data-category="assess">
+              <div class="vf"><div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1223220166?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Do wounds have a smell, and what can it tell you?"></iframe></div></div>
+              <div class="cna-vcard-body"><span class="cna-vbadge t-assess">Assessment &amp; Warning Signs</span><h3><span class="cna-vnum">Q6.</span> Do wounds have a smell, and what can it tell you?</h3></div>
+            </div>
+
+            <div class="cna-vcard" data-category="assess">
+              <div class="vf"><div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1223220700?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="What is the Braden Score?"></iframe></div></div>
+              <div class="cna-vcard-body"><span class="cna-vbadge t-assess">Assessment &amp; Warning Signs</span><h3><span class="cna-vnum">Q7.</span> What is the Braden Score?</h3></div>
+            </div>
+
+            <div class="cna-vcard" data-category="assess">
+              <div class="vf"><div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1223221217?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Wound, pressure injury, skin failure, or skin tear?"></iframe></div></div>
+              <div class="cna-vcard-body"><span class="cna-vbadge t-assess">Assessment &amp; Warning Signs</span><h3><span class="cna-vnum">Q8.</span> Wound, pressure injury, skin failure, or skin tear?</h3></div>
+            </div>
+
           </div>
         </div>
-
-        <div class="cna-reg-trust reveal">
-          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>Your information is secure</span>
-          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"/></svg>No credit card required</span>
-          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Instant access</span>
-        </div>
-        <p class="cna-reg-disc">Educational disclaimer: this series is for educational purposes and does not constitute medical advice. Always follow your facility's policies and the resident's care plan. Content is developed and reviewed for clinical accuracy by PAWSIC faculty.</p>
       </div>
     </section>
 
@@ -515,7 +454,7 @@
           <h2>CNA Wound Care Questions, <em>Answered</em></h2>
         </div>
         <div class="cna-answer reveal" style="margin-top:1.6rem;">
-          <p><strong>Skin in the Game</strong> is a free PAWSIC video series in which wound care experts answer the eight questions Certified Nursing Assistants ask most about skin and wound care in post-acute settings, from skin checks and pressure injuries to wound VACs, the Braden Score, and skin tears. Short answers are below; join free above to watch the full video conversation for each one.</p>
+          <p><strong>Skin in the Game</strong> is a free PAWSIC video series in which wound care experts answer the eight questions Certified Nursing Assistants ask most about skin and wound care in post-acute settings, from skin checks and pressure injuries to wound VACs, the Braden Score, and skin tears. Short answers are below; watch the clips above for the full conversation.</p>
         </div>
         <div class="cna-faqlist">
           <div class="cna-faq-item reveal"><h3>How should a skin check look for a CNA or home health aide?</h3><p>A skin check uses all your senses. Because the old idea that all skin is pink misses problems on darker or lighter skin tones, look for a color that differs from the rest of that person's own skin, check the whole body including skin folds and under any device you may remove, and feel for areas that feel different, like a water balloon under the skin. Report any abnormality early, and use descriptive words so the nurse or therapist knows what to expect.</p></div>
@@ -590,13 +529,13 @@
     <!-- ===== CLOSING CTA ===== -->
     <section class="section cna-cta">
       <div class="container">
-        <h2>Join Free and <em>Keep Learning</em></h2>
-        <p>PAWSIC membership is 100% free. Members watch the full Skin in the Game video series and download the printable CNA Q&amp;A guide, plus the full library of on-demand wound care education built for every member of the clinical team.</p>
+        <h2>You're a PAWSIC <em>Member</em></h2>
+        <p>Your free membership is active. Download the printable CNA Q&amp;A guide, and explore the full member library of on-demand wound care education anytime from your account.</p>
         <div class="cna-cta-btns">
-          <a href="#register" class="btn-primary btn-lg">Get Free Access <span class="btn-arrow">&rarr;</span></a>
-          <a href="https://memberships.pawsic.org/login/" target="_blank" rel="noopener noreferrer" class="btn-outline btn-lg">Member Login</a>
+          <a href="https://pawsic.org/cna/skin-in-the-game-cna-qa-guide.pdf" target="_blank" rel="noopener noreferrer" class="btn-primary btn-lg">Download the Guide <span class="btn-arrow">&rarr;</span></a>
+          <a href="https://memberships.pawsic.org/cna/" target="_blank" rel="noopener noreferrer" class="btn-outline btn-lg">Open the Member Hub</a>
         </div>
-        <p style="margin-top:1rem;font-size:0.85rem;color:rgba(255,255,255,0.6);">Free forever. No credit card. Instant access to the CNA hub.</p>
+        <p style="margin-top:1rem;font-size:0.85rem;color:rgba(255,255,255,0.6);">Tip: bookmark this page and sign in anytime at memberships.pawsic.org.</p>
       </div>
     </section>
 
@@ -673,60 +612,22 @@
   </footer>
 
   <script src="https://player.vimeo.com/api/player.js"></script>
-  <!-- US-only address toggle: hide + disable street/city/state/ZIP for non-US so they are not required or submitted. -->
   <script>
-    (function () {
-      var country = document.getElementById("pc-country");
-      var wrap = document.getElementById("pc-address-fields");
-      if (!country || !wrap) return;
-      var fields = wrap.querySelectorAll("input");
-      function sync() {
-        var isUS = country.value === "US";
-        wrap.hidden = !isUS;
-        for (var i = 0; i < fields.length; i++) { fields[i].disabled = !isUS; }
-      }
-      country.addEventListener("change", sync);
-      sync();
-    })();
-  </script>
-  <!-- Registration submit: posts directly to the PAWSIC Make webhook (shared scenario 5281344), then opens the watch page. -->
-  <script>
-    (function () {
-      var MAKE_WEBHOOK = "https://hook.us2.make.com/5ltfh3hiv4o3r641md0gxkwc3i5do59i";
-      var WATCH_URL = "https://pawsic.org/cna/watch/";
-      var form = document.getElementById("pcRegForm");
-      var statusEl = document.getElementById("pc-status");
-      var btn = document.getElementById("pc-submit");
-      if (!form) return;
-      var sent = false;
-      form.addEventListener("submit", function (e) {
+  (function(){
+    var links = document.querySelectorAll('.cna-filter a[data-filter]');
+    var cards = document.querySelectorAll('.cna-vcard[data-category]');
+    links.forEach(function(link){
+      link.addEventListener('click', function(e){
         e.preventDefault();
-        statusEl.className = "pc-status";
-        statusEl.textContent = "";
-        if (!form.checkValidity()) {
-          statusEl.className = "pc-status pc-error";
-          statusEl.textContent = "Please complete the required fields, including the newsletter and consent boxes.";
-          form.reportValidity();
-          return;
-        }
-        if (sent) return;
-        sent = true;
-        var params = new URLSearchParams();
-        new FormData(form).forEach(function (v, k) { params.append(k, v); });
-        params.set("newsletter", form.querySelector("#pc-news").checked ? "yes" : "no");
-        params.set("consent", form.querySelector("#pc-consent").checked ? "yes" : "no");
-        btn.disabled = true;
-        btn.textContent = "Submitting...";
-        statusEl.className = "pc-status pc-ok";
-        statusEl.textContent = "You're in. Taking you to the videos...";
-        var redirected = false;
-        var go = function () { if (redirected) return; redirected = true; window.location.href = WATCH_URL; };
-        fetch(MAKE_WEBHOOK, { method: "POST", mode: "no-cors", body: params, keepalive: true })
-          .then(function () { setTimeout(go, 500); })
-          .catch(function () { setTimeout(go, 500); });
-        setTimeout(go, 3000);
+        var f = this.getAttribute('data-filter');
+        links.forEach(function(l){ l.classList.remove('active'); });
+        this.classList.add('active');
+        cards.forEach(function(c){
+          c.style.display = (f === 'all' || c.getAttribute('data-category') === f) ? '' : 'none';
+        });
       });
-    })();
+    });
+  })();
   </script>
   <script src="/js/main.js"></script>
 </body>
