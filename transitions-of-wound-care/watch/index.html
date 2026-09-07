@@ -130,6 +130,43 @@
       border: 0;
     }
 
+    /* Live "time left to watch" countdown bar */
+    .watch-closesin {
+      max-width: 1020px;
+      margin: 0 auto 1.4rem;
+      background: linear-gradient(135deg, #0C1F3F 0%, #1B3A6A 100%);
+      color: #fff;
+      border-radius: 12px;
+      padding: 0.85rem 1.4rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem 1.4rem;
+      flex-wrap: wrap;
+      box-shadow: 0 10px 30px rgba(12,31,63,0.14);
+    }
+    .watch-closesin .closesin-label {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+      color: #F2D77A;
+    }
+    .watch-closesin .closesin-label svg { width: 15px; height: 15px; }
+    .watch-closesin .closesin-timer { display: inline-flex; align-items: baseline; gap: 0.9rem; }
+    .watch-closesin .closesin-unit { display: inline-flex; align-items: baseline; gap: 0.25rem; }
+    .watch-closesin .closesin-unit b {
+      font-family: 'DM Serif Display', serif; font-size: 1.7rem; line-height: 1;
+      color: #38B6FF; font-weight: 400; font-variant-numeric: tabular-nums; min-width: 1.4ch; text-align: right;
+    }
+    .watch-closesin .closesin-unit i {
+      font-style: normal; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.06em;
+      text-transform: uppercase; color: rgba(255,255,255,0.6);
+    }
+    .watch-closesin .closesin-sub { font-size: 0.85rem; color: rgba(255,255,255,0.7); }
+    @media (max-width: 620px) {
+      .watch-closesin { gap: 0.5rem 1rem; padding: 0.9rem 1rem; }
+      .watch-closesin .closesin-sub { flex-basis: 100%; text-align: center; }
+    }
+
     /* Speaker card */
     .watch-speaker-section {
       padding: 4rem 0;
@@ -526,9 +563,23 @@
       </div>
     </section>
 
-    <!-- ===== VIDEO PLAYER (shown only during the Sep 9 to Sep 12 window) ===== -->
+    <!-- ===== VIDEO PLAYER (open now, closes Sep 9 3:00 PM ET) ===== -->
     <section class="watch-video-section" id="video-section" style="display:none;">
       <div class="container">
+        <!-- Live "time left to watch" countdown, ticks down to Sep 9 3:00 PM ET -->
+        <div class="watch-closesin" id="closesin">
+          <span class="closesin-label">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Free access closes in
+          </span>
+          <span class="closesin-timer">
+            <span class="closesin-unit"><b id="ci-days">00</b><i>days</i></span>
+            <span class="closesin-unit"><b id="ci-hours">00</b><i>hrs</i></span>
+            <span class="closesin-unit"><b id="ci-min">00</b><i>min</i></span>
+            <span class="closesin-unit"><b id="ci-sec">00</b><i>sec</i></span>
+          </span>
+          <span class="closesin-sub">Watch before September 9, 3:00 PM ET</span>
+        </div>
         <div class="watch-video-wrap">
           <iframe src="https://player.vimeo.com/video/1223027197?h=b8c8609295&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
             frameborder="0"
@@ -577,7 +628,12 @@
             document.getElementById('cd-seconds').textContent = pad(Math.floor(d%6e4/1e3));
           } else if (now < closeDate) {
             countdown.style.display = 'none'; video.style.display = 'block'; closed.style.display = 'none';
-            if (timer) { clearInterval(timer); timer = null; }
+            var r = closeDate - now;
+            document.getElementById('ci-days').textContent  = pad(Math.floor(r/864e5));
+            document.getElementById('ci-hours').textContent = pad(Math.floor(r%864e5/36e5));
+            document.getElementById('ci-min').textContent   = pad(Math.floor(r%36e5/6e4));
+            document.getElementById('ci-sec').textContent   = pad(Math.floor(r%6e4/1e3));
+            // keep the interval running so the "closes in" countdown keeps ticking
           } else {
             countdown.style.display = 'none'; video.style.display = 'none'; closed.style.display = 'block';
             if (banner) banner.style.display = 'none';
