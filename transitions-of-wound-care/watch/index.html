@@ -457,7 +457,7 @@
     <div class="watch-window">
       <span>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        Free access opens September 9, 3:00 PM ET &middot; 72-hour on-demand window
+        Available to watch now &middot; free access closes September 12, 3:00 PM ET
       </span>
     </div>
 
@@ -469,7 +469,7 @@
           You're registered
         </span>
         <h1>Welcome to <em>Transitions of Wound Care</em></h1>
-        <p>Your spot is saved and your free PAWSIC membership is active. This webinar opens here on <strong>September 9 at 3:00 PM ET</strong> and stays available on demand for 72 hours. A welcome email is on its way with your watch link and a calendar invite, so add it to your calendar below. After you watch, submit your questions for the live LinkedIn Q&amp;A.</p>
+        <p>Your spot is saved and your free PAWSIC membership is active. The webinar is available to watch right here now, through <strong>September 12</strong>. A welcome email is on its way with your watch link and login details. After you watch, submit your questions below for the live LinkedIn Q&amp;A.</p>
         <div class="watch-access-meta" style="gap:1.2rem; flex-wrap:wrap; justify-content:center;">
           <span style="display:inline-flex;align-items:center;gap:0.5rem;">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px;color:#38B6FF"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
@@ -558,8 +558,8 @@
     <!-- Window control: opens Sep 9 2026 3:00 PM ET (EDT = UTC-4 => 19:00 UTC), closes 72h later Sep 12 19:00 UTC -->
     <script>
       (function () {
-        var openDate  = new Date('2026-09-09T19:00:00Z');
-        var closeDate = new Date('2026-09-12T19:00:00Z');
+        var openDate  = new Date('2026-09-01T00:00:00Z'); // opened early per Dahlia (was Sep 9 19:00Z); to re-gate, restore that value
+        var closeDate = new Date('2026-09-12T19:00:00Z'); // closes at the live Q&A date, Sep 12 3:00 PM ET
         var countdown = document.getElementById('countdown-section');
         var video     = document.getElementById('video-section');
         var closed    = document.getElementById('closed-section');
@@ -655,7 +655,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
           </div>
           <h2>Earn Your Certificate of Completion</h2>
-          <p>You can watch right here during the 72-hour window. To also earn your PAWSIC Certificate of Completion, watch the webinar while signed in to your PAWSIC member account, where your progress is tracked and your certificate is issued automatically the moment you finish. <strong>Premium members</strong> can also download the full presentation slides to revisit or share with their team. Once you have your certificate, it makes a simple, professional record of training for your Director of Nursing, CNO, or education coordinator.</p>
+          <p>You can watch right here now, through September 12. To also earn your PAWSIC Certificate of Completion, watch the webinar while signed in to your PAWSIC member account, where your progress is tracked and your certificate is issued automatically the moment you finish. <strong>Premium members</strong> can also download the full presentation slides to revisit or share with their team. Once you have your certificate, it makes a simple, professional record of training for your Director of Nursing, CNO, or education coordinator.</p>
           <!-- TODO(cert-url): replace with the real MemberPress LMS course URL for Transitions of Wound Care -->
           <a href="https://memberships.pawsic.org/courses/" class="btn-primary btn-lg" target="_blank" rel="noopener noreferrer">Watch on Your Member Account <span class="btn-arrow">&rarr;</span></a>
         </div>
