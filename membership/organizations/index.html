@@ -176,11 +176,73 @@
     .om-dl:hover { border-color:#2b7cca; color:#2b7cca; }
 
 
+    /* ===== Split hero (Organizations) ===== */
+    .om-hero2 { position:relative; overflow:hidden; }
+    .om-hero2 .v2-page-hero-bg { position:absolute; inset:0; }
+    .om-hero2 .container { position:relative; }
+    .om-hero-split { display:grid; grid-template-columns:1.05fr 0.95fr; gap:56px; align-items:center; }
+    .om-hero-split.img-left { grid-template-columns:0.95fr 1.05fr; }
+    .om-hero-split.img-left .om-hero-copy { order:2; }
+    .om-hero-split.img-left .om-hero-media { order:1; }
+    .om-hero-copy { text-align:left; }
+    .om-hero-copy .section-tag { margin-bottom:18px; }
+    .om-hero-copy h1 { text-align:left; margin:0 0 16px; }
+    .om-hero-copy .v2-page-hero-sub { margin:0 0 26px; max-width:32em; }
+    .om-hero-copy .om-hero-actions { justify-content:flex-start; }
+    .om-hero-copy .om-hero-note { text-align:left; }
+    .om-hero-media { position:relative; }
+    .om-hero-frame { position:relative; border-radius:20px; overflow:hidden; aspect-ratio:4 / 5; box-shadow:0 24px 60px rgba(4,12,28,0.45); }
+    .om-hero-frame.wide { aspect-ratio:5 / 4; }
+    .om-hero-frame img { width:100%; height:100%; object-fit:cover; display:block; }
+    .om-hero-frame::after { content:''; position:absolute; inset:0; }
+    .cool .om-hero-frame::after { background:linear-gradient(180deg, rgba(12,31,63,0.10), rgba(12,31,63,0.42)); mix-blend-mode:multiply; }
+    .warm .om-hero-frame::after { background:linear-gradient(180deg, rgba(201,168,76,0.14), rgba(12,31,63,0.30)); }
+    .om-hero-frame { outline:1px solid rgba(255,255,255,0.12); outline-offset:-1px; }
+    .om-hero-badge { position:absolute; left:18px; bottom:18px; z-index:2; background:rgba(12,31,63,0.72); backdrop-filter:blur(6px); color:#fff; font-size:0.78rem; font-weight:600; letter-spacing:0.02em; padding:8px 14px; border-radius:100px; border:1px solid rgba(255,255,255,0.18); }
+    .warm .om-hero-badge { background:rgba(201,168,76,0.92); color:#0c1f3f; border-color:rgba(255,255,255,0.35); }
+
+    /* ===== Proof photo band ===== */
+    .om-proof-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; max-width:1100px; margin:0 auto; }
+    .om-proof-ph { position:relative; border-radius:16px; overflow:hidden; aspect-ratio:4 / 3; box-shadow:0 1px 2px rgba(12,31,63,0.06), 0 14px 34px rgba(12,31,63,0.10); }
+    .om-proof-ph img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .5s ease; }
+    .om-proof-ph:hover img { transform:scale(1.04); }
+    .om-proof-ph::after { content:''; position:absolute; inset:0; }
+    .cool .om-proof-ph::after { background:linear-gradient(180deg, rgba(12,31,63,0) 40%, rgba(12,31,63,0.55)); }
+    .warm .om-proof-ph::after { background:linear-gradient(180deg, rgba(12,31,63,0) 40%, rgba(122,84,20,0.5)); }
+    .om-proof-cap { position:absolute; left:14px; bottom:12px; z-index:2; color:#fff; font-size:0.78rem; font-weight:600; letter-spacing:0.04em; text-transform:uppercase; }
+
+    /* ===== Warm theme accent overrides (Groups) ===== */
+    .warm .section-tag { color:#8a6a1f; background:#f3ead2; }
+    .warm .v2-page-hero .section-tag, .warm .om-ent-head .section-tag { color:#c9a84c; border-color:rgba(201,168,76,0.5); background:transparent; }
+    .warm h1 em { color:#e9c766; }
+    .warm h2 em { color:#9a7826; }
+    .warm .om-ent-head h2 em { color:#e9c766; }
+    .warm .om-hero-note strong { color:#e9c766; }
+    .warm .om-fact-label { color:#8a6a1f; }
+    .warm .check { color:#c9a84c; }
+    .warm .om-seat.basic .check { color:#b8912f; }
+    .warm .om-seat.pro .om-seat-tag { color:#e9c766; }
+    .warm .om-seat.basic .om-seat-tag { color:#8a6a1f; }
+    .warm .om-contact-email { border-bottom-color:#c9a84c; }
+    .warm .om-contact-email:hover { color:#9a7826; }
+    .warm .faq-item summary::after { color:#9a7826; }
+    .warm .btn-outline { border-color:rgba(255,255,255,0.5); }
+    .warm .om-other .kick { color:#9a7826; }
+    .warm .om-how-cta p, .warm .om-other-links a.small { color:#5a6879; }
+    .warm .om-other-links a.small { color:#9a7826; }
+
     @media (max-width: 1024px) {
       .om-aud-grid { grid-template-columns:repeat(2,1fr); gap:0 40px; }
     }
     @media (max-width: 860px) {
-      .om-facts, .om-seats, .om-calc, .om-example, .om-contact, .om-other { grid-template-columns:1fr; }
+      .om-facts, .om-seats, .om-calc, .om-example, .om-contact, .om-other, .om-hero-split, .om-hero-split.img-left { grid-template-columns:1fr; }
+      .om-hero-split.img-left .om-hero-copy { order:1; }
+      .om-hero-split.img-left .om-hero-media { order:2; }
+      .om-hero-copy h1, .om-hero-copy { text-align:center; }
+      .om-hero-copy .om-hero-actions { justify-content:center; }
+      .om-hero-copy .v2-page-hero-sub { margin-left:auto; margin-right:auto; }
+      .om-hero-frame { max-width:440px; margin:8px auto 0; }
+      .om-proof-grid { grid-template-columns:1fr 1fr; }
       .om-calc { padding:32px 24px; gap:28px; }
       .om-aud-grid { grid-template-columns:1fr; }
       .om-facts { gap:0; }
@@ -195,6 +257,7 @@
       .om-other { padding:28px 24px; }
     }
     @media (max-width: 560px) {
+      .om-proof-grid { grid-template-columns:1fr; }
       .om-seat { padding:28px 22px; }
     }
   </style>
@@ -356,18 +419,29 @@
 
   <div class="mobile-overlay"></div>
   <main id="main-content">
+    <div class="om-page cool">
 
-    <section class="v2-page-hero">
+    <section class="v2-page-hero om-hero2">
       <div class="v2-page-hero-bg"></div>
       <div class="container">
-        <span class="section-tag reveal">Organization Partner Membership</span>
-        <h1 class="reveal reveal-delay-1">One Partnership for Your <em>Whole Organization</em></h1>
-        <p class="v2-page-hero-sub reveal reveal-delay-2">Annual PAWSIC membership priced per center or facility. Every site receives two transferable Premium seats and unlimited Basic memberships for staff, and your organization is recognized as an official PAWSIC Partner.</p>
-        <div class="v2-page-hero-links om-hero-actions reveal reveal-delay-3">
-          <a href="#contact" class="btn-primary">Request Pricing <span class="btn-arrow">&rarr;</span></a>
-          <a href="#included" class="btn-outline">See What Is Included</a>
+        <div class="om-hero-split img-right">
+        <div class="om-hero-copy">
+          <span class="section-tag reveal">Organization Partner Membership</span>
+          <h1 class="reveal reveal-delay-1">One Partnership for Your <em>Whole Organization</em></h1>
+          <p class="v2-page-hero-sub reveal reveal-delay-2">Annual PAWSIC membership priced per center or facility. Every site receives two transferable Premium seats and unlimited Basic memberships for staff, and your organization is recognized as an official PAWSIC Partner.</p>
+          <div class="om-hero-actions reveal reveal-delay-3">
+            <a href="#contact" class="btn-primary">Request Pricing <span class="btn-arrow">&rarr;</span></a>
+            <a href="#included" class="btn-outline">See What Is Included</a>
+          </div>
+          <p class="om-hero-note reveal reveal-delay-3"><strong>A limited number of Partner Circle spots are available for 2026 and 2027.</strong> Payment plans available.</p>
         </div>
-        <p class="om-hero-note reveal reveal-delay-3"><strong>A limited number of Partner Circle spots are available for 2026 and 2027.</strong> Payment plans available.</p>
+        <div class="om-hero-media reveal reveal-delay-2">
+          <div class="om-hero-frame ">
+            <img src="/images/events/community/ahca-ncal-2025/photo-1.jpg" alt="PAWSIC team at the AHCA/NCAL post-acute care convention">
+            <span class="om-hero-badge">12+ post-acute settings served</span>
+          </div>
+        </div>
+        </div>
       </div>
     </section>
 
@@ -453,6 +527,21 @@
             <h3>Adult Day Health Centers</h3>
             <p>Adult day services and day health programs serving medically complex older adults.</p>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-white">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">In the field</span>
+          <h2>Seen across the <em>post-acute continuum</em></h2>
+          <p>PAWSIC shows up at the conferences your operators and directors of nursing already attend.</p>
+        </div>
+        <div class="om-proof-grid reveal reveal-delay-1">
+          <figure class="om-proof-ph"><img src="/images/events/community/aapcn-2026/photo-6.jpg" alt="AAPACN 2026" loading="lazy"><figcaption class="om-proof-cap">AAPACN 2026</figcaption></figure>
+          <figure class="om-proof-ph"><img src="/images/events/community/ltc-rise-spring-2026/ltc-rise-3.jpg" alt="LTC RISE 2026" loading="lazy"><figcaption class="om-proof-cap">LTC RISE 2026</figcaption></figure>
+          <figure class="om-proof-ph"><img src="/images/events/community/nadona-2026/nadona-2026-1.jpg" alt="NADONA 2026" loading="lazy"><figcaption class="om-proof-cap">NADONA 2026</figcaption></figure>
         </div>
       </div>
     </section>
@@ -686,6 +775,7 @@
         </div>
       </div>
     </section>
+    </div>
   </main>
   <footer class="site-footer">
     <div class="container">
