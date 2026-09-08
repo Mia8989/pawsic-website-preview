@@ -95,6 +95,17 @@
       line-height: 1.7;
       font-size: 0.95rem;
     }
+    /* Organizations and groups cards */
+    .og-grid { display:grid; grid-template-columns:1fr 1fr; gap:24px; max-width:1040px; margin:0 auto; }
+    .og-card { display:flex; flex-direction:column; background:#fff; border:1px solid #e8edf2; border-radius:20px; padding:36px 34px; text-decoration:none; color:inherit; transition:transform .2s ease, box-shadow .2s ease; box-shadow:0 1px 2px rgba(12,31,63,0.04); }
+    .og-card:hover { transform:translateY(-3px); box-shadow:0 1px 2px rgba(12,31,63,0.06), 0 14px 36px rgba(12,31,63,0.10); }
+    .og-kicker { font-size:0.74rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:#2b7cca; margin-bottom:12px; }
+    .og-card h3 { font-family:'DM Serif Display',serif; font-size:1.65rem; color:#0c1f3f; margin:0 0 10px; letter-spacing:-0.01em; line-height:1.15; }
+    .og-card p { color:#3d4a5c; font-size:0.95rem; line-height:1.65; margin:0 0 22px; flex:1; }
+    .og-price { font-family:'DM Serif Display',serif; font-size:1.8rem; color:#0c1f3f; letter-spacing:-0.02em; margin-bottom:18px; }
+    .og-price span { font-family:'Inter',sans-serif; font-size:0.85rem; color:#7a8699; letter-spacing:0; margin-left:6px; }
+    .og-link { font-weight:600; color:#2b7cca; font-size:0.95rem; }
+    @media (max-width: 800px) { .og-grid { grid-template-columns:1fr; } .og-card { padding:28px 24px; } }
   </style>
   <script type="application/ld+json">
   [
@@ -377,6 +388,30 @@
       </div>
     </section>
 
+    <!-- ===== ORGANIZATIONS AND GROUPS ===== -->
+    <section id="organizations" class="section section-frost">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Organizations and Groups</span>
+          <h2>Bringing Your <em>Whole Team?</em></h2>
+          <p>Two membership models built for organizations: one priced per center or facility, one priced per clinician. Both include official PAWSIC Partner recognition and flexible payment plans. Contact us for the full pricing ladder.</p>
+        </div>
+        <div class="og-grid reveal reveal-delay-1">
+          <a class="og-card" href="/membership/organizations/">
+            <span class="og-kicker">Per center or facility</span>
+            <h3>Organization Partner Membership</h3>
+            <p>For skilled nursing, assisted living, home health, hospice, PACE, and other post-acute organizations. Every center receives two transferable Premium seats and unlimited Basic memberships for staff.</p>
+            <span class="og-link">Explore Organization Partner Membership &rarr;</span>
+          </a>
+          <a class="og-card" href="/membership/groups/">
+            <span class="og-kicker">Per clinician, 2 or more</span>
+            <h3>Professional Group Membership</h3>
+            <p>For mobile wound groups, home health teams, wound centers, primary care, urgent care, therapy, and pharmacy groups. One Professional membership per clinician, unlimited Basic memberships for everyone else.</p>
+            <span class="og-link">Explore Professional Group Membership &rarr;</span>
+          </a>
+        </div>
+      </div>
+    </section>
     <!-- ===== FAQ ===== -->
     <section id="faq" class="section section-white">
       <div class="container">
