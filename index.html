@@ -167,22 +167,6 @@
     ]
   }
   </script>
-<style id="paper-launch-styles">
-.paper-launch{background:#0c1f3f;color:#faf8f4;padding:64px 0 72px;}
-.paper-launch .paper-layout{display:grid;grid-template-columns:1.3fr 0.8fr;gap:80px;align-items:center;}
-.paper-launch .paper-label{font:600 12px/1.5 Inter,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#c9a84c;margin:0 0 24px;}
-.paper-launch h1{font-family:'DM Serif Display',Georgia,serif;font-weight:400;font-size:clamp(36px,4.2vw,60px);line-height:1.08;letter-spacing:-.025em;color:#faf8f4;margin:0 0 24px;}
-.paper-launch .paper-summary{font-size:18px;line-height:1.65;color:#dae3ef;max-width:34em;margin:0 0 32px;}
-.paper-launch .paper-action{display:inline-flex;align-items:center;justify-content:center;gap:16px;background:#c9a84c;color:#0c1f3f;font-weight:700;font-size:16px;padding:16px 24px;border-radius:8px;text-decoration:none;transition:background .2s;}
-.paper-launch .paper-action:hover{background:#d8bb63;}
-.paper-launch a:focus-visible{outline:3px solid #38b6ff;outline-offset:5px;}
-.paper-launch .paper-secondary{display:block;color:#dae3ef;text-decoration:underline;text-underline-offset:4px;font-size:14px;margin-top:24px;}
-.paper-launch .paper-art{position:relative;max-width:320px;justify-self:center;transform:rotate(2deg);box-shadow:0 24px 56px rgba(0,0,0,.22);}
-.paper-launch .paper-logo-overlay{position:absolute;top:0;left:0;width:100%;height:27%;background:#fff;display:flex;align-items:center;justify-content:center;}
-.paper-launch .paper-logo-overlay img{width:34%;height:auto;}
-.paper-launch .paper-art img{width:100%;height:auto;display:block;border-radius:2px;}
-@media(max-width:760px){.paper-launch{padding:48px 0;}.paper-launch .paper-layout{grid-template-columns:1fr;gap:40px;}.paper-launch .paper-art{max-width:216px;transform:none;}.paper-launch .paper-summary{font-size:16px;}.paper-launch .paper-label{margin-bottom:16px;}.paper-launch .paper-action{width:100%;}}
-</style>
 </head>
 <body>
 
@@ -285,19 +269,18 @@
   <main id="main-content">
 
     <!-- ===== HERO (V2 -- Sarah's simplified copy, single CTA) ===== -->
-    <section class="paper-launch" aria-labelledby="paper-launch-heading">
-      <div class="container paper-layout">
-        <div class="paper-copy">
-          <p class="paper-label">PAWSIC Position Paper</p>
-          <h1 id="paper-launch-heading">The Case for Skin Failure Diagnostic Codes</h1>
-          <p class="paper-summary">Explore PAWSIC’s case for ICD-10-CM diagnostic codes for skin failure. Read the full position paper, download a copy, and add your endorsement.</p>
-          <a class="paper-action" href="/skin-failure-position-paper/read/">Read the Position Paper <span aria-hidden="true">&rarr;</span></a>
-          <a class="paper-secondary" href="https://memberships.pawsic.org/register/free/">Join PAWSIC Free</a>
+    <section class="hero">
+      <div class="hero-bg-pattern"></div>
+      <div class="hero-grain"></div>
+      <div class="container">
+        <h1 class="reveal reveal-delay-1">Uniting Around Better <em>Wound Care &amp; Skin Health</em></h1>
+        <p class="hero-subtitle reveal reveal-delay-2">PAWSIC is the council for everyone who cares about wound care and skin health. Clinicians, caregivers, patients, families, industry partners, and students are all welcome. We provide practical education, CE &amp; CME credits, and a professional community to improve wound care and skin health everywhere.</p>
+        <div class="hero-cta-group reveal reveal-delay-3">
+          <a href="https://memberships.pawsic.org/register/free/" class="btn-primary btn-lg" target="_blank" rel="noopener noreferrer">
+            Join PAWSIC Free <span class="btn-arrow">&rarr;</span>
+          </a>
         </div>
-        <a class="paper-art" href="/skin-failure-position-paper/read/" aria-label="Read the PAWSIC Skin Failure Codes Position Paper">
-          <img src="/images/psfcpp-position-paper-cover.webp" width="850" height="1100" alt="Cover of the PAWSIC Skin Failure Codes Position Paper" fetchpriority="high">
-          <span class="paper-logo-overlay" aria-hidden="true"><img src="/images/PAWSIC_LOGO_Navy_Vert_Grey.png" alt="" style="width:34%;height:auto;"></span>
-        </a>
+        <span class="hero-microcopy reveal reveal-delay-3"><a href="/membership/">See CE / CME Membership Options</a></span>
       </div>
     </section>
 
