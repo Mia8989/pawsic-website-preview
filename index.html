@@ -167,6 +167,20 @@
     ]
   }
   </script>
+<style id="paper-launch-styles">
+.paper-launch{background:#0c1f3f;color:#faf8f4;padding:64px 0 72px;}
+.paper-launch .paper-layout{display:grid;grid-template-columns:1.3fr 0.8fr;gap:80px;align-items:center;}
+.paper-launch .paper-label{font:600 12px/1.5 Inter,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#c9a84c;margin:0 0 24px;}
+.paper-launch h1{font-family:'DM Serif Display',Georgia,serif;font-weight:400;font-size:clamp(36px,4.2vw,60px);line-height:1.08;letter-spacing:-.025em;color:#faf8f4;margin:0 0 24px;}
+.paper-launch .paper-summary{font-size:18px;line-height:1.65;color:#dae3ef;max-width:34em;margin:0 0 32px;}
+.paper-launch .paper-action{display:inline-flex;align-items:center;justify-content:center;gap:16px;background:#c9a84c;color:#0c1f3f;font-weight:700;font-size:16px;padding:16px 24px;border-radius:8px;text-decoration:none;transition:background .2s;}
+.paper-launch .paper-action:hover{background:#d8bb63;}
+.paper-launch a:focus-visible{outline:3px solid #38b6ff;outline-offset:5px;}
+.paper-launch .paper-secondary{display:block;color:#dae3ef;text-decoration:underline;text-underline-offset:4px;font-size:14px;margin-top:24px;}
+.paper-launch .paper-art{max-width:320px;justify-self:center;transform:rotate(2deg);box-shadow:0 24px 56px rgba(0,0,0,.22);}
+.paper-launch .paper-art img{width:100%;height:auto;display:block;border-radius:2px;}
+@media(max-width:760px){.paper-launch{padding:48px 0;}.paper-launch .paper-layout{grid-template-columns:1fr;gap:40px;}.paper-launch .paper-art{max-width:216px;transform:none;}.paper-launch .paper-summary{font-size:16px;}.paper-launch .paper-label{margin-bottom:16px;}.paper-launch .paper-action{width:100%;}}
+</style>
 </head>
 <body>
 
@@ -269,18 +283,18 @@
   <main id="main-content">
 
     <!-- ===== HERO (V2 -- Sarah's simplified copy, single CTA) ===== -->
-    <section class="hero">
-      <div class="hero-bg-pattern"></div>
-      <div class="hero-grain"></div>
-      <div class="container">
-        <h1 class="reveal reveal-delay-1">Uniting Around Better <em>Wound Care &amp; Skin Health</em></h1>
-        <p class="hero-subtitle reveal reveal-delay-2">PAWSIC is the council for everyone who cares about wound care and skin health. Clinicians, caregivers, patients, families, industry partners, and students are all welcome. We provide practical education, CE &amp; CME credits, and a professional community to improve wound care and skin health everywhere.</p>
-        <div class="hero-cta-group reveal reveal-delay-3">
-          <a href="https://memberships.pawsic.org/register/free/" class="btn-primary btn-lg" target="_blank" rel="noopener noreferrer">
-            Join PAWSIC Free <span class="btn-arrow">&rarr;</span>
-          </a>
+    <section class="paper-launch" aria-labelledby="paper-launch-heading">
+      <div class="container paper-layout">
+        <div class="paper-copy">
+          <p class="paper-label">PAWSIC Position Paper</p>
+          <h1 id="paper-launch-heading">The Case for Skin Failure Diagnostic Codes</h1>
+          <p class="paper-summary">Explore PAWSIC’s case for ICD-10-CM diagnostic codes for skin failure. Read the full position paper, download a copy, and add your endorsement.</p>
+          <a class="paper-action" href="/skin-failure-position-paper/read/">Read the Position Paper <span aria-hidden="true">&rarr;</span></a>
+          <a class="paper-secondary" href="https://memberships.pawsic.org/register/free/">Join PAWSIC Free</a>
         </div>
-        <span class="hero-microcopy reveal reveal-delay-3"><a href="/membership/">See CE / CME Membership Options</a></span>
+        <a class="paper-art" href="/skin-failure-position-paper/read/" aria-label="Read the PAWSIC Skin Failure Codes Position Paper">
+          <img src="/images/psfcpp-position-paper-cover.webp" width="850" height="1100" alt="Cover of the PAWSIC Skin Failure Codes Position Paper" fetchpriority="high">
+        </a>
       </div>
     </section>
 
@@ -904,6 +918,7 @@
             <a href="https://x.com/PAWSIC1" aria-label="X" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" viewBox="0 0 24 24" fill="white" stroke="none"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
           </div>
           <a href="/podcast/" class="footer-podcast-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg> Listen: Healing by Design Podcast</a>
+          <a href="/skin-failure-position-paper/read/" class="footer-podcast-btn footer-paper-btn" style="display:flex;width:fit-content;max-width:100%;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" style="flex-shrink:0;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h6"/></svg> Read: Skin Failure Position Paper</a>
         </div>
         <div class="footer-col">
           <h4>Quick Links</h4>
