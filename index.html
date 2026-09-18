@@ -269,7 +269,40 @@
 
   <main id="main-content">
 
-    <!-- ===== HERO (V2 -- Sarah's simplified copy, single CTA) ===== -->
+    <!-- ===== PAPER LAUNCH HERO (featured ~1 month; restored from commit 51d5fe1d). To revert: delete this style block + section. ===== -->
+    <style>
+      .paper-launch{background:linear-gradient(135deg,#0c1f3f 0%,#152a4d 38%,#1e3a6e 68%,#0c1f3f 100%);background-size:220% 220%;animation:paperGradient 16s ease infinite;color:#faf8f4;padding:64px 0 72px;position:relative;overflow:hidden;}
+      .paper-launch::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 85% 12%,rgba(56,182,255,0.16) 0%,transparent 46%),radial-gradient(circle at 6% 92%,rgba(43,124,202,0.12) 0%,transparent 46%);pointer-events:none;}
+      .paper-launch .paper-layout{position:relative;z-index:1;display:grid;grid-template-columns:1.3fr 0.8fr;gap:80px;align-items:center;}
+      .paper-launch .paper-label{font:600 12px/1.5 Inter,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#c9a84c;margin:0 0 24px;}
+      .paper-launch h1{font-family:'DM Serif Display',Georgia,serif;font-weight:400;font-size:clamp(36px,4.2vw,60px);line-height:1.08;letter-spacing:-.025em;color:#faf8f4;margin:0 0 24px;}
+      .paper-launch .paper-summary{font-size:18px;line-height:1.65;color:#dae3ef;max-width:34em;margin:0 0 32px;}
+      .paper-launch .paper-action{display:inline-flex;align-items:center;justify-content:center;gap:16px;background:#c9a84c;color:#0c1f3f;font-weight:700;font-size:16px;padding:16px 24px;border-radius:8px;text-decoration:none;transition:background .2s;}
+      .paper-launch .paper-action:hover{background:#d8bb63;}
+      .paper-launch a:focus-visible{outline:3px solid #38b6ff;outline-offset:5px;}
+      .paper-launch .paper-secondary{display:block;color:#dae3ef;text-decoration:underline;text-underline-offset:4px;font-size:14px;margin-top:24px;}
+      .paper-launch .paper-art{max-width:320px;justify-self:center;transform:rotate(2deg);box-shadow:0 24px 56px rgba(0,0,0,.22);}
+      .paper-launch .paper-art img{width:100%;height:auto;display:block;border-radius:2px;}
+      @keyframes paperGradient{0%{background-position:0% 50%;}50%{background-position:100% 50%;}100%{background-position:0% 50%;}}
+      @media(prefers-reduced-motion:reduce){.paper-launch{animation:none;}}
+      @media(max-width:760px){.paper-launch{padding:48px 0;}.paper-launch .paper-layout{grid-template-columns:1fr;gap:40px;}.paper-launch .paper-art{max-width:216px;transform:none;}.paper-launch .paper-summary{font-size:16px;}.paper-launch .paper-label{margin-bottom:16px;}.paper-launch .paper-action{width:100%;}}
+    </style>
+    <section class="paper-launch" aria-labelledby="paper-launch-heading">
+      <div class="container paper-layout">
+        <div class="paper-copy">
+          <p class="paper-label">PAWSIC Position Paper</p>
+          <h1 id="paper-launch-heading">The Case for Skin Failure Diagnostic Codes</h1>
+          <p class="paper-summary">Explore PAWSIC&rsquo;s case for ICD-10-CM diagnostic codes for skin failure. Read the full position paper, download a copy, and add your endorsement.</p>
+          <a class="paper-action" href="/skin-failure-position-paper/read/">Read the Position Paper <span aria-hidden="true">&rarr;</span></a>
+          <a class="paper-secondary" href="https://memberships.pawsic.org/register/free/">Join PAWSIC Free</a>
+        </div>
+        <a class="paper-art" href="/skin-failure-position-paper/read/" aria-label="Read the PAWSIC Skin Failure Codes Position Paper">
+          <img src="/images/psfcpp-position-paper-cover.webp" width="850" height="1100" alt="Cover of the PAWSIC Skin Failure Codes Position Paper" fetchpriority="high">
+        </a>
+      </div>
+    </section>
+
+    <!-- ===== HERO (V2: Sarah's simplified copy, single CTA) ===== -->
     <section class="hero">
       <div class="hero-bg-pattern"></div>
       <div class="hero-grain"></div>
