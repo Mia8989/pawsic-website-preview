@@ -10,6 +10,17 @@
     gtag('config', 'G-2VRLWNKKNS');
   </script>
 
+  <!-- Microsoft Clarity: site behavior/heatmaps. Form fields on this page are masked
+       (data-clarity-mask on #endorseForm) so no typed PII is captured in recordings.
+       Also set masking to "Mask all" in the Clarity dashboard for defense in depth. -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "ykcol9xrz7");
+  </script>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Read and Endorse the PAWSIC Skin Failure Codes Position Paper</title>
@@ -291,7 +302,7 @@
           <p>The Post Acute Wound and Skin Integrity Council recognizes skin failure as an increasingly identified clinical phenomenon associated with systemic physiologic compromise. The absence of dedicated diagnostic codes for skin failure within ICD-10-CM creates challenges for documentation, communication, quality measurement, and research. PAWSIC supports the development of an ICD-10-CM skin failure code framework that reflects contemporary clinical practice while allowing for continued scientific refinement as evidence evolves.</p>
         </div>
 
-        <form id="endorseForm" novalidate>
+        <form id="endorseForm" novalidate data-clarity-mask="true">
           <!-- Honeypot: hidden from humans; bots that fill it are silently rejected. -->
           <div aria-hidden="true" style="position:absolute;left:-9999px;top:-9999px;width:1px;height:1px;overflow:hidden;">
             <label for="pf-website">Website (leave blank)</label>
