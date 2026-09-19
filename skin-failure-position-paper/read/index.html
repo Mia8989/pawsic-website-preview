@@ -260,7 +260,7 @@
         <line x1="12" y1="12" x2="12" y2="18"></line>
         <polyline points="9 15 12 18 15 15"></polyline>
       </svg>
-      <h2>Read the Position Paper</h2>
+      <h2>Position Paper</h2>
 
       <!-- PDF AVAILABLE: full document is embedded to read on-page and download -->
       <div id="dl-available" style="display:none;">
@@ -284,10 +284,11 @@
         <p class="dl-note">PDF, published by the Post Acute Wound and Skin Integrity Council. September 2026. If the paper does not display above, use the download button.</p>
       </div>
 
-      <!-- PDF PENDING: shown until the board-approved paper is released -->
-      <div id="dl-pending" class="pending">
-        <p><strong>Thank you. You are on the list.</strong></p>
-        <p class="lead" style="margin-top:8px;margin-bottom:0;">The Position Paper is in final Board review. The complete paper will be released in September 2026, and we will email your copy to the address you provided. You can add your endorsement below now.</p>
+      <!-- PDF PAUSED: temporary citation-update notice (Sept 19 2026). Restore = flip PDF_AVAILABLE back to true. -->
+      <div id="dl-pending" class="pending" style="text-align:center;">
+        <div style="display:inline-block;background:#fff;border:1px solid #EBE2CC;color:#8a6d1f;font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:5px 14px;border-radius:100px;margin-bottom:12px;">Brief update in progress</div>
+        <p><strong>The download is paused for a short update.</strong></p>
+        <p class="lead" style="margin-top:8px;margin-bottom:0;">This position paper is temporarily unavailable while we finalize a minor citation update. It will be back shortly. You can still add your endorsement below, and see the one-page summary further down.</p>
       </div>
     </section>
 
@@ -477,7 +478,7 @@
     (function () {
       // Flip to true and place the approved PDF at /skin-failure-position-paper/PSFCPP.pdf
       // to embed the paper for on-page reading + download.
-      var PDF_AVAILABLE = true;
+      var PDF_AVAILABLE = false; // TEMP: paused for a citation update (Sept 19 2026). Flip back to true to restore the viewer + download.
       // Cache-busting version bump each time the PDF file is replaced, so Cloudflare's
       // edge cache (4hr TTL) never serves a stale copy after an update. Bump this string
       // whenever PSFCPP.pdf is swapped for a new version.
