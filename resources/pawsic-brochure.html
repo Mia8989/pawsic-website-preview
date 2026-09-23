@@ -58,10 +58,12 @@
   /* HEADER */
   .header {
     background: linear-gradient(135deg, var(--navy) 0%, var(--indigo) 60%, var(--logo-blue) 100%);
-    padding: 16pt 32pt 12pt;
+    padding: 20pt 32pt 18pt;
     position: relative;
     overflow: hidden;
   }
+
+  .brand-lockup { height: 54pt; width: auto; display: block; }
 
   .header::before {
     content: '';
@@ -90,23 +92,8 @@
   }
 
   .header-brand img {
-    width: 38pt;
-    height: auto;
-  }
-
-  .header-brand h1 {
-    font-family: 'Inter', sans-serif;
-    font-size: 22pt;
-    font-weight: 700;
-    color: #fff;
-    letter-spacing: 3pt;
-  }
-
-  .header-brand p {
-    color: rgba(255,255,255,0.75);
-    font-size: 7.5pt;
-    letter-spacing: 0.5pt;
-    margin-top: 2pt;
+    height: 30pt;
+    width: auto;
   }
 
   .header-url {
@@ -126,10 +113,26 @@
     padding: 18pt 32pt 12pt;
   }
 
+  .hero-eyebrow {
+    font-size: 8pt;
+    font-weight: 700;
+    letter-spacing: 1.6pt;
+    text-transform: uppercase;
+    color: var(--logo-blue);
+    margin-bottom: 6pt;
+  }
   .hero h2 {
-    font-size: 20pt;
+    font-size: 25pt;
     color: var(--navy);
-    line-height: 1.25;
+    line-height: 1.12;
+    margin-bottom: 8pt;
+    letter-spacing: -0.3pt;
+  }
+  .hero-rule {
+    width: 64pt;
+    height: 3pt;
+    background: var(--gold);
+    border-radius: 2pt;
     margin-bottom: 10pt;
   }
 
@@ -163,32 +166,35 @@
   .stats-row {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 10pt;
-    padding: 10pt 32pt;
+    gap: 0;
+    margin: 12pt 32pt;
+    background: linear-gradient(135deg, var(--navy) 0%, var(--indigo) 100%);
+    border-radius: 12pt;
+    overflow: hidden;
   }
 
   .stat-card {
     text-align: center;
-    padding: 10pt 6pt;
-    border: 1pt solid var(--border);
-    border-radius: 8pt;
-    background: #fff;
-    box-shadow: 0 1pt 3pt rgba(12, 31, 63, 0.04);
+    padding: 16pt 6pt 14pt;
+    border-right: 1pt solid rgba(255,255,255,0.12);
   }
+  .stat-card:last-child { border-right: none; }
 
   .stat-card .number {
     font-family: 'DM Serif Display', serif;
-    font-size: 16pt;
-    color: var(--logo-blue);
+    font-size: 27pt;
+    color: var(--blue-bright);
     display: block;
-    margin-bottom: 2pt;
+    line-height: 1;
+    margin-bottom: 4pt;
   }
+  .stat-card:first-child .number { color: var(--gold); }
 
   .stat-card .label {
-    font-size: 6.5pt;
-    color: var(--muted);
+    font-size: 6.8pt;
+    color: rgba(255,255,255,0.78);
     text-transform: uppercase;
-    letter-spacing: 0.4pt;
+    letter-spacing: 0.5pt;
     font-weight: 600;
   }
 
@@ -746,11 +752,7 @@
   <div class="header">
     <div class="header-inner">
       <div class="header-brand">
-        <img src="../images/pawsic-logo.png" alt="PAWSIC">
-        <div>
-          <h1>PAWSIC</h1>
-          <p>Post-Acute Wound &amp; Skin Integrity Council</p>
-        </div>
+        <img src="../images/pawsic-logo-horiz-white.png" alt="PAWSIC, Post-Acute Wound and Skin Integrity Council" class="brand-lockup">
       </div>
       <span class="header-url">www.pawsic.org</span>
     </div>
@@ -759,7 +761,9 @@
 
   <!-- HERO -->
   <div class="hero">
+    <div class="hero-eyebrow">A Community for Wound Care &amp; Skin Health</div>
     <h2>Uniting Around Better Wound Care &amp; Skin Health</h2>
+    <div class="hero-rule"></div>
     <p>PAWSIC is the council for everyone who cares about wound care and skin health. Clinicians, caregivers, patients, families, industry partners, and students are all welcome. We provide practical education, CE &amp; CME credits, and a professional community to improve outcomes everywhere.</p>
   </div>
 
@@ -771,20 +775,20 @@
   <!-- STATS ROW -->
   <div class="stats-row">
     <div class="stat-card">
-      <span class="number">500+</span>
-      <span class="label">Professionals Connected</span>
+      <span class="number">1,000+</span>
+      <span class="label">Members &amp; Growing</span>
     </div>
     <div class="stat-card">
-      <span class="number">50+</span>
-      <span class="label">Hours of Expert Education</span>
+      <span class="number">44</span>
+      <span class="label">U.S. States</span>
+    </div>
+    <div class="stat-card">
+      <span class="number">29</span>
+      <span class="label">Countries Reached</span>
     </div>
     <div class="stat-card">
       <span class="number">100%</span>
       <span class="label">Evidence-Based Practices</span>
-    </div>
-    <div class="stat-card">
-      <span class="number">Nationwide</span>
-      <span class="label">Post-Acute Reach</span>
     </div>
   </div>
 
