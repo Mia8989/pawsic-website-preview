@@ -274,14 +274,14 @@
               <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
               <polyline points="14 2 14 8 20 8"></polyline>
             </svg>
-            <p>The full 42-page paper opens in your device's PDF viewer, where you can read every page and pinch to zoom.</p>
+            <p>The full 45-page paper opens in your device's PDF viewer, where you can read every page and pinch to zoom.</p>
             <a class="open-btn" id="open-link" href="/skin-failure-position-paper/PSFCPP.pdf" target="_blank" rel="noopener">Open the full paper</a>
           </div>
         </div>
         <div class="viewer-actions">
           <a class="dl-btn" id="dl-link" href="/skin-failure-position-paper/PSFCPP.pdf" download>Download the PDF</a>
         </div>
-        <p class="dl-note">PDF, Version 1.1, published by the Post Acute Wound and Skin Integrity Council. September 30, 2026. If the paper does not display above, use the download button.</p>
+        <p class="dl-note">PDF, published by the Post Acute Wound and Skin Integrity Council. September 2026. If the paper does not display above, use the download button.</p>
       </div>
 
       <!-- PDF PAUSED: temporary citation-update notice (Sept 19 2026). Restore = flip PDF_AVAILABLE back to true. -->
@@ -478,11 +478,11 @@
     (function () {
       // Flip to true and place the approved PDF at /skin-failure-position-paper/PSFCPP.pdf
       // to embed the paper for on-page reading + download.
-      var PDF_AVAILABLE = true; // Restored Sept 25 2026 with v1.1 (Sept 30 2026).
+      var PDF_AVAILABLE = false; // TEMP: paused for a citation update (Sept 19 2026). Flip back to true to restore the viewer + download.
       // Cache-busting version bump each time the PDF file is replaced, so Cloudflare's
       // edge cache (4hr TTL) never serves a stale copy after an update. Bump this string
       // whenever PSFCPP.pdf is swapped for a new version.
-      var PDF_URL = "/skin-failure-position-paper/PSFCPP.pdf?v=2026-09-30-v1-1";
+      var PDF_URL = "/skin-failure-position-paper/PSFCPP.pdf?v=2026-09-18";
       document.getElementById(PDF_AVAILABLE ? "dl-available" : "dl-pending").style.display = "block";
       document.getElementById(PDF_AVAILABLE ? "dl-pending" : "dl-available").style.display = "none";
       if (PDF_AVAILABLE) {
