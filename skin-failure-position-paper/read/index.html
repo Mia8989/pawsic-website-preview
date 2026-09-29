@@ -509,7 +509,8 @@
       var btn = document.getElementById("pf-submit");
       var qs = new URLSearchParams(window.location.search);
 
-      document.getElementById("pf-source").value = qs.get("utm_source") || "direct";
+      var _ref = ""; try { var _h = document.referrer ? new URL(document.referrer).hostname.replace(/^www\./, "") : ""; if (_h && _h !== location.hostname.replace(/^www\./, "")) _ref = _h; } catch (e) {}
+      document.getElementById("pf-source").value = qs.get("utm_source") || _ref || "direct";
       document.getElementById("pf-medium").value = qs.get("utm_medium") || "";
       document.getElementById("pf-campaign").value = qs.get("utm_campaign") || "";
 
