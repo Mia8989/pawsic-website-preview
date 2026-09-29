@@ -406,8 +406,27 @@
       </div>
     </section>
 
+
+    <!-- ===== NEWSROOM TABS ===== -->
+    <style>
+      .nr-tabs{position:relative;z-index:5;background:#fff;border-bottom:1px solid #e3e8ef;}
+      .nr-tabs .container{display:flex;justify-content:center;gap:.5rem;padding-top:1rem;}
+      .nr-tab{appearance:none;border:0;background:none;font:600 1rem Inter,sans-serif;color:#5b6472;padding:.85rem 1.4rem;border-bottom:3px solid transparent;cursor:pointer;}
+      .nr-tab[aria-selected="true"]{color:#0c1f3f;border-bottom-color:#c9a84c;}
+      .nr-tab:hover{color:#0c1f3f;}
+      .nr-tab:focus-visible{outline:3px solid #38b6ff;outline-offset:2px;}
+      .nr-tab .nr-count{display:inline-block;margin-left:.4rem;font-size:.75rem;background:#eef2f7;color:#1A5494;border-radius:10px;padding:.1rem .5rem;}
+      [data-tab][hidden]{display:none !important;}
+    </style>
+    <nav class="nr-tabs" aria-label="Newsroom sections">
+      <div class="container" role="tablist">
+        <button class="nr-tab" role="tab" id="tab-press" aria-controls="overview" aria-selected="true" data-target="press">Press Releases</button>
+        <button class="nr-tab" role="tab" id="tab-news" aria-controls="in-the-news" aria-selected="false" data-target="news">In the News <span class="nr-count">1</span></button>
+      </div>
+    </nav>
+
     <!-- ===== PRESS RELEASE OVERVIEW CARDS ===== -->
-    <section class="pr-overview" id="overview">
+    <section class="pr-overview" id="overview" data-tab="press">
       <div class="container">
         <div class="section-header reveal">
           <span class="section-tag">Press Releases</span>
@@ -518,7 +537,7 @@
 
 
     <!-- ===== IN THE NEWS (earned media coverage) ===== -->
-    <section class="pr-overview" id="in-the-news" style="padding-top:0;">
+    <section class="pr-overview" id="in-the-news" data-tab="news">
       <div class="container">
         <div class="section-header reveal">
           <span class="section-tag">In the News</span>
@@ -538,7 +557,7 @@
     <!-- ===== FULL PRESS RELEASES ===== -->
 
     <!-- PR 1: Advisory Committee -->
-    <section class="pr-full section-white" id="pr-advisory-committee">
+    <section data-tab="press" class="pr-full section-white" id="pr-advisory-committee">
       <div class="container">
         <div class="pr-full-inner reveal">
           <span class="pr-full-date">February 3, 2025</span>
@@ -568,7 +587,7 @@
     <hr class="pr-divider">
 
     <!-- PR 2: Alliance of Wound Care Stakeholders -->
-    <section class="pr-full section-light" id="pr-alliance">
+    <section data-tab="press" class="pr-full section-light" id="pr-alliance">
       <div class="container">
         <div class="pr-full-inner reveal">
           <span class="pr-full-date">October 30, 2024</span>
@@ -592,7 +611,7 @@
     <hr class="pr-divider">
 
     <!-- PR 3: Open Wound Research -->
-    <section class="pr-full section-white" id="pr-owr">
+    <section data-tab="press" class="pr-full section-white" id="pr-owr">
       <div class="container">
         <div class="pr-full-inner reveal">
           <span class="pr-full-date">September 30, 2024</span>
@@ -621,7 +640,7 @@
     <hr class="pr-divider">
 
     <!-- PR 4: Nonprofit Status -->
-    <section class="pr-full section-light" id="pr-nonprofit">
+    <section data-tab="press" class="pr-full section-light" id="pr-nonprofit">
       <div class="container">
         <div class="pr-full-inner reveal">
           <span class="pr-full-date">September 15, 2023</span>
@@ -769,6 +788,19 @@
     </div>
   </footer>
 
+  <script>
+  (function(){
+    var tabs=document.querySelectorAll('.nr-tab'); if(!tabs.length) return;
+    function show(which, scroll){
+      document.querySelectorAll('[data-tab]').forEach(function(el){ el.hidden = el.getAttribute('data-tab')!==which; if(!el.hidden){ el.querySelectorAll('.reveal').forEach(function(r){r.classList.add('visible');}); if(el.classList.contains('reveal')) el.classList.add('visible'); } });
+      tabs.forEach(function(t){ t.setAttribute('aria-selected', t.getAttribute('data-target')===which ? 'true':'false'); });
+      if(scroll){ var bar=document.querySelector('.nr-tabs'); var nav=document.querySelector('.main-nav'); var off=nav?nav.getBoundingClientRect().height:0; window.scrollTo({top: bar.getBoundingClientRect().top + window.scrollY - off, behavior:'smooth'}); }
+    }
+    tabs.forEach(function(t){ t.addEventListener('click', function(){ var w=t.getAttribute('data-target'); show(w,true); history.replaceState(null,'', w==='news' ? '#in-the-news' : location.pathname); }); });
+    function fromHash(){ show(location.hash==='#in-the-news' ? 'news' : 'press', location.hash==='#in-the-news'); }
+    window.addEventListener('hashchange', fromHash); fromHash();
+  })();
+  </script>
   <script src="/js/main.js?v=20260929"></script>
 </body>
 </html>
