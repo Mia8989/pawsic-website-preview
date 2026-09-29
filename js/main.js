@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function() {
     link.setAttribute('aria-haspopup', 'true');
 
     function toggleDropdown(e) {
-      if (window.innerWidth <= 768) {
+      if (window.innerWidth <= 1200) {
         e.preventDefault();
         var dd = link.nextElementSibling;
         if (dd && dd.classList.contains('dropdown')) {
