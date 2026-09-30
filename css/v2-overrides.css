@@ -3643,3 +3643,9 @@
   /* Keep the utility row inside the viewport on tablets */
   .utility-logo .logo-tagline { display: none; }
 }
+
+/* Contact page: social rows are links */
+a.v2-contact-method { text-decoration: none; color: inherit; border-radius: 12px; transition: transform .15s ease; }
+a.v2-contact-method:hover strong, a.v2-contact-method:focus-visible strong { color: var(--accent-blue, #2B7CCA); }
+a.v2-contact-method:hover .v2-contact-icon { transform: translateY(-1px); }
+a.v2-contact-method:focus-visible { outline: 2px solid var(--accent-blue, #2B7CCA); outline-offset: 4px; }
