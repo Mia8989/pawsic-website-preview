@@ -360,7 +360,7 @@
           <a href="/press-releases/" class="has-dropdown" aria-haspopup="true" aria-expanded="false">News &amp; Insights <span class="dropdown-arrow" aria-hidden="true"></span></a>
           <ul class="dropdown">
             <li><a href="/press-releases/">Press Releases</a></li>
-            <li><a href="/press-releases/#in-the-news">In the News</a></li>
+            <li><a href="/in-the-news/">In the News</a></li>
             <li><a href="/insights/">Clinical Insights</a></li>
           </ul>
         </li>
@@ -421,7 +421,7 @@
     <nav class="nr-tabs" aria-label="Newsroom sections">
       <div class="container" role="tablist">
         <button class="nr-tab" role="tab" id="tab-press" aria-controls="overview" aria-selected="true" data-target="press">Press Releases</button>
-        <button class="nr-tab" role="tab" id="tab-news" aria-controls="in-the-news" aria-selected="false" data-target="news">In the News <span class="nr-count">1</span></button>
+        <a class="nr-tab" id="tab-news" href="/in-the-news/" style="text-decoration:none;">In the News <span class="nr-count">1</span></a>
       </div>
     </nav>
 
@@ -535,24 +535,6 @@
       </div>
     </section>
 
-
-    <!-- ===== IN THE NEWS (earned media coverage) ===== -->
-    <section class="pr-overview" id="in-the-news" data-tab="news">
-      <div class="container">
-        <div class="section-header reveal">
-          <span class="section-tag">In the News</span>
-          <h2>PAWSIC <em>in the Media</em></h2>
-        </div>
-        <div class="reveal reveal-delay-1" style="max-width:860px;margin:0 auto;">
-          <article style="background:#fff;border:1px solid #e3e8ef;border-left:5px solid #c9a84c;border-radius:12px;padding:1.75rem 2rem;box-shadow:0 6px 18px rgba(12,31,63,.06);">
-            <div style="font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#1A5494;margin-bottom:.5rem;">McKnight&rsquo;s Long-Term Care News &middot; September 28, 2026</div>
-            <h3 style="font-family:'DM Serif Display',serif;font-weight:400;font-size:1.55rem;line-height:1.25;color:#0c1f3f;margin:0 0 .6rem;">Closing the gap: How skin failure diagnostic codes would protect providers and patients</h3>
-            <p style="color:#4a5568;line-height:1.7;margin:0 0 1rem;">By Lola Offenback. McKnight&rsquo;s Long-Term Care News reports on the PAWSIC Skin Failure Codes Position Paper, with comments from PAWSIC President Jeanine Maguire and lead author Ronald Rosen on why skin failure needs its own ICD-10-CM diagnosis.</p>
-            <a href="https://www.mcknights.com/news/closing-the-gap-how-skin-failure-diagnostic-codes-would-protect-providers-and-patients/" target="_blank" rel="noopener" style="font-weight:700;color:#2B7CCA;text-decoration:none;">Read the article on McKnight&rsquo;s <span aria-hidden="true">&rarr;</span></a>
-          </article>
-        </div>
-      </div>
-    </section>
 
     <!-- ===== FULL PRESS RELEASES ===== -->
 
@@ -790,14 +772,15 @@
 
   <script>
   (function(){
-    var tabs=document.querySelectorAll('.nr-tab'); if(!tabs.length) return;
+    if(location.hash==='#in-the-news'){ location.replace('/in-the-news/'); return; }
+    var tabs=document.querySelectorAll('button.nr-tab'); if(!tabs.length) return;
     function show(which, scroll){
       document.querySelectorAll('[data-tab]').forEach(function(el){ el.hidden = el.getAttribute('data-tab')!==which; if(!el.hidden){ el.querySelectorAll('.reveal').forEach(function(r){r.classList.add('visible');}); if(el.classList.contains('reveal')) el.classList.add('visible'); } });
       tabs.forEach(function(t){ t.setAttribute('aria-selected', t.getAttribute('data-target')===which ? 'true':'false'); });
       if(scroll){ var bar=document.querySelector('.nr-tabs'); var nav=document.querySelector('.main-nav'); var off=nav?nav.getBoundingClientRect().height:0; window.scrollTo({top: bar.getBoundingClientRect().top + window.scrollY - off, behavior:'smooth'}); }
     }
     tabs.forEach(function(t){ t.addEventListener('click', function(){ var w=t.getAttribute('data-target'); show(w,true); history.replaceState(null,'', w==='news' ? '#in-the-news' : location.pathname); }); });
-    function fromHash(){ show(location.hash==='#in-the-news' ? 'news' : 'press', location.hash==='#in-the-news'); }
+    function fromHash(){ show('press', false); }
     window.addEventListener('hashchange', fromHash); fromHash();
   })();
   </script>
