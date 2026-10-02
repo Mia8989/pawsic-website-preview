@@ -54,9 +54,6 @@
    "about": {
     "@id": "https://pawsic.org/#organization"
    },
-   "breadcrumb": {
-    "@id": "https://pawsic.org/in-the-news/#breadcrumb"
-   },
    "mainEntity": {
     "@id": "https://pawsic.org/in-the-news/#coverage"
    }
@@ -68,30 +65,6 @@
    "alternateName": "PAWSIC",
    "url": "https://pawsic.org/",
    "logo": "https://pawsic.org/images/pawsic-favicon-192.png"
-  },
-  {
-   "@type": "BreadcrumbList",
-   "@id": "https://pawsic.org/in-the-news/#breadcrumb",
-   "itemListElement": [
-    {
-     "@type": "ListItem",
-     "position": 1,
-     "name": "Home",
-     "item": "https://pawsic.org/"
-    },
-    {
-     "@type": "ListItem",
-     "position": 2,
-     "name": "Newsroom",
-     "item": "https://pawsic.org/press-releases/"
-    },
-    {
-     "@type": "ListItem",
-     "position": 3,
-     "name": "In the News",
-     "item": "https://pawsic.org/in-the-news/"
-    }
-   ]
   },
   {
    "@type": "ItemList",
@@ -214,18 +187,22 @@
   </script>
 
   <style>
-    .itn-hero { background: linear-gradient(145deg, #0c1f3f 0%, #162d55 50%, #1a3660 100%); color: #fff; padding: 4.5rem 0 3.5rem; text-align: center; position: relative; overflow: hidden; }
-    .itn-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 30% 50%, rgba(56,182,255,.08) 0%, transparent 60%); pointer-events: none; }
-    .itn-hero h1 { color: #fff; font-family: 'DM Serif Display', serif; font-weight: 400; font-size: clamp(2.2rem, 5vw, 3.4rem); margin-bottom: .9rem; position: relative; }
+    .itn-hero { background: linear-gradient(145deg, #0c1f3f 0%, #162d55 50%, #1a3660 100%); color: #fff; padding: 5rem 0 4rem; text-align: center; position: relative; overflow: hidden; }
+    .itn-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 30% 50%, rgba(56,182,255,.08) 0%, transparent 60%), radial-gradient(ellipse at 70% 30%, rgba(43,124,202,.06) 0%, transparent 50%); pointer-events: none; }
+    .itn-hero h1 { color: #fff; font-family: 'DM Serif Display', serif; font-size: clamp(2.2rem, 5vw, 3.5rem); margin-bottom: 1rem; position: relative; }
     .itn-hero h1 em { color: #38B6FF; font-style: italic; }
-    .itn-hero p { font-size: 1.1rem; color: rgba(255,255,255,.78); max-width: 680px; margin: 0 auto; line-height: 1.7; position: relative; }
-    .itn-crumbs { background: #fff; border-bottom: 1px solid #e3e8ef; font-size: .88rem; }
-    .itn-crumbs ol { list-style: none; display: flex; flex-wrap: wrap; gap: .4rem; padding: .85rem 0; margin: 0; color: #5b6472; }
-    .itn-crumbs li + li::before { content: '\203A'; margin-right: .4rem; color: #9aa4b2; }
-    .itn-crumbs a { color: #1A5494; text-decoration: none; }
-    .itn-crumbs a:hover { text-decoration: underline; }
+    .itn-hero p { font-size: 1.15rem; color: rgba(255,255,255,.75); max-width: 700px; margin: 0 auto; line-height: 1.7; position: relative; }
+    .nr-tabs{position:relative;z-index:5;background:#fff;border-bottom:1px solid #e3e8ef;}
+    .nr-tabs .container{display:flex;justify-content:center;gap:.5rem;padding-top:1rem;}
+    .nr-tab{appearance:none;border:0;background:none;font:600 1rem Inter,sans-serif;color:#5b6472;padding:.85rem 1.4rem;border-bottom:3px solid transparent;cursor:pointer;text-decoration:none;}
+    .nr-tab.is-active{color:#0c1f3f;border-bottom-color:#c9a84c;}
+    .nr-tab:hover{color:#0c1f3f;}
+    .nr-tab:focus-visible{outline:3px solid #38b6ff;outline-offset:2px;}
+    .nr-tab .nr-count{display:inline-block;margin-left:.4rem;font-size:.75rem;background:#eef2f7;color:#1A5494;border-radius:10px;padding:.1rem .5rem;}
+    @media (max-width: 768px) { .itn-hero { padding: 3.5rem 0 3rem; } }
     .itn-section { padding: 4rem 0; }
     .itn-section.light { background: #f6f8fb; }
+    .itn-section.white { background: #fff; }
     .itn-wrap { max-width: 920px; margin: 0 auto; }
     .itn-tag { display: inline-block; font-size: .78rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #1A5494; margin-bottom: .6rem; }
     .itn-h2 { font-family: 'DM Serif Display', serif; font-weight: 400; font-size: clamp(1.6rem, 3vw, 2.1rem); color: #0c1f3f; line-height: 1.2; margin: 0 0 1rem; }
@@ -373,28 +350,27 @@
 
   <main id="main-content">
 
+    <!-- HERO (same as Newsroom) -->
     <section class="itn-hero">
       <div class="container">
-        <h1>PAWSIC <em>in the News</em></h1>
-        <p>Media coverage of the Post Acute Wound &amp; Skin Integrity Council (PAWSIC) and the PAWSIC Skin Failure Codes Position Paper.</p>
+        <h1 class="reveal reveal-delay-1"><em>Newsroom</em></h1>
+        <p class="reveal reveal-delay-2">Press releases, announcements, and media coverage from the Post-Acute Wound &amp; Skin Integrity Council.</p>
       </div>
     </section>
 
-    <nav class="itn-crumbs" aria-label="Breadcrumb">
+    <!-- NEWSROOM TABS (same as Newsroom) -->
+    <nav class="nr-tabs" aria-label="Newsroom sections">
       <div class="container">
-        <ol>
-          <li><a href="/">Home</a></li>
-          <li><a href="/press-releases/">Newsroom</a></li>
-          <li aria-current="page">In the News</li>
-        </ol>
+        <a class="nr-tab" href="/press-releases/">Press Releases</a>
+        <a class="nr-tab is-active" href="/in-the-news/" aria-current="page">In the News <span class="nr-count">2</span></a>
       </div>
     </nav>
 
     <!-- AS FEATURED IN -->
-    <section class="itn-section">
+    <section class="itn-section light">
       <div class="container itn-wrap">
         <span class="itn-tag">As featured in</span>
-        <h2 class="itn-h2">Where PAWSIC has been <em>featured</em></h2>
+        <h2 class="itn-h2">PAWSIC <em>in the News</em></h2>
         <p class="itn-lead">The PAWSIC Skin Failure Codes Position Paper has been featured by wound care and long-term care media, AP News, local FOX, CBS, NBC and CW station news sites, and national business and legal outlets.</p>
         <ul class="itn-logos">
           <li><a href="https://www.woundsource.com/news/pawsic-announces-skin-failure-codes-position-paper" target="_blank" rel="noopener"><span class="itn-logo"><img src="/images/press/woundsource-logo.png" alt="WoundSource" loading="lazy"></span><span class="itn-cap">WoundSource</span></a></li>
@@ -412,7 +388,7 @@
     </section>
 
     <!-- FEATURED ARTICLES -->
-    <section class="itn-section light">
+    <section class="itn-section white">
       <div class="container itn-wrap">
         <span class="itn-tag">Featured articles</span>
         <h2 class="itn-h2">Coverage of the <em>position paper</em></h2>
