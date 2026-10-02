@@ -419,6 +419,27 @@
     .qapi-reg-note { margin-top:1.6rem; font-size:0.9rem; color:var(--text-muted); }
     .qapi-reg-note a { color:var(--blue-2); font-weight:700; }
 
+    /* After-enrollment steps */
+    .qapi-next { margin-top:2.5rem; text-align:left; background:var(--cream); border:1px solid var(--cream-border); border-radius:16px; padding:1.8rem; }
+    .qapi-next h3 { font-family:'Playfair Display',Georgia,serif; font-size:1.35rem; color:var(--navy); margin:0 0 1.1rem; }
+    .qapi-next ol { list-style:none; counter-reset:qn; margin:0; padding:0; display:grid; gap:1rem; }
+    .qapi-next li { counter-increment:qn; position:relative; padding-left:2.8rem; font-size:0.95rem; color:var(--text-body); line-height:1.55; }
+    .qapi-next li::before { content:counter(qn); position:absolute; left:0; top:0; width:1.9rem; height:1.9rem; border-radius:50%; background:var(--navy); color:#fff; font-weight:800; font-size:0.9rem; display:flex; align-items:center; justify-content:center; }
+    .qapi-next li strong { color:var(--navy); }
+    .qapi-next li.team { background:#fff; border:2px solid var(--gold); border-radius:12px; padding:1rem 1rem 1rem 3.6rem; }
+    .qapi-next li.team::before { left:0.9rem; top:1rem; background:var(--gold); color:var(--navy); }
+    .qapi-next a { color:var(--blue-2); font-weight:700; }
+    .qapi-next ol { grid-template-columns:minmax(0,1fr); }
+    .qapi-next li { overflow-wrap:anywhere; }
+    @media (min-width:769px) { .qapi-next li.team a { white-space:nowrap; } }
+    @media (max-width:768px) {
+      .qapi-next { padding:1.3rem 1.1rem; }
+      .qapi-next li { padding-left:2.5rem; }
+      .qapi-next li.team { padding:0.9rem 0.9rem 0.9rem 3.1rem; }
+      .qapi-next li.team::before { left:0.7rem; top:0.9rem; }
+    }
+    /* end after-enrollment steps */
+
     /* FEATURE TABLE */
     .qapi-feature-table {
       width: 100%;
@@ -689,12 +710,12 @@
               <div class="qapi-reg-tag">Option 2 &middot; Best Value</div>
               <h3>PAWSIC Premium Membership + QAPI Workshop</h3>
               <div class="qapi-reg-price">$199 <span class="sub">workshop price for Premium members</span></div>
-              <p>Join PAWSIC Premium for $150/year, then enroll in the workshop at the member price of $199 and get the entire toolkit free, plus full member library access and every Premium benefit. Premium renews at $150/year.</p>
+              <p><strong>Two quick steps:</strong> (1) join PAWSIC Premium (your first month is free, then $150/year), then (2) log in and open your <strong>Premium Member Perks</strong> page to enroll in the workshop at the member price of $199. You also get the entire toolkit free, full member library access, and every Premium benefit.</p>
               <a href="https://memberships.pawsic.org/register/premium/" class="qapi-reg-btn">Join Premium &rarr;</a>
             </div>
           </div>
 
-          <p class="qapi-reg-note">Already a PAWSIC Premium member? You pay just $199 for the workshop, with the toolkit included free. <a href="https://memberships.pawsic.org/register/qapi-workshop/">Enroll here</a>.</p>
+          <p class="qapi-reg-note">Already a PAWSIC Premium member? Log in and visit your <a href="https://memberships.pawsic.org/premium-member-perks/">Premium Member Perks</a> to enroll for $199, with the toolkit included free.</p>
 
           <div class="qapi-trust-row">
             <span>
@@ -709,6 +730,16 @@
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
               On-demand, self-paced
             </span>
+          </div>
+
+          <div class="qapi-next" id="after-enrollment">
+            <h3>What happens after you enroll</h3>
+            <ol>
+              <li><strong>Check your email.</strong> Right after checkout you receive a confirmation with your workshop link and login details. If it is not in your inbox within a few minutes, check your spam or promotions folder.</li>
+              <li><strong>Log in and start the workshop.</strong> Sign in at <a href="https://memberships.pawsic.org/login/">memberships.pawsic.org</a> with the email and password you created at checkout. Watching while logged in tracks your progress and issues your Certificate of Completion.</li>
+              <li class="team"><strong>Share Wound Basics with your clinical team.</strong> Send this link to your CNAs, LPNs, RNs, and PTs: <a href="https://pawsic.org/wound-basics-101/">pawsic.org/wound-basics-101</a>. Each team member registers free with their own email and watches on demand.</li>
+              <li><strong>Join the live expert Q&amp;A.</strong> When you finish the workshop, sign up inside the course for the 30-minute debrief with a PAWSIC wound specialist.</li>
+            </ol>
           </div>
         </div>
       </div>
