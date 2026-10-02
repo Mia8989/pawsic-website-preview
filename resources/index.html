@@ -180,6 +180,61 @@
       </div>
     </section>
 
+    <!-- Wound Basics 101 feature (shared by programs.html + resources.html) -->
+<section class="wbf" aria-labelledby="wbf-title">
+  <style>
+    .wbf { background: #FAF8F4; padding: 88px 0; }
+    .wbf-wrap { display: grid; grid-template-columns: 1.1fr 1fr; gap: 64px; align-items: center; }
+    .wbf-tag { display: inline-block; font: 700 12px/1 Inter, sans-serif; letter-spacing: .12em; text-transform: uppercase; color: #2B7CCA; margin-bottom: 16px; }
+    .wbf h2 { font-family: 'DM Serif Display', Georgia, serif; font-size: clamp(2rem, 3.4vw, 2.8rem); line-height: 1.1; letter-spacing: -.01em; color: #0C1F3F; margin: 0 0 16px; }
+    .wbf h2 em { color: #2B7CCA; }
+    .wbf-desc { font: 400 1.05rem/1.7 Inter, sans-serif; color: #2D3748; max-width: 34em; margin: 0 0 24px; }
+    .wbf-meta { display: flex; flex-wrap: wrap; gap: 8px 24px; margin: 0 0 32px; padding: 0; list-style: none; font: 600 .95rem/1.4 Inter, sans-serif; color: #0C1F3F; }
+    .wbf-meta li::before { content: "\2713"; color: #2B7CCA; font-weight: 800; margin-right: 8px; }
+    .wbf-ctas { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; }
+    .wbf-btn { display: inline-flex; align-items: center; gap: 8px; background: #0C1F3F; color: #fff; font: 700 1rem/1 Inter, sans-serif; padding: 16px 28px; border-radius: 8px; text-decoration: none; transition: background .2s; }
+    .wbf-btn:hover { background: #1A5494; color: #fff; }
+    .wbf-link { font: 700 1rem/1 Inter, sans-serif; color: #2B7CCA; text-decoration: none; }
+    .wbf-link:hover { text-decoration: underline; }
+    .wbf-card { background: #fff; border: 1px solid #E8ECF1; border-radius: 16px; padding: 32px; box-shadow: 0 1px 2px rgba(12,31,63,.06), 0 8px 24px rgba(12,31,63,.08); }
+    .wbf-card-label { font: 700 12px/1 Inter, sans-serif; letter-spacing: .12em; text-transform: uppercase; color: #8a6d1f; margin: 0 0 16px; }
+    .wbf-mods { list-style: none; margin: 0; padding: 0; }
+    .wbf-mods li { display: grid; grid-template-columns: 40px 1fr; gap: 12px; padding: 16px 0; border-top: 1px solid #E8ECF1; }
+    .wbf-mods li:first-child { border-top: 0; padding-top: 0; }
+    .wbf-mods .wbf-num { font-family: 'DM Serif Display', Georgia, serif; font-size: 1.5rem; line-height: 1; color: #2B7CCA; }
+    .wbf-mods strong { display: block; font: 700 1rem/1.35 Inter, sans-serif; color: #0C1F3F; }
+    .wbf-mods span { font: 400 .9rem/1.5 Inter, sans-serif; color: #4A5568; }
+    @media (max-width: 860px) { .wbf { padding: 56px 0; } .wbf-wrap { grid-template-columns: 1fr; gap: 32px; } .wbf-card { padding: 24px; } }
+  </style>
+  <div class="container">
+    <div class="wbf-wrap">
+      <div>
+        <span class="wbf-tag">Free Course · For Your Whole Team</span>
+        <h2 id="wbf-title">Wound Basics <em>101</em></h2>
+        <p class="wbf-desc">Foundational wound care training for every member of your clinical team, from basic observation to patient-centered management. Built for CNAs, LPNs, RNs, therapists, and all post-acute care professionals.</p>
+        <ul class="wbf-meta">
+          <li>4 modules, self-paced</li>
+          <li>Certificate of Completion</li>
+          <li>Free PAWSIC membership</li>
+        </ul>
+        <div class="wbf-ctas">
+          <a class="wbf-btn" href="/wound-basics-101/#register">Register Free <span aria-hidden="true">&rarr;</span></a>
+          <a class="wbf-link" href="/wound-basics-101/">See course details</a>
+        </div>
+      </div>
+      <div class="wbf-card">
+        <p class="wbf-card-label">What you'll learn</p>
+        <ol class="wbf-mods">
+          <li><span class="wbf-num">01</span><div><strong>Evaluating a Wound: Key Observations</strong><span>Jennifer Bierhup, RN, WCC, CCM, IRNPA, FACCWS</span></div></li>
+          <li><span class="wbf-num">02</span><div><strong>Pressure Injuries vs. Non-PIs</strong><span>Donna Boyer, RN, CWS, QCP-CT</span></div></li>
+          <li><span class="wbf-num">03</span><div><strong>Treatments 101: Foundational Approaches</strong><span>Mary Martin, BSN, RN, CWS</span></div></li>
+          <li><span class="wbf-num">04</span><div><strong>Patient-Centered Care &amp; the 4M Framework</strong><span>Jeanine Maguire, PhD, MPT, CWS, FCPP</span></div></li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
     <!-- ===== RESOURCE LIBRARY ===== -->
     <section class="section section-white">
       <div class="container">
