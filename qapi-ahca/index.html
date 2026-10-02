@@ -458,6 +458,60 @@
     .qapi-reg-btn:hover { transform:translateY(-1px); box-shadow:0 10px 28px rgba(201,168,76,0.35); color:var(--navy); }
     .qapi-reg-btn.soon { background:#e8e8ee; color:#6b7484; cursor:default; pointer-events:none; }
 
+    /* ===== Enrollment infographic (Lead + team) ===== */
+    .ahca-flow { margin:2.5rem 0 0; text-align:left; background:#fff; border:1px solid var(--cream-border); border-radius:16px; padding:2rem; box-shadow:0 1px 2px rgba(12,31,63,0.06), 0 8px 24px rgba(12,31,63,0.08); }
+    .ahca-flow .af-head { text-align:center; margin-bottom:1.5rem; }
+    .ahca-flow .af-eyebrow { display:block; font-size:0.75rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--ahca-blue); margin-bottom:0.5rem; }
+    .ahca-flow h3 { font-family:'Playfair Display',Georgia,serif; font-size:1.75rem; line-height:1.2; letter-spacing:-0.01em; color:var(--navy); margin:0; }
+    .ahca-flow h3 em { color:#a8842f; font-style:italic; }
+    .ahca-flow .af-root { display:flex; justify-content:center; }
+    .ahca-flow .af-root span { display:inline-flex; align-items:center; gap:0.5rem; background:var(--navy); color:#fff; font-weight:700; font-size:0.95rem; padding:0.5rem 1rem; border-radius:999px; }
+    .ahca-flow .af-root svg { width:18px; height:18px; }
+    .ahca-flow .af-line { display:block; width:100%; height:32px; overflow:visible; }
+    .ahca-flow .af-line path { fill:none; stroke:#cfd8e3; stroke-width:2; vector-effect:non-scaling-stroke; }
+    .ahca-flow .af-lanes { display:grid; grid-template-columns:minmax(0,1.2fr) minmax(0,1fr); gap:1.5rem; }
+    .ahca-flow .af-lane { border-radius:12px; padding:1.5rem; border:1px solid var(--cream-border); }
+    .ahca-flow .af-lead { background:#fdf9ef; border-color:#ecdcad; }
+    .ahca-flow .af-team { background:#f2f6fb; border-color:#d6e2f0; }
+    .ahca-flow .af-lane-head { display:flex; gap:0.75rem; align-items:center; margin-bottom:1.25rem; }
+    .ahca-flow .af-icon { flex:none; width:44px; height:44px; border-radius:12px; display:flex; align-items:center; justify-content:center; }
+    .ahca-flow .af-lead .af-icon { background:var(--gold); color:var(--navy); }
+    .ahca-flow .af-team .af-icon { background:var(--ahca-blue); color:#fff; }
+    .ahca-flow .af-icon svg { width:22px; height:22px; }
+    .ahca-flow .af-tag { display:block; font-size:0.7rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; }
+    .ahca-flow .af-lead .af-tag { color:#8a6a1c; }
+    .ahca-flow .af-team .af-tag { color:var(--ahca-blue); }
+    .ahca-flow .af-lane h4 { margin:0; font-size:1.15rem; font-weight:800; color:var(--navy); line-height:1.25; }
+    .ahca-flow .af-sub { display:block; font-size:0.85rem; color:var(--text-muted); }
+    .ahca-flow .af-steps { list-style:none; counter-reset:afs; margin:0; padding:0; }
+    .ahca-flow .af-steps li { counter-increment:afs; position:relative; padding:0 0 1rem 2.5rem; font-size:0.92rem; line-height:1.55; color:var(--text-body); overflow-wrap:anywhere; }
+    .ahca-flow .af-steps li:last-child { padding-bottom:0; }
+    .ahca-flow .af-steps li::before { content:counter(afs); position:absolute; left:0; top:0; width:1.75rem; height:1.75rem; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:0.85rem; color:#fff; }
+    .ahca-flow .af-steps li::after { content:''; position:absolute; left:calc(0.875rem - 1px); top:2rem; bottom:0.25rem; width:2px; }
+    .ahca-flow .af-steps li:last-child::after { display:none; }
+    .ahca-flow .af-lead li::before { background:var(--navy); }
+    .ahca-flow .af-lead li::after { background:#ecdcad; }
+    .ahca-flow .af-team li::before { background:var(--ahca-blue); }
+    .ahca-flow .af-team li::after { background:#d6e2f0; }
+    .ahca-flow .af-steps b { display:block; color:var(--navy); font-size:0.95rem; }
+    .ahca-flow .af-steps a { color:var(--ahca-blue); font-weight:700; }
+    .ahca-flow .af-result { display:flex; align-items:center; gap:1rem; max-width:560px; margin:0 auto; background:var(--navy); color:#fff; border-radius:12px; padding:1rem 1.5rem; }
+    .ahca-flow .af-medal { flex:none; width:44px; height:44px; border-radius:50%; background:var(--gold); color:var(--navy); display:flex; align-items:center; justify-content:center; }
+    .ahca-flow .af-medal svg { width:22px; height:22px; }
+    .ahca-flow .af-result b { display:block; font-size:1rem; }
+    .ahca-flow .af-result .af-r { display:block; font-size:0.88rem; color:rgba(255,255,255,0.8); }
+    @media (min-width:769px) { .ahca-flow .af-steps a { white-space:nowrap; } }
+    @media (max-width:768px) {
+      .ahca-flow { padding:1.5rem 1rem; }
+      .ahca-flow h3 { font-size:1.4rem; }
+      .ahca-flow .af-lanes { grid-template-columns:minmax(0,1fr); gap:1rem; }
+      .ahca-flow .af-line { display:none; }
+      .ahca-flow .af-root { margin-bottom:1rem; }
+      .ahca-flow .af-lane { padding:1.25rem 1rem; }
+      .ahca-flow .af-result { margin-top:1rem; padding:1rem; }
+    }
+    /* ===== end enrollment infographic ===== */
+
     /* FEATURE TABLE */
     .qapi-feature-table {
       width: 100%;
@@ -729,6 +783,45 @@
           <span class="qapi-section-tag">Register</span>
           <h2>Reserve your facility's <em>access</em></h2>
           <p class="lead">Registration is exclusively for AHCA/NCAL member facilities. Choose your option below; your 20% member discount is already applied at checkout.</p>
+
+          <div class="ahca-flow" id="how-enrollment-works">
+            <div class="af-head">
+              <span class="af-eyebrow">How enrollment works for your facility</span>
+              <h3>One Lead enrolls. <em>Your whole team</em> learns.</h3>
+            </div>
+            <div class="af-root"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01M12 6h.01M16 6h.01M8 10h.01M12 10h.01M16 10h.01M8 14h.01M12 14h.01M16 14h.01"/></svg>Your facility</span></div>
+            <svg class="af-line" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><path d="M50 0 V16 M26.5 16 H78 M26.5 16 V32 M78 16 V32"/></svg>
+            <div class="af-lanes">
+              <div class="af-lane af-lead">
+                <div class="af-lane-head">
+                  <span class="af-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>
+                  <div><span class="af-tag">1 person</span><h4>Your QAPI Lead</h4></div>
+                </div>
+                <ol class="af-steps">
+                  <li><b>Assign your Lead</b>Your organization names one Skin Health / QAPI Lead.</li>
+                  <li><b>Register below</b>The Lead enrolls with their own email (Option 1 or Option 2), then watches for the confirmation email with login details.</li>
+                  <li><b>Complete the workshop</b>Lead Clinician training on demand, with 2 CE credits and a Certificate of Completion.</li>
+                  <li><b>Join the live Q&amp;A</b>A 30-minute debrief with a PAWSIC wound specialist.</li>
+                </ol>
+              </div>
+              <div class="af-lane af-team">
+                <div class="af-lane-head">
+                  <span class="af-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+                  <div><span class="af-tag">Everyone else</span><h4>Your clinical team</h4><span class="af-sub">CNAs, LPNs, RNs, PTs</span></div>
+                </div>
+                <ol class="af-steps">
+                  <li><b>Get the link</b>Your Lead shares <a href="https://pawsic.org/wound-basics-101/">pawsic.org/wound-basics-101</a> with the team.</li>
+                  <li><b>Sign up free</b>Each person registers with their own email.</li>
+                  <li><b>Complete Wound Basics</b>4+ hours of modules, on demand, on any shift.</li>
+                </ol>
+              </div>
+            </div>
+            <svg class="af-line" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><path d="M26.5 0 V16 M78 0 V16 M26.5 16 H78 M50 16 V32"/></svg>
+            <div class="af-result">
+              <span class="af-medal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg></span>
+              <div><b>Center-level PAWSIC Certificate of Completion</b><span class="af-r">Issued to your facility when the full team completes.</span></div>
+            </div>
+          </div>
 
           <div class="qapi-reg-options">
             <div class="qapi-reg-card">
