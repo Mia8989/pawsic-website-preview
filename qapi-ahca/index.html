@@ -500,6 +500,18 @@
     .ahca-flow .af-medal svg { width:22px; height:22px; }
     .ahca-flow .af-result b { display:block; font-size:1rem; }
     .ahca-flow .af-result .af-r { display:block; font-size:0.88rem; color:rgba(255,255,255,0.8); }
+    .ahca-flow .af-share { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:1.5rem; align-items:center; margin-top:1.5rem; padding:1.5rem; border-radius:12px; background:#f2f6fb; border:1px solid #d6e2f0; }
+    .ahca-flow .af-share-img { display:block; border-radius:8px; overflow:hidden; box-shadow:0 1px 2px rgba(12,31,63,0.06), 0 8px 24px rgba(12,31,63,0.10); }
+    .ahca-flow .af-share-img img { display:block; width:100%; height:auto; }
+    .ahca-flow .af-share h4 { margin:0 0 0.5rem; font-size:1.15rem; font-weight:800; color:var(--navy); line-height:1.25; }
+    .ahca-flow .af-share p { margin:0 0 1rem; font-size:0.92rem; line-height:1.55; color:var(--text-body); }
+    .ahca-flow .af-share-row { display:flex; align-items:center; gap:1rem; }
+    .ahca-flow .af-qr { flex:none; width:112px; height:112px; background:#fff; border-radius:8px; padding:4px; border:1px solid #d6e2f0; }
+    .ahca-flow .af-share-row span { display:block; font-size:0.7rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--ahca-blue); margin-bottom:0.25rem; }
+    .ahca-flow .af-share-row a { font-weight:800; color:var(--ahca-blue); font-size:0.98rem; overflow-wrap:anywhere; }
+    @media (max-width:768px) {
+      .ahca-flow .af-share { grid-template-columns:minmax(0,1fr); padding:1rem; gap:1rem; }
+    }
     @media (min-width:769px) { .ahca-flow .af-steps a { white-space:nowrap; } }
     @media (max-width:768px) {
       .ahca-flow { padding:1.5rem 1rem; }
@@ -810,7 +822,7 @@
                   <div><span class="af-tag">Everyone else</span><h4>Your clinical team</h4><span class="af-sub">CNAs, LPNs, RNs, PTs</span></div>
                 </div>
                 <ol class="af-steps">
-                  <li><b>Get the link</b>Your Lead shares <a href="https://pawsic.org/wound-basics-101/">pawsic.org/wound-basics-101</a> with the team.</li>
+                  <li><b>Get the link</b>Your Lead shares <a href="https://pawsic.org/wound-basics-101/">pawsic.org/wound-basics-101</a> or the QR code below with the team.</li>
                   <li><b>Sign up free</b>Each person registers with their own email.</li>
                   <li><b>Complete Wound Basics</b>4+ hours of modules, on demand, on any shift.</li>
                 </ol>
@@ -820,6 +832,18 @@
             <div class="af-result">
               <span class="af-medal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg></span>
               <div><b>Center-level PAWSIC Certificate of Completion</b><span class="af-r">Issued to your facility when the full team completes.</span></div>
+            </div>
+            <div class="af-share" id="share-wound-basics">
+              <a class="af-share-img" href="https://pawsic.org/wound-basics-101/"><img src="/qapi-ahca/assets/wound-basics-101.jpg" alt="Wound Basics 101 with faculty Donna Boyer, Jeanine Maguire, Jennifer Bierhup, and Mary Martin" width="720" height="400" loading="lazy"></a>
+              <div>
+                <span class="af-eyebrow" style="text-align:left;">For your clinical team</span>
+                <h4>Share Wound Basics 101</h4>
+                <p>Free and on demand, so every CNA, LPN, RN, and PT can complete it on any shift. Send the link, or let staff scan the code.</p>
+                <div class="af-share-row">
+                  <img class="af-qr" src="/qapi-ahca/assets/wound-basics-101-qr.svg" alt="QR code for pawsic.org/wound-basics-101" width="112" height="112">
+                  <div><span>Scan or visit</span><a href="https://pawsic.org/wound-basics-101/">pawsic.org/wound-basics-101</a></div>
+                </div>
+              </div>
             </div>
           </div>
 
