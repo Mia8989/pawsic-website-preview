@@ -108,3 +108,7 @@
   .cs-mosaic { grid-template-columns:1fr 1fr; grid-auto-rows:9.5rem; }
   .cs-mosaic figure.is-feature { grid-column:span 2; grid-row:span 2; }
 }
+
+/* ---------- In-session callout ---------- */
+.cs-body p.cs-callout { background:var(--bg-ice,#eef5f8); border-left:4px solid #1a5494; border-radius:0 8px 8px 0; padding:1rem 1.25rem; margin:0 0 1.5rem; max-width:40em; color:#2d3748; }
+.cs-callout a { color:#1a5494; font-weight:700; white-space:nowrap; }
