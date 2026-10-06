@@ -1,0 +1,97 @@
+/* Conference speaker pages (SAWC Fall, WoundCon): shared styles.
+   Used by /sawc-fall-2026/ and /woundcon-fall-2026/. Tokens come from style.css :root. */
+
+/* ---------- Hero ---------- */
+.cs-hero { position:relative; background:linear-gradient(150deg,#0c1f3f 0%,#143257 100%); color:#fff; padding:5rem 0 5.5rem; }
+.cs-hero::before { content:""; position:absolute; inset:0; background:radial-gradient(ellipse at 82% 40%, rgba(56,182,255,.14) 0%, transparent 58%); pointer-events:none; }
+.cs-hero .container { position:relative; display:grid; grid-template-columns:minmax(0,1.25fr) minmax(0,1fr); gap:4rem; align-items:center; }
+.cs-crumb { font-size:.85rem; color:rgba(255,255,255,.7); margin:0 0 2rem; }
+.cs-crumb a { color:rgba(255,255,255,.85); text-decoration:underline; text-underline-offset:3px; }
+.cs-crumb a:hover { color:#fff; }
+.cs-kicker { display:block; font-size:.8rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:#e6c883; margin:0 0 1rem; }
+.cs-hero h1 { font-family:'DM Serif Display',serif; font-weight:400; font-size:clamp(2.25rem,4.6vw,3.75rem); line-height:1.08; letter-spacing:-.02em; color:#fff; margin:0 0 1.5rem; }
+.cs-hero h1 em { font-style:italic; color:#38b6ff; }
+.cs-lede { font-size:1.125rem; line-height:1.65; color:rgba(255,255,255,.82); max-width:34em; margin:0 0 2rem; }
+.cs-actions { display:flex; flex-wrap:wrap; align-items:center; gap:1rem 1.5rem; }
+.cs-textlink { font-weight:600; color:#fff; text-decoration:underline; text-underline-offset:4px; text-decoration-color:rgba(255,255,255,.5); }
+.cs-textlink:hover { text-decoration-color:#fff; }
+
+/* Portrait cluster: the one element that breaks the hero's bottom edge */
+.cs-cluster { position:relative; height:26rem; }
+.cs-cluster img { position:absolute; border-radius:50%; object-fit:cover; object-position:center 22%; border:4px solid #fff; background:#dce3eb; box-shadow:0 1px 2px rgba(12,31,63,.12), 0 16px 40px rgba(12,31,63,.28); }
+.cs-cluster img:nth-child(1) { width:15rem; height:15rem; left:0; top:0; border-color:#c9a84c; }
+.cs-cluster img:nth-child(2) { width:11rem; height:11rem; right:0; top:2.5rem; }
+.cs-cluster img:nth-child(3) { width:10rem; height:10rem; left:2rem; bottom:0; }
+.cs-cluster img:nth-child(4) { width:12rem; height:12rem; right:2.5rem; bottom:.5rem; }
+
+/* ---------- Facts strip ---------- */
+.cs-facts { background:#fff; border-bottom:1px solid var(--border-light,#e8edf2); padding:2rem 0; }
+.cs-facts dl { display:flex; flex-wrap:wrap; gap:1.5rem 4rem; margin:0; }
+.cs-facts dt { font-size:.75rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:#5a6577; margin:0 0 .25rem; }
+.cs-facts dd { font-size:1.0625rem; font-weight:600; color:var(--navy,#0c1f3f); margin:0; }
+
+/* ---------- Sessions ---------- */
+.cs-sessions { padding:6rem 0; background:#fff; }
+.cs-head { max-width:44rem; margin:0 0 2.5rem; }
+.cs-head h2 { font-family:'DM Serif Display',serif; font-weight:400; font-size:clamp(1.75rem,3.2vw,2.5rem); line-height:1.15; letter-spacing:-.015em; color:var(--navy,#0c1f3f); margin:0 0 .75rem; }
+.cs-head p { font-size:1.0625rem; line-height:1.65; color:#4a5568; margin:0; }
+.cs-day { font-family:'DM Serif Display',serif; font-weight:400; font-size:1.5rem; color:var(--navy,#0c1f3f); margin:3rem 0 0; padding-bottom:1rem; border-bottom:2px solid var(--navy,#0c1f3f); }
+.cs-day:first-of-type { margin-top:0; }
+.cs-list { list-style:none; margin:0; padding:0; }
+.cs-row { display:grid; grid-template-columns:11rem minmax(0,1fr); gap:2rem; padding:2rem 0; border-bottom:1px solid #e1e6ed; scroll-margin-top:7rem; }
+.cs-when { color:var(--navy,#0c1f3f); }
+.cs-when .t { display:block; font-family:'DM Serif Display',serif; font-size:1.75rem; line-height:1.1; }
+.cs-when .t small { font-family:Inter,system-ui,sans-serif; font-size:.8rem; font-weight:700; letter-spacing:.06em; margin-left:.15rem; }
+.cs-when .e { display:block; margin-top:.5rem; font-size:.9rem; font-weight:600; color:#2d3748; }
+.cs-when .r { display:block; font-size:.9rem; color:#5a6577; }
+.cs-body h3 { font-family:'DM Serif Display',serif; font-weight:400; font-size:1.5rem; line-height:1.25; color:var(--navy,#0c1f3f); margin:0 0 .5rem; }
+.cs-tag { display:inline-block; font-size:.75rem; font-weight:700; color:#6b5a2c; background:#faf6ec; border:1px solid #eadfc4; border-radius:6px; padding:.25rem .5rem; margin:0 0 .75rem; }
+.cs-body p { font-size:1rem; line-height:1.65; color:#4a5568; max-width:40em; margin:0 0 1.5rem; }
+.cs-people { display:flex; flex-wrap:wrap; gap:1rem 2rem; margin:0 0 1.5rem; }
+.cs-person { display:flex; align-items:center; gap:.75rem; }
+.cs-person img, .cs-person .cs-initials { width:56px; height:56px; border-radius:50%; flex-shrink:0; border:2px solid #c9a84c; }
+.cs-person img { object-fit:cover; object-position:center 22%; }
+.cs-person .cs-initials { display:flex; align-items:center; justify-content:center; background:var(--bg-ice,#eef5f8); color:var(--navy,#0c1f3f); font-weight:700; font-size:1rem; border-color:#dce3eb; }
+.cs-person strong { display:block; font-size:1rem; color:var(--navy,#0c1f3f); }
+.cs-person span { display:block; font-size:.875rem; color:#5a6577; }
+.cs-cal { display:inline-flex; align-items:center; gap:.5rem; font-size:.9rem; font-weight:700; color:#1a5494; text-decoration:none; border-bottom:2px solid rgba(26,84,148,.3); padding-bottom:2px; }
+.cs-cal:hover { border-bottom-color:#1a5494; }
+.cs-note { font-size:.875rem; line-height:1.6; color:#5a6577; margin:1.5rem 0 0; }
+.cs-note a { color:#1a5494; }
+
+/* ---------- Plan your visit ---------- */
+.cs-plan { background:var(--bg-cream,#faf8f4); padding:6rem 0; }
+.cs-plan .container { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.2fr); gap:4rem; align-items:start; }
+.cs-plan h2 { font-family:'DM Serif Display',serif; font-weight:400; font-size:clamp(1.75rem,3.2vw,2.5rem); line-height:1.15; letter-spacing:-.015em; color:var(--navy,#0c1f3f); margin:0 0 1rem; }
+.cs-plan .cs-plan-intro p { font-size:1.0625rem; line-height:1.65; color:#4a5568; margin:0 0 2rem; max-width:30em; }
+.cs-steps { list-style:none; margin:0; padding:0; counter-reset:cs; border-top:1px solid #e3ddd0; }
+.cs-steps li { counter-increment:cs; display:grid; grid-template-columns:3.5rem minmax(0,1fr); gap:1rem; padding:1.5rem 0; border-bottom:1px solid #e3ddd0; }
+.cs-steps li::before { content:counter(cs,decimal-leading-zero); font-family:'DM Serif Display',serif; font-size:1.75rem; line-height:1; color:#a8873a; }
+.cs-steps strong { display:block; font-size:1.0625rem; color:var(--navy,#0c1f3f); margin:0 0 .25rem; }
+.cs-steps span { display:block; font-size:1rem; line-height:1.6; color:#4a5568; }
+.cs-steps a { color:#1a5494; font-weight:600; }
+
+/* ---------- Responsive ---------- */
+@media (max-width:960px) {
+  .cs-hero { padding:4rem 0 4rem; }
+  .cs-hero .container { grid-template-columns:1fr; gap:2.5rem; }
+  .cs-cluster { height:auto; display:flex; }
+  .cs-cluster img, .cs-cluster img:nth-child(n) { position:static; width:5.5rem; height:5.5rem; margin-right:-1rem; border-width:3px; }
+  .cs-facts dl { gap:1.5rem 2.5rem; }
+  .cs-plan .container { grid-template-columns:1fr; gap:1rem; }
+}
+@media (max-width:640px) {
+  .cs-sessions, .cs-plan { padding:4rem 0; }
+  .cs-row { grid-template-columns:1fr; gap:1rem; }
+  .cs-when .e, .cs-when .r { display:inline; margin-right:.75rem; }
+  .cs-cluster img, .cs-cluster img:nth-child(n) { width:4.5rem; height:4.5rem; }
+  .cs-actions .btn-primary { width:100%; justify-content:center; text-align:center; }
+}
+
+/* ---------- Compact "more sessions" list ---------- */
+.cs-more { list-style:none; margin:0; padding:0; }
+.cs-more li { display:grid; grid-template-columns:11rem minmax(0,1fr); gap:2rem; padding:1.5rem 0; border-bottom:1px solid #e1e6ed; }
+.cs-more .m-t { font-size:.9rem; font-weight:700; color:#2d3748; padding-top:.15rem; }
+.cs-more strong { display:block; font-size:1.0625rem; line-height:1.4; color:var(--navy,#0c1f3f); margin:0 0 .25rem; }
+.cs-more div span { display:block; font-size:.9375rem; color:#5a6577; }
+@media (max-width:640px) { .cs-more li { grid-template-columns:1fr; gap:.25rem; } }
