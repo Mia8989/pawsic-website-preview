@@ -66,6 +66,24 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/images/pawsic-favicon-16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/pawsic-apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="192x192" href="/images/pawsic-favicon-192.png">
+
+  <style>
+    /* Pop-up sign-up form on the Resources page */
+    .pg-modal { position: fixed; inset: 0; z-index: 10000; display: flex; align-items: flex-start; justify-content: center; padding: 4vh 1rem; overflow-y: auto; -webkit-overflow-scrolling: touch; }
+    .pg-modal[hidden] { display: none; }
+    .pg-backdrop { position: fixed; inset: 0; background: rgba(12,31,63,.62); }
+    .pg-dialog { position: relative; width: 100%; max-width: 720px; background: #fff; border-top: 4px solid #C9A84C; border-radius: 16px; padding: 2rem 2rem .25rem; box-shadow: 0 2px 4px rgba(4,12,28,.2), 0 24px 64px rgba(4,12,28,.45); }
+    .pg-eyebrow { font-size: .72rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #1A5494; }
+    .pg-title { font-family: 'DM Serif Display', serif; font-weight: 400; font-size: 1.6rem; line-height: 1.2; color: #0C1F3F; margin: .35rem 2.5rem .4rem 0; }
+    .pg-title em { color: #2B7CCA; }
+    .pg-sub { color: #3a4a5c; line-height: 1.55; margin: 0; font-size: .95rem; }
+    .pg-sub a { color: #1A5494; font-weight: 600; }
+    .pg-close { position: absolute; top: .9rem; right: 1rem; width: 2.5rem; height: 2.5rem; border: 0; border-radius: 50%; background: #EEF5F8; color: #0C1F3F; font-size: 1.5rem; line-height: 1; cursor: pointer; }
+    .pg-close:hover { background: #dfeaf0; }
+    .pg-dialog .pc-form-pad { padding: 1.25rem 0 1rem; }
+    body.pg-open { overflow: hidden; }
+    @media (max-width: 560px) { .pg-modal { padding: 0; } .pg-dialog { border-radius: 0; min-height: 100%; padding: 1.5rem 1.15rem .25rem; } }
+  </style>
 </head>
 <body>
 
@@ -180,6 +198,40 @@
       </div>
     </section>
 
+        <!-- ===== NEW RESOURCE: Mobile Wound Group Checklist (added 2026-10-07; used on the homepage and the Resources page).
+         Remove the INCLUDE line from those pages when it is no longer new. ===== -->
+    <style>
+      .mwgf{background:#eef5f8;padding:56px 0;border-bottom:1px solid #dbe6ee;}
+      .mwgf-in{display:grid;grid-template-columns:auto minmax(0,1fr);gap:56px;align-items:center;max-width:1040px;}
+      .mwgf-art{display:block;width:208px;transform:rotate(-3deg);border-radius:6px;box-shadow:0 1px 3px rgba(12,31,63,.18),0 16px 40px rgba(12,31,63,.22);transition:transform .25s ease;}
+      .mwgf-art:hover{transform:rotate(-3deg) translateY(-4px);}
+      .mwgf-art img{display:block;width:100%;height:auto;border-radius:6px;}
+      .mwgf-label{display:flex;align-items:center;gap:12px;font:700 13px/1.4 Inter,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#1a5494;margin:0 0 12px;}
+      .mwgf-label span{background:#c9a84c;color:#0c1f3f;border-radius:999px;padding:4px 12px;letter-spacing:.1em;}
+      .mwgf h2{font-family:'DM Serif Display',Georgia,serif;font-weight:400;font-size:clamp(30px,3.6vw,44px);line-height:1.1;letter-spacing:-.02em;color:#0c1f3f;margin:0 0 12px;}
+      .mwgf h2 em{color:#2b7cca;}
+      .mwgf p.mwgf-sum{font-size:18px;line-height:1.6;color:#2d3748;max-width:36em;margin:0 0 24px;}
+      .mwgf-cta{display:inline-flex;align-items:center;gap:12px;background:#0c1f3f;color:#fff;font-weight:700;font-size:16px;padding:14px 24px;border-radius:999px;text-decoration:none;}
+      .mwgf-cta:hover{background:#1e3a6e;}
+      .mwgf a:focus-visible{outline:3px solid #2b7cca;outline-offset:4px;}
+      .mwgf-note{display:inline-block;margin-left:16px;font-size:15px;color:#4a5568;}
+      @media(max-width:760px){.mwgf{padding:40px 0;}.mwgf-in{grid-template-columns:1fr;gap:28px;}.mwgf-art{width:150px;}.mwgf-note{display:block;margin:14px 0 0;}}
+    </style>
+    <section class="mwgf" aria-labelledby="mwgf-heading">
+      <div class="container mwgf-in">
+        <a class="mwgf-art" href="/mobile-wound-group-checklist/" aria-label="Open the Mobile Wound Group Checklist page">
+          <img src="/mobile-wound-group-checklist/cover-01.jpg" width="935" height="1210" alt="Cover of the PAWSIC Mobile Wound Group Checklist" loading="lazy">
+        </a>
+        <div>
+          <p class="mwgf-label"><span>New</span> Free resource</p>
+          <h2 id="mwgf-heading">Mobile Wound Group <em>Checklist</em></h2>
+          <p class="mwgf-sum">A fillable framework for evaluating, aligning, and optimizing mobile wound care practices. Core Standards for every setting, plus add-ons for skilled nursing, home health, and assisted living.</p>
+          <a class="mwgf-cta" href="/mobile-wound-group-checklist/">Get the checklist free <span aria-hidden="true">&rarr;</span></a>
+          <span class="mwgf-note">Four fillable PDFs. Free with PAWSIC membership.</span>
+        </div>
+      </div>
+    </section>
+
     <!-- Wound Basics 101 feature (shared by programs.html + resources.html) -->
 <section class="wbf" aria-labelledby="wbf-title">
   <style>
@@ -252,7 +304,12 @@
                 <li><a href="#" class="active" data-filter="all">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
                   All Resources
-                  <span class="sidebar-count">35</span>
+                  <span class="sidebar-count">39</span>
+                </a></li>
+                <li><a href="#" data-filter="mwg-checklist">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                  Mobile Wound Group Checklist
+                  <span class="sidebar-count">4</span>
                 </a></li>
                 <li><a href="#" data-filter="skin-failure">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
@@ -262,7 +319,7 @@
                 <li><a href="#" data-filter="pawsic">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
                   PAWSIC Resources
-                  <span class="sidebar-count">4</span>
+                  <span class="sidebar-count">3</span>
                 </a></li>
                 <li><a href="#" data-filter="webinar">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
@@ -290,6 +347,68 @@
 
           <!-- Resource Cards -->
           <div class="v2-resources-grid">
+            <!-- ===== MOBILE WOUND GROUP CHECKLIST ===== -->
+
+            <div class="v2-resource-card" data-category="mwg-checklist" id="mwg-core">
+              <span class="v2-resource-tag tag-study">Mobile Wound Group Checklist</span>
+              <h3>Core Standards (All Settings)</h3>
+              <p>Section I. The universal standards every care setting completes: 13 parts in four clusters, plus a summary of findings and recommendations.</p>
+              <div class="v2-resource-links">
+                <a href="/mobile-wound-group-checklist/#register" class="v2-resource-access" data-gate
+                   data-gate-id="mwg-checklist-2026" data-gate-name="Mobile Wound Group Checklist"
+                   data-gate-url="https://pawsic.org/mobile-wound-group-checklist/download/#core">
+                  Get the Fillable PDF
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                </a>
+                <a href="/mobile-wound-group-checklist/" class="v2-resource-access">About the checklist</a>
+              </div>
+            </div>
+
+            <div class="v2-resource-card" data-category="mwg-checklist" id="mwg-snf">
+              <span class="v2-resource-tag tag-study">Mobile Wound Group Checklist</span>
+              <h3>Skilled Nursing Facility (SNF) Add-On</h3>
+              <p>Section II. Regulatory alignment, survey and QAPI integration, MDS and facility alignment, facility workflow, and rules of engagement.</p>
+              <div class="v2-resource-links">
+                <a href="/mobile-wound-group-checklist/#register" class="v2-resource-access" data-gate
+                   data-gate-id="mwg-checklist-2026" data-gate-name="Mobile Wound Group Checklist"
+                   data-gate-url="https://pawsic.org/mobile-wound-group-checklist/download/#snf">
+                  Get the Fillable PDF
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                </a>
+                <a href="/mobile-wound-group-checklist/" class="v2-resource-access">About the checklist</a>
+              </div>
+            </div>
+
+            <div class="v2-resource-card" data-category="mwg-checklist" id="mwg-hha">
+              <span class="v2-resource-tag tag-study">Mobile Wound Group Checklist</span>
+              <h3>Home Health Agency (HHA) Add-On</h3>
+              <p>Section III. PDGM and OASIS alignment, visit utilization and cost management, field-based care, physician order workflow, and the home environment.</p>
+              <div class="v2-resource-links">
+                <a href="/mobile-wound-group-checklist/#register" class="v2-resource-access" data-gate
+                   data-gate-id="mwg-checklist-2026" data-gate-name="Mobile Wound Group Checklist"
+                   data-gate-url="https://pawsic.org/mobile-wound-group-checklist/download/#hha">
+                  Get the Fillable PDF
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                </a>
+                <a href="/mobile-wound-group-checklist/" class="v2-resource-access">About the checklist</a>
+              </div>
+            </div>
+
+            <div class="v2-resource-card" data-category="mwg-checklist" id="mwg-alf-il">
+              <span class="v2-resource-tag tag-study">Mobile Wound Group Checklist</span>
+              <h3>Assisted Living / Independent Living (ALF/IL) Add-On</h3>
+              <p>Section IV. Limited clinical infrastructure, coordination with external providers, medication and treatment oversight, risk management, and family communication.</p>
+              <div class="v2-resource-links">
+                <a href="/mobile-wound-group-checklist/#register" class="v2-resource-access" data-gate
+                   data-gate-id="mwg-checklist-2026" data-gate-name="Mobile Wound Group Checklist"
+                   data-gate-url="https://pawsic.org/mobile-wound-group-checklist/download/#alf-il">
+                  Get the Fillable PDF
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                </a>
+                <a href="/mobile-wound-group-checklist/" class="v2-resource-access">About the checklist</a>
+              </div>
+            </div>
+
 
             <!-- ===== SKIN FAILURE RESOURCES ===== -->
 
@@ -330,16 +449,6 @@
             </div>
 
             <!-- ===== PAWSIC RESOURCES ===== -->
-
-            <div class="v2-resource-card" data-category="pawsic">
-              <span class="v2-resource-tag tag-study">PAWSIC Resource</span>
-              <h3>Wound Provider Group Checklist PAWSIC</h3>
-              <p>Comprehensive guidelines for wound provider groups. Designed to standardize practices and improve coordination across wound care teams.</p>
-              <a href="https://memberships.pawsic.org/project/pawsic_library/" class="v2-resource-access" target="_blank" rel="noopener noreferrer">
-                Access in PAWSIC Library
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-              </a>
-            </div>
 
             <div class="v2-resource-card" data-category="pawsic">
               <span class="v2-resource-tag tag-study">PAWSIC Resource</span>
@@ -832,6 +941,444 @@
       </div>
     </div>
   </footer>
+
+
+  <!-- Reusable pop-up sign-up form. Opened by any link with data-gate. -->
+  <div class="pg-modal" id="pawsic-gate" hidden>
+    <div class="pg-backdrop" data-pg-close></div>
+    <div class="pg-dialog" role="dialog" aria-modal="true" aria-labelledby="pg-title">
+      <button type="button" class="pg-close" data-pg-close aria-label="Close sign-up form">&times;</button>
+      <span class="pg-eyebrow">Free for PAWSIC members</span>
+      <h3 class="pg-title" id="pg-title">Get the <em id="pg-name">resource</em></h3>
+      <p class="pg-sub">Sign up free and it opens right away. Already a member? <a href="https://memberships.pawsic.org/login/" target="_blank" rel="noopener noreferrer">Log in</a>.</p>
+      <style>
+              .pc-form { display: grid; gap: 1.1rem; }
+              .pc-form .pc-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+              .pc-field { display: flex; flex-direction: column; gap: 0.4rem; }
+              .pc-field label { font-size: 0.82rem; font-weight: 600; color: #0C1F3F; }
+              .pc-field .pc-req { color: #c0392b; }
+              .pc-field input, .pc-field select {
+                font-family: inherit; font-size: 0.95rem; color: #0C1F3F;
+                padding: 0.75rem 0.9rem; border: 1px solid rgba(12,31,63,0.2);
+                border-radius: 10px; background: #fff; transition: border-color 0.15s, box-shadow 0.15s;
+              }
+              .pc-field input:focus, .pc-field select:focus {
+                outline: none; border-color: #38B6FF; box-shadow: 0 0 0 3px rgba(56,182,255,0.15);
+              }
+              .pc-check { display: flex; align-items: flex-start; gap: 0.6rem; }
+              .pc-check input { margin-top: 0.2rem; width: 18px; height: 18px; flex-shrink: 0; }
+              .pc-check label { font-size: 0.85rem; color: #3a4a5c; line-height: 1.5; font-weight: 500; }
+              .pc-check a { color: #1B5E9E; font-weight: 600; }
+              .pc-submit {
+                appearance: none; border: 0; cursor: pointer; width: 100%;
+                background: #38B6FF; color: #fff; font-family: inherit; font-size: 1.02rem; font-weight: 700;
+                padding: 1rem 1.5rem; border-radius: 100px; transition: background 0.2s, transform 0.1s;
+              }
+              .pc-submit:hover { background: #2da0e8; }
+              .pc-submit:disabled { background: #9bd3f5; cursor: not-allowed; }
+              .pc-status { font-size: 0.9rem; line-height: 1.5; padding: 0.4rem 0; min-height: 1.2rem; }
+              .pc-status.pc-error { color: #c0392b; font-weight: 600; }
+              .pc-status.pc-ok { color: #1e7e34; font-weight: 600; }
+              .pc-form-pad { padding: 2.2rem 2rem; }
+              .pc-note { background: #eef5fb; border-left: 3px solid #1B5E9E; border-radius: 8px; padding: 0.85rem 1rem; font-size: 0.85rem; line-height: 1.5; color: #3a4a5c; }
+              .pc-note strong { color: #0C1F3F; }
+              @media (max-width: 560px) { .pc-form .pc-row { grid-template-columns: 1fr; } }
+            </style>
+
+            <form id="pcRegForm" class="pc-form pc-form-pad" novalidate>
+              <div class="pc-row">
+                <div class="pc-field">
+                  <label for="pc-first">First Name <span class="pc-req">*</span></label>
+                  <input id="pc-first" name="firstName" type="text" autocomplete="given-name" required>
+                </div>
+                <div class="pc-field">
+                  <label for="pc-last">Last Name <span class="pc-req">*</span></label>
+                  <input id="pc-last" name="lastName" type="text" autocomplete="family-name" required>
+                </div>
+              </div>
+
+              <div class="pc-row">
+                <div class="pc-field">
+                  <label for="pc-email">Email <span class="pc-req">*</span></label>
+                  <input id="pc-email" name="email" type="email" autocomplete="email" required>
+                </div>
+                <div class="pc-field">
+                  <label for="pc-phone">Phone</label>
+                  <input id="pc-phone" name="phone" type="tel" autocomplete="tel">
+                </div>
+              </div>
+
+              <div class="pc-row">
+                <div class="pc-field">
+                  <label for="pc-title">Job Title / Role <span class="pc-req">*</span></label>
+                  <input id="pc-title" name="jobTitle" type="text" autocomplete="organization-title" required>
+                </div>
+                <div class="pc-field">
+                  <label for="pc-org">Company / Organization / Facility <span class="pc-req">*</span></label>
+                  <input id="pc-org" name="organization" type="text" autocomplete="organization" required>
+                </div>
+              </div>
+
+              <div class="pc-field">
+                <label for="pc-hear">How did you hear about PAWSIC?</label>
+                <select id="pc-hear" name="hearAbout">
+                  <option value="">Select one (optional)</option>
+                  <option>Colleague or referral</option>
+                  <option>Conference or event</option>
+                  <option>Social media</option>
+                  <option>Email from PAWSIC</option>
+                  <option>Web search</option>
+                  <option>Employer or facility</option>
+                  <option>Other</option>
+                </select>
+              </div>
+
+              <div class="pc-field">
+                <label for="pc-country">Country <span class="pc-req">*</span></label>
+                <select id="pc-country" name="country" autocomplete="country" required>
+                  <option value="US" selected>United States</option>
+                  <option value="CA">Canada</option>
+                  <option value="GB">United Kingdom</option>
+                  <option value="AU">Australia</option>
+                  <option value="IE">Ireland</option>
+                  <option value="NZ">New Zealand</option>
+                  <option value="" disabled>──────────</option>
+                  <option value="AF">Afghanistan</option>
+                  <option value="AL">Albania</option>
+                  <option value="DZ">Algeria</option>
+                  <option value="AD">Andorra</option>
+                  <option value="AO">Angola</option>
+                  <option value="AG">Antigua and Barbuda</option>
+                  <option value="AR">Argentina</option>
+                  <option value="AM">Armenia</option>
+                  <option value="AT">Austria</option>
+                  <option value="AZ">Azerbaijan</option>
+                  <option value="BS">Bahamas</option>
+                  <option value="BH">Bahrain</option>
+                  <option value="BD">Bangladesh</option>
+                  <option value="BB">Barbados</option>
+                  <option value="BY">Belarus</option>
+                  <option value="BE">Belgium</option>
+                  <option value="BZ">Belize</option>
+                  <option value="BJ">Benin</option>
+                  <option value="BT">Bhutan</option>
+                  <option value="BO">Bolivia</option>
+                  <option value="BA">Bosnia and Herzegovina</option>
+                  <option value="BW">Botswana</option>
+                  <option value="BR">Brazil</option>
+                  <option value="BN">Brunei</option>
+                  <option value="BG">Bulgaria</option>
+                  <option value="BF">Burkina Faso</option>
+                  <option value="BI">Burundi</option>
+                  <option value="KH">Cambodia</option>
+                  <option value="CM">Cameroon</option>
+                  <option value="CV">Cape Verde</option>
+                  <option value="CF">Central African Republic</option>
+                  <option value="TD">Chad</option>
+                  <option value="CL">Chile</option>
+                  <option value="CN">China</option>
+                  <option value="CO">Colombia</option>
+                  <option value="KM">Comoros</option>
+                  <option value="CG">Congo</option>
+                  <option value="CD">Congo (Democratic Republic)</option>
+                  <option value="CR">Costa Rica</option>
+                  <option value="CI">Côte d'Ivoire</option>
+                  <option value="HR">Croatia</option>
+                  <option value="CU">Cuba</option>
+                  <option value="CY">Cyprus</option>
+                  <option value="CZ">Czech Republic</option>
+                  <option value="DK">Denmark</option>
+                  <option value="DJ">Djibouti</option>
+                  <option value="DM">Dominica</option>
+                  <option value="DO">Dominican Republic</option>
+                  <option value="EC">Ecuador</option>
+                  <option value="EG">Egypt</option>
+                  <option value="SV">El Salvador</option>
+                  <option value="GQ">Equatorial Guinea</option>
+                  <option value="ER">Eritrea</option>
+                  <option value="EE">Estonia</option>
+                  <option value="SZ">Eswatini</option>
+                  <option value="ET">Ethiopia</option>
+                  <option value="FJ">Fiji</option>
+                  <option value="FI">Finland</option>
+                  <option value="FR">France</option>
+                  <option value="GA">Gabon</option>
+                  <option value="GM">Gambia</option>
+                  <option value="GE">Georgia</option>
+                  <option value="DE">Germany</option>
+                  <option value="GH">Ghana</option>
+                  <option value="GR">Greece</option>
+                  <option value="GD">Grenada</option>
+                  <option value="GT">Guatemala</option>
+                  <option value="GN">Guinea</option>
+                  <option value="GW">Guinea-Bissau</option>
+                  <option value="GY">Guyana</option>
+                  <option value="HT">Haiti</option>
+                  <option value="HN">Honduras</option>
+                  <option value="HK">Hong Kong</option>
+                  <option value="HU">Hungary</option>
+                  <option value="IS">Iceland</option>
+                  <option value="IN">India</option>
+                  <option value="ID">Indonesia</option>
+                  <option value="IR">Iran</option>
+                  <option value="IQ">Iraq</option>
+                  <option value="IL">Israel</option>
+                  <option value="IT">Italy</option>
+                  <option value="JM">Jamaica</option>
+                  <option value="JP">Japan</option>
+                  <option value="JO">Jordan</option>
+                  <option value="KZ">Kazakhstan</option>
+                  <option value="KE">Kenya</option>
+                  <option value="KI">Kiribati</option>
+                  <option value="KW">Kuwait</option>
+                  <option value="KG">Kyrgyzstan</option>
+                  <option value="LA">Laos</option>
+                  <option value="LV">Latvia</option>
+                  <option value="LB">Lebanon</option>
+                  <option value="LS">Lesotho</option>
+                  <option value="LR">Liberia</option>
+                  <option value="LY">Libya</option>
+                  <option value="LI">Liechtenstein</option>
+                  <option value="LT">Lithuania</option>
+                  <option value="LU">Luxembourg</option>
+                  <option value="MG">Madagascar</option>
+                  <option value="MW">Malawi</option>
+                  <option value="MY">Malaysia</option>
+                  <option value="MV">Maldives</option>
+                  <option value="ML">Mali</option>
+                  <option value="MT">Malta</option>
+                  <option value="MH">Marshall Islands</option>
+                  <option value="MR">Mauritania</option>
+                  <option value="MU">Mauritius</option>
+                  <option value="MX">Mexico</option>
+                  <option value="FM">Micronesia</option>
+                  <option value="MD">Moldova</option>
+                  <option value="MC">Monaco</option>
+                  <option value="MN">Mongolia</option>
+                  <option value="ME">Montenegro</option>
+                  <option value="MA">Morocco</option>
+                  <option value="MZ">Mozambique</option>
+                  <option value="MM">Myanmar</option>
+                  <option value="NA">Namibia</option>
+                  <option value="NR">Nauru</option>
+                  <option value="NP">Nepal</option>
+                  <option value="NL">Netherlands</option>
+                  <option value="NI">Nicaragua</option>
+                  <option value="NE">Niger</option>
+                  <option value="NG">Nigeria</option>
+                  <option value="KP">North Korea</option>
+                  <option value="MK">North Macedonia</option>
+                  <option value="NO">Norway</option>
+                  <option value="OM">Oman</option>
+                  <option value="PK">Pakistan</option>
+                  <option value="PW">Palau</option>
+                  <option value="PS">Palestine</option>
+                  <option value="PA">Panama</option>
+                  <option value="PG">Papua New Guinea</option>
+                  <option value="PY">Paraguay</option>
+                  <option value="PE">Peru</option>
+                  <option value="PH">Philippines</option>
+                  <option value="PL">Poland</option>
+                  <option value="PT">Portugal</option>
+                  <option value="PR">Puerto Rico</option>
+                  <option value="QA">Qatar</option>
+                  <option value="RO">Romania</option>
+                  <option value="RU">Russia</option>
+                  <option value="RW">Rwanda</option>
+                  <option value="KN">Saint Kitts and Nevis</option>
+                  <option value="LC">Saint Lucia</option>
+                  <option value="VC">Saint Vincent and the Grenadines</option>
+                  <option value="WS">Samoa</option>
+                  <option value="SM">San Marino</option>
+                  <option value="ST">Sao Tome and Principe</option>
+                  <option value="SA">Saudi Arabia</option>
+                  <option value="SN">Senegal</option>
+                  <option value="RS">Serbia</option>
+                  <option value="SC">Seychelles</option>
+                  <option value="SL">Sierra Leone</option>
+                  <option value="SG">Singapore</option>
+                  <option value="SK">Slovakia</option>
+                  <option value="SI">Slovenia</option>
+                  <option value="SB">Solomon Islands</option>
+                  <option value="SO">Somalia</option>
+                  <option value="ZA">South Africa</option>
+                  <option value="KR">South Korea</option>
+                  <option value="SS">South Sudan</option>
+                  <option value="ES">Spain</option>
+                  <option value="LK">Sri Lanka</option>
+                  <option value="SD">Sudan</option>
+                  <option value="SR">Suriname</option>
+                  <option value="SE">Sweden</option>
+                  <option value="CH">Switzerland</option>
+                  <option value="SY">Syria</option>
+                  <option value="TW">Taiwan</option>
+                  <option value="TJ">Tajikistan</option>
+                  <option value="TZ">Tanzania</option>
+                  <option value="TH">Thailand</option>
+                  <option value="TL">Timor-Leste</option>
+                  <option value="TG">Togo</option>
+                  <option value="TO">Tonga</option>
+                  <option value="TT">Trinidad and Tobago</option>
+                  <option value="TN">Tunisia</option>
+                  <option value="TR">Turkey</option>
+                  <option value="TM">Turkmenistan</option>
+                  <option value="TV">Tuvalu</option>
+                  <option value="UG">Uganda</option>
+                  <option value="UA">Ukraine</option>
+                  <option value="AE">United Arab Emirates</option>
+                  <option value="UY">Uruguay</option>
+                  <option value="UZ">Uzbekistan</option>
+                  <option value="VU">Vanuatu</option>
+                  <option value="VA">Vatican City</option>
+                  <option value="VE">Venezuela</option>
+                  <option value="VN">Vietnam</option>
+                  <option value="YE">Yemen</option>
+                  <option value="ZM">Zambia</option>
+                  <option value="ZW">Zimbabwe</option>
+                </select>
+              </div>
+
+              <div id="pc-address-fields">
+                <div class="pc-field">
+                  <label for="pc-address">Street Address <span class="pc-req">*</span></label>
+                  <input id="pc-address" name="address" type="text" autocomplete="address-line1" placeholder="123 Main St" required>
+                </div>
+                <div class="pc-field">
+                  <label for="pc-address2">Apt / Suite / Unit</label>
+                  <input id="pc-address2" name="address2" type="text" autocomplete="address-line2" placeholder="Optional">
+                </div>
+                <div class="pc-field">
+                  <label for="pc-city">City <span class="pc-req">*</span></label>
+                  <input id="pc-city" name="city" type="text" autocomplete="address-level2" required>
+                </div>
+                <div class="pc-row">
+                  <div class="pc-field">
+                    <label for="pc-state">State <span class="pc-req">*</span></label>
+                    <input id="pc-state" name="state" type="text" autocomplete="address-level1" required>
+                  </div>
+                  <div class="pc-field">
+                    <label for="pc-zip">ZIP <span class="pc-req">*</span></label>
+                    <input id="pc-zip" name="zip" type="text" autocomplete="postal-code" inputmode="numeric" required>
+                  </div>
+                </div>
+                <p style="font-size:0.78rem; color:#6b7785; margin:0.1rem 0 0; line-height:1.45;">Your browser may offer to fill your address for you.</p>
+              </div>
+              <p style="font-size:0.78rem; color:#6b7785; margin:0.45rem 0 0; line-height:1.45;">Your registration creates your free PAWSIC membership, so we use your role, organization, and location to complete your member record.</p>
+
+              <div class="pc-check">
+                <input id="pc-news" name="newsletter" type="checkbox" value="yes" required>
+                <label for="pc-news">Yes, send me the PAWSIC newsletter with wound care education updates. <span class="pc-req">*</span></label>
+              </div>
+
+              <div class="pc-check">
+                <input id="pc-consent" name="consent" type="checkbox" value="yes" required>
+                <label for="pc-consent">I agree to PAWSIC's <a href="https://www.pawsic.org/privacy-policy" target="_blank" rel="noopener noreferrer">Privacy Policy</a> and <a href="https://www.pawsic.org/terms" target="_blank" rel="noopener noreferrer">Terms of Use</a>, and consent to receive my access link and welcome email. <span class="pc-req">*</span></label>
+              </div>
+
+              <div class="pc-note">
+                <strong>You'll become a free PAWSIC member.</strong> Registering creates your free PAWSIC membership at no cost and with no credit card, opening this resource right away, plus the member library.
+              </div>
+
+              <!-- Course context (carried to Make in the payload) -->
+              <input type="hidden" name="emailType" value="member">
+              <input type="hidden" name="courseId" value="">
+              <input type="hidden" name="courseName" value="">
+              <input type="hidden" name="watchUrl" value="">
+
+              <button type="submit" class="pc-submit" id="pc-submit">Get Free Access &rarr;</button>
+              <p class="pc-status" id="pc-status" role="status" aria-live="polite"></p>
+            </form>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var country = document.getElementById("pc-country");
+      var wrap = document.getElementById("pc-address-fields");
+      if (!country || !wrap) return;
+      var fields = wrap.querySelectorAll("input");
+      function sync() {
+        var isUS = country.value === "US";
+        wrap.hidden = !isUS;
+        for (var i = 0; i < fields.length; i++) { fields[i].disabled = !isUS; }
+      }
+      country.addEventListener("change", sync);
+      sync();
+    })();
+  </script>
+
+  <script>
+    /* Resources page pop-up: open the sign-up form, then send the visitor straight to the resource.
+       Posts to the same shared PAWSIC Make webhook as the course pages (creates the free member). */
+    (function () {
+      var MAKE_WEBHOOK = "https://hook.us2.make.com/5ltfh3hiv4o3r641md0gxkwc3i5do59i";
+      var KEY = "pawsicFreeMember";
+      var modal = document.getElementById("pawsic-gate");
+      var form = document.getElementById("pcRegForm");
+      if (!modal || !form) return;
+      var statusEl = document.getElementById("pc-status");
+      var btn = document.getElementById("pc-submit");
+      var nameEl = document.getElementById("pg-name");
+      var opener = null, sent = false;
+      function isMember() { try { return localStorage.getItem(KEY) === "1"; } catch (e) { return false; } }
+      function setField(n, v) { var el = form.querySelector('input[name="' + n + '"]'); if (el) el.value = v; }
+      function open(link) {
+        opener = link;
+        setField("courseId", link.getAttribute("data-gate-id"));
+        setField("courseName", link.getAttribute("data-gate-name"));
+        setField("watchUrl", link.getAttribute("data-gate-url"));
+        nameEl.textContent = link.getAttribute("data-gate-name");
+        modal.hidden = false;
+        document.body.classList.add("pg-open");
+        modal.scrollTop = 0;
+        var first = form.querySelector("#pc-first"); if (first) first.focus();
+      }
+      function close() {
+        modal.hidden = true;
+        document.body.classList.remove("pg-open");
+        if (opener) opener.focus();
+      }
+      document.addEventListener("click", function (e) {
+        if (!e.target.closest) return;
+        if (e.target.closest("[data-pg-close]")) { close(); return; }
+        var link = e.target.closest("a[data-gate]");
+        if (!link) return;
+        e.preventDefault();
+        if (isMember()) { window.location.href = link.getAttribute("data-gate-url"); return; }  // already signed up here: no form
+        open(link);
+      });
+      document.addEventListener("keydown", function (e) { if (e.key === "Escape" && !modal.hidden) close(); });
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        statusEl.className = "pc-status"; statusEl.textContent = "";
+        if (!form.checkValidity()) {
+          statusEl.className = "pc-status pc-error";
+          statusEl.textContent = "Please complete the required fields, including the newsletter and consent boxes.";
+          form.reportValidity();
+          return;
+        }
+        if (sent) return;
+        sent = true;
+        var params = new URLSearchParams();
+        new FormData(form).forEach(function (v, k) { params.append(k, v); });
+        params.set("newsletter", form.querySelector("#pc-news").checked ? "yes" : "no");
+        params.set("consent", form.querySelector("#pc-consent").checked ? "yes" : "no");
+        var dest = params.get("watchUrl");
+        params.set("watchUrl", dest.split("#")[0]);   // the email link goes to the full download page
+        btn.disabled = true; btn.textContent = "Submitting...";
+        statusEl.className = "pc-status pc-ok"; statusEl.textContent = "You're in. Opening it now...";
+        try { localStorage.setItem(KEY, "1"); } catch (err) {}
+        var redirected = false;
+        var go = function () { if (redirected) return; redirected = true; window.location.href = dest; };
+        // keepalive lets the POST body finish sending even though we navigate away next.
+        fetch(MAKE_WEBHOOK, { method: "POST", mode: "no-cors", body: params, keepalive: true })
+          .then(function () { setTimeout(go, 500); })
+          .catch(function () { setTimeout(go, 500); });
+        setTimeout(go, 3000);
+      });
+    })();
+  </script>
 
   <script src="/js/main.js?v=20260929"></script>
   <script>
