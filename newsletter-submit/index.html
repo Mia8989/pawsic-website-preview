@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Newsletter Contributions | PAWSIC</title>
+  <meta name="description" content="For PAWSIC committee leads and board members: pick the newsletter section you are responsible for and open its submission form.">
+  <link rel="canonical" href="https://pawsic.org/newsletter-submit">
+  <link rel="icon" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --navy:#0C1F3F; --indigo:#1E3A6E; --logo-blue:#1A5494; --accent:#2B7CCA;
+      --bright:#38B6FF; --gold:#C9A84C; --cream:#FAF8F4; --charcoal:#2D3748;
+      --soft:#4A5568; --rule:#E2E0DA; --white:#FFFFFF;
+    }
+    *,*::before,*::after{box-sizing:border-box;}
+    html{-webkit-text-size-adjust:100%;}
+    body{margin:0;background:var(--cream);color:var(--charcoal);font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:18px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+    img{max-width:100%;display:block;}
+    a{color:var(--logo-blue);}
+    .skip-link{position:absolute;left:16px;top:-80px;background:var(--white);color:var(--navy);padding:12px 20px;font-weight:700;border-radius:8px;z-index:10;text-decoration:none;}
+    .skip-link:focus{top:16px;}
+    :focus-visible{outline:3px solid var(--navy);outline-offset:3px;}
+    .wrap{max-width:1040px;margin:0 auto;padding:0 40px;}
+
+    /* Hero */
+    .hero{background:var(--navy);background-image:radial-gradient(ellipse 70% 90% at 88% 0%,rgba(43,124,202,.30),transparent 60%),linear-gradient(160deg,var(--navy) 0%,var(--indigo) 100%);color:var(--white);padding:40px 0 160px;}
+    .hero :focus-visible{outline-color:var(--bright);}
+    .brand{display:inline-flex;align-items:center;gap:16px;color:var(--white);text-decoration:none;}
+    .brand-mark{width:56px;height:56px;overflow:hidden;flex:0 0 auto;}
+    .brand-mark img{width:124px;max-width:none;margin:-19px 0 0 -32px;}
+    .brand-text{display:flex;flex-direction:column;line-height:1.25;}
+    .brand-name{font-size:18px;font-weight:600;letter-spacing:.32em;}
+    .brand-sub{font-size:14px;letter-spacing:.06em;color:rgba(255,255,255,.82);}
+    .hero-body{margin-top:80px;max-width:720px;}
+    .eyebrow{display:inline-block;font-size:15px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--bright);padding-bottom:12px;border-bottom:2px solid var(--gold);margin:0 0 24px;}
+    h1{font-family:'DM Serif Display',Georgia,serif;font-weight:400;font-size:64px;line-height:1.08;letter-spacing:-.02em;margin:0 0 24px;color:var(--white);text-wrap:balance;}
+    .intro{font-size:21px;line-height:1.6;color:rgba(255,255,255,.9);margin:0;max-width:34em;text-wrap:balance;}
+    .steps{list-style:none;margin:56px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:32px;max-width:880px;}
+    .steps li{display:flex;gap:16px;align-items:flex-start;font-size:18px;line-height:1.5;color:rgba(255,255,255,.9);}
+    .steps .n{font-family:'DM Serif Display',Georgia,serif;font-size:40px;line-height:1;color:var(--gold);flex:0 0 auto;margin-top:-2px;}
+
+    /* Sheet */
+    .sheet{position:relative;margin:-104px auto 0;background:var(--white);border-radius:16px;box-shadow:0 1px 2px rgba(12,31,63,.06),0 16px 48px rgba(12,31,63,.12);padding:64px 64px 56px;}
+    .sheet-head{display:flex;justify-content:space-between;align-items:baseline;gap:24px;flex-wrap:wrap;margin-bottom:8px;}
+    h2{font-family:'DM Serif Display',Georgia,serif;font-weight:400;font-size:40px;line-height:1.1;letter-spacing:-.02em;color:var(--navy);margin:0;}
+    .count{font-size:18px;color:var(--soft);margin:0;}
+    .group{margin-top:48px;}
+    .group-label{font-size:15px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--logo-blue);margin:0;padding-bottom:16px;border-bottom:2px solid var(--navy);}
+    .rows{list-style:none;margin:0;padding:0;}
+    .row{display:flex;align-items:center;justify-content:space-between;gap:32px;padding:24px 0;border-bottom:1px solid var(--rule);}
+    .row-name{font-family:'DM Serif Display',Georgia,serif;font-size:27px;line-height:1.2;color:var(--navy);margin:0 0 4px;font-weight:400;}
+    .row-who{margin:0;font-size:18px;color:var(--soft);line-height:1.5;}
+    .row-note{margin:16px 0 0;font-size:18px;line-height:1.55;color:var(--charcoal);padding-left:16px;border-left:3px solid var(--gold);max-width:34em;}
+    .btn{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:14px 28px;background:var(--logo-blue);color:var(--white);font-size:18px;font-weight:700;text-decoration:none;border-radius:8px;transition:background-color .15s ease;}
+    .btn svg{width:18px;height:18px;flex:0 0 auto;}
+    .btn:hover{background:var(--navy);color:var(--white);}
+    .btn:focus-visible{outline:3px solid var(--navy);outline-offset:3px;}
+
+    .closing{margin:40px 0 0;padding:24px;background:var(--cream);border-radius:8px;display:flex;gap:16px;align-items:flex-start;}
+    .closing svg{width:24px;height:24px;flex:0 0 auto;color:var(--logo-blue);margin-top:4px;}
+    .closing p{margin:0;font-size:19px;line-height:1.6;color:var(--charcoal);max-width:40em;}
+
+    /* Footer */
+    .site-footer{background:var(--navy);color:rgba(255,255,255,.85);margin-top:96px;padding:48px 0;font-size:16px;line-height:1.6;}
+    .site-footer :focus-visible{outline-color:var(--bright);}
+    .foot{display:flex;justify-content:space-between;align-items:center;gap:24px 40px;flex-wrap:wrap;}
+    .foot-logo img{height:36px;width:auto;}
+    .foot-legal{display:flex;flex-wrap:wrap;gap:8px 24px;}
+    .foot-legal a,.foot-credit a{color:var(--white);text-decoration:underline;text-underline-offset:3px;}
+    .foot-bottom{margin-top:32px;padding-top:24px;border-top:1px solid rgba(255,255,255,.16);display:flex;justify-content:space-between;gap:16px 40px;flex-wrap:wrap;}
+    .foot-bottom p{margin:0;}
+    .foot-credit a{white-space:nowrap;}
+
+    @media (max-width:860px){
+      .steps{grid-template-columns:1fr;gap:20px;}
+      h1{font-size:52px;}
+    }
+    @media (max-width:640px){
+      .wrap{padding:0 16px;}
+      .hero{padding:24px 0 120px;}
+      .hero-body{margin-top:48px;}
+      h1{font-size:42px;}
+      .intro{font-size:19px;}
+      .steps{margin-top:40px;}
+      .sheet{margin-top:-80px;padding:40px 20px 32px;border-radius:12px;}
+      h2{font-size:32px;}
+      .group{margin-top:40px;}
+      .row{flex-direction:column;align-items:stretch;gap:16px;padding:24px 0;}
+      .row-name{font-size:25px;}
+      .btn{width:100%;}
+      .closing p{font-size:18px;}
+      .site-footer{margin-top:64px;}
+      .foot{flex-direction:column;align-items:flex-start;}
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="hero">
+    <div class="wrap">
+      <a href="/" class="brand" aria-label="PAWSIC home">
+        <span class="brand-mark"><img src="/images/pawsic-logo-vert-wht.png" alt="" width="124" height="124"></span>
+        <span class="brand-text">
+          <span class="brand-name">PAWSIC</span>
+          <span class="brand-sub">Post-Acute Wound &amp; Skin Integrity Council</span>
+        </span>
+      </a>
+      <div class="hero-body">
+        <p class="eyebrow">For committee leads and board members</p>
+        <h1>Contribute to the PAWSIC newsletter</h1>
+        <p class="intro">Find the section you are responsible for and open its form. Your answers go straight to the president for review before the issue goes out.</p>
+      </div>
+      <ol class="steps" aria-label="How it works">
+        <li><span class="n" aria-hidden="true">1</span><span>Pick your section.</span></li>
+        <li><span class="n" aria-hidden="true">2</span><span>Fill in your part and the quick details.</span></li>
+        <li><span class="n" aria-hidden="true">3</span><span>The president reviews and publishes.</span></li>
+      </ol>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <div class="wrap">
+      <section class="sheet" aria-labelledby="sections-title">
+        <div class="sheet-head">
+          <h2 id="sections-title">Newsletter sections</h2>
+          <p class="count">14 sections in three groups</p>
+        </div>
+
+        <div class="group">
+          <h3 class="group-label">The issue</h3>
+          <ul class="rows">
+            <li class="row"><div><p class="row-name">Edition Theme</p><p class="row-who">President or editor</p></div><a class="btn" href="https://form.jotform.com/262790270009051?section=theme" target="_blank" rel="noopener" aria-label="Open the Edition Theme form">Open form<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+            <li class="row"><div><p class="row-name">President&rsquo;s Message</p><p class="row-who">The president</p></div><a class="btn" href="https://form.jotform.com/262790270009051?section=president" target="_blank" rel="noopener" aria-label="Open the President&rsquo;s Message form">Open form<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+            <li class="row"><div><p class="row-name">Closing / Advocacy</p><p class="row-who">President or advocacy lead</p></div><a class="btn" href="https://form.jotform.com/262790270009051?section=advocacy" target="_blank" rel="noopener" aria-label="Open the Closing and Advocacy form">Open form<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+            <li class="row"><div><p class="row-name">Membership CTA</p><p class="row-who">Membership lead</p></div><a class="btn" href="https://form.jotform.com/262790270009051?section=cta" target="_blank" rel="noopener" aria-label="Open the Membership CTA form">Open form<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+          </ul>
+        </div>
+
+        <div class="group">
+          <h3 class="group-label">Programs and events</h3>
+          <ul class="rows">
+            <li class="row"><div><p class="row-name">Podcast Spotlight</p><p class="row-who">Podcast host or lead</p></div><a class="btn" href="https://form.jotform.com/262790270009051?section=podcast" target="_blank" rel="noopener" aria-label="Open the Podcast Spotlight form">Open form<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+            <li class="row"><div><p class="row-name">Education and Webinars</p><p class="row-who">Education Committee lead</p></div><a class="btn" href="https://form.jotform.com/262790270009051?section=education" target="_blank" rel="noopener" aria-label="Open the Education and Webinars form">Open form<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+            <li class="row"><div><p class="row-name">Events and Conferences</p><p class="row-who">Events lead</p></div><a class="btn" href="https://form.jotform.com/262790270009051?section=events" target="_blank" rel="noopener" aria-label="Open the Events and Conferences form">Open form<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+            <li class="row"><div><p class="row-name">Conference Recap</p><p class="row-who">Anyone who attended</p></div><a class="btn" href="https://form.jotform.com/262790270009051?section=recap" target="_blank" rel="noopener" aria-label="Open the Conference Recap form">Open form<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+            <li class="row"><div><p class="row-name">Regulatory Update</p><p class="row-who">Regulatory lead</p></div><a class="btn" href="https://form.jotform.com/262790270009051?section=regulatory" target="_blank" rel="noopener" aria-label="Open the Regulatory Update form">Open form<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+          </ul>
+        </div>
+
+        <div class="group">
+          <h3 class="group-label">People, groups and partners</h3>
+          <ul class="rows">
+            <li class="row"><div><p class="row-name">Committee / SIG Spotlight</p><p class="row-who">Committee or SIG chair</p></div><a class="btn" href="https://form.jotform.com/262790270009051?section=sig" target="_blank" rel="noopener" aria-label="Open the Committee and SIG Spotlight form">Open form<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+            <li class="row"><div><p class="row-name">Partnerships and Collaborations</p><p class="row-who">Partnership lead</p></div><a class="btn" href="https://form.jotform.com/262790270009051?section=partnerships" target="_blank" rel="noopener" aria-label="Open the Partnerships and Collaborations form">Open form<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+            <li class="row"><div><p class="row-name">Member / Board Highlight</p><p class="row-who">Any board member or lead</p></div><a class="btn" href="https://form.jotform.com/262790270009051?section=member" target="_blank" rel="noopener" aria-label="Open the Member and Board Highlight form">Open form<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+            <li class="row"><div><p class="row-name">Resource Highlight</p><p class="row-who">Owning committee or SIG</p></div><a class="btn" href="https://form.jotform.com/262790270009051?section=resource" target="_blank" rel="noopener" aria-label="Open the Resource Highlight form">Open form<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+            <li class="row"><div><p class="row-name">Sponsor Spotlight</p><p class="row-who">Sponsor contact</p><p class="row-note">Sponsors submit their own recognition text, logo and image. Sponsorship acknowledgement only, no product promotion.</p></div><a class="btn" href="https://form.jotform.com/executiveteam_executiveteam874/sponsor-spotlight-newsletter" target="_blank" rel="noopener" aria-label="Open the Sponsor Spotlight form">Open form<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+          </ul>
+        </div>
+
+        <div class="closing">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M12 11v6M12 7.5v.01"/></svg>
+          <p>Every form accepts extra images or files. Please keep language free of pricing, sales claims and calls to buy.</p>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="foot">
+        <a href="/" class="foot-logo" aria-label="PAWSIC home"><img src="/images/pawsic-logo-horiz-white.png" alt="PAWSIC, Post-Acute Wound &amp; Skin Integrity Council" width="254" height="36"></a>
+        <nav class="foot-legal" aria-label="Legal">
+          <a href="/privacy-policy/">Privacy Policy</a>
+          <a href="/disclaimers/">Website Disclaimer</a>
+          <a href="/accessibility/">Accessibility</a>
+        </nav>
+      </div>
+      <div class="foot-bottom">
+        <p>&copy; 2026 PAWSIC. All Rights Reserved.</p>
+        <p class="foot-credit">Website built and designed with care by <a href="https://aipowereddahlia.com/" target="_blank" rel="noopener">AI Powered Dahlia</a></p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
