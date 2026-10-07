@@ -646,6 +646,8 @@
     .mw-addons h3 { font-family:'DM Serif Display',serif; font-weight:400; font-size:1.5rem; color:#0C1F3F; margin:.5rem 0 1rem; }
     .mw-addon { padding:1.25rem 0; border-top:1px solid rgba(12,31,63,.14); }
     .mw-addon strong { display:block; color:#0C1F3F; font-size:1.05rem; }
+    .mw-meta { display:block; font-size:.78rem; font-weight:600; letter-spacing:.04em; color:#1A5494; margin:.2rem 0 0; }
+    .mw-core .mw-meta { color:#38B6FF; margin:0 0 .9rem; }
     .mw-addon p { margin:.35rem 0 0; color:#3a4a5c; line-height:1.55; font-size:.95rem; }
     .mw-who { max-width:860px; margin:2.5rem auto 0; }
     .mw-who div { display:grid; grid-template-columns:240px 1fr; gap:2rem; padding:1.4rem 0; border-top:1px solid rgba(12,31,63,.14); }
@@ -814,14 +816,15 @@
     <section class="section section-white" id="inside">
       <div class="container">
         <div class="section-header reveal" style="text-align:center;">
-          <span class="section-tag">What's Inside</span>
-          <h2>One Core Checklist, Three <em>Setting Add-Ons</em></h2>
+          <span class="section-tag">The Documents</span>
+          <h2>Four Fillable PDFs, One <em>Checklist</em></h2>
           <p style="max-width: 660px; margin: 1rem auto 0; color:#3a4a5c; line-height:1.6;">Complete Section I in full, then only the add-on for your care setting. Each one is its own fillable PDF.</p>
         </div>
         <div class="mw-inside">
           <div class="mw-core reveal">
-            <span class="mw-eyebrow">Section I &middot; All Settings</span>
+            <span class="mw-eyebrow">Document 1 &middot; Section I &middot; All Settings</span>
             <h3>Core Standards</h3>
+            <p class="mw-meta">Fillable PDF &middot; 16 pages</p>
             <p>Thirteen parts in four clusters, followed by a summary of findings and recommendations with a score tally, strengths, gaps, risk areas, and next steps.</p>
             <ul class="mw-clusters">
               <li>Operational Foundation <span>Parts 1 to 2</span></li>
@@ -832,11 +835,11 @@
             </ul>
           </div>
           <div class="mw-addons reveal reveal-delay-1">
-            <span class="mw-eyebrow" style="color:#1A5494;">Sections II to IV</span>
+            <span class="mw-eyebrow" style="color:#1A5494;">Documents 2 to 4 &middot; Choose Your Setting</span>
             <h3>Setting-Specific Add-Ons</h3>
-            <div class="mw-addon"><strong>Skilled Nursing Facility (SNF)</strong><p>Regulatory alignment, survey and QAPI integration, MDS and facility alignment, facility workflow, and rules of engagement.</p></div>
-            <div class="mw-addon"><strong>Home Health Agency (HHA)</strong><p>PDGM and OASIS alignment, visit utilization and cost management, field-based care, physician order workflow, and the home environment.</p></div>
-            <div class="mw-addon"><strong>Assisted Living / Independent Living (ALF/IL)</strong><p>Limited clinical infrastructure, coordination with external providers, medication and treatment oversight, risk management, and family communication.</p></div>
+            <div class="mw-addon"><strong>Skilled Nursing Facility (SNF)</strong><span class="mw-meta">Section II &middot; Fillable PDF &middot; 7 pages</span><p>Regulatory alignment, survey and QAPI integration, MDS and facility alignment, facility workflow, and rules of engagement.</p></div>
+            <div class="mw-addon"><strong>Home Health Agency (HHA)</strong><span class="mw-meta">Section III &middot; Fillable PDF &middot; 5 pages</span><p>PDGM and OASIS alignment, visit utilization and cost management, field-based care, physician order workflow, and the home environment.</p></div>
+            <div class="mw-addon"><strong>Assisted Living / Independent Living (ALF/IL)</strong><span class="mw-meta">Section IV &middot; Fillable PDF &middot; 5 pages</span><p>Limited clinical infrastructure, coordination with external providers, medication and treatment oversight, risk management, and family communication.</p></div>
           </div>
         </div>
       </div>
@@ -1271,6 +1274,7 @@
               </div>
 
               <!-- Course context (carried to Make in the payload) -->
+              <input type="hidden" name="emailType" value="member">
               <input type="hidden" name="courseId" value="mwg-checklist-2026">
               <input type="hidden" name="courseName" value="Mobile Wound Group Checklist 2026">
               <input type="hidden" name="watchUrl" value="https://pawsic.org/mobile-wound-group-checklist/download/">
