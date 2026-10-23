@@ -586,5 +586,17 @@
   </footer>
 
   <script src="/js/main.js?v=20260929"></script>
+  <script>
+    // Partner coupon pass-through: /membership?coupon=CODE adds the code to every signup link
+    (function () {
+      var code = new URLSearchParams(location.search).get('coupon');
+      if (!code || !/^[A-Za-z0-9_-]{1,40}$/.test(code)) return;
+      document.querySelectorAll('a[href*="memberships.pawsic.org/register/"]').forEach(function (a) {
+        var u = new URL(a.href);
+        u.searchParams.set('coupon', code);
+        a.href = u.toString();
+      });
+    })();
+  </script>
 </body>
 </html>
