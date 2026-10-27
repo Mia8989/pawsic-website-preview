@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Private expert panel page: never index, never list in sitemap or nav -->
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+  <meta name="googlebot" content="noindex, nofollow">
+  <meta name="referrer" content="strict-origin">
+  <title>Expert Panel Review: DFU Clinical Practice Statements | PAWSIC</title>
+  <link rel="icon" href="/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #0C1F3F;
+      --indigo: #1E3A6E;
+      --logo-blue: #1A5494;
+      --blue: #2B7CCA;
+      --blue-bright: #38B6FF;
+      --gold: #C9A84C;
+      --gold-light: #E8D07A;
+      --cream: #FAF8F4;
+      --ice: #EEF5F8;
+      --ink: #14233D;
+      --muted: #4A5872;
+      --line: rgba(12, 31, 63, 0.12);
+      --white: #FFFFFF;
+      --shadow: 0 1px 2px rgba(12, 31, 63, 0.06), 0 8px 24px rgba(12, 31, 63, 0.10);
+      --r-sm: 8px;
+      --r-md: 12px;
+      --r-lg: 16px;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      font-size: 17px;
+      line-height: 1.65;
+      color: var(--ink);
+      background: var(--cream);
+    }
+    a { color: var(--blue); }
+    .wrap { max-width: 1120px; margin: 0 auto; padding: 0 32px; }
+    .label {
+      font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--blue);
+    }
+
+    /* Top bar */
+    .topbar { background: var(--white); border-bottom: 1px solid var(--line); }
+    .topbar .wrap { display: flex; align-items: center; justify-content: space-between; height: 72px; }
+    .topbar img { height: 32px; width: auto; display: block; }
+    .private-tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 13px; font-weight: 500; color: var(--muted);
+    }
+    .private-tag svg { width: 16px; height: 16px; stroke: var(--gold); }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--indigo) 100%);
+      color: var(--cream);
+      padding: 88px 0 168px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::after {
+      content: ""; position: absolute; right: -160px; top: -160px; width: 560px; height: 560px;
+      background: radial-gradient(circle, rgba(56, 182, 255, 0.10) 0%, rgba(56, 182, 255, 0) 70%);
+      pointer-events: none;
+    }
+    .hero .label { color: var(--gold-light); }
+    .hero h1 {
+      font-family: 'DM Serif Display', Georgia, serif; font-weight: 400;
+      font-size: clamp(36px, 5vw, 58px); line-height: 1.08; letter-spacing: -0.02em;
+      margin: 16px 0 24px; max-width: 17em; text-wrap: balance;
+    }
+    .hero h1 em { color: var(--blue-bright); font-style: italic; }
+    .hero p.lede { font-size: 19px; color: rgba(250, 248, 244, 0.80); max-width: 34em; margin: 0 0 40px; }
+    .facts { display: flex; flex-wrap: wrap; gap: 40px; margin: 0 0 40px; padding: 0; list-style: none; }
+    .facts li { display: flex; flex-direction: column; }
+    .facts strong {
+      font-family: 'DM Serif Display', Georgia, serif; font-weight: 400; font-size: 40px; line-height: 1;
+      color: var(--white);
+    }
+    .facts span { font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(250, 248, 244, 0.70); margin-top: 8px; }
+    .facts .due strong { color: var(--gold-light); }
+    .btn {
+      display: inline-flex; align-items: center; gap: 12px;
+      background: var(--gold); color: var(--navy); font-weight: 700; font-size: 16px;
+      padding: 16px 32px; border-radius: var(--r-sm); border: 0; cursor: pointer; text-decoration: none;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+    .btn:hover { background: var(--gold-light); transform: translateY(-1px); }
+    .btn:focus-visible { outline: 3px solid var(--blue-bright); outline-offset: 3px; }
+    .btn svg { width: 18px; height: 18px; }
+
+    /* Briefing: video card overlaps hero edge (the one grid break) */
+    .briefing { margin-top: -112px; position: relative; z-index: 2; }
+    .briefing-card {
+      display: grid; grid-template-columns: 1.35fr 1fr; gap: 0;
+      background: var(--white); border-radius: var(--r-lg); box-shadow: var(--shadow); overflow: hidden;
+    }
+    .video {
+      position: relative; aspect-ratio: 16 / 9; background: var(--navy); border: 0; padding: 0; margin: 0;
+      cursor: pointer; display: block; width: 100%; color: var(--cream); text-align: left;
+    }
+    .video .poster {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(circle at 30% 40%, rgba(43, 124, 202, 0.45) 0%, rgba(43, 124, 202, 0) 60%),
+        var(--navy);
+    }
+    .video .play {
+      position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+      width: 80px; height: 80px; border-radius: 50%; background: var(--gold);
+      display: grid; place-items: center; transition: transform 0.2s ease;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+    }
+    .video:hover .play { transform: translate(-50%, -50%) scale(1.06); }
+    .video .play svg { width: 28px; height: 28px; margin-left: 4px; fill: var(--navy); }
+    .video .cap { position: absolute; left: 24px; bottom: 24px; right: 24px; font-size: 14px; color: rgba(250, 248, 244, 0.80); }
+    .video .cap b { display: block; font-family: 'DM Serif Display', Georgia, serif; font-weight: 400; font-size: 24px; color: var(--white); line-height: 1.2; }
+    .video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+    .briefing-text { padding: 40px; }
+    .briefing-text h2 {
+      font-family: 'DM Serif Display', Georgia, serif; font-weight: 400; font-size: 28px; line-height: 1.15;
+      letter-spacing: -0.01em; margin: 8px 0 16px; color: var(--navy);
+    }
+    .briefing-text p { margin: 0 0 16px; color: var(--muted); font-size: 16px; }
+    .passcode {
+      display: none; align-items: center; gap: 8px; margin-top: 8px;
+      font-size: 14px; color: var(--muted);
+    }
+    .passcode.show { display: flex; flex-wrap: wrap; }
+    .passcode code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 14px;
+      background: var(--ice); color: var(--navy); padding: 4px 8px; border-radius: 4px;
+    }
+    .passcode button {
+      border: 1px solid var(--line); background: var(--white); color: var(--navy);
+      font: 600 13px 'Inter', sans-serif; padding: 4px 12px; border-radius: 4px; cursor: pointer;
+    }
+
+    /* Intro */
+    .intro { padding: 96px 0 32px; }
+    .intro-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 72px; align-items: start; }
+    .intro h2, .section-title {
+      font-family: 'DM Serif Display', Georgia, serif; font-weight: 400; font-size: 36px; line-height: 1.12;
+      letter-spacing: -0.02em; margin: 8px 0 24px; color: var(--navy);
+    }
+    .intro p { margin: 0 0 16px; max-width: 36em; }
+    .how { background: var(--white); border: 1px solid var(--line); border-radius: var(--r-lg); padding: 32px; }
+    .how ol { list-style: none; margin: 16px 0 0; padding: 0; counter-reset: how; }
+    .how li { counter-increment: how; position: relative; padding-left: 48px; margin-bottom: 24px; font-size: 15px; color: var(--muted); }
+    .how li:last-child { margin-bottom: 0; }
+    .how li::before {
+      content: counter(how); position: absolute; left: 0; top: -2px;
+      width: 32px; height: 32px; border-radius: 50%; background: var(--ice); color: var(--navy);
+      font: 600 14px/32px 'Inter', sans-serif; text-align: center;
+    }
+    .how li b { display: block; color: var(--navy); font-size: 16px; }
+
+    /* Form layout */
+    .review { padding: 64px 0 128px; }
+    .review-grid { display: grid; grid-template-columns: 240px 1fr; gap: 64px; align-items: start; }
+    .rail { position: sticky; top: 32px; }
+    .rail .count { font-family: 'DM Serif Display', Georgia, serif; font-size: 48px; line-height: 1; color: var(--navy); }
+    .rail .count small { font-family: 'Inter', sans-serif; font-size: 16px; color: var(--muted); }
+    .bar { height: 6px; background: var(--ice); border-radius: 3px; margin: 16px 0 24px; overflow: hidden; }
+    .bar i { display: block; height: 100%; width: 0; background: var(--blue); transition: width 0.3s ease; }
+    .rail ul { list-style: none; margin: 0; padding: 0; }
+    .rail li a {
+      display: flex; justify-content: space-between; gap: 8px; padding: 8px 0;
+      text-decoration: none; color: var(--muted); font-size: 14px; border-bottom: 1px solid var(--line);
+    }
+    .rail li a:hover { color: var(--navy); }
+    .rail li a .n { font-variant-numeric: tabular-nums; color: var(--muted); }
+    .rail li.done a .n { color: var(--blue); font-weight: 600; }
+    .rail .saved { margin-top: 16px; font-size: 13px; color: var(--muted); min-height: 20px; }
+
+    fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
+    .block { margin-bottom: 72px; scroll-margin-top: 24px; }
+    .block-head { margin-bottom: 24px; }
+    .block-head .label { color: var(--gold); }
+    .block-head h3 {
+      font-family: 'DM Serif Display', Georgia, serif; font-weight: 400; font-size: 28px; line-height: 1.15;
+      letter-spacing: -0.01em; margin: 8px 0 0; color: var(--navy);
+    }
+
+    .panel { background: var(--white); border: 1px solid var(--line); border-radius: var(--r-lg); padding: 40px; }
+    .field { margin-bottom: 32px; }
+    .field:last-child { margin-bottom: 0; }
+    .field > label, .field > .legend { display: block; font-weight: 600; font-size: 15px; color: var(--navy); margin-bottom: 8px; }
+    .field .hint { font-size: 14px; color: var(--muted); margin: -4px 0 12px; }
+    .req { color: var(--blue); }
+    input[type=text], input[type=email], select, textarea {
+      width: 100%; font: 400 16px/1.5 'Inter', sans-serif; color: var(--ink);
+      background: var(--cream); border: 1px solid rgba(12, 31, 63, 0.20); border-radius: var(--r-sm);
+      padding: 12px 16px; transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    input:focus, select:focus, textarea:focus { outline: none; border-color: var(--blue); box-shadow: 0 0 0 3px rgba(43, 124, 202, 0.18); background: var(--white); }
+    textarea { min-height: 120px; resize: vertical; }
+    .two { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .other { margin-top: 12px; display: none; }
+    .other.show { display: block; }
+
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .chip input { position: absolute; opacity: 0; pointer-events: none; }
+    .chip span {
+      display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px;
+      border: 1px solid rgba(12, 31, 63, 0.20); border-radius: var(--r-sm); background: var(--cream);
+      font-size: 15px; font-weight: 500; color: var(--navy); cursor: pointer; transition: all 0.15s ease;
+    }
+    .chip span::before {
+      content: ""; width: 16px; height: 16px; border-radius: 4px; border: 1.5px solid rgba(12, 31, 63, 0.35);
+      background: var(--white) center / 12px no-repeat;
+    }
+    .chip input:checked + span { border-color: var(--blue); background: var(--ice); }
+    .chip input:checked + span::before {
+      border-color: var(--blue); background-color: var(--blue);
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5L20 7'/%3E%3C/svg%3E");
+    }
+    .chip input:focus-visible + span { box-shadow: 0 0 0 3px rgba(43, 124, 202, 0.25); }
+
+    /* Statement cards */
+    .stmt {
+      display: grid; grid-template-columns: 64px 1fr; gap: 24px;
+      background: var(--white); border: 1px solid var(--line); border-radius: var(--r-lg);
+      padding: 32px 40px 32px 32px; margin-bottom: 16px; scroll-margin-top: 24px;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .stmt.answered { border-color: rgba(43, 124, 202, 0.35); }
+    .stmt.missing { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.25); }
+    .stmt .num { font-family: 'DM Serif Display', Georgia, serif; font-size: 40px; line-height: 1; color: var(--gold); }
+    .stmt p.text { margin: 0 0 24px; font-size: 17px; line-height: 1.65; max-width: 40em; }
+    .vote { display: flex; gap: 8px; flex-wrap: wrap; }
+    .vote label { position: relative; }
+    .vote input { position: absolute; opacity: 0; pointer-events: none; }
+    .vote span {
+      display: inline-flex; align-items: center; gap: 8px; min-width: 152px; justify-content: center;
+      padding: 12px 24px; border-radius: var(--r-sm); border: 1.5px solid rgba(12, 31, 63, 0.20);
+      font-weight: 600; font-size: 15px; color: var(--navy); background: var(--white); cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .vote span svg { width: 16px; height: 16px; stroke: currentColor; }
+    .vote span:hover { border-color: var(--navy); }
+    .vote input:focus-visible + span { box-shadow: 0 0 0 3px rgba(43, 124, 202, 0.30); }
+    .vote input[value="Agree"]:checked + span { background: var(--navy); border-color: var(--navy); color: var(--white); }
+    .vote input[value="Do Not Agree"]:checked + span { background: var(--gold); border-color: var(--gold); color: var(--navy); }
+    .revise { display: none; margin-top: 24px; }
+    .revise.show { display: block; }
+    .revise label { display: block; font-weight: 600; font-size: 15px; color: var(--navy); margin-bottom: 4px; }
+    .revise .hint { font-size: 14px; color: var(--muted); margin: 0 0 12px; }
+
+    .consent {
+      font-size: 14px; color: var(--muted); margin: 32px 0; padding: 16px 24px;
+      border-left: 3px solid var(--gold); background: var(--white);
+    }
+    .submit-row { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
+    .error-msg { color: #8A6A12; font-weight: 600; font-size: 15px; }
+    .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+    /* Thank-you + closed states */
+    .state { display: none; padding: 96px 0 128px; }
+    .state.show { display: block; }
+    .state .panel { max-width: 720px; margin: 0 auto; text-align: left; padding: 56px; }
+    .state h2 { font-family: 'DM Serif Display', Georgia, serif; font-weight: 400; font-size: 40px; line-height: 1.1; letter-spacing: -0.02em; margin: 8px 0 16px; color: var(--navy); }
+    .state p { color: var(--muted); margin: 0 0 16px; }
+    .check { width: 56px; height: 56px; border-radius: 50%; background: var(--ice); display: grid; place-items: center; margin-bottom: 24px; }
+    .check svg { width: 28px; height: 28px; stroke: var(--blue); }
+
+    footer { background: var(--navy); color: rgba(250, 248, 244, 0.70); font-size: 14px; padding: 40px 0; }
+    footer .wrap { display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+
+    /* Mobile progress bar */
+    .mbar { display: none; }
+
+    @media (max-width: 960px) {
+      .briefing-card { grid-template-columns: 1fr; }
+      .intro-grid { grid-template-columns: 1fr; gap: 40px; }
+      .review-grid { grid-template-columns: 1fr; gap: 0; }
+      .rail { display: none; }
+      .mbar {
+        display: flex; align-items: center; gap: 16px; position: fixed; top: 0; left: 0; right: 0; z-index: 10;
+        transform: translateY(-100%); transition: transform 0.25s ease;
+        background: rgba(250, 248, 244, 0.96); backdrop-filter: blur(8px);
+        border-bottom: 1px solid var(--line); padding: 12px 24px; font-size: 14px; font-weight: 600; color: var(--navy);
+      }
+      .mbar.on { transform: none; }
+      .mbar .bar { flex: 1; margin: 0; }
+    }
+    @media (max-width: 640px) {
+      body { font-size: 16px; }
+      .wrap { padding: 0 16px; }
+      .topbar .wrap { height: 64px; }
+      .topbar img { height: 26px; }
+      .private-tag span { display: none; }
+      .hero { padding: 56px 0 128px; }
+      .hero p.lede { font-size: 17px; }
+      .facts { display: grid; grid-template-columns: repeat(3, auto); justify-content: start; gap: 24px; }
+      .facts strong { font-size: 32px; }
+      .facts span { font-size: 11px; letter-spacing: 0.06em; }
+      .stmt, .block { scroll-margin-top: 72px; }
+      .briefing { margin-top: -88px; }
+      .briefing-text { padding: 24px; }
+      .intro { padding: 64px 0 16px; }
+      .intro h2, .section-title { font-size: 30px; }
+      .how { padding: 24px; }
+      .review { padding: 40px 0 96px; }
+      .panel { padding: 24px; }
+      .two { grid-template-columns: 1fr; gap: 0; }
+      .two .field { margin-bottom: 32px; }
+      .stmt { grid-template-columns: 1fr; gap: 8px; padding: 24px; }
+      .stmt .num { font-size: 32px; }
+      .vote { display: grid; grid-template-columns: 1fr 1fr; }
+      .vote span { min-width: 0; width: 100%; padding: 12px 8px; }
+      .block { margin-bottom: 56px; }
+      .state .panel { padding: 32px 24px; }
+      .state h2 { font-size: 32px; }
+      .btn { width: 100%; justify-content: center; }
+    }
+    @media (prefers-reduced-motion: reduce) { * { transition: none !important; scroll-behavior: auto !important; } }
+  </style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <img src="/images/pawsic-logo.svg" alt="PAWSIC" width="230" height="32">
+    <span class="private-tag">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+      <span>Private link for selected PAWSIC members</span>
+    </span>
+  </div>
+</header>
+
+<div class="mbar" aria-hidden="true"><span id="mcount">0 of 15</span><div class="bar"><i id="mfill"></i></div></div>
+
+<main id="main">
+  <section class="hero">
+    <div class="wrap">
+      <div class="label">Expert panel review</div>
+      <h1>Clinical practice statements for diabetic foot ulcer care in <em>long-term care</em></h1>
+      <p class="lede">You have been selected to review 15 evidence-based practice statements and tell us whether each one is clear, clinically accurate and workable in daily long-term care.</p>
+      <ul class="facts">
+        <li><strong>15</strong><span>Statements</span></li>
+        <li><strong>7</strong><span>Domains</span></li>
+        <li class="due"><strong id="dueShort">Nov 3</strong><span>Responses due</span></li>
+      </ul>
+      <a class="btn" href="#review">Begin your review
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <section class="briefing">
+    <div class="wrap">
+      <div class="briefing-card">
+        <button class="video" id="video" type="button" aria-label="Play the panel briefing video">
+          <span class="poster"></span>
+          <span class="play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg></span>
+          <span class="cap"><b>A message from Mary Martin</b>0:32 &middot; Watch before you begin</span>
+        </button>
+        <div class="briefing-text">
+          <div class="label">Start here</div>
+          <h2>A 30-second welcome before you begin</h2>
+          <p>PAWSIC is drafting consensus statements on several key topics, and this first set focuses on diabetic foot ulcers. Mary Martin explains how to mark each statement and why your feedback matters.</p>
+          <p class="passcode" id="passcode">Recording passcode: <code id="pc">nGCw6Tk#</code> <button type="button" id="copyPc">Copy</button></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="intro">
+    <div class="wrap intro-grid">
+      <div>
+        <div class="label">Introduction</div>
+        <h2>Why these statements matter</h2>
+        <p>Residents living in long-term care (LTC) facilities represent a highly vulnerable population facing compounded physiological risks from advanced age, peripheral neuropathy, vascular disease, and multiple chronic comorbidities that significantly delay wound healing.</p>
+        <p>To bridge the persistent evidence-to-practice gap and standardize frontline clinical workflows, these evidence-based practice statements have been synthesized from the most recent clinical trials and global consensus guidelines. The primary aim is to optimize and better manage diabetic foot ulcer (DFU) care and mitigate lower-extremity complications within the post-acute and long-term care continuum.</p>
+        <p>Recognizing that effective wound management requires a collaborative approach, these statements are designed to serve as a practical clinical guide for an interdisciplinary team, including physicians, wound care specialists, physical therapists, dietitians, nursing leaders, and frontline care staff.</p>
+      </div>
+      <aside class="how">
+        <div class="label">How to review</div>
+        <ol>
+          <li><b>Read each statement carefully</b>Consider its clarity, clinical accuracy and feasibility within daily long-term care workflows.</li>
+          <li><b>Choose Agree or Do Not Agree</b>Every statement needs a response.</li>
+          <li><b>Recommend a revision</b>If you disagree, or believe a statement needs refinement, explain why and suggest specific changes.</li>
+        </ol>
+      </aside>
+    </div>
+  </section>
+
+  <section class="review" id="review">
+    <div class="wrap review-grid">
+      <aside class="rail" aria-label="Review progress">
+        <div class="count"><span id="count">0</span> <small>of 15 answered</small></div>
+        <div class="bar"><i id="fill"></i></div>
+        <ul id="toc"></ul>
+        <div class="saved" id="saved" aria-live="polite"></div>
+      </aside>
+
+      <form id="form" novalidate>
+        <div class="block" id="about">
+          <div class="block-head">
+            <div class="label">Step 1</div>
+            <h3>About you</h3>
+          </div>
+          <div class="panel">
+            <div class="two">
+              <div class="field">
+                <label for="fullName">Full name <span class="req">*</span></label>
+                <input type="text" id="fullName" name="fullName" autocomplete="name" required>
+              </div>
+              <div class="field">
+                <label for="email">Email <span class="req">*</span></label>
+                <input type="email" id="email" name="email" autocomplete="email" required>
+              </div>
+            </div>
+            <div class="field">
+              <label for="discipline">Discipline <span class="req">*</span></label>
+              <select id="discipline" name="discipline" required>
+                <option value="">Select your discipline</option>
+                <option>Registered Nurse (RN)</option>
+                <option>Licensed Practical / Vocational Nurse (LPN/LVN)</option>
+                <option>Nurse Practitioner / APRN</option>
+                <option>Physician (MD/DO)</option>
+                <option>Podiatrist (DPM)</option>
+                <option>Physician Assistant (PA)</option>
+                <option>Physical Therapist (PT)</option>
+                <option>Occupational Therapist (OT)</option>
+                <option>Registered Dietitian (RD)</option>
+                <option>Nursing Leadership / Administration</option>
+                <option>Other</option>
+              </select>
+              <div class="other" id="disciplineOtherWrap">
+                <input type="text" id="disciplineOther" name="disciplineOther" placeholder="Your discipline" aria-label="Other discipline">
+              </div>
+            </div>
+            <div class="field">
+              <span class="legend" id="certsLabel">Wound certification <span class="req">*</span></span>
+              <p class="hint">Select all that apply.</p>
+              <div class="chips" role="group" aria-labelledby="certsLabel">
+                <label class="chip"><input type="checkbox" name="certs" value="CWS"><span>CWS</span></label>
+                <label class="chip"><input type="checkbox" name="certs" value="CWCA"><span>CWCA</span></label>
+                <label class="chip"><input type="checkbox" name="certs" value="WCC"><span>WCC</span></label>
+                <label class="chip"><input type="checkbox" name="certs" value="WOCN (CWOCN, CWCN, CWON)"><span>WOCN (CWOCN, CWCN, CWON)</span></label>
+                <label class="chip"><input type="checkbox" name="certs" value="Other"><span>Other</span></label>
+                <label class="chip"><input type="checkbox" name="certs" value="None"><span>None</span></label>
+              </div>
+              <div class="other" id="certsOtherWrap">
+                <input type="text" id="certsOther" name="certsOther" placeholder="Other certification(s)" aria-label="Other certification">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="statements"></div>
+
+        <div class="block" id="final">
+          <div class="block-head">
+            <div class="label">Last step</div>
+            <h3>Anything else?</h3>
+          </div>
+          <div class="panel">
+            <div class="field">
+              <label for="comments">General comments <span style="font-weight:400;color:var(--muted)">(optional)</span></label>
+              <textarea id="comments" name="comments" placeholder="Overall feedback on the statements, missing topics or wording across domains"></textarea>
+            </div>
+          </div>
+          <p class="consent">Your name, discipline, certifications and responses will be shared with the PAWSIC clinical practice team and the Duke University DNP project team for analysis of this review.</p>
+          <div class="hp" aria-hidden="true"><label>Website <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+          <div class="submit-row">
+            <button class="btn" type="submit" id="submitBtn">Submit my review</button>
+            <span class="error-msg" id="err" role="alert"></span>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<section class="state" id="thanks" tabindex="-1">
+  <div class="wrap">
+    <div class="panel">
+      <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></div>
+      <div class="label">Review received</div>
+      <h2>Thank you for your expertise</h2>
+      <p>Your responses have been recorded. Your input will directly shape how these practice statements guide diabetic foot ulcer care for long-term care residents.</p>
+      <p>You can close this page.</p>
+    </div>
+  </div>
+</section>
+
+<section class="state" id="closed">
+  <div class="wrap">
+    <div class="panel">
+      <div class="label">Review closed</div>
+      <h2>This review is now closed</h2>
+      <p>The response window for this expert panel has ended. Thank you for your interest. If you believe you still need to respond, please contact the PAWSIC team member who invited you.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>&copy; 2026 PAWSIC, Post-Acute Wound &amp; Skin Integrity Council</span>
+    <span>Confidential draft statements. Please do not share this link.</span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  // Config: change these three values only
+  var WEBHOOK = 'https://hook.us2.make.com/54mycytm7c8ua3o6xus9rly98hy6v27i';
+  var CLOSES_AT = '2026-11-04T04:59:00Z';   // 11:59 pm Central, Tue Nov 3 2026
+  var VIMEO_ID = '1239621903';               // Vimeo briefing; empty falls back to the Zoom link
+  var ZOOM_URL = 'https://us06web.zoom.us/rec/share/lP9rgG6Rt_HFBEcdRJeqS9prd3M5SKKJCc-VoN6eFsbM6f1JQeom8QHM44z6bG0.xLaipuktTE_XxuRt?startTime=1793038201000';
+  var FORM_VERSION = 'dfu-ltc-v1';
+  var STORE = 'pawsic-dfu-panel-v1';
+
+  var DOMAINS = [
+    { t: 'Screening, Risk Stratification, and Early Detection', k: 'Screening and detection', s: [
+      'Screen all residents with diabetes mellitus admitted to skilled nursing or long-term care facilities upon admission, quarterly thereafter, and with significant change in clinical status, using a standardized assessment to identify risk factors for diabetic foot ulceration, including loss of protective sensation, peripheral arterial disease, previous ulceration, and structural foot deformities.',
+      'For residents identified as being at increased risk for diabetic foot ulceration, incorporate routine visual inspection of the feet, skin, and interdigital spaces into daily care activities, such as bathing or morning hygiene, with findings documented and promptly reported when abnormalities are identified.',
+      'Assess residents with diabetes who are at risk for foot ulceration for loss of protective sensation using a standardized 10-g Semmes-Weinstein monofilament examination at recommended plantar sites, with reassessment performed according to the resident’s level of risk and clinical status.',
+      'Perform routine vascular assessment for residents with diabetes who are at risk for foot complications, including assessment of pedal pulses and evaluation for symptoms or clinical findings suggestive of peripheral arterial disease, with further evaluation and referral to vascular services when clinically indicated.'
+    ]},
+    { t: 'Prevention, Offloading, and Mechanical Protection', k: 'Prevention and offloading', s: [
+      'Provide appropriate therapeutic footwear, prescription insoles, or other protective devices for residents with diabetes who have foot deformities, loss of protective sensation, a history of ulceration, or other identified risk factors. Footwear and protective devices should be evaluated on annual basis, and with significant clinical changes, such as new skin impairment, changes in foot structure, or changes in mobility. Evaluation and provision should involve podiatry, physical therapy, occupational therapy, or other qualified healthcare professionals as clinically appropriate, with ongoing assessment of fit, comfort, and skin integrity.',
+      'For patients/residents with a neuropathic plantar diabetic foot ulcer, evaluate and implement appropriate offloading interventions to reduce mechanical stress on the ulcer. Non-removable knee-high offloading devices, such as total contact casts or non-removable knee-high walkers, should be considered when clinically appropriate and not contraindicated. Removable offloading devices or alternative approaches may be used when a non-removable device is contraindicated, not tolerated, or otherwise inappropriate for the resident.',
+      'Include all patients/residents with Diabetes and neuropathy with and without a diabetic foot ulcer, into routine skin/pressure-risk and fall risk assessments to determine the appropriate interventions, which may include, but not limited to: physical therapy, nutritionist dietitian support, vascular referral, pressure-redistributing surfaces, positioning strategies, heel-suspension devices, and additional referrals as clinically indicated.'
+    ]},
+    { t: 'Local Wound Management and Advanced Care', k: 'Local wound management', s: [
+      'Select wound dressings according to the characteristics of the ulcer, including wound-bed condition, amount of exudate, signs of infection, and peri-wound skin, with the goal of maintaining an appropriate wound-healing environment and protecting surrounding tissue.'
+    ]},
+    { t: 'Resident, Caregiver, and Patient Empowerment', k: 'Resident and caregiver', s: [
+      'Provide individualized education to residents with diabetes, family members, and caregivers, as appropriate, regarding daily foot inspection, foot protection, appropriate footwear, pressure and offloading strategies, recognition of concerning changes, and adherence to an individualized diabetes management plan.'
+    ]},
+    { t: 'Infection Surveillance, Diagnosis, and Management', k: 'Infection', s: [
+      'Assess suspected diabetes-related foot ulcer infection based on clinical signs and symptoms of infection, including local inflammation, purulent drainage, as well as systemic signs, such as elevated blood glucose, change in mental/physical status, and other evidence of infection, rather than relying on microbiological culture results alone to establish the diagnosis.',
+      'When microbiological evaluation of a clinically infected diabetic foot ulcer is indicated, obtain an appropriately collected tissue specimen using aseptic technique, such as tissue obtained by curettage or biopsy, rather than relying on a superficial wound swab when feasible. When tissue sampling is not feasible and a wound swab is obtained, the wound should be cleansed first and the specimen collected from viable wound tissue using a standardized technique, such as the Levine technique.'
+    ]},
+    { t: 'Systemic Optimization and Co-morbidity Control', k: 'Systemic optimization', s: [
+      'Individualize glycemic management for residents with diabetes by considering the resident’s overall health status, risk of hypoglycemia, cognitive and functional status, life expectancy, and goals of care while supporting conditions that promote wound healing.',
+      'Screen residents with diabetic foot ulcers or elevated ulcer risk for nutritional concerns, including unintended weight loss or signs of malnutrition, and implement individualized nutritional interventions, including adequate energy, protein, and micronutrient intake, when clinically indicated.'
+    ]},
+    { t: 'Interdisciplinary Coordination and Educational Competency', k: 'Staff education', s: [
+      'Educate nursing staff on clinical findings that require prompt provider notification and further evaluation, including signs of infection, ischemia, wound deterioration, or failure to heal, to support timely management of diabetic foot ulcers.',
+      'Provide standardized education and competency-based training for nursing staff and Certified Nursing Assistants on diabetic foot-ulcer prevention, including early identification of risk factors and skin changes, appropriate foot inspection, pressure and offloading strategies, and timely reporting of concerning findings.'
+    ]}
+  ];
+  var ROMAN = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII'];
+  var TOTAL = 15;
+
+  var $ = function (id) { return document.getElementById(id); };
+  var form = $('form');
+
+  // Due date label from CLOSES_AT
+  var closes = new Date(CLOSES_AT);
+  $('dueShort').textContent = new Date(closes.getTime() - 5 * 3600 * 1000)
+    .toLocaleDateString('en-US', { month: 'short', day: 'numeric', timeZone: 'UTC' });
+
+  // Build statements + rail
+  var host = $('statements'), toc = $('toc'), n = 0;
+  var chk = '<svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>';
+  var ex = '<svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>';
+  DOMAINS.forEach(function (d, di) {
+    var block = document.createElement('div');
+    block.className = 'block'; block.id = 'domain-' + (di + 1);
+    var html = '<div class="block-head"><div class="label">Domain ' + ROMAN[di] + '</div><h3>' + d.t + '</h3></div>';
+    var first = n + 1;
+    d.s.forEach(function (text) {
+      n++;
+      html += '<fieldset class="stmt" id="s' + n + '-card" data-i="' + n + '">' +
+        '<div class="num" aria-hidden="true">' + n + '</div><div>' +
+        '<legend class="hp">Statement ' + n + '</legend>' +
+        '<p class="text">' + text + '</p>' +
+        '<div class="vote">' +
+          '<label><input type="radio" name="s' + n + '" value="Agree"><span>' + chk + 'Agree</span></label>' +
+          '<label><input type="radio" name="s' + n + '" value="Do Not Agree"><span>' + ex + 'Do Not Agree</span></label>' +
+        '</div>' +
+        '<div class="revise" id="s' + n + '-rev">' +
+          '<label for="s' + n + 'rev">Reason and recommended revision <span class="req">*</span></label>' +
+          '<p class="hint">Explain why you disagree and suggest specific wording or changes.</p>' +
+          '<textarea id="s' + n + 'rev" name="s' + n + 'rev"></textarea>' +
+        '</div></div></fieldset>';
+    });
+    block.innerHTML = html;
+    host.appendChild(block);
+    var li = document.createElement('li');
+    li.dataset.from = first; li.dataset.to = n;
+    li.innerHTML = '<a href="#domain-' + (di + 1) + '"><span>' + ROMAN[di] + '. ' + d.k + '</span><span class="n">0/' + (n - first + 1) + '</span></a>';
+    toc.appendChild(li);
+  });
+
+  // Conditional fields
+  function syncOthers() {
+    $('disciplineOtherWrap').classList.toggle('show', $('discipline').value === 'Other');
+    var certs = form.querySelectorAll('input[name=certs]:checked');
+    var vals = Array.prototype.map.call(certs, function (c) { return c.value; });
+    $('certsOtherWrap').classList.toggle('show', vals.indexOf('Other') > -1);
+    for (var i = 1; i <= TOTAL; i++) {
+      var v = form.querySelector('input[name=s' + i + ']:checked');
+      var card = $('s' + i + '-card');
+      card.classList.toggle('answered', !!v);
+      $('s' + i + '-rev').classList.toggle('show', !!v && v.value === 'Do Not Agree');
+      if (v) card.classList.remove('missing');
+    }
+  }
+  form.addEventListener('change', function (e) {
+    if (e.target.name === 'certs') {
+      var boxes = form.querySelectorAll('input[name=certs]');
+      if (e.target.value === 'None' && e.target.checked) boxes.forEach(function (b) { if (b.value !== 'None') b.checked = false; });
+      else if (e.target.checked) boxes.forEach(function (b) { if (b.value === 'None') b.checked = false; });
+    }
+    syncOthers(); progress(); save();
+  });
+  form.addEventListener('input', function () { save(); });
+
+  function progress() {
+    var done = 0;
+    for (var i = 1; i <= TOTAL; i++) if (form.querySelector('input[name=s' + i + ']:checked')) done++;
+    $('count').textContent = done; $('mcount').textContent = done + ' of 15';
+    $('fill').style.width = $('mfill').style.width = (done / TOTAL * 100) + '%';
+    toc.querySelectorAll('li').forEach(function (li) {
+      var a = +li.dataset.from, b = +li.dataset.to, c = 0;
+      for (var i = a; i <= b; i++) if (form.querySelector('input[name=s' + i + ']:checked')) c++;
+      li.querySelector('.n').textContent = c + '/' + (b - a + 1);
+      li.classList.toggle('done', c === b - a + 1);
+    });
+  }
+
+  // Autosave in this browser only
+  var saveTimer;
+  function collect() {
+    var o = {};
+    Array.prototype.forEach.call(form.elements, function (el) {
+      if (!el.name || el.name === 'website') return;
+      if (el.type === 'radio') { if (el.checked) o[el.name] = el.value; }
+      else if (el.type === 'checkbox') { if (el.checked) (o[el.name] = o[el.name] || []).push(el.value); }
+      else o[el.name] = el.value;
+    });
+    return o;
+  }
+  function save() {
+    clearTimeout(saveTimer);
+    saveTimer = setTimeout(function () {
+      try { localStorage.setItem(STORE, JSON.stringify(collect())); $('saved').textContent = 'Progress saved on this device'; } catch (e) {}
+    }, 400);
+  }
+  function restore() {
+    var o; try { o = JSON.parse(localStorage.getItem(STORE) || 'null'); } catch (e) {}
+    if (!o) return;
+    Array.prototype.forEach.call(form.elements, function (el) {
+      if (!el.name || !(el.name in o)) return;
+      if (el.type === 'radio') el.checked = o[el.name] === el.value;
+      else if (el.type === 'checkbox') el.checked = [].concat(o[el.name]).indexOf(el.value) > -1;
+      else el.value = o[el.name];
+    });
+    $('saved').textContent = 'Your saved progress was restored';
+  }
+
+  // Validation
+  function validate() {
+    var first = null;
+    function flag(el) { if (!first) first = el; }
+    ['fullName', 'email', 'discipline'].forEach(function (id) {
+      var el = $(id), ok = el.value.trim() && (id !== 'email' || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(el.value.trim()));
+      el.setAttribute('aria-invalid', ok ? 'false' : 'true');
+      el.style.borderColor = ok ? '' : 'var(--gold)';
+      if (!ok) flag(el);
+    });
+    if ($('discipline').value === 'Other' && !$('disciplineOther').value.trim()) flag($('disciplineOther'));
+    var certs = form.querySelectorAll('input[name=certs]:checked');
+    if (!certs.length) flag(form.querySelector('input[name=certs]').parentNode);
+    for (var i = 1; i <= TOTAL; i++) {
+      var v = form.querySelector('input[name=s' + i + ']:checked'), card = $('s' + i + '-card');
+      if (!v) { card.classList.add('missing'); flag(card); }
+      else if (v.value === 'Do Not Agree' && !$('s' + i + 'rev').value.trim()) { card.classList.add('missing'); flag($('s' + i + 'rev')); }
+    }
+    return first;
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    $('err').textContent = '';
+    var bad = validate();
+    if (bad) {
+      $('err').textContent = 'A few items still need a response. We scrolled you to the first one.';
+      (bad.closest('.stmt') || bad.closest('.field') || bad).scrollIntoView({ behavior: 'smooth', block: 'start' });
+      if (bad.focus) setTimeout(function () { try { bad.focus({ preventScroll: true }); } catch (x) {} }, 400);
+      return;
+    }
+    var o = collect(), body = new URLSearchParams();
+    body.append('fullName', o.fullName.trim());
+    body.append('email', o.email.trim().toLowerCase());
+    body.append('discipline', o.discipline);
+    body.append('disciplineOther', o.discipline === 'Other' ? (o.disciplineOther || '').trim() : '');
+    body.append('certs', (o.certs || []).join(', '));
+    body.append('certsOther', (o.certs || []).indexOf('Other') > -1 ? (o.certsOther || '').trim() : '');
+    for (var i = 1; i <= TOTAL; i++) {
+      body.append('s' + i, o['s' + i]);
+      body.append('s' + i + 'rev', o['s' + i] === 'Do Not Agree' ? (o['s' + i + 'rev'] || '').trim() : '');
+    }
+    body.append('comments', (o.comments || '').trim());
+    body.append('formVersion', FORM_VERSION);
+    var hp = form.querySelector('input[name=website]').value;
+    if (hp) body.append('website', hp);
+
+    clearTimeout(saveTimer);
+    var btn = $('submitBtn'); btn.disabled = true; btn.textContent = 'Submitting…';
+    fetch(WEBHOOK, { method: 'POST', mode: 'no-cors', keepalive: true,
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: body.toString() })
+      .then(function () {
+        try { localStorage.removeItem(STORE); localStorage.setItem(STORE + '-done', '1'); } catch (x) {}
+        $('main').style.display = 'none'; document.querySelector('.mbar').style.display = 'none';
+        $('thanks').classList.add('show'); window.scrollTo(0, 0); $('thanks').focus();
+      })
+      .catch(function () {
+        btn.disabled = false; btn.textContent = 'Submit my review';
+        $('err').textContent = 'We could not send your review. Please check your connection and try again; your answers are saved.';
+      });
+  });
+
+  // Video: Vimeo click-to-load facade, Zoom link fallback
+  if (!VIMEO_ID) $('passcode').classList.add('show');
+  $('video').addEventListener('click', function () {
+    if (VIMEO_ID) {
+      this.innerHTML = '<iframe src="https://player.vimeo.com/video/' + VIMEO_ID + '?autoplay=1&dnt=1" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Panel briefing"></iframe>';
+      this.style.cursor = 'default';
+    } else {
+      window.open(ZOOM_URL, '_blank', 'noopener');
+    }
+  });
+  $('copyPc').addEventListener('click', function () {
+    var b = this;
+    (navigator.clipboard ? navigator.clipboard.writeText($('pc').textContent) : Promise.reject())
+      .then(function () { b.textContent = 'Copied'; setTimeout(function () { b.textContent = 'Copy'; }, 1600); })
+      .catch(function () {});
+  });
+
+  // Closed after deadline (preview override: ?open=1)
+  if (Date.now() > closes.getTime() && !/[?&]open=1/.test(location.search)) {
+    $('main').style.display = 'none'; document.querySelector('.mbar').style.display = 'none';
+    $('closed').classList.add('show');
+    return;
+  }
+
+  restore(); syncOthers(); progress();
+
+  // Mobile progress bar appears once the reviewer reaches the form
+  var mbar = document.querySelector('.mbar');
+  function mb() { var r = $('review').getBoundingClientRect(); mbar.classList.toggle('on', r.top < 80 && r.bottom > 200); }
+  window.addEventListener('scroll', mb, { passive: true }); mb();
+})();
+</script>
+</body>
+</html>
