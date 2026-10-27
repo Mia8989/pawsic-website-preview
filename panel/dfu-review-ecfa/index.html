@@ -411,8 +411,8 @@
           <div class="panel">
             <div class="two">
               <div class="field">
-                <label for="fullName">Full name <span class="req">*</span></label>
-                <input type="text" id="fullName" name="fullName" autocomplete="name" required>
+                <label for="fullName">Full name <span style="font-weight:400;color:var(--muted)">(optional)</span></label>
+                <input type="text" id="fullName" name="fullName" autocomplete="name">
               </div>
               <div class="field">
                 <label for="email">Email <span class="req">*</span></label>
@@ -470,7 +470,7 @@
               <textarea id="comments" name="comments" placeholder="Overall feedback on the statements, missing topics or wording across domains"></textarea>
             </div>
           </div>
-          <p class="consent">Your name, discipline, certifications and responses will be shared with the PAWSIC clinical practice team and the Duke University DNP project team for analysis of this review.</p>
+          <p class="consent">Your name (if provided), discipline, certifications and responses will be shared with the PAWSIC clinical practice team and the Duke University DNP project team for analysis of this review.</p>
           <div class="hp" aria-hidden="true"><label>Website <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
           <div class="submit-row">
             <button class="btn" type="submit" id="submitBtn">Submit my review</button>
@@ -667,7 +667,7 @@
   function validate() {
     var first = null;
     function flag(el) { if (!first) first = el; }
-    ['fullName', 'email', 'discipline'].forEach(function (id) {
+    ['email', 'discipline'].forEach(function (id) {
       var el = $(id), ok = el.value.trim() && (id !== 'email' || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(el.value.trim()));
       el.setAttribute('aria-invalid', ok ? 'false' : 'true');
       el.style.borderColor = ok ? '' : 'var(--gold)';
