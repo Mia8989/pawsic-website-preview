@@ -110,18 +110,16 @@
     }
     .video .poster {
       position: absolute; inset: 0;
-      background:
-        radial-gradient(circle at 30% 40%, rgba(43, 124, 202, 0.45) 0%, rgba(43, 124, 202, 0) 60%),
-        var(--navy);
+      background: var(--navy) url('briefing-thumb.jpg') center / cover no-repeat;
     }
     .video .play {
       position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
-      width: 80px; height: 80px; border-radius: 50%; background: var(--gold);
+      width: clamp(44px, 9%, 64px); aspect-ratio: 1; border-radius: 50%; background: var(--gold);
       display: grid; place-items: center; transition: transform 0.2s ease;
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
     }
     .video:hover .play { transform: translate(-50%, -50%) scale(1.06); }
-    .video .play svg { width: 28px; height: 28px; margin-left: 4px; fill: var(--navy); }
+    .video .play svg { width: 40%; height: 40%; margin-left: 8%; fill: var(--navy); }
     .video .cap { position: absolute; left: 24px; bottom: 24px; right: 24px; font-size: 14px; color: rgba(250, 248, 244, 0.80); }
     .video .cap b { display: block; font-family: 'DM Serif Display', Georgia, serif; font-weight: 400; font-size: 24px; color: var(--white); line-height: 1.2; }
     .video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
@@ -279,6 +277,7 @@
     /* Mobile progress bar */
     .mbar { display: none; }
 
+    @media (max-width: 1100px) { .briefing-card { grid-template-columns: 1fr; } }
     @media (max-width: 960px) {
       .briefing-card { grid-template-columns: 1fr; }
       .intro-grid { grid-template-columns: 1fr; gap: 40px; }
@@ -363,7 +362,6 @@
         <button class="video" id="video" type="button" aria-label="Play the panel briefing video">
           <span class="poster"></span>
           <span class="play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg></span>
-          <span class="cap"><b>A message from Mary Martin</b>0:32 &middot; Watch before you begin</span>
         </button>
         <div class="briefing-text">
           <div class="label">Start here</div>
