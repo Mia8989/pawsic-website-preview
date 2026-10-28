@@ -1,0 +1,447 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2VRLWNKKNS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-2VRLWNKKNS');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Meet with PAWSIC</title>
+<meta name="description" content="Book a call with the PAWSIC team. Pick a time that works for you and get a Zoom link and calendar invite automatically.">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://pawsic.org/meet/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://pawsic.org/meet/">
+<meta property="og:title" content="Meet with PAWSIC">
+<meta property="og:description" content="Book a call with the PAWSIC team. Pick a time and get a Zoom link automatically.">
+<meta property="og:image" content="https://pawsic.org/images/pawsic-og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700&display=swap">
+<style>
+:root{
+  --navy:#0C1F3F; --indigo:#1E3A6E; --logo-blue:#1A5494; --blue:#2B7CCA; --bright:#38B6FF;
+  --gold:#C9A84C; --cream:#FAF8F4; --ice:#EEF5F8;
+  --ground:var(--cream); --surface:#FFFFFF; --panel:var(--ice);
+  --text:#14243D; --muted:#56657A; --accent:var(--blue); --accent-strong:var(--logo-blue); --accent-ink:#fff;
+  --line:rgba(12,31,63,.12); --line-soft:rgba(12,31,63,.08);
+  --focus:var(--bright);
+  --shadow:0 1px 2px rgba(12,31,63,.06), 0 12px 32px rgba(12,31,63,.10);
+  --r-sm:8px; --r-md:12px; --r-lg:16px;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#081428; --surface:#0E1E38; --panel:#132849;
+    --text:#EAF1F8; --muted:#A7B6C9; --accent:#5AB8F5; --accent-strong:#8FD0FF; --accent-ink:#06142A;
+    --line:rgba(234,241,248,.14); --line-soft:rgba(234,241,248,.08);
+    --shadow:0 1px 2px rgba(0,0,0,.3), 0 12px 34px rgba(0,0,0,.45);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#081428; --surface:#0E1E38; --panel:#132849;
+  --text:#EAF1F8; --muted:#A7B6C9; --accent:#5AB8F5; --accent-strong:#8FD0FF; --accent-ink:#06142A;
+  --line:rgba(234,241,248,.14); --line-soft:rgba(234,241,248,.08);
+  --shadow:0 1px 2px rgba(0,0,0,.3), 0 12px 34px rgba(0,0,0,.45);
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{
+  background:var(--ground); color:var(--text);
+  font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  line-height:1.6; -webkit-font-smoothing:antialiased;
+  padding:clamp(16px,4vw,48px);
+}
+.wrap{max-width:1080px;margin:0 auto}
+h1,h2{font-family:"DM Serif Display",Georgia,serif;font-weight:400;letter-spacing:-.01em;line-height:1.1;margin:0}
+
+.shell{
+  display:grid; grid-template-columns:minmax(0,40fr) minmax(0,60fr);
+  background:var(--surface); border:1px solid var(--line); border-radius:var(--r-lg);
+  box-shadow:var(--shadow); overflow:hidden;
+}
+@media (max-width:820px){.shell{display:block}}
+
+/* left rail: navy in both themes */
+.rail{
+  position:relative; padding:clamp(24px,3.4vw,40px); display:flex; flex-direction:column; gap:24px; min-width:0;
+  background:var(--navy); color:#EAF1F8; overflow:hidden;
+}
+.rail::after{ /* soft glow, one flourish */
+  content:""; position:absolute; right:-120px; bottom:-120px; width:320px; height:320px; border-radius:50%;
+  background:radial-gradient(circle, rgba(56,182,255,.18), rgba(56,182,255,0) 70%); pointer-events:none;
+}
+.rail > *{position:relative}
+.logo{width:208px;height:auto;display:block}
+.eyebrow{font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--bright);margin:0 0 8px}
+.rail h1{font-size:clamp(32px,4vw,44px);color:#fff}
+.rail h1 em{font-style:italic;color:var(--bright)}
+.lede{color:rgba(234,241,248,.8);font-size:15px;margin:0;max-width:34em}
+.facts{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:16px}
+.facts li{display:flex;gap:12px;align-items:center;font-size:14.5px;color:rgba(234,241,248,.88)}
+.facts svg{width:20px;height:20px;flex:none;color:var(--bright)}
+.facts b{font-weight:600;color:#fff}
+.rail-foot{margin-top:auto;font-size:13px;color:rgba(234,241,248,.7);border-top:1px solid rgba(234,241,248,.14);padding-top:16px}
+.rail-foot a{color:#fff}
+@media (max-width:820px){.rail{gap:16px}.rail::after{display:none}.facts{flex-direction:row;flex-wrap:wrap;gap:8px 20px}.facts li{font-size:13.5px}.rail-foot{display:none}}
+
+/* right panel */
+.panel{padding:clamp(22px,3vw,40px);display:flex;flex-direction:column;gap:20px;min-height:560px;min-width:0}
+.panel-head{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap}
+.panel-head h2{font-size:26px}
+.tz{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted)}
+.tz select{font:inherit;font-size:13px;color:var(--text);background:var(--surface);border:1px solid var(--line);border-radius:var(--r-sm);padding:8px 10px;max-width:220px}
+
+.dates{display:flex;align-items:stretch;gap:8px}
+.date-scroll{display:flex;gap:8px;overflow-x:auto;scroll-snap-type:x mandatory;padding:2px;flex:1 1 0;min-width:0;-webkit-overflow-scrolling:touch}
+.date-scroll::-webkit-scrollbar{height:0}
+.day{scroll-snap-align:start;flex:0 0 auto;width:76px;padding:12px 0;border:1px solid var(--line);border-radius:var(--r-md);background:var(--surface);cursor:pointer;text-align:center;transition:.15s;color:var(--text);font:inherit}
+.day:hover{border-color:var(--accent)}
+.day .dow{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.day .dnum{font-family:"DM Serif Display",Georgia,serif;font-size:24px;line-height:1.2;margin-top:2px}
+.day .mon{font-size:11px;color:var(--muted)}
+.day[aria-pressed="true"]{background:var(--navy);border-color:var(--navy);color:#fff}
+.day[aria-pressed="true"] .dow,.day[aria-pressed="true"] .mon{color:rgba(255,255,255,.8)}
+:root[data-theme="dark"] .day[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .day[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}:root:not([data-theme="light"]) .day[aria-pressed="true"] .dow,:root:not([data-theme="light"]) .day[aria-pressed="true"] .mon{color:var(--accent-ink)}}
+.nav-btn{flex:none;width:40px;border:1px solid var(--line);background:var(--surface);border-radius:var(--r-md);cursor:pointer;color:var(--text);font-size:18px;display:grid;place-items:center}
+.nav-btn:hover{border-color:var(--accent)}
+.nav-btn:disabled{opacity:.35;cursor:default}
+
+.slots-head{font-size:14px;color:var(--muted);margin:24px 0 0}
+.slots-head b{color:var(--text);font-weight:600}
+.slots{display:grid;grid-template-columns:repeat(auto-fill,minmax(104px,1fr));gap:8px;margin-top:12px}
+.slot{font:inherit;font-size:15px;font-weight:500;font-variant-numeric:tabular-nums;padding:13px 8px;border:1px solid var(--accent);color:var(--accent-strong);background:var(--surface);border-radius:var(--r-sm);cursor:pointer;transition:.12s}
+.slot:hover{background:var(--accent);color:var(--accent-ink)}
+.slot:disabled{border-color:var(--line);color:var(--muted);opacity:.5;cursor:default;background:var(--panel)}
+.empty{color:var(--muted);font-size:14px;padding:16px 0;margin:0}
+
+.form{display:flex;flex-direction:column;gap:16px;margin-top:16px}
+.picked{background:var(--panel);border:1px solid var(--line);border-radius:var(--r-md);padding:14px 16px;font-size:14.5px;display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:16px}
+.picked b{font-weight:600}
+.link-btn{background:none;border:none;color:var(--accent-strong);font:inherit;font-size:13px;cursor:pointer;text-decoration:underline;padding:0}
+.field{display:flex;flex-direction:column;gap:6px}
+.field label{font-size:12px;letter-spacing:.06em;text-transform:uppercase;font-weight:600;color:var(--muted)}
+.field .req{color:var(--accent-strong)}
+.field .opt{color:var(--muted);font-weight:500;text-transform:none;letter-spacing:0}
+.field input,.field textarea,.field select{font:inherit;font-size:15px;color:var(--text);background:var(--surface);border:1px solid var(--line);border-radius:var(--r-sm);padding:12px 13px;width:100%}
+.field select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,currentColor 50%),linear-gradient(135deg,currentColor 50%,transparent 50%);background-position:calc(100% - 18px) 52%,calc(100% - 13px) 52%;background-size:5px 5px;background-repeat:no-repeat;padding-right:36px}
+.field textarea{resize:vertical;min-height:80px}
+.field .hint{font-size:12.5px;color:var(--muted)}
+.field input:focus,.field textarea:focus,.field select:focus,.tz select:focus,.slot:focus-visible,.day:focus-visible,.nav-btn:focus-visible,.cta:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media (max-width:460px){.two{grid-template-columns:1fr}}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.err{color:#B4232F;font-size:13px;font-weight:500;min-height:1px;margin:0}
+:root[data-theme="dark"] .err{color:#FF9AA2}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .err{color:#FF9AA2}}
+.cta{font:inherit;font-weight:600;font-size:16px;background:var(--navy);color:#fff;border:none;border-radius:var(--r-sm);padding:16px;cursor:pointer;transition:.15s}
+.cta:hover{background:var(--indigo)}
+.cta:disabled{opacity:.55;cursor:default}
+:root[data-theme="dark"] .cta{background:var(--accent);color:var(--accent-ink)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .cta{background:var(--accent);color:var(--accent-ink)}}
+
+.confirm{text-align:center;padding:clamp(24px,4vw,56px) 16px;display:flex;flex-direction:column;align-items:center;gap:16px}
+.check{width:64px;height:64px;border-radius:50%;background:var(--navy);display:grid;place-items:center}
+.check svg{width:32px;height:32px;color:var(--bright)}
+.confirm h2{font-size:32px}
+.confirm p{color:var(--muted);font-size:15px;margin:0;max-width:40ch}
+.confirm .detail{background:var(--panel);border:1px solid var(--line);border-radius:var(--r-md);padding:16px 24px;font-size:15px}
+.confirm .detail b{font-weight:600}
+
+.busy{opacity:.55;pointer-events:none}
+.spin{display:inline-block;width:15px;height:15px;border:2px solid rgba(255,255,255,.5);border-top-color:#fff;border-radius:50%;animation:sp .7s linear infinite;vertical-align:-2px;margin-right:8px}
+@keyframes sp{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.001ms!important;transition-duration:.001ms!important}}
+[hidden]{display:none!important}
+@media (max-width:820px){
+  .panel{min-height:0}
+  .panel-head{flex-direction:column;align-items:flex-start;gap:8px}
+  .tz{width:100%;flex-wrap:wrap}
+  .tz select{flex:1 1 auto;max-width:none}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="shell">
+    <aside class="rail">
+      <a href="https://pawsic.org/" aria-label="PAWSIC home"><img class="logo" src="/images/pawsic-logo-horiz-white.png" alt="PAWSIC" width="168" height="24"></a>
+      <div>
+        <p class="eyebrow">Book a call</p>
+        <h1>Meet with <em>PAWSIC</em></h1>
+      </div>
+      <p class="lede">Questions about membership, getting your team started, sponsorship or our education? Pick a time and talk with the PAWSIC team directly.</p>
+      <ul class="facts">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span><b>45 minutes</b> on Zoom</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 3v4M16 3v4"/></svg><span>Calendar invite sent <b>automatically</b></span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 19c.6-3 2.8-4.8 5.5-4.8s4.9 1.8 5.5 4.8"/><circle cx="17" cy="9" r="2.4"/><path d="M15.8 14.4c2.4.2 4.1 1.8 4.7 4.6"/></svg><span>Invite your <b>whole team</b></span></li>
+      </ul>
+      <div class="rail-foot">Prefer email? <a href="https://pawsic.org/contact">Contact the PAWSIC team</a></div>
+    </aside>
+
+    <main class="panel">
+      <section id="stepPick">
+        <div class="panel-head">
+          <h2>Pick a time</h2>
+          <label class="tz">Times shown in
+            <select id="tzSelect" aria-label="Timezone"></select>
+          </label>
+        </div>
+        <div class="dates" style="margin-top:16px">
+          <button class="nav-btn" id="prevDays" type="button" aria-label="Earlier dates">&#8249;</button>
+          <div class="date-scroll" id="dateScroll" role="group" aria-label="Choose a day"></div>
+          <button class="nav-btn" id="nextDays" type="button" aria-label="Later dates">&#8250;</button>
+        </div>
+        <p class="slots-head" id="slotsHead"></p>
+        <div class="slots" id="slots"></div>
+      </section>
+
+      <section id="stepForm" hidden>
+        <div class="panel-head"><h2>Your details</h2></div>
+        <div class="picked">
+          <span id="pickedLabel"></span>
+          <button class="link-btn" id="changeTime" type="button">Change</button>
+        </div>
+        <form class="form" id="bookForm" novalidate>
+          <div class="two">
+            <div class="field">
+              <label for="fName">Name <span class="req">*</span></label>
+              <input id="fName" name="name" autocomplete="name" required>
+            </div>
+            <div class="field">
+              <label for="fEmail">Email <span class="req">*</span></label>
+              <input id="fEmail" name="email" type="email" autocomplete="email" required>
+            </div>
+          </div>
+          <div class="two">
+            <div class="field">
+              <label for="fOrg">Organization <span class="req">*</span></label>
+              <input id="fOrg" name="organization" autocomplete="organization" required>
+            </div>
+            <div class="field">
+              <label for="fRole">Your role <span class="opt">(optional)</span></label>
+              <input id="fRole" name="role" autocomplete="organization-title">
+            </div>
+          </div>
+          <div class="field">
+            <label for="fTopic">What would you like to talk about? <span class="req">*</span></label>
+            <select id="fTopic" name="topic" required>
+              <option value="" selected disabled>Choose one</option>
+              <option>Membership and onboarding</option>
+              <option>Facility or group membership</option>
+              <option>Sponsorship or partnership</option>
+              <option>Education and courses</option>
+              <option>Something else</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="fTeam">Add teammates <span class="opt">(optional)</span></label>
+            <input id="fTeam" name="team" placeholder="name@facility.org, name2@facility.org">
+            <span class="hint">Up to 10 emails, separated by commas. Each person gets the calendar invite.</span>
+          </div>
+          <div class="field">
+            <label for="fNote">Anything we should know? <span class="opt">(optional)</span></label>
+            <textarea id="fNote" name="comments" placeholder="A line or two on what you'd like to cover helps us prepare."></textarea>
+          </div>
+          <div class="hp" aria-hidden="true"><label for="fWebsite">Website</label><input id="fWebsite" name="website" tabindex="-1" autocomplete="off"></div>
+          <p class="err" id="formErr" role="alert"></p>
+          <button class="cta" id="submitBtn" type="submit">Confirm booking</button>
+        </form>
+      </section>
+
+      <section id="stepDone" class="confirm" hidden>
+        <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg></div>
+        <h2>You're booked</h2>
+        <div class="detail" id="doneDetail"></div>
+        <p>A confirmation with the Zoom link is on its way to <b id="doneEmail"></b>, and a calendar invite will follow.</p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script>
+const CONFIG = {
+  workerUrl: "https://pawsic-booking.executiveteam-168.workers.dev",
+  baseTimezone: "America/Chicago",
+  slotMinutes: 45,   // call length; must match DURATION_MIN in the Worker
+  stepMinutes: 30,   // spacing between start times; must match STEP_MIN
+  windows: {
+    1: [["09:00","12:00"],["13:00","16:30"]],
+    2: [["09:00","12:00"],["13:00","16:30"]],
+    3: [["09:00","12:00"],["13:00","16:30"]],
+    4: [["09:00","12:00"],["13:00","16:30"]],
+    5: [["09:00","12:00"],["13:00","16:30"]]
+  },
+  minNoticeHours: 24,
+  maxDaysAhead: 30
+};
+
+function tzOffsetMs(utcMs, tz){
+  const p=new Intl.DateTimeFormat('en-US',{timeZone:tz,hour12:false,year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',second:'2-digit'}).formatToParts(new Date(utcMs)).reduce((a,x)=>(a[x.type]=x.value,a),{});
+  return Date.UTC(+p.year,+p.month-1,+p.day,+p.hour%24,+p.minute,+p.second)-utcMs;
+}
+function wallToUtc(y,m,d,hh,mm,tz){
+  let g=Date.UTC(y,m-1,d,hh,mm);
+  for(let i=0;i<2;i++) g=Date.UTC(y,m-1,d,hh,mm)-tzOffsetMs(g,tz);
+  return new Date(g);
+}
+function ymdInTz(date,tz){
+  const p=new Intl.DateTimeFormat('en-CA',{timeZone:tz,year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(date).reduce((a,x)=>(a[x.type]=x.value,a),{});
+  return {y:+p.year,m:+p.month,d:+p.day};
+}
+const fmtTime=(date,tz)=>new Intl.DateTimeFormat('en-US',{timeZone:tz,hour:'numeric',minute:'2-digit'}).format(date);
+const fmtDayLong=(date,tz)=>new Intl.DateTimeFormat('en-US',{timeZone:tz,weekday:'long',month:'long',day:'numeric'}).format(date);
+const tzLabel=tz=>tz.replace(/_/g,' ');
+
+const state={displayTz:Intl.DateTimeFormat().resolvedOptions().timeZone||CONFIG.baseTimezone, days:[], selectedDay:null, selectedSlot:null};
+const $=id=>document.getElementById(id);
+
+function buildDays(){
+  const out=[], now=new Date();
+  for(let i=0;i<=CONFIG.maxDaysAhead;i++){
+    const {y,m,d}=ymdInTz(new Date(now.getTime()+i*864e5),CONFIG.baseTimezone);
+    const dow=new Date(Date.UTC(y,m-1,d)).getUTCDay();
+    if(CONFIG.windows[dow] && slotsForDay({y,m,d,dow}).length) out.push({y,m,d,dow});
+  }
+  return out;
+}
+function slotsForDay(day){
+  const list=[];
+  for(const [a,b] of CONFIG.windows[day.dow]||[]){
+    const [ah,am]=a.split(':').map(Number),[bh,bm]=b.split(':').map(Number);
+    let cur=wallToUtc(day.y,day.m,day.d,ah,am,CONFIG.baseTimezone);
+    const end=wallToUtc(day.y,day.m,day.d,bh,bm,CONFIG.baseTimezone);
+    while(cur.getTime()+CONFIG.slotMinutes*60000<=end.getTime()+1){
+      list.push(new Date(cur));
+      cur=new Date(cur.getTime()+CONFIG.stepMinutes*60000);
+    }
+  }
+  const minTs=Date.now()+CONFIG.minNoticeHours*3600000;
+  return list.filter(s=>s.getTime()>=minTs);
+}
+
+function initTz(){
+  const sel=$('tzSelect');
+  const zones=[...new Set([state.displayTz,'America/New_York','America/Chicago','America/Denver','America/Phoenix','America/Los_Angeles','America/Anchorage','Pacific/Honolulu'])];
+  for(const z of zones){
+    const o=document.createElement('option'); o.value=z; o.textContent=tzLabel(z).replace(/\//g,' / ');
+    if(z===state.displayTz) o.selected=true; sel.appendChild(o);
+  }
+  sel.addEventListener('change',()=>{state.displayTz=sel.value; renderDays(); renderSlots();});
+}
+
+function renderDays(){
+  const scroll=$('dateScroll'); scroll.innerHTML='';
+  for(const day of state.days){
+    const inst=wallToUtc(day.y,day.m,day.d,12,0,CONFIG.baseTimezone);
+    const b=document.createElement('button'); b.className='day'; b.type='button';
+    b.setAttribute('aria-pressed', !!state.selectedDay && sameDay(day,state.selectedDay));
+    const f=o=>new Intl.DateTimeFormat('en-US',{timeZone:CONFIG.baseTimezone,...o}).format(inst);
+    b.innerHTML=`<div class="dow">${f({weekday:'short'})}</div><div class="dnum">${f({day:'numeric'})}</div><div class="mon">${f({month:'short'})}</div>`;
+    b.addEventListener('click',()=>{state.selectedDay=day; state.selectedSlot=null; renderDays(); renderSlots();
+      b.scrollIntoView({inline:'center',block:'nearest',behavior:'smooth'});});
+    scroll.appendChild(b);
+  }
+  updateDayNav();
+}
+function updateDayNav(){
+  const s=$('dateScroll');
+  $('prevDays').disabled=s.scrollLeft<=2;
+  $('nextDays').disabled=s.scrollLeft>=s.scrollWidth-s.clientWidth-2;
+}
+const sameDay=(a,b)=>a.y===b.y&&a.m===b.m&&a.d===b.d;
+
+let slotReq=0;
+async function renderSlots(){
+  const wrap=$('slots'), head=$('slotsHead'), day=state.selectedDay;
+  if(!day){head.textContent=''; wrap.innerHTML=''; return;}
+  const inst=wallToUtc(day.y,day.m,day.d,12,0,CONFIG.baseTimezone);
+  head.innerHTML=`<b>${fmtDayLong(inst,CONFIG.baseTimezone)}</b>`;
+  wrap.innerHTML='<p class="empty">Loading times…</p>';
+  const mine=++slotReq;
+  const candidates=slotsForDay(day);
+  let avail;
+  try{
+    const ds=`${day.y}-${String(day.m).padStart(2,'0')}-${String(day.d).padStart(2,'0')}`;
+    const r=await fetch(`${CONFIG.workerUrl}/slots?date=${ds}`);
+    const j=await r.json();
+    if(!r.ok||j.ok===false) throw new Error(j.error||'load');
+    avail=new Set((j.slots||[]).map(s=>new Date(s).getTime()));
+  }catch(e){
+    if(mine===slotReq) wrap.innerHTML='<p class="empty">We couldn’t load times right now. Refresh to try again, or <a href="https://pawsic.org/contact">contact us</a>.</p>';
+    return;
+  }
+  if(mine!==slotReq) return;
+  const free=candidates.filter(c=>avail.has(c.getTime()));
+  wrap.innerHTML='';
+  if(!free.length){wrap.innerHTML='<p class="empty" style="grid-column:1/-1">No open times this day. Try another day.</p>'; return;}
+  for(const s of free){
+    const btn=document.createElement('button'); btn.className='slot'; btn.type='button';
+    btn.textContent=fmtTime(s,state.displayTz);
+    btn.addEventListener('click',()=>{state.selectedSlot=s; goForm();});
+    wrap.appendChild(btn);
+  }
+}
+
+function show(step){['stepPick','stepForm','stepDone'].forEach(s=>$(s).hidden=(s!==step));}
+function goForm(){
+  const s=state.selectedSlot;
+  $('pickedLabel').innerHTML=`<b>${fmtDayLong(s,state.displayTz)}</b> · ${fmtTime(s,state.displayTz)} <span style="color:var(--muted)">(${tzLabel(state.displayTz)})</span>`;
+  show('stepForm'); $('formErr').textContent=''; $('fName').focus();
+}
+$('changeTime').addEventListener('click',()=>{show('stepPick'); renderSlots();});
+$('prevDays').addEventListener('click',()=>$('dateScroll').scrollBy({left:-Math.max(180,$('dateScroll').clientWidth*.8),behavior:'smooth'}));
+$('nextDays').addEventListener('click',()=>$('dateScroll').scrollBy({left:Math.max(180,$('dateScroll').clientWidth*.8),behavior:'smooth'}));
+$('dateScroll').addEventListener('scroll',updateDayNav,{passive:true});
+
+const EMAIL=/^[^@\s,;<>]+@[^@\s,;<>]+\.[^@\s,;<>]+$/;
+$('bookForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  const v=id=>$(id).value.trim();
+  const err=$('formErr');
+  const fail=(msg,id)=>{err.textContent=msg; if(id)$(id).focus();};
+  if(!v('fName')) return fail('Please add your name.','fName');
+  if(!EMAIL.test(v('fEmail'))) return fail('Please enter a valid email.','fEmail');
+  if(!v('fOrg')) return fail('Please add your organization.','fOrg');
+  if(!v('fTopic')) return fail('Please choose what you would like to talk about.','fTopic');
+  const team=v('fTeam').split(/[,;\s]+/).filter(Boolean);
+  if(team.some(t=>!EMAIL.test(t))) return fail('One of the teammate emails looks off. Please check it.','fTeam');
+  if(team.length>10) return fail('Please add up to 10 teammates.','fTeam');
+  err.textContent='';
+  const btn=$('submitBtn'), orig=btn.textContent;
+  btn.disabled=true; btn.innerHTML='<span class="spin"></span>Booking…'; $('bookForm').classList.add('busy');
+  const payload={name:v('fName'),email:v('fEmail'),organization:v('fOrg'),role:v('fRole'),topic:v('fTopic'),
+    team:team.join(','),comments:v('fNote'),website:v('fWebsite'),start:state.selectedSlot.toISOString(),tz:state.displayTz};
+  try{
+    const r=await fetch(`${CONFIG.workerUrl}/book`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
+    const j=await r.json();
+    if(!r.ok||!j.ok) throw new Error(j.error||'failed');
+    done(payload.email);
+  }catch(ex){
+    btn.disabled=false; btn.textContent=orig; $('bookForm').classList.remove('busy');
+    if(ex.message==='slot_taken'||ex.message==='bad_time'){fail('Sorry, that time was just taken. Please pick another.'); show('stepPick'); renderSlots(); return;}
+    fail('Something went wrong. Please try again, or contact us at pawsic.org/contact.');
+  }
+});
+function done(email){
+  const s=state.selectedSlot;
+  $('doneDetail').innerHTML=`<b>${fmtDayLong(s,state.displayTz)}</b><br>${fmtTime(s,state.displayTz)} · ${tzLabel(state.displayTz)}`;
+  $('doneEmail').textContent=email;
+  show('stepDone'); window.scrollTo({top:0,behavior:'smooth'});
+  if(window.gtag) gtag('event','book_call',{topic:$('fTopic').value});
+}
+
+state.days=buildDays();
+initTz();
+if(!state.days.length){$('slots').innerHTML='<p class="empty">No times are open right now. Please <a href="https://pawsic.org/contact">contact us</a>.</p>';}
+else{state.selectedDay=state.days[0]; renderDays(); renderSlots();}
+</script>
+</body>
+</html>
