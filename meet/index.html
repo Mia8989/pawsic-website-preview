@@ -592,7 +592,25 @@ function done(email){
 state.days=buildDays();
 initTz();
 if(!state.days.length){$('slots').innerHTML='<p class="empty">No times are open right now. Please <a href="https://pawsic.org/contact">contact us</a>.</p>';}
-else{state.selectedDay=state.days[0]; renderDays(); renderSlots();}
+else{state.selectedDay=state.days[0]; renderDays(); openFirstFreeDay();}
+
+/* Start on the first day that has open times, so visitors don't land on an empty day. */
+async function openFirstFreeDay(){
+  for(const day of state.days.slice(0,10)){
+    const ds=`${day.y}-${String(day.m).padStart(2,'0')}-${String(day.d).padStart(2,'0')}`;
+    try{
+      const j=await (await fetch(`${CONFIG.workerUrl}/slots?date=${ds}`)).json();
+      if((j.slots||[]).length){
+        if(state.selectedDay===state.days[0]||sameDay(state.selectedDay,day)){
+          state.selectedDay=day; renderDays();
+          document.querySelector('.day[aria-pressed="true"]')?.scrollIntoView({inline:'center',block:'nearest'});
+        }
+        break;
+      }
+    }catch(e){break;}
+  }
+  renderSlots();
+}
 </script>
 <script src="/js/main.js?v=20260929"></script>
 </body>
