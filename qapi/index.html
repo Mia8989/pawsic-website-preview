@@ -936,7 +936,7 @@
   <script>
   document.querySelectorAll('.qapi-video[data-vimeo]').forEach(function (b) {
     b.addEventListener('click', function () {
-      b.innerHTML = '<iframe src="https://player.vimeo.com/video/' + b.dataset.vimeo + '?autoplay=1&dnt=1&texttrack=en" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Tony Costa on the PAWSIC QAPI Program"></iframe>';
+      b.innerHTML = '<iframe src="https://player.vimeo.com/video/' + b.dataset.vimeo + '?autoplay=1&dnt=1" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Tony Costa on the PAWSIC QAPI Program"></iframe>';
       b.style.cursor = 'default';
     }, { once: true });
   });
