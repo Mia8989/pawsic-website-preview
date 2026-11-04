@@ -7,6 +7,11 @@
 set -e
 
 SRC="$(cd "$(dirname "$0")" && pwd)"
+
+# Stop if someone edited the live repo outside this Mac (e.g. through claude.ai/code)
+# since the last sync; deploying now would overwrite their change.
+EDITS_CHECK="$SRC/../../../../scripts/site-edits-check.sh"
+"$EDITS_CHECK" pawsic
 DEPLOY="/tmp/pawsic-qapi-scoped-deploy"
 
 echo "=== Scoped QAPI deploy ==="
@@ -47,9 +52,10 @@ if git diff --cached --quiet; then
   echo "Nothing to deploy."
   exit 0
 fi
-git commit -m "Add public QAPI Workshop page (/qapi/) and correct speaker credentials on /qapi-ahca/"
+git commit -m "${DEPLOY_MSG:-Update /qapi/ and /qapi-ahca/ pages}"
 git push origin HEAD:main
+"$EDITS_CHECK" pawsic --mark
 echo ""
 echo "=== Deployed ==="
 echo "  https://pawsic.org/qapi/"
-echo "  https://pawsic.org/qapi-ahca/  (credentials corrected)"
+echo "  https://pawsic.org/qapi-ahca/"

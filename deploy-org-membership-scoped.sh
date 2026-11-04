@@ -12,6 +12,11 @@
 # Usage:  bash deploy-org-membership-scoped.sh
 set -e
 SRC="$(cd "$(dirname "$0")" && pwd)"
+
+# Stop if someone edited the live repo outside this Mac (e.g. through claude.ai/code)
+# since the last sync; deploying now would overwrite their change.
+EDITS_CHECK="$SRC/../../../../scripts/site-edits-check.sh"
+"$EDITS_CHECK" pawsic
 DEPLOY="/tmp/pawsic-org-membership-deploy"
 rm -rf "$DEPLOY"
 git clone --depth 1 https://github.com/Mia8989/pawsic-website-preview.git "$DEPLOY"
@@ -85,6 +90,7 @@ git status --short
 if git diff --cached --quiet; then echo "Nothing to deploy."; exit 0; fi
 git commit -q -m "Organization and group membership: public pages without pricing, unlisted pricing pages, short print URLs"
 git push -q origin HEAD:main
+"$EDITS_CHECK" pawsic --mark
 echo ""
 echo "=== Deployed (allow 1 to 2 minutes for GitHub Pages) ==="
 echo "  Public:   https://pawsic.org/organizations   -> /membership/organizations/"
