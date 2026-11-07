@@ -399,6 +399,51 @@
       .countdown-cal-buttons { flex-direction: column; align-items: center; }
       .countdown-btn-blue, .countdown-btn-outline { width: 100%; max-width: 300px; justify-content: center; }
     }
+    /* ===== Progress + certificate ===== */
+    .wb-progress{max-width:900px;margin:1.25rem auto 0;color:#0C1F3F}
+    .wb-progress-top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:.5rem;font-size:.95rem}
+    .wb-progress-label{font-weight:600}
+    .wb-progress-pct{font-weight:700;color:#1A5494}
+    .wb-progress-track{height:10px;border-radius:100px;background:#E3E8F0;overflow:hidden}
+    .wb-progress-fill{height:100%;width:0;background:linear-gradient(90deg,#2B7CCA,#38B6FF);border-radius:100px;transition:width .4s ease}
+    .wb-progress.done .wb-progress-fill{background:#C9A84C}
+    .wb-progress-note{font-size:.9rem;color:#4A5568;margin:.6rem 0 0;line-height:1.5}
+    .wb-progress-note a{color:#1A5494;font-weight:600}
+    .wb-cert-status{font-weight:600;color:#1A5494}
+    .wb-cert-form{max-width:520px;margin:0 auto;text-align:left}
+    .wb-cert-form label{display:block;font-weight:600;color:#0C1F3F;margin:1rem 0 .4rem}
+    .wb-cert-form input{width:100%;box-sizing:border-box;font:inherit;font-size:1.05rem;padding:.8rem 1rem;border:1.5px solid #B8C4D6;border-radius:10px;margin-bottom:1.1rem}
+    .wb-cert-form input:focus{outline:3px solid rgba(43,124,202,.35);border-color:#2B7CCA}
+    .wb-cert-form .btn-primary{width:100%;justify-content:center;border:0;cursor:pointer;background:#1A5494;color:#fff}
+    .wb-cert-form .btn-primary:hover{background:#0C1F3F}
+    .wb-cert-tip{font-size:.85rem;color:#4A5568;margin-top:.9rem;line-height:1.5}
+    #wb-certificate{display:none}
+    @media print{
+      @page{size:11in 8.5in;margin:0}
+      html,body{margin:0!important;padding:0!important;background:#FAF8F4!important}
+      body > *:not(#wb-certificate){display:none!important}
+      #wb-certificate{display:block!important}
+      #wb-certificate *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    }
+    .cert{width:11in;height:8.5in;background:#FAF8F4;font-family:Inter,sans-serif;color:#2D3748;position:relative;overflow:hidden;box-sizing:border-box}
+    .cert .frame{position:absolute;inset:.32in;border:2px solid #0C1F3F}
+    .cert .frame2{position:absolute;inset:.44in;border:.75px solid #C9A84C}
+    .cert .c{position:absolute;width:14px;height:14px;background:#C9A84C;transform:rotate(45deg)}
+    .cert .wm{position:absolute;left:50%;top:52%;width:5.2in;transform:translate(-50%,-50%);opacity:.035}
+    .cert .wrap{position:absolute;inset:.85in 1.1in .8in;text-align:center}
+    .cert .logo{height:1.05in;display:block;margin:0 auto}
+    .cert h1{font-family:'DM Serif Display',serif;font-weight:400;font-size:46px;letter-spacing:.06em;color:#0C1F3F;margin:20px 0 0;text-transform:uppercase;line-height:1.1}
+    .cert .rule{width:64px;height:2px;background:#C9A84C;margin:16px auto 22px}
+    .cert .lab{font-size:12px;font-weight:600;letter-spacing:.24em;color:#1A5494;text-transform:uppercase}
+    .cert .name{font-family:'DM Serif Display',serif;font-size:54px;line-height:1.15;color:#0C1F3F;margin:10px auto 0;padding-bottom:10px;border-bottom:1px solid rgba(12,31,63,.25);max-width:7.4in}
+    .cert .body{font-size:16px;line-height:1.6;max-width:6.9in;margin:20px auto 0}
+    .cert .course{display:block;font-family:'DM Serif Display',serif;font-size:28px;color:#1A5494;margin:8px 0 2px;line-height:1.25}
+    .cert .meta{display:block;font-size:13px;color:#4A5568}
+    .cert .foot{position:absolute;left:0;right:0;bottom:0;display:flex;justify-content:space-between;align-items:flex-end;text-align:left}
+    .cert .sig img{height:64px;display:block;margin:0 0 4px 8px}
+    .cert .ln{border-top:1px solid #0C1F3F;padding-top:7px;width:2.6in}
+    .cert .n{font-weight:700;color:#0C1F3F;font-size:14px}.cert .r{font-size:12px;color:#4A5568;margin-top:2px}
+    .cert .dt{text-align:right}.cert .dt .ln{margin-left:auto}.cert .dv{font-family:'DM Serif Display',serif;font-size:20px;color:#0C1F3F;margin-bottom:8px}
   </style>
 </head>
 <body>
@@ -497,14 +542,6 @@
 
   <main id="main-content">
 
-    <!-- ===== ACCESS WINDOW REMINDER ===== -->
-    <div class="watch-window">
-      <span>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        Your free 72-hour access window: June 22 to June 24, 2026
-      </span>
-    </div>
-
     <!-- ===== WELCOME HERO ===== -->
     <section class="watch-hero">
       <div class="container">
@@ -513,7 +550,7 @@
           You're registered
         </span>
         <h1>Welcome to <em>Wound Basics 101</em></h1>
-        <p>Stream the full course on-demand at your own pace. Your free PAWSIC membership is active and a welcome email is on its way with your login details.</p>
+        <p>Stream all four modules on-demand, any time, at your own pace. Watch the full course to unlock your Certificate of Completion right on this page.</p>
         <div class="watch-access-meta" style="gap:1.2rem; flex-wrap:wrap; justify-content:center;">
           <span style="display:inline-flex;align-items:center;gap:0.5rem;">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px;color:#38B6FF"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
@@ -528,164 +565,27 @@
       </div>
     </section>
 
-    <!-- ===== NOT YET OPEN: COUNTDOWN ===== -->
-    <section class="watch-countdown-section" id="countdown-section" style="display:none;">
-      <div class="container">
-        <div class="countdown-inner">
-          <div class="countdown-badge">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            Coming Soon
-          </div>
-          <h2 class="countdown-headline">Wound Basics 101 opens in</h2>
-
-          <div class="countdown-timer" aria-live="polite" aria-label="Time until course opens">
-            <div class="countdown-unit">
-              <span class="countdown-number" id="cd-days">00</span>
-              <span class="countdown-label">Days</span>
-            </div>
-            <div class="countdown-sep" aria-hidden="true">:</div>
-            <div class="countdown-unit">
-              <span class="countdown-number" id="cd-hours">00</span>
-              <span class="countdown-label">Hours</span>
-            </div>
-            <div class="countdown-sep" aria-hidden="true">:</div>
-            <div class="countdown-unit">
-              <span class="countdown-number" id="cd-minutes">00</span>
-              <span class="countdown-label">Minutes</span>
-            </div>
-            <div class="countdown-sep" aria-hidden="true">:</div>
-            <div class="countdown-unit">
-              <span class="countdown-number" id="cd-seconds">00</span>
-              <span class="countdown-label">Seconds</span>
-            </div>
-          </div>
-
-          <p class="countdown-subtext">June 22, 2026 at 12:00 AM ET &nbsp;&middot;&nbsp; 72-hour free access</p>
-
-          <div class="countdown-cal-buttons">
-            <a class="countdown-btn-blue"
-               href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Wound+Basics+101+%E2%80%94+Free+On-Demand+Course+%28PAWSIC%29&dates=20260622T040000Z%2F20260625T035900Z&details=Your+free+72-hour+on-demand+access+to+Wound+Basics+101+is+now+live.+Watch+at+https%3A%2F%2Fpawsic.org%2Fwound-basics-101%2Fwatch%2F&location=https%3A%2F%2Fpawsic.org%2Fwound-basics-101%2Fwatch%2F"
-               target="_blank" rel="noopener noreferrer">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px;"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-              Add to Google Calendar
-            </a>
-            <a class="countdown-btn-outline"
-               href="/wound-basics-101/wound-basics-101.ics"
-               download="wound-basics-101.ics">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px;"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-              Add to Apple / Outlook
-            </a>
-          </div>
-
-          <p class="countdown-note">A launch email with your watch link will arrive June 22 at 7 AM ET.</p>
-        </div>
-      </div>
-    </section>
-
     <!-- ===== VIDEO PLAYER ===== -->
     <section class="watch-video-section" id="video-section">
       <div class="container">
         <div class="watch-video-wrap">
-          <iframe src="https://player.vimeo.com/video/1196531439?h=e669c48167&badge=0&autopause=0&player_id=0&app_id=58479"
+          <iframe id="wb-player" src="https://player.vimeo.com/video/1196531439?h=e669c48167&badge=0&autopause=0&player_id=0&app_id=58479"
             frameborder="0"
             allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
             referrerpolicy="strict-origin-when-cross-origin"
-            title="Limited time Wound Basics 101"></iframe>
+            title="Wound Basics 101, full course video"></iframe>
+        </div>
+        <div class="wb-progress" aria-live="polite">
+          <div class="wb-progress-top">
+            <span class="wb-progress-label">Your progress</span>
+            <span class="wb-progress-pct" id="wb-pct">0% watched</span>
+          </div>
+          <div class="wb-progress-track"><div class="wb-progress-fill" id="wb-fill"></div></div>
+          <p class="wb-progress-note" id="wb-note">Watch at least 90% of the course on this device to unlock your certificate. Your progress is saved in this browser, so you can stop and come back.</p>
         </div>
       </div>
     </section>
     <script src="https://player.vimeo.com/api/player.js"></script>
-
-    <!-- ===== ACCESS CLOSED (shown automatically after June 24 11:59 PM ET) ===== -->
-    <section class="watch-closed-section" id="closed-section" style="display:none; padding: 5rem 0; background: linear-gradient(135deg, #0C1F3F 0%, #1B3A6A 100%);">
-      <div class="container">
-        <div style="max-width: 720px; margin: 0 auto; text-align: center; color: #fff;">
-          <span style="display:inline-flex; align-items:center; gap:0.5rem; background:rgba(212,175,55,0.18); border:1px solid rgba(212,175,55,0.4); color:#F2D77A; padding:0.45rem 1.1rem; border-radius:100px; font-size:0.78rem; font-weight:600; letter-spacing:0.05em; text-transform:uppercase; margin-bottom:1.5rem;">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            Access Window Closed
-          </span>
-          <h2 style="font-family:'DM Serif Display',serif; font-size:clamp(1.8rem,4vw,2.8rem); color:#fff; margin:0 0 1rem; line-height:1.15;">The 72-hour access window for<br><em style="color:#38B6FF;">Wound Basics 101</em> has closed.</h2>
-          <p style="font-size:1.05rem; color:rgba(255,255,255,0.8); line-height:1.65; max-width:580px; margin:0 auto 2.5rem;">Thank you for your interest in this course. PAWSIC members can access the full course library year-round. Not yet a member? Joining is free.</p>
-
-          <!-- CTA cards -->
-          <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1.2rem; margin-bottom:2.5rem; text-align:left;">
-
-            <div style="background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.15); border-radius:16px; padding:1.6rem;">
-              <p style="margin:0 0 0.4rem; font-size:0.72rem; font-weight:700; color:#38B6FF; text-transform:uppercase; letter-spacing:0.1em;">Already a member?</p>
-              <p style="margin:0 0 1.2rem; font-size:0.95rem; color:rgba(255,255,255,0.85); line-height:1.5;">Log in to your PAWSIC account to access the full course library and your certificate.</p>
-              <a href="https://memberships.pawsic.org/login/" target="_blank" rel="noopener noreferrer" style="display:inline-block; background:#38B6FF; color:#fff; font-size:0.88rem; font-weight:600; padding:0.7rem 1.4rem; border-radius:100px; text-decoration:none;">Log In to PAWSIC &rarr;</a>
-            </div>
-
-            <div style="background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.15); border-radius:16px; padding:1.6rem;">
-              <p style="margin:0 0 0.4rem; font-size:0.72rem; font-weight:700; color:#D4AF37; text-transform:uppercase; letter-spacing:0.1em;">Not a member yet?</p>
-              <p style="margin:0 0 1.2rem; font-size:0.95rem; color:rgba(255,255,255,0.85); line-height:1.5;">Join PAWSIC for free and get access to courses, resources, and the clinical community.</p>
-              <a href="https://pawsic.org/membership/" target="_blank" rel="noopener noreferrer" style="display:inline-block; background:#D4AF37; color:#0C1F3F; font-size:0.88rem; font-weight:700; padding:0.7rem 1.4rem; border-radius:100px; text-decoration:none;">Become a Member &rarr;</a>
-            </div>
-
-            <div style="background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.15); border-radius:16px; padding:1.6rem;">
-              <p style="margin:0 0 0.4rem; font-size:0.72rem; font-weight:700; color:#38B6FF; text-transform:uppercase; letter-spacing:0.1em;">Coming Up</p>
-              <p style="margin:0 0 1.2rem; font-size:0.95rem; color:rgba(255,255,255,0.85); line-height:1.5;">Join us for a Live Q&amp;A with the Wound Basics 101 faculty. Register now to save your spot.</p>
-              <a href="https://pawsic.org/webinars/" target="_blank" rel="noopener noreferrer" style="display:inline-block; background:rgba(255,255,255,0.12); border:1px solid rgba(255,255,255,0.3); color:#fff; font-size:0.88rem; font-weight:600; padding:0.7rem 1.4rem; border-radius:100px; text-decoration:none;">Register for Live Q&amp;A &rarr;</a>
-            </div>
-
-          </div>
-
-          <p style="font-size:0.85rem; color:rgba(255,255,255,0.45);">Questions? Email us at <a href="mailto:info@pawsic.org" style="color:rgba(255,255,255,0.6); text-decoration:none; font-weight:600;">info@pawsic.org</a></p>
-        </div>
-      </div>
-    </section>
-
-    <script>
-      // Open date: June 22, 2026 at 00:00 ET (EDT = UTC-4, so 04:00 UTC)
-      var openDate  = new Date('2026-06-22T04:00:00Z');
-      // Close date: June 25, 2026 at 00:00 ET (EDT = UTC-4, so 04:00 UTC)
-      var closeDate = new Date('2026-06-25T04:00:00Z');
-
-      function pad(n) { return String(n).padStart(2, '0'); }
-
-      function updateState() {
-        var now = new Date();
-
-        if (now < openDate) {
-          // NOT YET OPEN: show countdown, hide video
-          document.getElementById('video-section').style.display    = 'none';
-          document.getElementById('closed-section').style.display   = 'none';
-          document.getElementById('countdown-section').style.display = 'block';
-
-          // Tick the countdown
-          var diff = openDate - now;
-          var days    = Math.floor(diff / (1000 * 60 * 60 * 24));
-          var hours   = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-          var minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-          var seconds = Math.floor((diff % (1000 * 60)) / 1000);
-          document.getElementById('cd-days').textContent    = pad(days);
-          document.getElementById('cd-hours').textContent   = pad(hours);
-          document.getElementById('cd-minutes').textContent = pad(minutes);
-          document.getElementById('cd-seconds').textContent = pad(seconds);
-
-        } else if (now >= openDate && now < closeDate) {
-          // OPEN: show video, hide countdown + closed
-          document.getElementById('countdown-section').style.display = 'none';
-          document.getElementById('closed-section').style.display    = 'none';
-          document.getElementById('video-section').style.display     = 'block';
-          if (countdownTimer) { clearInterval(countdownTimer); countdownTimer = null; }
-
-        } else {
-          // CLOSED: show closed section, hide video + countdown
-          document.getElementById('video-section').style.display     = 'none';
-          document.getElementById('countdown-section').style.display = 'none';
-          document.getElementById('closed-section').style.display    = 'block';
-          // Also hide the access window banner since it no longer applies
-          var banner = document.querySelector('.watch-window');
-          if (banner) banner.style.display = 'none';
-          if (countdownTimer) { clearInterval(countdownTimer); countdownTimer = null; }
-        }
-      }
-
-      // Run immediately, then tick every second while countdown is active
-      var countdownTimer = setInterval(updateState, 1000);
-      updateState();
-    </script>
 
     <!-- ===== WHAT YOU'LL LEARN ===== -->
     <section class="watch-modules">
@@ -745,15 +645,26 @@
     </section>
 
     <!-- ===== CERTIFICATE ===== -->
-    <section class="watch-certificate">
+    <section class="watch-certificate" id="certificate">
       <div class="container">
         <div class="watch-cert-card">
           <div class="watch-cert-badge">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
           </div>
           <h2>Earn Your Certificate of Completion</h2>
-          <p>To receive your PAWSIC Certificate of Completion, watch this course while logged in to your member account. Your progress is tracked automatically and your certificate is issued upon completion. This applies to all PAWSIC courses. Once issued, share your certificate with your Director of Nursing, CNO, or education coordinator to document team training.</p>
-          <a href="https://memberships.pawsic.org/courses/wound-basics-101/" class="btn-primary btn-lg" target="_blank" rel="noopener noreferrer">Watch on Your Member Account <span class="btn-arrow">&rarr;</span></a>
+
+          <div id="wb-cert-locked">
+            <p>Watch at least 90% of Wound Basics 101 above and your certificate unlocks here. Enter your name the way it should appear, then print it or save it as a PDF to share with your Director of Nursing, CNO, or education coordinator.</p>
+            <p class="wb-cert-status"><span id="wb-cert-pct">0%</span> watched &middot; certificate unlocks at 90%</p>
+          </div>
+
+          <form id="wb-cert-form" class="wb-cert-form" hidden>
+            <p>You watched the full course. Enter your name and credentials exactly as they should appear on your certificate.</p>
+            <label for="wb-name">Full name and credentials</label>
+            <input id="wb-name" type="text" autocomplete="name" maxlength="70" placeholder="e.g. Maria Lopez, RN" required>
+            <button type="submit" class="btn-primary btn-lg">Print or Save My Certificate <span class="btn-arrow">&rarr;</span></button>
+            <p class="wb-cert-tip">In the print window, choose <strong>Save as PDF</strong> to keep a copy. This is a certificate of completion; it does not award continuing education (CE) contact hours.</p>
+          </form>
         </div>
       </div>
     </section>
@@ -840,6 +751,73 @@
       </div>
     </div>
   </footer>
+
+  <!-- Printable certificate (only visible when printing) -->
+  <div id="wb-certificate" aria-hidden="true">
+    <div class="cert">
+      <div class="frame"></div><div class="frame2"></div>
+      <div class="c" style="left:calc(.32in - 7px);top:calc(.32in - 7px)"></div><div class="c" style="right:calc(.32in - 7px);top:calc(.32in - 7px)"></div>
+      <div class="c" style="left:calc(.32in - 7px);bottom:calc(.32in - 7px)"></div><div class="c" style="right:calc(.32in - 7px);bottom:calc(.32in - 7px)"></div>
+      <img class="wm" src="/wound-basics-101/certificate-assets/diamond.png" alt="">
+      <div class="wrap">
+        <img class="logo" src="/wound-basics-101/certificate-assets/logo-vert.png" alt="PAWSIC">
+        <h1>Certificate of Completion</h1>
+        <div class="rule"></div>
+        <div class="lab">This certifies that</div>
+        <div class="name" id="cert-name">Participant Name</div>
+        <div class="body">has successfully completed the PAWSIC on-demand course<span class="course">Wound Basics 101</span><span class="meta">Four modules &middot; 3 hours of instruction</span></div>
+        <div class="foot">
+          <div class="sig"><img src="/wound-basics-101/certificate-assets/sig.png" alt=""><div class="ln"><div class="n">Jeanine Maguire, PhD, MPT, CWS</div><div class="r">President, PAWSIC</div></div></div>
+          <div class="dt"><div class="dv" id="cert-date"></div><div class="ln"><div class="n">Date Issued</div><div class="r">Post-Acute Wound &amp; Skin Integrity Council</div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+  (function(){
+    var KEY='pawsic-wb101-watched', THRESH=0.9;
+    var iframe=document.getElementById('wb-player'); if(!iframe||!window.Vimeo) return;
+    var player=new Vimeo.Player(iframe), dur=0, marks=null, last=null, saveT=0;
+    var fill=document.getElementById('wb-fill'), pct=document.getElementById('wb-pct'),
+        note=document.getElementById('wb-note'), certPct=document.getElementById('wb-cert-pct'),
+        locked=document.getElementById('wb-cert-locked'), form=document.getElementById('wb-cert-form'),
+        bar=document.querySelector('.wb-progress');
+    function load(){ try{ var v=localStorage.getItem(KEY); return v?JSON.parse(v):null; }catch(e){ return null; } }
+    function save(){ try{ localStorage.setItem(KEY, JSON.stringify({d:dur,m:marks.join('')})); }catch(e){} }
+    function watched(){ var n=0; for(var i=0;i<marks.length;i++) if(marks[i]==='1') n++; return marks.length? n/marks.length : 0; }
+    function render(){
+      var f=watched(), p=Math.min(100, Math.floor(f*100));
+      fill.style.width=p+'%'; pct.textContent=p+'% watched'; certPct.textContent=p+'%';
+      if(f>=THRESH){ bar.classList.add('done'); locked.hidden=true; form.hidden=false;
+        note.innerHTML='Course complete. <a href="#certificate">Get your Certificate of Completion</a>.'; }
+    }
+    player.getDuration().then(function(d){
+      dur=Math.ceil(d); var st=load();
+      marks=(st && st.d===dur && st.m && st.m.length===dur) ? st.m.split('') : new Array(dur).fill('0');
+      render();
+    });
+    player.on('timeupdate', function(e){
+      if(!marks) return; var t=e.seconds;
+      if(last!==null && t>last && t-last<2.5){ for(var s=Math.floor(last); s<=Math.floor(t) && s<marks.length; s++) marks[s]='1'; }
+      last=t;
+      if(Date.now()-saveT>5000){ saveT=Date.now(); save(); render(); }
+    });
+    player.on('seeked', function(e){ last=e.seconds; });
+    player.on('pause', function(){ if(marks){ save(); render(); } });
+    player.on('ended', function(){ if(marks){ save(); render(); } });
+    form.addEventListener('submit', function(ev){
+      ev.preventDefault();
+      var name=document.getElementById('wb-name').value.trim(); if(!name) return;
+      if(watched()<THRESH) return;
+      document.getElementById('cert-name').textContent=name;
+      document.getElementById('cert-date').textContent=new Date().toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'});
+      var n=document.getElementById('cert-name'); n.style.fontSize=name.length>34?'40px':name.length>26?'46px':'54px';
+      window.print();
+    });
+  })();
+  </script>
+
 
   <script src="/js/main.js?v=20260929"></script>
 </body>
