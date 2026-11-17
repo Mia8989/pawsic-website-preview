@@ -520,6 +520,24 @@
       .cp-actions .cp-btn { width: 100%; }
       .cp-result { padding: 1.5rem; }
     }
+    /* Format switcher + chapters */
+    .cp-formats { display: flex; gap: 0.5rem; flex-wrap: wrap; margin: 0 0 1rem; }
+    .cp-fmt { font: inherit; font-size: 0.92rem; font-weight: 700; padding: 0.55rem 1rem; border-radius: 999px; border: 2px solid var(--line); background: #fff; color: var(--ink); cursor: pointer; min-height: 44px; }
+    .cp-fmt[aria-selected="true"] { background: var(--ink); border-color: var(--ink); color: #fff; }
+    .cp-fmt:focus-visible, .cp-chap:focus-visible { outline: 3px solid #38B6FF; outline-offset: 2px; }
+    .cp-audio { background: var(--ink); color: #fff; border-radius: 14px; padding: 1.5rem; display: grid; grid-template-columns: 96px 1fr; gap: 1.25rem; align-items: center; }
+    .cp-audio img { width: 96px; height: 96px; border-radius: 12px; object-fit: cover; object-position: 50% 22%; }
+    .cp-audio strong { display: block; font-size: 1.05rem; }
+    .cp-audio span { display: block; font-size: 0.88rem; color: rgba(255,255,255,0.75); margin: 0.2rem 0 0.75rem; }
+    .cp-audio audio { width: 100%; }
+    .cp-chapters { margin: 1.5rem 0 0; border: 1px solid var(--line); border-radius: 14px; background: #fff; }
+    .cp-chapters h3 { margin: 0; padding: 1rem 1.25rem; font-size: 1rem; border-bottom: 1px solid var(--line); color: var(--ink); }
+    .cp-chapters ol { list-style: none; margin: 0; padding: 0.4rem; max-height: 360px; overflow-y: auto; }
+    .cp-chap { display: flex; gap: 0.9rem; width: 100%; text-align: left; font: inherit; font-size: 0.92rem; padding: 0.6rem 0.85rem; border: 0; border-radius: 10px; background: none; color: var(--ink); cursor: pointer; min-height: 44px; align-items: center; }
+    .cp-chap:hover { background: var(--cream); }
+    .cp-chap.is-on { background: var(--cream); font-weight: 700; }
+    .cp-chap-t { flex: none; width: 3.6rem; font-variant-numeric: tabular-nums; color: var(--muted); font-weight: 600; }
+    @media (max-width: 560px) { .cp-audio { grid-template-columns: 1fr; } .cp-audio img { display: none; } }
   </style>
 </head>
 <body>
@@ -649,9 +667,43 @@
             <section class="cp-panel" id="cp-step-1" aria-labelledby="cp-h-1">
               <p class="cp-kicker">Step 1 of 4</p>
               <h2 id="cp-h-1" tabindex="-1">Watch the course</h2>
-              <p class="cp-lede">Watch the full recording. When you reach the end, the post-test unlocks automatically.</p>
+              <p class="cp-lede">Choose how you take the course: the full video, the slides only, or audio only. Your place carries over when you switch, and the post-test unlocks when you reach the end.</p>
 
+              <div class="cp-formats" role="tablist" aria-label="Course format">
+                <button type="button" class="cp-fmt" role="tab" aria-selected="true" data-fmt="video">Video</button>
+                <button type="button" class="cp-fmt" role="tab" aria-selected="false" data-fmt="slides">Slides only</button>
+                <button type="button" class="cp-fmt" role="tab" aria-selected="false" data-fmt="audio">Audio only</button>
+              </div>
               <div class="cp-video" id="cp-video"></div>
+              <div class="cp-video" id="cp-video-slides" hidden></div>
+              <div class="cp-audio" id="cp-audio-box" hidden>
+                <img src="/images/board/jeanine-maguire.jpg" alt="" width="96" height="96">
+                <div><strong>Audio only</strong><span>58 minutes &middot; follow along with the infographic in Course resources</span>
+                <audio id="cp-audio" controls preload="none" src="/courses/10-step-framework/assets/pawsic-10-step-framework-audio.m4a"></audio></div>
+              </div>
+              <div class="cp-chapters">
+                <h3>Chapters</h3>
+                <ol id="cp-chapters">
+                  <li><button type="button" class="cp-chap" data-t="0"><span class="cp-chap-t">0:00</span><span class="cp-chap-n">Welcome and presenter</span></button></li>
+                  <li><button type="button" class="cp-chap" data-t="140"><span class="cp-chap-t">2:21</span><span class="cp-chap-n">Learning objectives</span></button></li>
+                  <li><button type="button" class="cp-chap" data-t="200"><span class="cp-chap-t">3:21</span><span class="cp-chap-n">Why this matters</span></button></li>
+                  <li><button type="button" class="cp-chap" data-t="320"><span class="cp-chap-t">5:21</span><span class="cp-chap-n">The regulations: F686, F684 and the CEP</span></button></li>
+                  <li><button type="button" class="cp-chap" data-t="853"><span class="cp-chap-t">14:14</span><span class="cp-chap-n">The 10 steps at a glance</span></button></li>
+                  <li><button type="button" class="cp-chap" data-t="980"><span class="cp-chap-t">16:21</span><span class="cp-chap-n">Step 1: Routine QAPI for wound and skin integrity</span></button></li>
+                  <li><button type="button" class="cp-chap" data-t="1149"><span class="cp-chap-t">19:10</span><span class="cp-chap-n">Step 2: Use the PI CEP as your internal audit</span></button></li>
+                  <li><button type="button" class="cp-chap" data-t="1288"><span class="cp-chap-t">21:28</span><span class="cp-chap-n">Step 3: In-house-acquired PI response protocol</span></button></li>
+                  <li><button type="button" class="cp-chap" data-t="1515"><span class="cp-chap-t">25:15</span><span class="cp-chap-n">Step 4: Routine interdisciplinary wound rounds</span></button></li>
+                  <li><button type="button" class="cp-chap" data-t="1675"><span class="cp-chap-t">27:56</span><span class="cp-chap-n">Step 5: Certified wound specialist as team leader</span></button></li>
+                  <li><button type="button" class="cp-chap" data-t="1801"><span class="cp-chap-t">30:02</span><span class="cp-chap-n">Step 6: Vet mobile wound consultants</span></button></li>
+                  <li><button type="button" class="cp-chap" data-t="2081"><span class="cp-chap-t">34:41</span><span class="cp-chap-n">Step 7: HIPAA-compliant digital wound imaging</span></button></li>
+                  <li><button type="button" class="cp-chap" data-t="2252"><span class="cp-chap-t">37:32</span><span class="cp-chap-n">Step 8: Standardized protocols for the basics</span></button></li>
+                  <li><button type="button" class="cp-chap" data-t="2760"><span class="cp-chap-t">46:01</span><span class="cp-chap-n">Step 9: Valid PI risk assessment</span></button></li>
+                  <li><button type="button" class="cp-chap" data-t="2906"><span class="cp-chap-t">48:27</span><span class="cp-chap-n">Step 10: Systematic head-to-toe skin checks</span></button></li>
+                  <li><button type="button" class="cp-chap" data-t="3103"><span class="cp-chap-t">51:44</span><span class="cp-chap-n">The business case</span></button></li>
+                  <li><button type="button" class="cp-chap" data-t="3185"><span class="cp-chap-t">53:05</span><span class="cp-chap-n">Your 6-month implementation roadmap</span></button></li>
+                  <li><button type="button" class="cp-chap" data-t="3271"><span class="cp-chap-t">54:32</span><span class="cp-chap-n">Skin failure, resources and wrap-up</span></button></li>
+                </ol>
+              </div>
               <p class="cp-watchstatus" id="cp-watchstatus" role="status" aria-live="polite"></p>
 
               <div class="cp-attest">
@@ -843,15 +895,22 @@
             </div>
 
             <div class="cp-card">
-              <h2>Course resource</h2>
+              <h2>Course resources</h2>
+              <a class="cp-resource" href="/courses/10-step-framework/assets/PAWSIC-10-Step-Framework-at-a-Glance.pdf" download>
+                <span class="cp-resource-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span>
+                <span class="cp-resource-text"><strong>The 10 Step Framework at a glance</strong><span>Infographic &middot; 1 page PDF</span></span>
+              </a>
               <a class="cp-resource" href="/courses/10-step-framework/assets/PAWSIC_Curated_F-Tags_Wound_Prevention_and_Management.pdf" download>
-                <span class="cp-resource-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                </span>
-                <span class="cp-resource-text">
-                  <strong>Curated F-Tags for Wound Prevention and Management</strong>
-                  <span>PDF handout &middot; 15 pages &middot; 306 KB</span>
-                </span>
+                <span class="cp-resource-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span>
+                <span class="cp-resource-text"><strong>Curated F-Tags for Wound Prevention and Management</strong><span>By Pamela Scarborough &middot; PDF handout &middot; 14 pages &middot; 2.7 MB</span></span>
+              </a>
+              <a class="cp-resource" href="/courses/10-step-framework/assets/PAWSIC-10-Step-Framework-Flyer.pdf" download>
+                <span class="cp-resource-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span>
+                <span class="cp-resource-text"><strong>Course flyer</strong><span>Share with your team &middot; PDF</span></span>
+              </a>
+              <a class="cp-resource" href="/courses/10-step-framework/assets/pawsic-10-step-framework-audio.m4a" download>
+                <span class="cp-resource-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span>
+                <span class="cp-resource-text"><strong>Audio recording</strong><span>Listen offline &middot; 58 min</span></span>
               </a>
             </div>
 
@@ -943,8 +1002,8 @@
       /* Vimeo recording. Leave VIMEO_ID empty until the recording is uploaded; the page then shows the
          "Recording available Nov 19" panel. Set VIMEO_ID to the numeric video ID and, for an unlisted
          video, VIMEO_HASH to the value after ?h= in the share link. */
-      var VIMEO_ID = "1247691230";
-      var VIMEO_HASH = "f0bc3ed15b";
+      var VIMEO_ID = "1247702804";
+      var VIMEO_HASH = "6dcea86333";
 
       var COURSE_ID = "10-step-framework";
       var COURSE_NAME = "The PAWSIC 10 Step Framework to Optimize Skin Health and Pressure Prevention in PAC";
@@ -1133,39 +1192,75 @@
       });
       toTest.addEventListener("click", function () { showStep(2, true); });
 
-      var videoBox = $("cp-video");
-      if (!VIMEO_ID) {
-        videoBox.innerHTML =
-          '<div class="cp-soon">' +
-            '<div class="cp-soon-date" aria-hidden="true">Nov 19</div>' +
-            '<h3>Recording available Nov 19</h3>' +
-            '<p>The full recording posts here on International Pressure Injury Prevention Day. Watch it to the end and the post-test unlocks automatically.</p>' +
-          "</div>";
-      } else {
+      /* Three formats on one timeline: the edited video, the slides-only video and audio only.
+         Switching carries the current position over. Reaching 95% in any format counts as watched. */
+      var SLIDES_ID = "1247703404", SLIDES_HASH = "9d9c01757c";
+      var players = {}, fmt = "video", audio = $("cp-audio"), lastPct = -1;
+      function onProgress(sec, dur) {
+        if (!dur) return;
+        var pct = Math.floor(sec / dur * 100);
+        if (!state.watched && pct !== lastPct) { lastPct = pct; watchStatus.textContent = "Progress: " + pct + "% watched"; }
+        if (sec / dur >= 0.95) markWatched();
+        var btns = document.querySelectorAll(".cp-chap"), on = null;
+        for (var i = 0; i < btns.length; i++) { if (sec >= +btns[i].getAttribute("data-t")) on = btns[i]; btns[i].classList.remove("is-on"); }
+        if (on) on.classList.add("is-on");
+      }
+      function makeVimeo(box, id, hash) {
+        if (!id) return null;
         var iframe = document.createElement("iframe");
-        iframe.src = "https://player.vimeo.com/video/" + VIMEO_ID + (VIMEO_HASH ? "?h=" + VIMEO_HASH : "");
+        iframe.src = "https://player.vimeo.com/video/" + id + (hash ? "?h=" + hash : "");
         iframe.title = COURSE_NAME;
         iframe.setAttribute("allow", "autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share");
         iframe.setAttribute("referrerpolicy", "strict-origin-when-cross-origin");
         iframe.setAttribute("allowfullscreen", "");
-        videoBox.appendChild(iframe);
-        var s = document.createElement("script");
-        s.src = "https://player.vimeo.com/api/player.js";
-        s.onload = function () {
-          try {
-            var player = new window.Vimeo.Player(iframe);
-            var lastPct = -1;
-            player.on("ended", markWatched);
-            player.on("timeupdate", function (d) {
-              if (!d || typeof d.percent !== "number") return;
-              var pct = Math.floor(d.percent * 100);
-              if (!state.watched && pct !== lastPct) { lastPct = pct; watchStatus.textContent = "Progress: " + pct + "% watched"; }
-              if (d.percent >= 0.95) markWatched();
-            });
-          } catch (e) { /* player API unavailable; the live-attendance path still works */ }
-        };
-        document.head.appendChild(s);
+        box.appendChild(iframe);
+        var p = new window.Vimeo.Player(iframe);
+        p.on("ended", markWatched);
+        p.on("timeupdate", function (d) { if (d) onProgress(d.seconds, d.duration); });
+        return p;
       }
+      function getTime(cb) {
+        if (fmt === "audio") return cb(audio.currentTime || 0);
+        var p = players[fmt]; if (!p) return cb(0);
+        p.getCurrentTime().then(cb, function () { cb(0); });
+      }
+      function seek(t, play) {
+        if (fmt === "audio") {
+          var go = function () { audio.currentTime = t; if (play) audio.play(); };
+          if (audio.readyState >= 1) go();
+          else { audio.addEventListener("loadedmetadata", go, { once: true }); audio.preload = "metadata"; audio.load(); }
+          return;
+        }
+        var p = players[fmt]; if (!p) return;
+        p.setCurrentTime(t).then(function () { if (play) p.play(); });
+      }
+      function setFormat(next) {
+        if (next === fmt) return;
+        getTime(function (t) {
+          if (fmt === "audio") audio.pause(); else if (players[fmt]) players[fmt].pause();
+          fmt = next;
+          $("cp-video").hidden = fmt !== "video"; $("cp-video-slides").hidden = fmt !== "slides"; $("cp-audio-box").hidden = fmt !== "audio";
+          if (fmt === "slides" && !players.slides) players.slides = makeVimeo($("cp-video-slides"), SLIDES_ID, SLIDES_HASH);
+          document.querySelectorAll(".cp-fmt").forEach(function (b) { b.setAttribute("aria-selected", b.getAttribute("data-fmt") === fmt ? "true" : "false"); });
+          if (t > 1) seek(t, false);
+        });
+      }
+      document.querySelectorAll(".cp-fmt").forEach(function (b) {
+        if (b.getAttribute("data-fmt") === "slides" && !SLIDES_ID) { b.hidden = true; return; }
+        b.addEventListener("click", function () { setFormat(b.getAttribute("data-fmt")); });
+      });
+      document.querySelectorAll(".cp-chap").forEach(function (b) {
+        b.addEventListener("click", function () { seek(+b.getAttribute("data-t"), true); });
+      });
+      audio.addEventListener("timeupdate", function () { onProgress(audio.currentTime, audio.duration); });
+      audio.addEventListener("ended", markWatched);
+      var s = document.createElement("script");
+      s.src = "https://player.vimeo.com/api/player.js";
+      s.onload = function () {
+        try { players.video = makeVimeo($("cp-video"), VIMEO_ID, VIMEO_HASH); }
+        catch (e) { /* player API unavailable; audio and the live-attendance path still work */ }
+      };
+      document.head.appendChild(s);
       syncWatchGate();
 
       /* Jotform record posting */
