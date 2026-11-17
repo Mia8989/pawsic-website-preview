@@ -1,0 +1,1352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2VRLWNKKNS"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-2VRLWNKKNS');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Course: The PAWSIC 10 Step Framework | Free CE, 1.0 Contact Hour | PAWSIC</title>
+  <meta name="description" content="Watch the PAWSIC 10 Step Framework to Optimize Skin Health and Pressure Prevention in PAC, pass the post-test, complete the evaluation, and get your 1.0 contact hour certificate.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="canonical" href="https://pawsic.org/courses/10-step-framework/watch/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css?v=20260713b">
+  <link rel="stylesheet" href="/css/v2-overrides.css?v=20260929">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/pawsic-favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/pawsic-favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/pawsic-apple-touch-icon.png">
+
+  <style>
+    /* ===== 10 Step Framework course player ===== */
+    .cp {
+      --navy: #0C1F3F;
+      --navy-2: #1B3A6A;
+      --gold: #C9A84C;
+      --gold-text: #7A5F17;
+      --cream: #FAF8F4;
+      --blue: #38B6FF;
+      --blue-deep: #1B5E9E;
+      --ink: #0C1F3F;
+      --body: #3a4a5c;
+      --muted: #5b6878;
+      --line: rgba(12,31,63,0.12);
+      --ok: #1e6b34;
+      --err: #a52a1f;
+      background: var(--cream);
+      color: var(--ink);
+    }
+    .cp *:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
+
+    /* Header */
+    .cp-head {
+      background: linear-gradient(135deg, #0C1F3F 0%, #1B3A6A 100%);
+      color: #fff;
+      padding: 3.5rem 0 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .cp-head::before {
+      content: "";
+      position: absolute; inset: 0;
+      background: radial-gradient(circle at 85% 20%, rgba(56,182,255,0.16), transparent 45%);
+      pointer-events: none;
+    }
+    .cp-head .container { position: relative; }
+    .cp-eyebrow {
+      display: inline-block;
+      color: var(--gold);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin: 0 0 1rem;
+    }
+    .cp-head h1 {
+      color: #fff;
+      font-family: 'DM Serif Display', serif;
+      font-weight: 400;
+      font-size: clamp(1.9rem, 3.6vw, 2.9rem);
+      line-height: 1.12;
+      letter-spacing: -0.02em;
+      margin: 0 0 1rem;
+      max-width: 860px;
+    }
+    .cp-head h1 em { color: var(--blue); font-style: italic; }
+    .cp-head-meta {
+      color: rgba(255,255,255,0.82);
+      font-size: 0.98rem;
+      line-height: 1.6;
+      margin: 0;
+    }
+    .cp-head-meta strong { color: #fff; }
+
+    /* Stepper */
+    .cp-stepbar {
+      background: #fff;
+      border-bottom: 1px solid var(--line);
+    }
+    .cp-stepper {
+      list-style: none;
+      margin: 0 auto;
+      padding: 1.5rem 0;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      max-width: 920px;
+      counter-reset: none;
+    }
+    .cp-stepper li { position: relative; display: flex; justify-content: center; }
+    .cp-stepper li + li::before {
+      content: "";
+      position: absolute;
+      top: 28px;
+      right: calc(50% + 28px);
+      width: calc(100% - 56px);
+      height: 2px;
+      background: var(--line);
+    }
+    .cp-stepper li.is-reached + li::before,
+    .cp-stepper li.is-done + li::before { background: var(--gold); }
+    .cp-stepbtn {
+      appearance: none;
+      background: none;
+      border: 0;
+      padding: 4px 8px;
+      min-height: 44px;
+      min-width: 44px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      cursor: pointer;
+      font-family: inherit;
+      color: var(--ink);
+      border-radius: 12px;
+    }
+    .cp-stepbtn:disabled { cursor: not-allowed; }
+    .cp-dot {
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700;
+      font-size: 1.05rem;
+      border: 2px solid var(--line);
+      background: #fff;
+      color: var(--muted);
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .cp-dot svg { width: 20px; height: 20px; }
+    .cp-steplabel { font-size: 0.9rem; font-weight: 600; color: var(--muted); line-height: 1.2; }
+    .cp-stepbtn.is-open .cp-dot { border-color: var(--navy); color: var(--navy); }
+    .cp-stepbtn.is-open .cp-steplabel { color: var(--ink); }
+    .cp-stepbtn.is-done .cp-dot { background: var(--gold); border-color: var(--gold); color: var(--navy); }
+    .cp-stepbtn.is-done .cp-steplabel { color: var(--ink); }
+    .cp-stepbtn.is-current .cp-dot { background: var(--navy); border-color: var(--navy); color: #fff; box-shadow: 0 0 0 4px rgba(56,182,255,0.35); }
+    .cp-stepbtn.is-current .cp-steplabel { color: var(--ink); font-weight: 700; }
+    .cp-stepbtn.is-current.is-done .cp-dot { background: var(--gold); border-color: var(--gold); color: var(--navy); }
+    .cp-stepbtn:disabled .cp-dot { background: #f1efe9; border-style: dashed; }
+
+    /* Layout */
+    .cp-body { padding: 3rem 0 6rem; }
+    .cp-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 320px;
+      gap: 2.5rem;
+      align-items: start;
+    }
+    .cp-panel {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 2.5rem;
+      box-shadow: 0 1px 2px rgba(12,31,63,0.05), 0 8px 24px rgba(12,31,63,0.06);
+    }
+    .cp-panel[hidden] { display: none; }
+    .cp-kicker {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold-text);
+      margin: 0 0 0.5rem;
+    }
+    .cp-panel h2 {
+      font-family: 'DM Serif Display', serif;
+      font-weight: 400;
+      color: var(--ink);
+      font-size: clamp(1.6rem, 2.6vw, 2.1rem);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin: 0 0 0.75rem;
+    }
+    .cp-panel h2:focus { outline: none; }
+    .cp-lede { color: var(--body); font-size: 1rem; line-height: 1.65; margin: 0 0 2rem; max-width: 60ch; }
+
+    /* Video */
+    .cp-video {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      border-radius: 12px;
+      overflow: hidden;
+      background: var(--navy);
+    }
+    .cp-video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+    .cp-soon {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column; justify-content: flex-end;
+      padding: 2.5rem;
+      color: #fff;
+      background:
+        radial-gradient(circle at 80% 25%, rgba(56,182,255,0.22), transparent 50%),
+        linear-gradient(135deg, #0C1F3F 0%, #1B3A6A 100%);
+    }
+    .cp-soon-date {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(3rem, 8vw, 5.5rem);
+      line-height: 0.95;
+      letter-spacing: -0.03em;
+      color: var(--gold);
+      margin: 0 0 0.75rem;
+    }
+    .cp-soon h3 { color: #fff; font-size: clamp(1.15rem, 2.2vw, 1.5rem); margin: 0 0 0.5rem; font-weight: 700; }
+    .cp-soon p { color: rgba(255,255,255,0.82); margin: 0; max-width: 46ch; line-height: 1.55; font-size: 0.95rem; }
+    .cp-watchstatus:empty { display: none; }
+    .cp-watchstatus { margin: 1rem 0 0; font-size: 0.92rem; color: var(--body); min-height: 1.4em; }
+    .cp-watchstatus strong { color: var(--ok); }
+
+    .cp-attest {
+      margin-top: 2rem;
+      padding: 1.5rem;
+      border-radius: 12px;
+      background: var(--cream);
+      border: 1px solid var(--line);
+    }
+    .cp-attest-title { font-weight: 700; margin: 0 0 0.25rem; color: var(--ink); }
+    .cp-attest-help { margin: 0 0 1rem; color: var(--body); font-size: 0.92rem; line-height: 1.55; }
+    .cp-check {
+      display: flex; align-items: center; gap: 0.75rem;
+      min-height: 44px;
+      cursor: pointer;
+      font-weight: 600;
+      color: var(--ink);
+    }
+    .cp-check input { width: 22px; height: 22px; flex-shrink: 0; accent-color: var(--navy); margin: 0; }
+
+    .cp-objectives { margin: 2.5rem 0 0; padding: 2rem 0 0; border-top: 1px solid var(--line); }
+    .cp-objectives h3 { font-size: 1.05rem; margin: 0 0 1rem; color: var(--ink); }
+    .cp-objectives ol { margin: 0; padding-left: 1.25rem; color: var(--body); line-height: 1.6; }
+    .cp-objectives li { margin-bottom: 0.5rem; }
+
+    /* Buttons */
+    .cp-actions { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; margin-top: 2rem; }
+    .cp-btn {
+      appearance: none;
+      display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+      min-height: 48px;
+      padding: 0.85rem 1.75rem;
+      border-radius: 999px;
+      border: 0;
+      background: var(--blue);
+      color: var(--navy);
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.1s;
+    }
+    .cp-btn:hover { background: #6cc9ff; color: var(--navy); }
+    .cp-btn:active { transform: translateY(1px); }
+    .cp-btn:disabled { background: #d9e2ea; color: #5b6878; cursor: not-allowed; }
+    .cp-btn-ghost {
+      background: transparent;
+      color: var(--navy);
+      box-shadow: inset 0 0 0 2px var(--navy);
+    }
+    .cp-btn-ghost:hover { background: rgba(12,31,63,0.06); }
+    .cp-btn-gold { background: var(--gold); color: var(--navy); }
+    .cp-btn-gold:hover { background: #d8bb66; }
+
+    .cp-gatehint { margin: 0.75rem 0 0; font-size: 15px; line-height: 1.5; color: rgba(12,31,63,0.75); }
+    .cp-gatehint[hidden] { display: none; }
+
+    /* Learner summary */
+    .cp-summary {
+      grid-column: 1 / -1;
+      display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+      background: var(--cream);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 0.75rem 1rem;
+    }
+    .cp-summary[hidden] { display: none; }
+    .cp-summary-text { min-width: 0; line-height: 1.45; }
+    .cp-summary-text strong { display: block; color: var(--ink); }
+    .cp-summary-text span { display: block; color: var(--body); font-size: 0.92rem; overflow-wrap: anywhere; }
+    .cp-linkbtn {
+      appearance: none; background: none; border: 0; cursor: pointer;
+      font-family: inherit; font-size: 0.95rem; font-weight: 700;
+      color: var(--blue-deep); text-decoration: underline; text-underline-offset: 3px;
+      min-height: 44px; min-width: 44px; padding: 0 0.5rem;
+    }
+    .cp-field[hidden] { display: none; }
+
+    /* Forms */
+    .cp-form fieldset { border: 0; margin: 0 0 2rem; padding: 0; min-width: 0; }
+    .cp-form legend { padding: 0; }
+    .cp-section-legend {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold-text);
+      margin: 0 0 1rem;
+    }
+    .cp-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem 1.25rem; }
+    .cp-field { display: flex; flex-direction: column; gap: 0.4rem; }
+    .cp-field label, .cp-qlabel { font-size: 0.9rem; font-weight: 600; color: var(--ink); }
+    .cp-field label.cp-qlabel { font-size: 1.02rem; line-height: 1.5; margin-bottom: 0.35rem; }
+    .cp-req { color: var(--err); }
+    .cp-field input, .cp-field select, .cp-field textarea {
+      font-family: inherit; font-size: 1rem; color: var(--ink);
+      min-height: 48px;
+      padding: 0.7rem 0.9rem;
+      border: 1px solid rgba(12,31,63,0.28);
+      border-radius: 8px;
+      background: #fff;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .cp-field textarea { min-height: 112px; resize: vertical; line-height: 1.5; }
+    .cp-field input:focus-visible, .cp-field select:focus-visible, .cp-field textarea:focus-visible {
+      outline: 3px solid var(--blue); outline-offset: 1px; border-color: var(--navy);
+    }
+    .cp-divider { border: 0; border-top: 1px solid var(--line); margin: 0 0 2rem; }
+
+    .cp-form .cp-q { padding: 1.5rem 0; border: 0; border-top: 1px solid var(--line); margin: 0; }
+    .cp-form .cp-q > legend { float: left; width: 100%; }
+    .cp-form .cp-q > legend + * { clear: both; }
+    #cp-questions, #cp-ratings { border-bottom: 1px solid var(--line); }
+    #cp-questions > .cp-q:first-child, #cp-ratings > .cp-q:first-child { border-top: 0; padding-top: 0.5rem; }
+    .cp-q legend {
+      font-weight: 600;
+      font-size: 1.02rem;
+      line-height: 1.5;
+      color: var(--ink);
+      margin-bottom: 0.75rem;
+      display: block;
+      width: 100%;
+    }
+    .cp-qnum { color: var(--gold-text); font-weight: 700; margin-right: 0.35rem; }
+    .cp-opts { display: grid; gap: 0.5rem; }
+    .cp-opt {
+      display: flex; align-items: flex-start; gap: 0.75rem;
+      min-height: 44px;
+      padding: 0.65rem 0.9rem;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      cursor: pointer;
+      line-height: 1.45;
+      color: var(--body);
+      background: #fff;
+      transition: border-color 0.15s, background 0.15s;
+    }
+    .cp-opt:hover { border-color: rgba(12,31,63,0.35); }
+    .cp-opt input { margin: 0.2rem 0 0; width: 20px; height: 20px; flex-shrink: 0; accent-color: var(--navy); }
+    .cp-opt:has(input:checked) { border-color: var(--navy); background: #f2f5f9; color: var(--ink); }
+    .cp-opt:has(input:focus-visible) { outline: 3px solid var(--blue); outline-offset: 2px; }
+    .cp-opt input:focus-visible { outline: none; }
+    .cp-letter { font-weight: 700; color: var(--ink); min-width: 1.2em; }
+
+    /* Rating scale */
+    .cp-scale-key {
+      display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem;
+      font-size: 0.88rem; color: var(--body);
+      background: var(--cream);
+      border-radius: 8px;
+      padding: 0.75rem 1rem;
+      margin: 0 0 0.5rem;
+    }
+    .cp-scale-key strong { color: var(--ink); }
+    .cp-rate { display: grid; grid-template-columns: repeat(5, minmax(44px, 64px)); gap: 0.5rem; }
+    .cp-rate label {
+      position: relative;
+      display: flex; align-items: center; justify-content: center;
+      min-height: 48px;
+      border: 1px solid rgba(12,31,63,0.28);
+      border-radius: 8px;
+      font-weight: 700;
+      color: var(--ink);
+      cursor: pointer;
+      background: #fff;
+      transition: background 0.15s, border-color 0.15s;
+    }
+    .cp-rate input { position: absolute; opacity: 0; width: 100%; height: 100%; margin: 0; cursor: pointer; }
+    .cp-rate label:hover { border-color: var(--navy); }
+    .cp-rate label:has(input:checked) { background: var(--navy); border-color: var(--navy); color: #fff; }
+    .cp-rate label:has(input:focus-visible) { outline: 3px solid var(--blue); outline-offset: 2px; }
+    .cp-rate-ends { display: flex; justify-content: space-between; max-width: 352px; font-size: 0.78rem; color: var(--muted); margin-top: 0.4rem; }
+    .cp-inline-opts { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .cp-inline-opts .cp-opt { align-items: center; }
+    .cp-inline-opts .cp-opt input { margin: 0; }
+    .cp-roles { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 0.5rem; }
+    .cp-roles .cp-opt { align-items: center; }
+    .cp-roles .cp-opt input { margin: 0; }
+    .cp-reveal { margin-top: 1rem; }
+    .cp-reveal[hidden] { display: none; }
+
+    /* Status and results */
+    .cp-status { margin: 1rem 0 0; font-size: 0.95rem; line-height: 1.5; min-height: 1.4em; }
+    .cp-status.is-error { color: var(--err); font-weight: 600; }
+    .cp-result {
+      border-radius: 12px;
+      padding: 2rem;
+      margin: 0 0 1rem;
+    }
+    .cp-result[hidden] { display: none; }
+    .cp-result:focus { outline: none; }
+    .cp-result-pass { background: #fbf6e8; border: 1px solid rgba(201,168,76,0.55); }
+    .cp-result-fail { background: #f2f5f9; border: 1px solid var(--line); }
+    .cp-score {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(3rem, 7vw, 4.5rem);
+      line-height: 1;
+      letter-spacing: -0.03em;
+      color: var(--navy);
+      margin: 0 0 0.75rem;
+    }
+    .cp-score small { font-family: 'Inter', sans-serif; font-size: 1rem; letter-spacing: 0; color: var(--muted); font-weight: 600; margin-left: 0.5rem; }
+    .cp-result h3 { margin: 0 0 0.5rem; font-size: 1.25rem; color: var(--ink); }
+    .cp-result p { margin: 0; color: var(--body); line-height: 1.6; }
+    .cp-attempt { font-size: 0.85rem; color: var(--muted); margin-top: 0.75rem !important; }
+
+    /* Certificate */
+    .cp-cert-seal {
+      width: 88px; height: 88px; border-radius: 50%;
+      background: var(--gold);
+      color: var(--navy);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 0 1.5rem;
+      box-shadow: 0 1px 2px rgba(12,31,63,0.08), 0 8px 24px rgba(201,168,76,0.35);
+    }
+    .cp-cert-seal svg { width: 44px; height: 44px; }
+    .cp-ce {
+      border-left: 4px solid var(--gold);
+      background: var(--cream);
+      padding: 1rem 1.25rem;
+      border-radius: 0 8px 8px 0;
+      color: var(--ink);
+      font-weight: 600;
+      line-height: 1.55;
+      font-size: 0.95rem;
+      margin: 0 0 1.5rem;
+    }
+    .cp-fine { font-size: 0.88rem; color: var(--muted); line-height: 1.55; margin: 1rem 0 0; }
+
+    /* Sidebar */
+    .cp-side { display: grid; gap: 1.5rem; }
+    .cp-card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 1.5rem;
+    }
+    .cp-card h2 {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold-text);
+      margin: 0 0 1rem;
+      font-family: 'Inter', sans-serif;
+    }
+    .cp-presenter { display: grid; grid-template-columns: 64px 1fr; gap: 1rem; align-items: center; }
+    .cp-presenter img { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; object-position: top center; border: 2px solid var(--gold); }
+    .cp-presenter strong { display: block; color: var(--ink); font-size: 1rem; }
+    .cp-presenter span { display: block; color: var(--muted); font-size: 0.85rem; line-height: 1.45; }
+    .cp-facts { list-style: none; margin: 1.25rem 0 0; padding: 1.25rem 0 0; border-top: 1px solid var(--line); display: grid; gap: 0.75rem; }
+    .cp-facts li { display: flex; justify-content: space-between; gap: 1rem; font-size: 0.92rem; color: var(--body); }
+    .cp-facts li strong { color: var(--ink); text-align: right; }
+    .cp-side-ce { font-size: 0.85rem; color: var(--body); line-height: 1.55; margin: 1.25rem 0 0; }
+    .cp-resource {
+      display: grid; grid-template-columns: 44px 1fr; gap: 0.75rem; align-items: center;
+      text-decoration: none;
+      color: var(--ink);
+      padding: 0.5rem;
+      margin: -0.5rem;
+      border-radius: 8px;
+      min-height: 44px;
+    }
+    .cp-resource:hover { background: var(--cream); }
+    .cp-resource-icon {
+      width: 44px; height: 44px; border-radius: 8px;
+      background: var(--navy); color: #fff;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .cp-resource-icon svg { width: 22px; height: 22px; }
+    .cp-resource strong { display: block; font-size: 0.95rem; line-height: 1.35; }
+    .cp-resource-text > span { display: block; font-size: 0.8rem; color: var(--muted); margin-top: 0.15rem; }
+    .cp-help p { margin: 0; font-size: 0.92rem; color: var(--body); line-height: 1.6; }
+    .cp-help a { color: var(--blue-deep); font-weight: 700; }
+
+    .cp-disclaimer { margin: 2rem 0 0; font-size: 0.82rem; color: var(--muted); line-height: 1.6; max-width: 80ch; }
+
+    @media (max-width: 960px) {
+      .cp-grid { grid-template-columns: 1fr; }
+      .cp-side { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 640px) {
+      .cp-head { padding: 2.5rem 0 2rem; }
+      .cp-stepper { padding: 1rem 0; }
+      .cp-stepper li + li::before { top: 24px; right: calc(50% + 24px); width: calc(100% - 48px); }
+      .cp-dot { width: 40px; height: 40px; font-size: 0.95rem; }
+      .cp-steplabel { font-size: 0.8rem; }
+      .cp-stepbtn { padding: 2px; }
+      .cp-body { padding: 1.5rem 0 4rem; }
+      .cp-panel { padding: 1.5rem 1.25rem; border-radius: 12px; }
+      .cp-fields { grid-template-columns: 1fr; }
+      .cp-side { grid-template-columns: 1fr; }
+      .cp-soon { padding: 1.25rem; }
+      .cp-soon p { display: none; }
+      .cp-rate { grid-template-columns: repeat(5, 1fr); }
+      .cp-rate-ends { max-width: none; }
+      .cp-actions .cp-btn { width: 100%; }
+      .cp-result { padding: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+    <nav class="utility-bar" aria-label="Utility navigation">
+    <div class="container">
+      <a href="/" class="utility-logo">
+        <picture><source srcset="/images/pawsic-logo.webp" type="image/webp"><img src="/images/pawsic-logo.png" alt="PAWSIC icon" class="logo-icon" width="80" height="62"></picture>
+        <span class="logo-text">
+          <span class="logo-name">PAWSIC</span>
+          <span class="logo-tagline">Post-Acute Wound &amp; Skin Integrity Council</span>
+        </span>
+      </a>
+      <div class="utility-links">
+        <a href="/patients/" class="utility-link v2-patient-link">
+          <svg aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          Patients &amp; Caregivers
+        </a>
+        <a href="/resources/pawsic-brochure.pdf" class="utility-link" target="_blank" rel="noopener noreferrer">Download Brochure</a>
+        <a href="https://memberships.pawsic.org/login/" class="utility-link" target="_blank" rel="noopener noreferrer">Member Login</a>
+        <a href="https://memberships.pawsic.org/register/free/" class="utility-link utility-join" target="_blank" rel="noopener noreferrer">Join Free</a>
+        <a href="/shop/" class="utility-link utility-shop">Donate by Shopping</a>
+        <a href="https://donate.stripe.com/dRm8wQ1mC3oE8Ef8p7c7u0m" class="utility-link utility-donate" target="_blank" rel="noopener noreferrer">Donate ♥</a>
+      </div>
+    </div>
+  </nav>
+
+  <nav class="main-nav" aria-label="Main navigation">
+    <div class="container">
+      <a href="https://memberships.pawsic.org/login/" class="mobile-login-icon" aria-label="Member Login" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li class="mobile-nav-utility mobile-patients-link"><a href="/patients/">Patients &amp; Caregivers</a></li>
+        <li>
+          <a href="/about/" class="has-dropdown" aria-haspopup="true" aria-expanded="false">About Us <span class="dropdown-arrow" aria-hidden="true"></span></a>
+          <ul class="dropdown">
+            <li><a href="/about/">About PAWSIC</a></li>
+            <li><a href="/board/">The Board</a></li>
+            <li><a href="/advisory/">Advisory Committee</a></li>
+            <li><a href="/volunteer-leaders/">Volunteer Leaders</a></li>
+            <li><a href="/who-is-pawsic/">Who is PAWSIC?</a></li>
+            <li><a href="/services/">Services</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="/events/" class="has-dropdown" aria-haspopup="true" aria-expanded="false">Events <span class="dropdown-arrow" aria-hidden="true"></span></a>
+          <ul class="dropdown">
+            <li><a href="/events/">Upcoming Events</a></li>
+            <li><a href="/webinars/">Webinars</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="/press-releases/" class="has-dropdown" aria-haspopup="true" aria-expanded="false">News &amp; Insights <span class="dropdown-arrow" aria-hidden="true"></span></a>
+          <ul class="dropdown">
+            <li><a href="/press-releases/">Press Releases</a></li>
+            <li><a href="/in-the-news/">In the News</a></li>
+            <li><a href="/insights/">Clinical Insights</a></li>
+          </ul>
+        </li>
+        <li class="nav-podcast"><a href="/podcast/"><svg class="nav-podcast-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>Podcast</a></li>
+        <li><a href="/resources/">Resources</a></li>
+        <li>
+          <a href="/programs/" class="has-dropdown" aria-haspopup="true" aria-expanded="false">Courses <span class="dropdown-arrow" aria-hidden="true"></span></a>
+          <ul class="dropdown">
+            <li><a href="/programs/">All Courses</a></li>
+            <li><a href="/cna/">For CNAs: Skin in the Game</a></li>
+            <li><a href="/ostomy-101/">Ostomy 101: Free Course</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="/community/" class="has-dropdown" aria-haspopup="true" aria-expanded="false">Community <span class="dropdown-arrow" aria-hidden="true"></span></a>
+          <ul class="dropdown">
+            <li><a href="/community/#forums">Forums</a></li>
+            <li class="has-sub-dropdown"><a href="/community/#sig-spaces" class="has-sub-arrow">Shared Interest Groups (SIG) <span class="sub-arrow" aria-hidden="true"></span></a><ul class="sub-dropdown"><li><a href="/community/skin-failure-sig/">Skin Failure SIG</a></li></ul></li>
+            <li><a href="/skin-failure-position-paper/read/">Endorse the Position Paper</a></li>
+            <li><a href="/testimonials/">Member Spotlights</a></li>
+          </ul>
+        </li>
+        <li><a href="/membership/">Membership</a></li>
+        <li><a href="/sponsors/">Sponsorship</a></li>
+        <li class="mobile-nav-utility mobile-podcast-item"><a href="/podcast/"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg> Listen to Our Podcast</a></li>
+        <li class="mobile-nav-utility mobile-brochure-link"><a href="/resources/pawsic-brochure.pdf" target="_blank" rel="noopener noreferrer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download Brochure</a></li>
+        <li class="mobile-nav-utility mobile-login-link"><a href="https://memberships.pawsic.org/login/" target="_blank" rel="noopener noreferrer">Member Login</a></li>
+        <li class="mobile-nav-utility mobile-join-item"><a href="https://memberships.pawsic.org/register/free/" target="_blank" rel="noopener noreferrer">Join PAWSIC Free &rarr;</a></li>
+        <li class="mobile-nav-utility mobile-shop-item"><a href="/shop/">Donate by Shopping</a></li>
+        <li class="mobile-nav-utility mobile-donate-item"><a href="https://donate.stripe.com/dRm8wQ1mC3oE8Ef8p7c7u0m" target="_blank" rel="noopener noreferrer">Donate ♥</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="mobile-overlay"></div>
+
+  <main id="main-content" class="cp">
+
+    <!-- ===== COURSE HEADER ===== -->
+    <header class="cp-head">
+      <div class="container">
+        <p class="cp-eyebrow">Free CE &middot; 1.0 Contact Hour &middot; Nov 19 to 26, 2026</p>
+        <h1>The PAWSIC 10 Step Framework to Optimize <em>Skin Health</em> and Pressure Prevention in PAC</h1>
+        <p class="cp-head-meta">Presented by <strong>Jeanine Maguire, PhD, MS, MPT, CWS, FCPP</strong>, President &amp; Co-Founder, PAWSIC</p>
+      </div>
+    </header>
+
+    <!-- ===== PROGRESS STEPPER ===== -->
+    <nav class="cp-stepbar" aria-label="Course progress">
+      <div class="container">
+        <ol class="cp-stepper" id="cp-stepper">
+          <li><button type="button" class="cp-stepbtn" data-step="1"><span class="cp-dot" aria-hidden="true">1</span><span class="cp-steplabel">Watch</span></button></li>
+          <li><button type="button" class="cp-stepbtn" data-step="2"><span class="cp-dot" aria-hidden="true">2</span><span class="cp-steplabel">Post-test</span></button></li>
+          <li><button type="button" class="cp-stepbtn" data-step="3"><span class="cp-dot" aria-hidden="true">3</span><span class="cp-steplabel">Evaluation</span></button></li>
+          <li><button type="button" class="cp-stepbtn" data-step="4"><span class="cp-dot" aria-hidden="true">4</span><span class="cp-steplabel">Certificate</span></button></li>
+        </ol>
+      </div>
+    </nav>
+
+    <div class="cp-body">
+      <div class="container">
+        <div class="cp-grid">
+
+          <div class="cp-main">
+
+            <!-- ===== STEP 1: WATCH ===== -->
+            <section class="cp-panel" id="cp-step-1" aria-labelledby="cp-h-1">
+              <p class="cp-kicker">Step 1 of 4</p>
+              <h2 id="cp-h-1" tabindex="-1">Watch the course</h2>
+              <p class="cp-lede">Watch the full recording. When you reach the end, the post-test unlocks automatically.</p>
+
+              <div class="cp-video" id="cp-video"></div>
+              <p class="cp-watchstatus" id="cp-watchstatus" role="status" aria-live="polite"></p>
+
+              <div class="cp-attest">
+                <p class="cp-attest-title">Joined us live on Zoom?</p>
+                <p class="cp-attest-help">If you attended the full live session on November 19, confirm it below and go straight to the post-test.</p>
+                <label class="cp-check" for="cp-attended">
+                  <input type="checkbox" id="cp-attended">
+                  <span>I attended the live session on Nov 19</span>
+                </label>
+              </div>
+
+              <div class="cp-actions">
+                <button type="button" class="cp-btn" id="cp-to-test" disabled aria-describedby="cp-gatehint">Continue to post-test <span aria-hidden="true">&rarr;</span></button>
+              </div>
+              <p class="cp-gatehint" id="cp-gatehint">Unlocks when the video ends, or check the box above if you attended live.</p>
+
+              <div class="cp-objectives">
+                <h3>Learning objectives</h3>
+                <ol>
+                  <li><strong>Identify the 10-Step Framework:</strong> reduce PI risk, F-tag citations, infection, and litigation in LTC.</li>
+                  <li><strong>Articulate the regulations and apply the CMS CEP:</strong> understand F686 / F684 and map each step to surveyor expectations; use the Critical Element Pathway as a robust internal audit tool.</li>
+                  <li><strong>Evaluate against guidelines and design an action plan:</strong> compare your protocols to 2019 / 2025 international standards and implement the 10-Step Framework in your own organization.</li>
+                </ol>
+              </div>
+            </section>
+
+            <!-- ===== STEP 2: POST-TEST ===== -->
+            <section class="cp-panel" id="cp-step-2" aria-labelledby="cp-h-2" hidden>
+              <p class="cp-kicker">Step 2 of 4</p>
+              <h2 id="cp-h-2" tabindex="-1">Post-test</h2>
+              <p class="cp-lede" id="cp-test-lede">Answer all 10 questions. A score of 8 of 10 passes, and you can retake the test as many times as you need.</p>
+
+              <div class="cp-result cp-result-pass" id="cp-test-pass" tabindex="-1" hidden>
+                <div class="cp-score" id="cp-pass-score">10<small>of 10</small></div>
+                <h3>You passed the post-test.</h3>
+                <p>Nice work. Next, share your feedback in a short evaluation to unlock your certificate.</p>
+                <div class="cp-actions">
+                  <button type="button" class="cp-btn" data-goto="3">Continue to evaluation <span aria-hidden="true">&rarr;</span></button>
+                </div>
+              </div>
+
+              <div class="cp-result cp-result-fail" id="cp-test-fail" tabindex="-1" hidden>
+                <div class="cp-score" id="cp-fail-score">0<small>of 10</small></div>
+                <h3 id="cp-fail-msg">You scored 0 of 10. 8 is needed to pass.</h3>
+                <p>Review the course and try again. Your answers will be cleared for a fresh attempt.</p>
+                <p class="cp-attempt" id="cp-fail-attempt"></p>
+                <div class="cp-actions">
+                  <button type="button" class="cp-btn" id="cp-retake">Retake the post-test</button>
+                  <button type="button" class="cp-btn cp-btn-ghost" data-goto="1">Back to the video</button>
+                </div>
+              </div>
+
+              <form class="cp-form" id="cp-test-form" novalidate>
+                <fieldset>
+                  <legend class="cp-section-legend">Your information</legend>
+                  <div class="cp-fields">
+                    <div class="cp-summary" id="cp-summary" hidden>
+                      <div class="cp-summary-text">
+                        <strong id="cp-sum-name"></strong>
+                        <span id="cp-sum-email"></span>
+                      </div>
+                      <button type="button" class="cp-linkbtn" id="cp-sum-edit" aria-controls="t-first t-last t-email">Edit<span class="sr-only"> your name and email</span></button>
+                    </div>
+                    <div class="cp-field cp-idfield">
+                      <label for="t-first">First name <span class="cp-req" aria-hidden="true">*</span></label>
+                      <input id="t-first" name="firstName" type="text" autocomplete="given-name" required>
+                    </div>
+                    <div class="cp-field cp-idfield">
+                      <label for="t-last">Last name <span class="cp-req" aria-hidden="true">*</span></label>
+                      <input id="t-last" name="lastName" type="text" autocomplete="family-name" required>
+                    </div>
+                    <div class="cp-field cp-idfield">
+                      <label for="t-email">Email <span class="cp-req" aria-hidden="true">*</span></label>
+                      <input id="t-email" name="email" type="email" autocomplete="email" required>
+                    </div>
+                    <div class="cp-field">
+                      <label for="t-license">RN license number <span class="cp-req" aria-hidden="true">*</span></label>
+                      <input id="t-license" name="licenseNumber" type="text" autocomplete="off" required>
+                    </div>
+                    <div class="cp-field">
+                      <label for="t-state">State of licensure <span class="cp-req" aria-hidden="true">*</span></label>
+                      <select id="t-state" name="licenseState" required>
+                        <option value="">Select a state</option>
+                        <option>Alabama</option><option>Alaska</option><option>Arizona</option><option>Arkansas</option><option>California</option><option>Colorado</option><option>Connecticut</option><option>Delaware</option><option>District of Columbia</option><option>Florida</option><option>Georgia</option><option>Hawaii</option><option>Idaho</option><option>Illinois</option><option>Indiana</option><option>Iowa</option><option>Kansas</option><option>Kentucky</option><option>Louisiana</option><option>Maine</option><option>Maryland</option><option>Massachusetts</option><option>Michigan</option><option>Minnesota</option><option>Mississippi</option><option>Missouri</option><option>Montana</option><option>Nebraska</option><option>Nevada</option><option>New Hampshire</option><option>New Jersey</option><option>New Mexico</option><option>New York</option><option>North Carolina</option><option>North Dakota</option><option>Ohio</option><option>Oklahoma</option><option>Oregon</option><option>Pennsylvania</option><option>Rhode Island</option><option>South Carolina</option><option>South Dakota</option><option>Tennessee</option><option>Texas</option><option>Utah</option><option>Vermont</option><option>Virginia</option><option>Washington</option><option>West Virginia</option><option>Wisconsin</option><option>Wyoming</option>
+                        <option>American Samoa</option><option>Guam</option><option>Northern Mariana Islands</option><option>Puerto Rico</option><option>U.S. Virgin Islands</option>
+                        <option>Outside the U.S.</option>
+                      </select>
+                    </div>
+                  </div>
+                </fieldset>
+
+                <hr class="cp-divider">
+                <p class="cp-section-legend" id="cp-q-start" tabindex="-1">Questions</p>
+                <div id="cp-questions"></div>
+
+                <div class="cp-actions">
+                  <button type="submit" class="cp-btn" id="cp-test-submit">Submit post-test</button>
+                </div>
+                <p class="cp-status" id="cp-test-status" role="status" aria-live="polite"></p>
+              </form>
+            </section>
+
+            <!-- ===== STEP 3: EVALUATION ===== -->
+            <section class="cp-panel" id="cp-step-3" aria-labelledby="cp-h-3" hidden>
+              <p class="cp-kicker">Step 3 of 4</p>
+              <h2 id="cp-h-3" tabindex="-1">Evaluation</h2>
+              <p class="cp-lede">Your feedback is required for CE credit and shapes the education we build next. It takes about three minutes.</p>
+
+              <form class="cp-form" id="cp-eval-form" novalidate>
+                <fieldset>
+                  <legend class="cp-section-legend">Your role <span class="cp-req" aria-hidden="true">*</span></legend>
+                  <div class="cp-roles" id="cp-roles"></div>
+                </fieldset>
+
+                <hr class="cp-divider">
+                <p class="cp-section-legend">Rate each statement</p>
+                <p class="cp-scale-key"><span><strong>1</strong> = Ho-hum</span><span><strong>3</strong> = Average</span><span><strong>5</strong> = Mind-blowing</span></p>
+                <div id="cp-ratings"></div>
+
+                <fieldset class="cp-q">
+                  <legend><span class="cp-qnum">8.</span>The presentation was free of brand or product endorsement of any wound care product. <span class="cp-req" aria-hidden="true">*</span></legend>
+                  <div class="cp-inline-opts">
+                    <label class="cp-opt"><input type="radio" name="biasFree" value="Yes" required> Yes</label>
+                    <label class="cp-opt"><input type="radio" name="biasFree" value="No"> No</label>
+                    <label class="cp-opt"><input type="radio" name="biasFree" value="Unsure"> Unsure</label>
+                  </div>
+                  <div class="cp-field cp-reveal" id="cp-bias-wrap" hidden>
+                    <label for="e-bias">Please tell us what you noticed.</label>
+                    <textarea id="e-bias" name="biasComment" rows="3"></textarea>
+                  </div>
+                </fieldset>
+
+                <div class="cp-q">
+                  <div class="cp-field">
+                    <label for="e-first" class="cp-qlabel"><span class="cp-qnum">9.</span>Which of the 10 steps will you start with, and what is your first action?</label>
+                    <textarea id="e-first" name="firstStep" rows="4"></textarea>
+                  </div>
+                </div>
+                <div class="cp-q">
+                  <div class="cp-field">
+                    <label for="e-improve" class="cp-qlabel"><span class="cp-qnum">10.</span>What would make this session better, or what topic would you like next?</label>
+                    <textarea id="e-improve" name="improve" rows="4"></textarea>
+                  </div>
+                </div>
+
+                <div class="cp-actions">
+                  <button type="submit" class="cp-btn" id="cp-eval-submit">Submit evaluation</button>
+                </div>
+                <p class="cp-status" id="cp-eval-status" role="status" aria-live="polite"></p>
+              </form>
+            </section>
+
+            <!-- ===== STEP 4: CERTIFICATE ===== -->
+            <section class="cp-panel" id="cp-step-4" aria-labelledby="cp-h-4" hidden>
+              <div class="cp-cert-seal" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+              </div>
+              <p class="cp-kicker">Step 4 of 4</p>
+              <h2 id="cp-h-4" tabindex="-1">Your certificate is ready</h2>
+              <p class="cp-lede">You watched the course, passed the post-test, and completed the evaluation. Your certificate form opens in a new tab with your name, email, and license details already filled in.</p>
+              <p class="cp-ce">Provider approved by the California Board of Registered Nursing, Provider Number CEP 18282, for 1.0 Contact Hours.</p>
+              <div class="cp-actions">
+                <a class="cp-btn cp-btn-gold" id="cp-cert-link" href="https://form.jotform.com/263196109186463" target="_blank" rel="noopener noreferrer">Get my certificate <span aria-hidden="true">&rarr;</span><span class="sr-only"> (opens in a new tab)</span></a>
+              </div>
+              <p class="cp-fine">Keep your certificate for four years as your record of completion. Questions about your certificate? Email <a href="mailto:info@pawsic.org">info@pawsic.org</a>.</p>
+            </section>
+
+            <p class="cp-disclaimer">This presentation is for informational and educational purposes only and does not constitute medical, legal, or regulatory advice. Consult qualified professionals and current CMS guidance for decisions about individual residents or your organization.</p>
+          </div>
+
+          <!-- ===== SIDEBAR ===== -->
+          <aside class="cp-side" aria-label="Course details">
+            <div class="cp-card">
+              <h2>Your presenter</h2>
+              <div class="cp-presenter">
+                <img src="/images/board/jeanine-maguire.jpg" alt="" width="64" height="64">
+                <div>
+                  <strong>Jeanine Maguire</strong>
+                  <span>PhD, MS, MPT, CWS, FCPP</span>
+                  <span>President &amp; Co-Founder, PAWSIC</span>
+                </div>
+              </div>
+              <ul class="cp-facts">
+                <li><span>CE credit</span><strong>1.0 contact hour</strong></li>
+                <li><span>Free access</span><strong>Nov 19 to 26, 2026</strong></li>
+                <li><span>Passing score</span><strong>8 of 10</strong></li>
+              </ul>
+              <p class="cp-side-ce">Provider approved by the California Board of Registered Nursing, Provider Number CEP 18282, for 1.0 Contact Hours.</p>
+            </div>
+
+            <div class="cp-card">
+              <h2>Course resource</h2>
+              <a class="cp-resource" href="/courses/10-step-framework/assets/PAWSIC_Curated_F-Tags_Wound_Prevention_and_Management.pdf" download>
+                <span class="cp-resource-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                </span>
+                <span class="cp-resource-text">
+                  <strong>Curated F-Tags for Wound Prevention and Management</strong>
+                  <span>PDF handout &middot; 15 pages &middot; 306 KB</span>
+                </span>
+              </a>
+            </div>
+
+            <div class="cp-card cp-help">
+              <h2>Need help?</h2>
+              <p>For technical issues or course questions, email <a href="mailto:info@pawsic.org">info@pawsic.org</a>. Your progress is saved in this browser, so finish on the same device.</p>
+            </div>
+          </aside>
+
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/" class="footer-logo" aria-label="PAWSIC home" style="text-decoration:none;color:inherit;">
+            <img src="/images/pawsic-logo.png" alt="PAWSIC" class="logo-icon">
+            <span class="logo-text">
+              <span class="logo-name">PAWSIC</span>
+              <span class="logo-tagline">Post-Acute Wound &amp; Skin Integrity Council</span>
+            </span>
+          </a>
+          <p>Post-Acute Wound &amp; Skin Integrity Council, a 501(c)(6) nonprofit uniting wound care professionals through education, community, and advocacy.</p>
+          <div class="social-links">
+            <a href="https://www.facebook.com/pawsic.org" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+            <a href="https://www.instagram.com/pawsic_org/" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="https://www.linkedin.com/company/pawsic" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+            <a href="https://www.tiktok.com/@pawsic.org" aria-label="TikTok" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" viewBox="0 0 24 24" fill="white" stroke="none"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1v-3.52a6.37 6.37 0 0 0-.79-.05A6.34 6.34 0 0 0 3.15 15.2a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.73a8.19 8.19 0 0 0 4.76 1.52V6.8a4.84 4.84 0 0 1-1-.11z"/></svg></a>
+            <a href="https://www.youtube.com/@PAWSIC-Team" aria-label="YouTube" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" viewBox="0 0 24 24" fill="white" stroke="none"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+            <a href="https://x.com/PAWSIC1" aria-label="X" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" viewBox="0 0 24 24" fill="white" stroke="none"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+          </div>
+          <a href="/podcast/" class="footer-podcast-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg> Listen: Healing by Design Podcast</a>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="/about/">About Us</a></li>
+            <li><a href="/board/">The Board</a></li>
+            <li><a href="/membership/">Membership</a></li>
+            <li><a href="/programs/">CE/CME Courses</a></li>
+            <li><a href="/resources/">Resources</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Community</h4>
+          <ul>
+            <li><a href="/community/#forums">Forums</a></li>
+            <li><a href="/community/#sig-spaces">Shared Interest Groups</a></li>
+            <li class="footer-sub-item"><a href="/community/skin-failure-sig/">Skin Failure SIG</a></li>
+            <li class="footer-sub-item"><a href="/skin-failure-position-paper/read/">Endorse the Position Paper</a></li>
+            <li><a href="/events/">Events</a></li>
+            <li><a href="/webinars/">Webinars</a></li>
+            <li><a href="/podcast/">Podcast</a></li>
+            <li><a href="/contact/">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="/sponsors/">Become a Sponsor</a></li>
+            <li><a href="https://donate.stripe.com/dRm8wQ1mC3oE8Ef8p7c7u0m" target="_blank" rel="noopener noreferrer">Donate</a></li>
+            <li><a href="/shop/">Donate by Shopping</a></li>
+            <li><a href="https://memberships.pawsic.org/login/" target="_blank" rel="noopener noreferrer">Member Login</a></li>
+            <li><a href="/press-releases/">Press Releases</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-bottom-row">
+          <span>&copy; 2026 PAWSIC. All Rights Reserved. Donations/sponsorships are not tax deductible.</span>
+          <div class="footer-legal">
+          <a href="/privacy-policy/">Privacy Policy</a>
+          <a href="/disclaimers/">Website Disclaimer</a>
+          <a href="/disclaimers/#resource-disclaimer">Resource Disclaimer</a>
+          <a href="/accessibility/">Accessibility</a>
+          </div>
+        </div>
+        <p class="footer-credit">Website built and designed with care by <a href="https://aipowereddahlia.com/" target="_blank" rel="noopener noreferrer">AI Powered Dahlia</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      /* Vimeo recording. Leave VIMEO_ID empty until the recording is uploaded; the page then shows the
+         "Recording available Nov 19" panel. Set VIMEO_ID to the numeric video ID and, for an unlisted
+         video, VIMEO_HASH to the value after ?h= in the share link. */
+      var VIMEO_ID = "";
+      var VIMEO_HASH = "";
+
+      var COURSE_ID = "10-step-framework";
+      var COURSE_NAME = "The PAWSIC 10 Step Framework to Optimize Skin Health and Pressure Prevention in PAC";
+      var STORE_KEY = "pawsic_ce_10step";
+      var LEARNER_KEY = "pawsic_ce_learner";
+      var POSTTEST_FORM = "263196806251157";
+      var EVAL_FORM = "263196320746157";
+      var CERT_FORM_URL = "https://form.jotform.com/263196109186463";
+      var PASS_MARK = 8;
+      var KEY = ["B", "C", "B", "A", "C", "B", "D", "A", "C", "B"];
+
+      var QUESTIONS = [
+        ["Which federal F-tag governs the prevention and treatment of pressure injuries in nursing homes?",
+          ["F684", "F686", "F580", "F841"]],
+        ["Under F684, documenting a venous ulcer only as “skin impairment” instead of naming its etiology is:",
+          ["Acceptable if the dressing order is correct", "Required for MDS Section M coding", "Considered a deficiency", "Only a concern for pressure injuries"]],
+        ["How does the 10-Step Framework recommend using the CMS Pressure Injury Critical Element Pathway (CEP, CMS-20078)?",
+          ["Only when state surveyors are in the building", "As a team-completed internal audit for every new in-house-acquired Stage 3 or 4", "Once a year during the annual QAPI review", "Only for residents admitted with a pressure injury"]],
+        ["Since the April 2024 CEP update, surveyors also evaluate which of the following during wound care observations?",
+          ["Enhanced Barrier Precautions (EBP)", "Dressing product brand selection", "Wound care billing codes", "Mattress purchase records"]],
+        ["Under F580, when a resident develops a new or worsening pressure injury, the facility must notify:",
+          ["The state survey agency", "The medical director only", "The resident’s provider, the resident and the family", "The facility’s liability insurer"]],
+        ["In Boyle et al. (2017), using NDNQI data from 929 hospitals, the Stage 3 and 4 HAPI rate with certified wound nurses was:",
+          ["About the same as without them", "About half the rate without them (0.27% vs. 0.51%)", "Twice the rate without them", "Zero"]],
+        ["What does current NPIAP guidance recommend for turning and repositioning?",
+          ["Every 2 hours for every resident, without exception", "Every 4 hours for every resident on any surface", "Repositioning only when the resident requests it", "Individualized schedules based on activity, tissue tolerance, pain, surface and condition, with the rationale documented in the care plan"]],
+        ["Which describes correct heel offloading?",
+          ["Heel free from the surface, knee flexed 5 to 10°, weight spread along the calf rather than the Achilles", "A pillow placed directly under the heel", "Knee fully extended with weight on the Achilles tendon", "A prophylactic dressing used instead of offloading"]],
+        ["A resident’s total Braden Scale score is 11. What does this mean to my patient?",
+          ["No risk", "I need to teach my resident and team to memorize the scores", "This means significant risk factors have been identified; I need to review each risk category to match interventions with the patient’s needs.", "This is the wound nurse’s responsibility."]],
+        ["Who must make the determination that a resident has skin failure?",
+          ["The CNA who first observes the change", "A provider, because skin failure is a medical diagnosis, and there must be team alignment in communication and documentation.", "The MDS coordinator", "The facility administrator"]]
+      ];
+
+      var ROLES = ["RN", "LPN", "CNA", "DON/ADON", "Administrator", "Therapist", "Provider", "Other"];
+      var RATINGS = [
+        "The speaker was effective in conveying the content.",
+        "The content met the stated learning objectives.",
+        "This information will change my practice.",
+        "I can put this information into practice tomorrow.",
+        "Slides and handouts were clear and useful.",
+        "The pace and length of the session were appropriate.",
+        "Overall, I would rate this presentation."
+      ];
+      var LETTERS = ["A", "B", "C", "D"];
+
+      /* storage (every access guarded; the page works without it) */
+      function readJSON(k) {
+        try { var raw = window.localStorage.getItem(k); return raw ? JSON.parse(raw) : null; } catch (e) { return null; }
+      }
+      function writeJSON(k, v) {
+        try { window.localStorage.setItem(k, JSON.stringify(v)); } catch (e) { /* storage unavailable */ }
+      }
+
+      var state = {
+        watched: false, attended: false, passed: false, evalDone: false,
+        attempts: 0, lastScore: null, view: 1,
+        learner: { firstName: "", lastName: "", email: "", licenseNumber: "", licenseState: "" }
+      };
+      var saved = readJSON(STORE_KEY);
+      if (saved && typeof saved === "object") {
+        for (var k in state) { if (Object.prototype.hasOwnProperty.call(saved, k)) state[k] = saved[k]; }
+        if (!state.learner || typeof state.learner !== "object") state.learner = {};
+      }
+      function save() { writeJSON(STORE_KEY, state); }
+
+      var reg = readJSON(LEARNER_KEY) || {};
+      ["firstName", "lastName", "email"].forEach(function (f) {
+        if (!state.learner[f] && reg[f]) state.learner[f] = String(reg[f]);
+      });
+
+      function $(id) { return document.getElementById(id); }
+      function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", "\"": "&quot;" }[c]; }); }
+
+      /* build questions and evaluation */
+      var qHtml = "";
+      QUESTIONS.forEach(function (q, i) {
+        var n = i + 1;
+        qHtml += '<fieldset class="cp-q"><legend><span class="cp-qnum">' + n + '.</span>' + esc(q[0]) + '</legend><div class="cp-opts">';
+        q[1].forEach(function (opt, j) {
+          qHtml += '<label class="cp-opt"><input type="radio" name="q' + n + '" value="' + LETTERS[j] + '"' + (j === 0 ? " required" : "") + '>' +
+            '<span><span class="cp-letter">' + LETTERS[j] + '.</span> ' + esc(opt) + '</span></label>';
+        });
+        qHtml += "</div></fieldset>";
+      });
+      $("cp-questions").innerHTML = qHtml;
+
+      var roleHtml = "";
+      ROLES.forEach(function (r, i) {
+        roleHtml += '<label class="cp-opt"><input type="radio" name="role" value="' + esc(r) + '"' + (i === 0 ? " required" : "") + '> ' + esc(r) + "</label>";
+      });
+      $("cp-roles").innerHTML = roleHtml;
+
+      var anchors = { 1: "Ho-hum", 3: "Average", 5: "Mind-blowing" };
+      var rHtml = "";
+      RATINGS.forEach(function (stmt, i) {
+        var n = i + 1;
+        rHtml += '<fieldset class="cp-q"><legend><span class="cp-qnum">' + n + '.</span>' + esc(stmt) + ' <span class="cp-req" aria-hidden="true">*</span></legend><div class="cp-rate">';
+        for (var v = 1; v <= 5; v++) {
+          rHtml += '<label><input type="radio" name="r' + n + '" value="' + v + '"' + (v === 1 ? " required" : "") + '>' + v +
+            (anchors[v] ? '<span class="sr-only">, ' + anchors[v] + "</span>" : "") + "</label>";
+        }
+        rHtml += '</div><div class="cp-rate-ends" aria-hidden="true"><span>Ho-hum</span><span>Mind-blowing</span></div></fieldset>';
+      });
+      $("cp-ratings").innerHTML = rHtml;
+
+      /* stepper */
+      function maxUnlocked() {
+        if (state.evalDone) return 4;
+        if (state.passed) return 3;
+        if (state.watched || state.attended) return 2;
+        return 1;
+      }
+      function isDone(n) {
+        return (n === 1 && (state.watched || state.attended)) || (n === 2 && state.passed) || (n === 3 && state.evalDone) || (n === 4 && state.evalDone);
+      }
+      var STEP_NAMES = ["Watch", "Post-test", "Evaluation", "Certificate"];
+      var CHECK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>';
+      var LOCK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>';
+
+      function renderStepper() {
+        var max = maxUnlocked();
+        var btns = document.querySelectorAll(".cp-stepbtn");
+        for (var i = 0; i < btns.length; i++) {
+          var b = btns[i], n = i + 1, li = b.parentNode;
+          var locked = n > max, done = isDone(n) && n !== 4, current = n === state.view;
+          b.disabled = locked;
+          b.classList.toggle("is-open", !locked);
+          b.classList.toggle("is-done", done);
+          b.classList.toggle("is-current", current);
+          li.classList.toggle("is-reached", n < max);
+          if (current) b.setAttribute("aria-current", "step"); else b.removeAttribute("aria-current");
+          b.querySelector(".cp-dot").innerHTML = locked ? LOCK : (done ? CHECK : String(n));
+          b.setAttribute("aria-label", "Step " + n + ", " + STEP_NAMES[i] + (locked ? ", locked" : done ? ", complete" : current ? ", current" : ""));
+        }
+      }
+
+      function showStep(n, focus) {
+        if (n > maxUnlocked()) n = maxUnlocked();
+        state.view = n;
+        for (var i = 1; i <= 4; i++) { $("cp-step-" + i).hidden = i !== n; }
+        if (n === 2) renderTestState();
+        if (n === 4) buildCertLink();
+        renderStepper();
+        save();
+        if (focus) {
+          var h = $("cp-h-" + n);
+          var top = document.querySelector(".cp-stepbar").getBoundingClientRect().top + window.pageYOffset - 16;
+          window.scrollTo({ top: top, behavior: "smooth" });
+          if (h) h.focus({ preventScroll: true });
+        }
+      }
+
+      document.getElementById("cp-stepper").addEventListener("click", function (e) {
+        var b = e.target.closest(".cp-stepbtn");
+        if (b && !b.disabled) showStep(Number(b.getAttribute("data-step")), true);
+      });
+      document.addEventListener("click", function (e) {
+        var g = e.target.closest("[data-goto]");
+        if (g) showStep(Number(g.getAttribute("data-goto")), true);
+      });
+
+      /* step 1: watch */
+      var toTest = $("cp-to-test");
+      var attended = $("cp-attended");
+      var watchStatus = $("cp-watchstatus");
+      attended.checked = !!state.attended;
+
+      function syncWatchGate() {
+        toTest.disabled = !(state.watched || attended.checked);
+        $("cp-gatehint").hidden = !toTest.disabled;
+        if (state.watched) watchStatus.innerHTML = "<strong>Video complete.</strong> The post-test is unlocked.";
+      }
+      function markWatched() {
+        if (state.watched) return;
+        state.watched = true;
+        save();
+        syncWatchGate();
+        renderStepper();
+      }
+      attended.addEventListener("change", function () {
+        state.attended = attended.checked;
+        save();
+        syncWatchGate();
+        renderStepper();
+      });
+      toTest.addEventListener("click", function () { showStep(2, true); });
+
+      var videoBox = $("cp-video");
+      if (!VIMEO_ID) {
+        videoBox.innerHTML =
+          '<div class="cp-soon">' +
+            '<div class="cp-soon-date" aria-hidden="true">Nov 19</div>' +
+            '<h3>Recording available Nov 19</h3>' +
+            '<p>The full recording posts here on International Pressure Injury Prevention Day. Watch it to the end and the post-test unlocks automatically.</p>' +
+          "</div>";
+      } else {
+        var iframe = document.createElement("iframe");
+        iframe.src = "https://player.vimeo.com/video/" + VIMEO_ID + (VIMEO_HASH ? "?h=" + VIMEO_HASH : "");
+        iframe.title = COURSE_NAME;
+        iframe.setAttribute("allow", "autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share");
+        iframe.setAttribute("referrerpolicy", "strict-origin-when-cross-origin");
+        iframe.setAttribute("allowfullscreen", "");
+        videoBox.appendChild(iframe);
+        var s = document.createElement("script");
+        s.src = "https://player.vimeo.com/api/player.js";
+        s.onload = function () {
+          try {
+            var player = new window.Vimeo.Player(iframe);
+            var lastPct = -1;
+            player.on("ended", markWatched);
+            player.on("timeupdate", function (d) {
+              if (!d || typeof d.percent !== "number") return;
+              var pct = Math.floor(d.percent * 100);
+              if (!state.watched && pct !== lastPct) { lastPct = pct; watchStatus.textContent = "Progress: " + pct + "% watched"; }
+              if (d.percent >= 0.95) markWatched();
+            });
+          } catch (e) { /* player API unavailable; the live-attendance path still works */ }
+        };
+        document.head.appendChild(s);
+      }
+      syncWatchGate();
+
+      /* Jotform record posting */
+      function postJotform(formId, fields) {
+        var body = new URLSearchParams();
+        body.append("formID", formId);
+        for (var f in fields) { body.append(f, fields[f] == null ? "" : String(fields[f])); }
+        return fetch("https://submit.jotform.com/submit/" + formId, { method: "POST", mode: "no-cors", body: body, keepalive: true });
+      }
+
+      /* step 2: post-test */
+      var testForm = $("cp-test-form");
+      var testStatus = $("cp-test-status");
+      var testBtn = $("cp-test-submit");
+      var learnerFields = { firstName: "t-first", lastName: "t-last", email: "t-email", licenseNumber: "t-license", licenseState: "t-state" };
+      for (var lf in learnerFields) { if (state.learner[lf]) $(learnerFields[lf]).value = state.learner[lf]; }
+
+      /* Name and email already known from registration: show a compact summary with an Edit link. */
+      var idFields = document.querySelectorAll(".cp-idfield");
+      function showIdInputs(focus) {
+        $("cp-summary").hidden = true;
+        for (var i = 0; i < idFields.length; i++) idFields[i].hidden = false;
+        if (focus) $("t-first").focus();
+      }
+      var regComplete = reg.firstName && reg.lastName && reg.email;
+      if (regComplete && $("t-first").value && $("t-last").value && $("t-email").checkValidity()) {
+        $("cp-sum-name").textContent = $("t-first").value + " " + $("t-last").value;
+        $("cp-sum-email").textContent = $("t-email").value;
+        $("cp-summary").hidden = false;
+        for (var j = 0; j < idFields.length; j++) idFields[j].hidden = true;
+      }
+      $("cp-sum-edit").addEventListener("click", function () { showIdInputs(true); });
+
+      function renderTestState() {
+        var passed = state.passed;
+        $("cp-test-pass").hidden = !passed;
+        $("cp-test-fail").hidden = true;
+        testForm.hidden = passed;
+        $("cp-test-lede").hidden = passed;
+        if (passed && state.lastScore != null) $("cp-pass-score").innerHTML = state.lastScore + "<small>of 10</small>";
+      }
+
+      testForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+        testStatus.className = "cp-status";
+        testStatus.textContent = "";
+        if (!testForm.checkValidity()) {
+          if (!$("t-first").checkValidity() || !$("t-last").checkValidity() || !$("t-email").checkValidity()) showIdInputs(false);
+          testStatus.className = "cp-status is-error";
+          testStatus.textContent = "Please complete your information and answer all 10 questions.";
+          testForm.reportValidity();
+          return;
+        }
+        var learner = {};
+        for (var f in learnerFields) { learner[f] = $(learnerFields[f]).value.trim(); }
+        var answers = [], score = 0;
+        for (var i = 0; i < 10; i++) {
+          var c = testForm.querySelector('input[name="q' + (i + 1) + '"]:checked');
+          answers.push(c ? c.value : "");
+          if (c && c.value === KEY[i]) score++;
+        }
+        var attempt = (Number(state.attempts) || 0) + 1;
+        var passed = score >= PASS_MARK;
+        var payload = {
+          q2_firstName: learner.firstName, q3_lastName: learner.lastName, q4_email: learner.email,
+          q5_licenseNumber: learner.licenseNumber, q6_licenseState: learner.licenseState,
+          q7_courseId: COURSE_ID, q8_courseName: COURSE_NAME,
+          q9_score: score, q10_passed: passed ? "yes" : "no", q11_attempt: attempt
+        };
+        for (var a = 0; a < 10; a++) { payload["q" + (12 + a) + "_q" + (a + 1)] = answers[a]; }
+
+        testBtn.disabled = true;
+        testBtn.textContent = "Scoring...";
+        postJotform(POSTTEST_FORM, payload).then(function () {
+          state.attempts = attempt;
+          state.lastScore = score;
+          state.learner = learner;
+          if (passed) state.passed = true;
+          save();
+          testBtn.disabled = false;
+          testBtn.textContent = "Submit post-test";
+          testForm.hidden = true;
+          $("cp-test-lede").hidden = true;
+          if (passed) {
+            $("cp-pass-score").innerHTML = score + "<small>of 10</small>";
+            $("cp-test-pass").hidden = false;
+            $("cp-test-pass").focus();
+          } else {
+            $("cp-fail-score").innerHTML = score + "<small>of 10</small>";
+            $("cp-fail-msg").textContent = "You scored " + score + " of 10. 8 is needed to pass.";
+            $("cp-fail-attempt").textContent = "Attempt " + attempt + ". Retakes are unlimited.";
+            $("cp-test-fail").hidden = false;
+            $("cp-test-fail").focus();
+          }
+          renderStepper();
+        }).catch(function () {
+          testBtn.disabled = false;
+          testBtn.textContent = "Submit post-test";
+          testStatus.className = "cp-status is-error";
+          testStatus.textContent = "We could not record your answers. Check your internet connection and submit again.";
+        });
+      });
+
+      $("cp-retake").addEventListener("click", function () {
+        var radios = testForm.querySelectorAll('#cp-questions input[type="radio"]');
+        for (var i = 0; i < radios.length; i++) radios[i].checked = false;
+        $("cp-test-fail").hidden = true;
+        testForm.hidden = false;
+        $("cp-test-lede").hidden = false;
+        testStatus.textContent = "";
+        var start = $("cp-q-start");
+        window.scrollTo({ top: start.getBoundingClientRect().top + window.pageYOffset - 24, behavior: "smooth" });
+        start.focus({ preventScroll: true });
+      });
+
+      /* step 3: evaluation */
+      var evalForm = $("cp-eval-form");
+      var evalStatus = $("cp-eval-status");
+      var evalBtn = $("cp-eval-submit");
+      var biasWrap = $("cp-bias-wrap");
+      evalForm.addEventListener("change", function (e) {
+        if (e.target.name === "biasFree") {
+          biasWrap.hidden = e.target.value === "Yes";
+          if (biasWrap.hidden) $("e-bias").value = "";
+        }
+      });
+      evalForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+        evalStatus.className = "cp-status";
+        evalStatus.textContent = "";
+        if (!evalForm.checkValidity()) {
+          evalStatus.className = "cp-status is-error";
+          evalStatus.textContent = "Please choose your role, rate all 7 statements, and answer question 8.";
+          evalForm.reportValidity();
+          return;
+        }
+        function val(name) { var c = evalForm.querySelector('input[name="' + name + '"]:checked'); return c ? c.value : ""; }
+        var L = state.learner || {};
+        var payload = {
+          q2_firstName: L.firstName || "", q3_lastName: L.lastName || "", q4_email: L.email || "",
+          q5_licenseNumber: L.licenseNumber || "", q6_licenseState: L.licenseState || "",
+          q7_courseId: COURSE_ID, q8_courseName: COURSE_NAME,
+          q9_role: val("role"),
+          q17_biasFree: val("biasFree"),
+          q18_biasComment: $("e-bias").value.trim(),
+          q19_firstStep: $("e-first").value.trim(),
+          q20_improve: $("e-improve").value.trim()
+        };
+        for (var r = 1; r <= 7; r++) { payload["q" + (9 + r) + "_r" + r] = val("r" + r); }
+
+        evalBtn.disabled = true;
+        evalBtn.textContent = "Submitting...";
+        postJotform(EVAL_FORM, payload).then(function () {
+          state.evalDone = true;
+          save();
+          evalBtn.disabled = false;
+          evalBtn.textContent = "Submit evaluation";
+          showStep(4, true);
+        }).catch(function () {
+          evalBtn.disabled = false;
+          evalBtn.textContent = "Submit evaluation";
+          evalStatus.className = "cp-status is-error";
+          evalStatus.textContent = "We could not record your evaluation. Check your internet connection and submit again.";
+        });
+      });
+
+      /* step 4: certificate */
+      function buildCertLink() {
+        var L = state.learner || {};
+        var pairs = [
+          ["name[first]", L.firstName], ["name[last]", L.lastName], ["email", L.email],
+          ["licenseNumber", L.licenseNumber], ["licenseState", L.licenseState], ["course", COURSE_NAME]
+        ];
+        var q = pairs.map(function (p) { return p[0] + "=" + encodeURIComponent(p[1] || ""); }).join("&");
+        $("cp-cert-link").href = CERT_FORM_URL + "?" + q;
+      }
+
+      showStep(state.view || 1, false);
+    })();
+  </script>
+
+  <script src="/js/main.js?v=20260929"></script>
+</body>
+</html>
