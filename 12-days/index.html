@@ -1,0 +1,664 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The 12 Days of PAWSIC</title>
+<meta name="description" content="Twelve free gifts from the people behind PAWSIC. One door opens each weekday, December 1 to 16, 2026.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* Layout: intro column left, a lit 3D townhouse advent calendar right; stacks on phones. Colors from pawsic.org. */
+:root{
+  color-scheme:dark;
+  --night:#0C1F3F; --night-2:#162D54; --indigo:#1E3A6E; --blue-accent:#2B7CCA; --blue:#38B6FF;
+  --gold:#C9A84C; --gold-2:#D8BB63; --ice:#EEF5F8; --muted:#AEBBD0; --white:#FFFFFF;
+  --ink:#0C1F3F; --body:#3D4A5C; --soft:#4A5568;
+  --r-sm:8px; --r-md:12px; --r-lg:24px;
+  --display:'DM Serif Display',Georgia,serif; --sans:Inter,system-ui,-apple-system,sans-serif;
+}
+*{box-sizing:border-box;margin:0}
+html,body{background:var(--night)}
+body{font-family:var(--sans);color:var(--ice);min-height:100vh;overflow-x:hidden;-webkit-font-smoothing:antialiased;
+  background:radial-gradient(1200px 760px at 72% 34%, var(--indigo) 0%, var(--night-2) 40%, var(--night) 74%)}
+.wrap{position:relative;z-index:1;max-width:1320px;margin:0 auto;padding:48px 24px 32px;
+  display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:48px;align-items:center;min-height:100vh}
+.logo{height:32px;width:auto;display:block;margin-bottom:56px}
+.label{font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+h1{font-family:var(--display);font-weight:400;font-size:clamp(48px,6.2vw,84px);line-height:1.04;letter-spacing:-.02em;
+  color:var(--white);margin:16px 0 24px;text-wrap:balance}
+h1 em{font-style:italic;color:var(--blue)}
+.lede{font-size:19px;line-height:1.65;color:rgba(238,245,248,.84);max-width:30em}
+.status{margin-top:32px;display:flex;gap:12px;align-items:center;font-size:16px;font-weight:600;color:var(--white)}
+.status .dot{width:10px;height:10px;border-radius:50%;background:var(--blue);animation:pulse 2s infinite}
+.ctas{margin-top:40px;display:flex;gap:24px;align-items:center;flex-wrap:wrap}
+.btn{display:inline-block;background:var(--gold);color:var(--night);font-weight:700;font-size:17px;padding:16px 28px;
+  border-radius:var(--r-sm);text-decoration:none;transition:transform .15s,background .15s}
+.btn:hover{transform:translateY(-1px);background:var(--gold-2)}
+.link{color:var(--ice);font-weight:600;font-size:16px;text-decoration:underline;text-underline-offset:4px;text-decoration-color:rgba(238,245,248,.4)}
+.link:hover{text-decoration-color:var(--ice)}
+.hint{margin-top:24px;font-size:14px;color:var(--muted)}
+
+/* 3D stage */
+.stage{position:relative;width:100%;aspect-ratio:1/1.02;max-height:86vh;min-height:420px}
+.stage canvas{display:block;width:100%;height:100%;outline:none;
+  -webkit-mask-image:radial-gradient(ellipse 62% 58% at 50% 44%,#000 72%,transparent 100%);mask-image:radial-gradient(ellipse 62% 58% at 50% 44%,#000 72%,transparent 100%)}
+.stage.hover canvas{cursor:pointer}
+.loading{position:absolute;inset:0;display:grid;place-items:center;color:var(--muted);font-size:15px;font-weight:600;letter-spacing:.04em}
+.doors-a11y{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.doors-a11y:focus-within{position:static;width:auto;height:auto;clip:auto;white-space:normal;display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.doors-a11y button{font:600 14px var(--sans);background:var(--night-2);color:var(--ice);border:1px solid var(--muted);border-radius:var(--r-sm);padding:8px 12px;cursor:pointer}
+.doors-a11y button:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.nogl .doors-a11y{position:static;width:auto;height:auto;clip:auto;display:flex;flex-wrap:wrap;gap:8px}
+
+.toast{position:fixed;left:50%;bottom:32px;transform:translate(-50%,24px);opacity:0;z-index:50;background:var(--white);color:var(--ink);
+  font-weight:600;font-size:16px;padding:16px 24px;border-radius:var(--r-sm);box-shadow:0 12px 32px rgba(0,0,0,.35);transition:all .25s;
+  pointer-events:none;max-width:calc(100% - 32px)}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.preview{position:relative;z-index:2;background:var(--blue);color:var(--night);font-size:14px;font-weight:600;text-align:center;padding:8px 16px}
+.preview a{color:var(--night)}
+.reset{margin-left:12px;font:700 13px var(--sans);color:var(--night);background:rgba(255,255,255,.55);border:0;border-radius:6px;padding:4px 10px;cursor:pointer}
+.reset:hover{background:#fff}
+
+dialog{margin:auto;border:0;padding:0;border-radius:var(--r-lg);width:min(560px,calc(100% - 32px));max-height:calc(100vh - 48px);
+  background:var(--white);color:var(--ink);box-shadow:0 24px 80px rgba(0,0,0,.5)}
+dialog::backdrop{background:rgba(8,20,40,.72);backdrop-filter:blur(3px)}
+dialog[open]{animation:pop .35s cubic-bezier(.2,.8,.2,1)}
+.g{padding:32px}
+.g-top{display:flex;gap:16px;align-items:center;margin-bottom:24px;padding-right:40px}
+.g-top .ph{width:72px;height:72px;border-radius:50%;object-fit:cover;object-position:top;flex:none;background:var(--indigo)}
+.g-top .mono{display:grid;place-items:center;font-family:var(--display);color:#fff;font-size:28px}
+.g .label{color:var(--blue-accent)}
+.g h2{font-family:var(--display);font-weight:400;font-size:32px;line-height:1.1;letter-spacing:-.02em;color:var(--ink);margin-top:4px;text-wrap:balance}
+.g .by{font-size:15px;color:var(--soft);margin-top:4px}
+.g p{font-size:17px;line-height:1.65;color:var(--body)}
+.video{margin:24px 0;aspect-ratio:16/9;max-width:100%;border-radius:var(--r-md);background:linear-gradient(160deg,var(--indigo),var(--night));
+  display:grid;place-items:center;color:var(--ice);position:relative;overflow:hidden}
+.video .play{width:64px;height:64px;border-radius:50%;background:rgba(255,255,255,.14);display:grid;place-items:center;border:1.5px solid rgba(255,255,255,.4)}
+.video.embed{display:block;background:#000}
+.video.embed iframe{width:100%;height:100%;border:0;display:block}
+.video.locked{background:linear-gradient(160deg,var(--night-2),var(--night))}
+.video.locked .play{opacity:.55}
+.video.slim{aspect-ratio:auto;height:64px;margin-top:-8px}
+.video.slim span{bottom:auto;left:20px;position:static;font-size:14px}
+a.video{text-decoration:none}
+.video span{position:absolute;bottom:16px;left:16px;font-size:13px;font-weight:600;color:var(--muted)}
+.g .ctas{margin-top:0;gap:16px 24px}
+.g .link{color:var(--indigo)}
+.reg{display:grid;gap:12px;margin-top:8px}
+.reg .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.reg label{display:grid;gap:4px;font-size:13px;font-weight:600;color:var(--soft)}
+.reg input,.reg select{font:16px var(--sans);color:var(--ink);background:#F7FAFC;border:1px solid #DCE3EB;border-radius:var(--r-sm);padding:12px;min-width:0}
+.reg input:focus-visible,.reg select:focus-visible{outline:3px solid var(--blue);outline-offset:1px;border-color:transparent}
+.reg .check{display:flex;gap:8px;align-items:flex-start;font-weight:500;font-size:14px;line-height:1.45;color:var(--body)}
+.reg .check input{margin-top:3px;width:18px;height:18px;flex:none}
+.reg .err{color:#B42318;font-size:14px;font-weight:600;min-height:1em}
+.reg button{justify-self:start;border:0;cursor:pointer}
+.unlocked{background:var(--ice);border-radius:var(--r-md);padding:16px;font-size:15px;line-height:1.6;color:var(--body);margin-bottom:16px}
+.unlocked strong{color:var(--ink)}
+@media (max-width:640px){ .reg .row{grid-template-columns:1fr} }
+.free{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--soft);margin-top:16px}
+.x{position:absolute;right:16px;top:16px;width:40px;height:40px;border-radius:50%;border:0;background:var(--ice);cursor:pointer;display:grid;place-items:center;color:var(--ink)}
+.x:hover{background:#DCE3EB}
+.x:focus-visible,.btn:focus-visible,.link:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+footer{grid-column:1/-1;font-size:13px;color:rgba(238,245,248,.6);padding-top:8px}
+
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(56,182,255,.6)}70%{box-shadow:0 0 0 12px rgba(56,182,255,0)}100%{box-shadow:0 0 0 0 rgba(56,182,255,0)}}
+@keyframes pop{from{opacity:0;transform:translateY(16px) scale(.97)}to{opacity:1;transform:none}}
+@media (max-width:960px){
+  .wrap{grid-template-columns:1fr;gap:16px;padding:32px 16px 32px;min-height:0}
+  .logo{margin-bottom:32px}
+  .stage{aspect-ratio:1/1.12;max-height:none}
+}
+@media (max-width:640px){
+  .stage{aspect-ratio:1/1.32;margin-inline:-16px;width:calc(100% + 32px)}
+  .stage canvas{-webkit-mask-image:linear-gradient(#000 84%,transparent);mask-image:linear-gradient(#000 84%,transparent)}
+}
+@media (max-width:640px){ .lede{font-size:17px} .g{padding:24px} .g h2{font-size:26px} }
+@media (prefers-reduced-motion:reduce){ .status .dot{animation:none} dialog[open]{animation:none} }
+</style>
+</head>
+<body>
+<div id="previewBar" class="preview" hidden>Preview mode: every door is unlocked so you can try them. The live page opens one door each weekday from December 1. <a href="?">See it as visitors will today</a> <button type="button" id="resetDoors" class="reset">Close all doors</button></div>
+
+<main class="wrap">
+  <section class="intro">
+    <img class="logo" src="img/pawsic-logo-white.png" alt="PAWSIC">
+    <div class="label">Holiday gift calendar &middot; Dec 1 to 16, 2026</div>
+    <h1>The 12 Days of <em>PAWSIC</em></h1>
+    <p class="lede">Twelve gifts from the people behind PAWSIC. One door opens each weekday morning, and every gift is free with a PAWSIC membership.</p>
+    <div class="status"><span class="dot"></span><span id="statusText">Door 1 opens Tuesday, December 1</span></div>
+    <div class="ctas">
+      <a class="btn" href="https://memberships.pawsic.org/register/free/">Join PAWSIC free &rarr;</a>
+      <a class="link" href="https://memberships.pawsic.org/login/">Already a member? Log in</a>
+    </div>
+    <p class="hint">Tap a door on the house to open it.</p>
+  </section>
+
+  <section class="stage" id="stage" aria-label="Advent calendar house">
+    <div class="loading" id="loading">Lighting the house&hellip;</div>
+    <div class="doors-a11y" id="a11y" aria-label="Calendar doors"></div>
+  </section>
+
+  <footer>Educational content from PAWSIC, the Post-Acute Wound &amp; Skin Integrity Council. Not medical advice.</footer>
+</main>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<dialog id="gift" aria-labelledby="gTitle">
+  <button class="x" id="gClose" aria-label="Close">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 3l10 10M13 3L3 13"/></svg>
+  </button>
+  <div class="g" id="gBody"></div>
+</dialog>
+
+<script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js" integrity="sha384-qOkzR5Ke/XkQxuGVJ9hpFEpDlcoLtWwVYhnJf06cLIZa2vaIptSqaubivErzmD5O" crossorigin="anonymous"></script>
+<script>
+/* ------------------------------------------------------------------ data */
+const LIB = 'https://memberships.pawsic.org/project/pawsic_library/';
+const IMG = { cm:'img/catherine-milne.jpg', jm:'img/jeanine-maguire.jpg', se:'img/suzie-ehmann.jpg', dk:'img/diane-krasner.jpg',
+  sw:'img/stephanie-woelfel.jpg', mm:'img/mary-martin.jpg', jb:'img/jennifer-bierhup.jpg' };
+const DAYS = [
+  {d:1, date:'2026-12-01', deliver:'https://pawsic.org/', type:'Welcome', title:'Welcome to the 12 Days of PAWSIC', short:'Welcome to PAWSIC', who:'Jeanine Maguire', photo:IMG.jm,
+   blurb:'Jeanine opens the calendar: who PAWSIC is, who we serve across post-acute care, and the eleven gifts still to come.', url:'https://pawsic.org/', cta:'Visit PAWSIC'},
+  {d:2, date:'2026-12-02', deliver:'https://pawsic.org/mobile-wound-group-checklist/download/', type:'Resource', title:'Mobile Wound Group Checklist', short:'Wound checklist', who:'Pamela Scarborough', mono:'PS',
+   blurb:'A ready-to-use checklist for mobile wound care teams, introduced by the clinician who built it.', url:LIB},
+  {d:3, date:'2026-12-03', deliver:'https://pawsic.org/lymphatic-health-lymphedema/watch/', type:'Webinar', title:'Lymphatic Health: Why Recognizing and Treating Lymphedema Matters', short:'Lymphedema', who:'Suzie Ehmann', photo:IMG.se,
+   blurb:'A full on-demand webinar on why lymphedema deserves attention in post-acute care.', url:'https://memberships.pawsic.org/lymphatic-healthwhy-recognizing-and-treating-lymphedema-matters/'},
+  {d:4, date:'2026-12-04', deliver:null, type:'Patient voice', title:'The Patient Voice', short:'Patient Voice', who:'PAWSIC', photo:null, mono:'P',
+   blurb:'Wound care seen through the patient\u2019s eyes: what people living with wounds want every clinician to know.', url:LIB},
+  {d:5, date:'2026-12-07', deliver:'https://pawsic.org/12-days?day=5', type:'Webinar', title:'Rehab’s Role in the DFU Journey', short:'Rehab and DFU', who:'Stephanie Woelfel', photo:IMG.sw,
+   blurb:'How physical and occupational therapists support patients through the diabetic foot ulcer journey.', url:'https://memberships.pawsic.org/rehabs-role-in-dfu-journey/'},
+  {d:6, date:'2026-12-08', deliver:'https://pawsic.org/12-days?day=6', type:'Tool + webinar', title:'Martin-WISE Health Literacy Tool', short:'Martin-WISE', who:'Mary Martin', photo:IMG.mm,
+   blurb:'A health literacy tool for clearer wound care conversations with patients and families, plus Mary\u2019s full webinar, Wound Literacy and Patient Education.', url:LIB, tool:LIB, cta:'Get the Martin-WISE tool'},
+  {d:7, date:'2026-12-09', deliver:'https://pawsic.org/12-days?day=7', type:'Webinar', title:'Beyond the Mattress', short:'Beyond the Mattress', who:'Michael Fragala', mono:'MF',
+   blurb:'An on-demand webinar on support surfaces and what to consider beyond the mattress itself.', url:LIB},
+  {d:8, date:'2026-12-10', deliver:'https://pawsic.org/podcast', type:'Podcast', title:'Healing by Design, the PAWSIC podcast', short:'Healing by Design', who:'Jennifer Bierhup', photo:IMG.jb,
+   blurb:'Conversations with the people shaping wound care and skin health in post-acute settings.', url:'https://pawsic.org/podcast', cta:'Listen now'},
+  {d:9, date:'2026-12-11', deliver:'https://pawsic.org/12-days?day=9', type:'Webinar', title:'Pyoderma for Post-Acute Care', short:'Pyoderma', who:'Catherine Milne', photo:IMG.cm,
+   blurb:'An on-demand webinar on pyoderma, built for post-acute teams.', url:'https://memberships.pawsic.org/pyoderma-for-post-acute-care/'},
+  {d:10, date:'2026-12-14', deliver:null, type:'E-book', title:'Skin Changes At Life\u2019s End (SCALE)', short:'E-book, Ch. 23', who:'Dr. Diane L. Krasner', photo:IMG.dk,
+   blurb:'Chapter 23 of Chronic Wound Care, the SCALE consensus statement on skin changes at life\u2019s end, introduced by its editor.', url:LIB},
+  {d:11, date:'2026-12-15', deliver:'https://pawsic.org/skin-failure-position-paper/', type:'Library', title:'The Skin Failure Library', short:'Skin Failure Library', who:'Dr. Diane L. Krasner', photo:IMG.dk,
+   blurb:'References and tools gathered by the PAWSIC Skin Failure Special Interest Group.', url:'https://memberships.pawsic.org/project/sf-sig-for-members/'},
+  {d:12, date:'2026-12-16', deliver:'https://pawsic.org/12-days', type:'Finale', title:'All twelve gifts, and a thank-you from our board', short:'The finale', who:'Jeanine Maguire and the PAWSIC board', photo:IMG.jm,
+   blurb:'Every gift in one place, a holiday thank-you from the PAWSIC board, and a first look at 2027.', url:LIB, cta:'See all gifts'}
+];
+/* door layout on the facade: [col, row, colSpan, rowSpan] on a 4 x 5 grid */
+/* full webinar recordings on the PAWSIC Vimeo account: [video id, unlisted hash, minutes] */
+const VIMEO = {3:['1196334013','',59], 5:['1221380118','3c7b700afa',61], 7:['1153084358','36e09c2c6b',61], 9:['1153075724','3b89d29a6e',57], 6:['1177492331','5caabe27bc',55]};
+/* short author video messages on the PAWSIC Vimeo account: [video id, unlisted hash] (playable before sign-up) */
+const INTRO = {6:['1244372210','83ac2471fe'], 9:['1243800462','53c866b9cf']};
+const AREA = {1:[0,0,2,2],2:[2,0,1,1],3:[3,0,1,1],4:[2,1,2,1],5:[0,2,1,1],6:[1,2,1,1],7:[2,2,1,1],8:[3,2,1,1],
+  9:[0,3,1,1],10:[1,3,1,1],11:[0,4,2,1],12:[2,3,2,2]};
+
+const qs = new URLSearchParams(location.search);
+const PREVIEW = qs.has('preview');
+const TODAY = /^\d{4}-\d{2}-\d{2}$/.test(qs.get('today')||'') ? qs.get('today')
+  : new Date().toLocaleDateString('en-CA',{timeZone:'America/New_York'});
+const isUnlocked = x => PREVIEW || TODAY >= x.date;
+const fmt = (iso,o) => new Date(iso+'T12:00:00').toLocaleDateString('en-US',o);
+const REDUCE = matchMedia('(prefers-reduced-motion: reduce)').matches;
+let opened = new Set();
+try { opened = new Set(JSON.parse(localStorage.getItem('pawsic12-opened')||'[]')); } catch(e) {}
+const save = () => { try { localStorage.setItem('pawsic12-opened', JSON.stringify([...opened])); } catch(e) {} };
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+/* ------------------------------------------------------------------ page UI */
+const toastEl = document.getElementById('toast'); let toastT;
+function toast(m){ toastEl.textContent=m; toastEl.classList.add('show'); clearTimeout(toastT); toastT=setTimeout(()=>toastEl.classList.remove('show'),2600); }
+const dlg = document.getElementById('gift');
+const avatar = x => x.photo ? `<img class="ph" src="${x.photo}" alt="${esc(x.who)}">` : `<span class="ph mono" aria-hidden="true">${esc(x.mono||'P')}</span>`;
+/* Sign-up uses the same shared PAWSIC form as the checklist and webinar pages: it creates a free
+   MemberPress membership (Make scenario 5281344), emails the login, and the gift opens right away. */
+const MAKE_WEBHOOK = 'https://hook.us2.make.com/5ltfh3hiv4o3r641md0gxkwc3i5do59i';
+const LIVE = /(^|\.)pawsic\.org$/.test(location.hostname);   // never creates real members from previews
+const isMember = () => { try { return localStorage.getItem('pawsicFreeMember') === '1'; } catch(e){ return false; } };
+const giftUrl = x => x.deliver || x.url;
+function giftButton(x){
+  return `<div class="ctas"><a class="btn" href="${x.tool || giftUrl(x)}" target="_blank" rel="noopener">${esc(x.cta||'Open your gift')}</a></div>`;
+}
+function regForm(x){
+  return `<form class="reg" id="reg" novalidate>
+    <div class="row"><label for="r-first">First name<input id="r-first" name="firstName" autocomplete="given-name" required></label>
+      <label for="r-last">Last name<input id="r-last" name="lastName" autocomplete="family-name" required></label></div>
+    <label for="r-email">Email<input id="r-email" name="email" type="email" autocomplete="email" required></label>
+    <div class="row"><label for="r-title">Job title or role<input id="r-title" name="jobTitle" autocomplete="organization-title" required></label>
+      <label for="r-org">Organization or facility<input id="r-org" name="organization" autocomplete="organization" required></label></div>
+    <label for="r-country">Country<select id="r-country" name="country" autocomplete="country" required>
+      <option value="US" selected>United States</option><option value="CA">Canada</option><option value="GB">United Kingdom</option>
+      <option value="AU">Australia</option><option value="IE">Ireland</option><option value="OTHER">Other</option></select></label>
+    <label class="check" for="r-news"><input id="r-news" type="checkbox" checked>Send me the PAWSIC newsletter with wound care education updates.</label>
+    <label class="check" for="r-consent"><input id="r-consent" type="checkbox" required>I agree to PAWSIC’s Privacy Policy and Terms of Use, and consent to receive my gift link and welcome email.</label>
+    <div class="err" id="r-err" role="alert"></div>
+    <button class="btn" type="submit" id="r-go">Join free and open my gift</button>
+  </form>`;
+}
+const CAN_EMBED = LIVE || /^(localhost|127\.0\.0\.1)$/.test(location.hostname);   // review copies cannot embed other sites
+const playIcon = '<div class="play"><svg width="22" height="22" viewBox="0 0 22 22"><path d="M7 4l11 7-11 7z" fill="#EEF5F8"/></svg></div>';
+function player(id, h, title, label){
+  const src = `https://player.vimeo.com/video/${id}?${h ? 'h='+h+'&' : ''}badge=0&autopause=0&dnt=1&title=0&byline=0`;
+  if (!CAN_EMBED) return `<a class="video" href="https://vimeo.com/${id}${h ? '/'+h : ''}" target="_blank" rel="noopener" aria-label="${esc(label)}">${playIcon}<span>${label} &middot; plays here on pawsic.org</span></a>`;
+  return `<div class="video embed"><iframe src="${src}" title="${esc(title)}" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen loading="lazy"></iframe></div>`;
+}
+function videoBlock(x, member){
+  const v = VIMEO[x.d], intro = INTRO[x.d], who = esc(x.who.split(' and ')[0]);
+  let out = intro ? player(intro[0], intro[1], `A message from ${x.who}`, `Video message from ${who}`)
+          : (v ? '' : `<div class="video" aria-label="Author video placeholder">${playIcon}<span>Video message from ${who}</span></div>`);
+  if (v){
+    const [id, h, min] = v;
+    out += member ? player(id, h, x.title, `Full webinar &middot; ${min} min`)
+                  : `<div class="video locked${intro ? ' slim' : ''}" aria-label="Webinar locked until you join">${intro ? '' : playIcon}<span>Full webinar &middot; ${min} min &middot; opens when you join free</span></div>`;
+  }
+  return out;
+}
+function showGift(x, justJoined){
+  const member = isMember();
+  document.getElementById('gBody').innerHTML = `
+    <div class="g-top">${avatar(x)}<div>
+      <div class="label">Day ${x.d} &middot; ${esc(x.type)} &middot; ${fmt(x.date,{month:'short',day:'numeric'})}</div>
+      <h2 id="gTitle">${esc(x.title)}</h2><div class="by">From ${esc(x.who)}</div></div></div>
+    <p>${esc(x.blurb)}</p>
+    ${justJoined ? `<div class="unlocked" style="margin-top:24px"><strong>Welcome to PAWSIC.</strong> Your free membership is set up and your login is on its way to ${esc(justJoined)}. Every other gift in the calendar now opens for you too.</div>` : ''}
+    ${videoBlock(x, member)}
+    <div id="gAction">${member ? (VIMEO[x.d] && !x.tool ? '' : giftButton(x)) : `<p class="free">Free with a PAWSIC membership. Join in 30 seconds and it opens right away.</p>${regForm(x)}
+      <p style="margin-top:16px;font-size:15px">Already a member? <a class="link" href="${x.url}" target="_blank" rel="noopener">Log in to open it</a></p>`}</div>`;
+  if (!dlg.open) dlg.showModal();
+  if (member) return;
+  const form = document.getElementById('reg'), err = document.getElementById('r-err');
+  form.addEventListener('submit', e => {
+    e.preventDefault(); err.textContent = '';
+    if (!form.checkValidity()){ err.textContent = 'Please fill in every field and tick the consent box.'; form.reportValidity(); return; }
+    const params = new URLSearchParams(new FormData(form));
+    params.set('newsletter', document.getElementById('r-news').checked ? 'yes' : 'no');
+    params.set('consent', 'yes');
+    params.set('courseId', `12days-2026-day${x.d}`);
+    params.set('courseName', `The 12 Days of PAWSIC, Day ${x.d}: ${x.title}`);
+    params.set('watchUrl', giftUrl(x));
+    const btn = document.getElementById('r-go'); btn.disabled = true; btn.textContent = 'Opening your gift…';
+    const done = () => { try { localStorage.setItem('pawsicFreeMember','1'); } catch(e2){} showGift(x, params.get('email')); };
+    if (!LIVE){ setTimeout(done, 400); return; }     // preview: show the flow without creating a member
+    fetch(MAKE_WEBHOOK, {method:'POST', mode:'no-cors', body:params, keepalive:true}).then(done, done);
+  });
+}
+document.getElementById('gClose').onclick = () => dlg.close();
+/* review helper: shut every door and forget the test sign-up so the calendar can be tried again */
+document.getElementById('resetDoors').onclick = () => {
+  opened.clear(); try { localStorage.removeItem('pawsic12-opened'); localStorage.removeItem('pawsicFreeMember'); } catch(e) {}
+  for (const d in doors) doors[d].target = 0;
+  requestRender(); toast('All doors are closed again.');
+};
+dlg.addEventListener('click', e => { if (e.target === dlg) dlg.close(); });
+
+(function status(){
+  const s = document.getElementById('statusText');
+  if (PREVIEW){ document.getElementById('previewBar').hidden=false; s.textContent='Preview: all twelve doors unlocked'; return; }
+  const open = DAYS.filter(isUnlocked), t = DAYS.find(x => x.date === TODAY);
+  if (t) s.textContent = `Today’s gift is behind door ${t.d}`;
+  else if (!open.length) s.textContent = 'Door 1 opens Tuesday, December 1';
+  else if (open.length === 12) s.textContent = 'All twelve doors are open';
+  else { const n = DAYS.find(x => !isUnlocked(x)); s.textContent = `Door ${n.d} opens ${fmt(n.date,{weekday:'long',month:'long',day:'numeric'})}`; }
+})();
+
+/* keyboard and screen-reader doors (the 3D house is pointer-only) */
+const a11y = document.getElementById('a11y');
+DAYS.forEach(x => {
+  const b = document.createElement('button');
+  b.textContent = `Day ${x.d}, ${fmt(x.date,{month:'short',day:'numeric'})}` + (isUnlocked(x) ? `: ${x.short}` : ' (locked)');
+  b.onclick = () => activate(x.d); a11y.appendChild(b);
+});
+
+/* ------------------------------------------------------------------ 3D house */
+const stage = document.getElementById('stage');
+const doors = {};               // d -> {pivot, angle, target, shake, spill, glow}
+let requestRender = () => {};
+
+function activate(d){
+  const x = DAYS.find(y => y.d === d), o = doors[d];
+  if (!isUnlocked(x)){
+    if (o){ o.shake = 1; requestRender(); }
+    toast(`Patience, elf. Door ${d} opens ${fmt(x.date,{weekday:'long',month:'long',day:'numeric'})}.`);
+    return;
+  }
+  if (!opened.has(d)){
+    opened.add(d); save();
+    if (o){ o.target = 1; requestRender(); }
+    setTimeout(() => showGift(x), REDUCE || !o ? 0 : 1000);
+  } else showGift(x);
+}
+
+function canvasTex(w, h, draw){
+  const c = document.createElement('canvas'); c.width = w; c.height = h;
+  draw(c.getContext('2d'), w, h);
+  const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = 8; return t;
+}
+function loadImg(src){ return new Promise(r => { if(!src) return r(null); const i = new Image(); i.onload = () => r(i); i.onerror = () => r(null); i.src = src; }); }
+function roundRect(g,x,y,w,h,r){ g.beginPath(); g.moveTo(x+r,y); g.arcTo(x+w,y,x+w,y+h,r); g.arcTo(x+w,y+h,x,y+h,r); g.arcTo(x,y+h,x,y,r); g.arcTo(x,y,x+w,y,r); g.closePath(); }
+function wrap(g, text, maxW){ const words = text.split(' '), lines=[]; let l=''; for (const w of words){ const t = l ? l+' '+w : w; if (g.measureText(t).width > maxW && l){ lines.push(l); l=w; } else l=t; } if(l) lines.push(l); return lines; }
+
+async function build(){
+  if (!window.THREE) throw new Error('three.js missing');
+  try { await Promise.race([Promise.all([document.fonts.load('400 120px "DM Serif Display"'), document.fonts.load('700 40px Inter')]), new Promise(r=>setTimeout(r,2500))]); } catch(e) {}
+  const photos = {}; await Promise.all(DAYS.map(async x => photos[x.d] = await loadImg(x.photo)));
+
+  const renderer = new THREE.WebGLRenderer({antialias:true, alpha:true});
+  renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+  renderer.shadowMap.enabled = true; renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+  renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = 1.2;
+  stage.prepend(renderer.domElement);
+  const scene = new THREE.Scene();
+  scene.fog = new THREE.Fog(0x0C1F3F, 22, 46);
+  const camera = new THREE.PerspectiveCamera(30, 1, 0.1, 100);
+
+  /* lights: cool moonlight, soft sky, warm lamp */
+  scene.add(new THREE.HemisphereLight(0x8FB0E0, 0x0C1F3F, 1.1));
+  const moon = new THREE.DirectionalLight(0xDCE8FF, 2.2);
+  moon.position.set(-7, 12, 10); moon.castShadow = true;
+  moon.shadow.mapSize.set(2048, 2048); Object.assign(moon.shadow.camera, {left:-8,right:8,top:10,bottom:-3,near:1,far:40});
+  moon.shadow.bias = -0.0004; moon.shadow.radius = 4; scene.add(moon);
+  const fill = new THREE.DirectionalLight(0x38B6FF, 0.35); fill.position.set(8, 4, 6); scene.add(fill);
+
+  /* facade geometry */
+  const COLW=1.0, ROWH=0.86, GAP=0.16, PADX=0.34, PADT=0.34, PADB=0.42, BASE=0.34;
+  const gridW = 4*COLW + 3*GAP, gridH = 5*ROWH + 4*GAP;
+  const FW = gridW + 2*PADX, FH = gridH + PADT + PADB;
+  const x0 = -gridW/2, yTop = BASE + PADB + gridH, FD = 0.16;   // facade front at z = FD
+  const cell = d => { const [c,r,cs,rs] = AREA[d]; return {x: x0 + c*(COLW+GAP), y: yTop - r*(ROWH+GAP), w: cs*COLW+(cs-1)*GAP, h: rs*ROWH+(rs-1)*GAP}; };
+
+  const plaster = canvasTex(512, 512, (g,w,h) => {
+    g.fillStyle = '#EEF2F6'; g.fillRect(0,0,w,h);
+    for (let i=0;i<9000;i++){ const v = 228 + Math.random()*22|0; g.fillStyle = `rgba(${v-6},${v-2},${v+4},.35)`; g.fillRect(Math.random()*w, Math.random()*h, 1.5, 1.5); }
+  });
+  plaster.wrapS = plaster.wrapT = THREE.RepeatWrapping; plaster.repeat.set(0.4, 0.4);
+  const plasterMat = new THREE.MeshStandardMaterial({map:plaster, roughness:.92});
+  const trimMat = new THREE.MeshStandardMaterial({color:0x1E3A6E, roughness:.55, metalness:.05});
+  const whiteTrim = new THREE.MeshStandardMaterial({color:0xF7FAFC, roughness:.5});
+  const snowMat = new THREE.MeshStandardMaterial({color:0xFFFFFF, roughness:.95, emissive:0x1E3A6E, emissiveIntensity:.06});
+  const goldMat = new THREE.MeshStandardMaterial({color:0xD8BB63, roughness:.35, metalness:.35, emissive:0x4A3A10, emissiveIntensity:.35});
+  const doorEdge = new THREE.MeshStandardMaterial({color:0x162D54, roughness:.45});
+
+  const house = new THREE.Group(); scene.add(house);
+
+  const fs = new THREE.Shape(); fs.moveTo(-FW/2, BASE); fs.lineTo(FW/2, BASE); fs.lineTo(FW/2, BASE+FH); fs.lineTo(-FW/2, BASE+FH); fs.closePath();
+  for (const d in AREA){ const c = cell(d), h = new THREE.Path(); h.moveTo(c.x, c.y-c.h); h.lineTo(c.x+c.w, c.y-c.h); h.lineTo(c.x+c.w, c.y); h.lineTo(c.x, c.y); h.closePath(); fs.holes.push(h); }
+  const facade = new THREE.Mesh(new THREE.ExtrudeGeometry(fs, {depth:FD, bevelEnabled:false}), plasterMat);
+  facade.castShadow = facade.receiveShadow = true; house.add(facade);
+  const body = new THREE.Mesh(new THREE.BoxGeometry(FW, FH, 3.0), plasterMat); body.position.set(0, BASE+FH/2, -1.68);  // front sits behind the door recesses body.receiveShadow = true; house.add(body);
+  const plinth = new THREE.Mesh(new THREE.BoxGeometry(FW+0.24, BASE, 3.6), trimMat); plinth.position.set(0, BASE/2, -1.55); plinth.castShadow = plinth.receiveShadow = true; house.add(plinth);
+  for (const sx of [-1,1]){ const p = new THREE.Mesh(new THREE.BoxGeometry(0.16, FH, 0.14), whiteTrim); p.position.set(sx*(FW/2-0.02), BASE+FH/2, FD+0.05); p.castShadow = true; house.add(p); }
+  const cornice = new THREE.Mesh(new THREE.BoxGeometry(FW+0.36, 0.16, 0.42), whiteTrim); cornice.position.set(0, BASE+FH+0.06, FD-0.05); cornice.castShadow = true; house.add(cornice);
+
+  /* roof with shingles, snow, chimney */
+  const RH = 2.0, RW = FW + 0.5, roofTop = BASE + FH + 0.14;
+  const shingles = canvasTex(512, 512, (g,w,h) => {
+    g.fillStyle = '#132a50'; g.fillRect(0,0,w,h);
+    const rows = 16, rh = h/rows;
+    for (let r=0;r<rows;r++){ const off = (r%2)*24; for (let x=-48+off; x<w; x+=48){
+      const v = 32 + Math.random()*14|0; g.fillStyle = `rgb(${v-14},${v+6},${v+44})`; roundRect(g, x+2, r*rh+2, 44, rh-2, 5); g.fill();
+      g.fillStyle = 'rgba(0,0,0,.25)'; g.fillRect(x+2, r*rh+rh-5, 44, 3); } }
+  });
+  shingles.wrapS = shingles.wrapT = THREE.RepeatWrapping; shingles.repeat.set(0.55, 0.55);
+  const roofMat = new THREE.MeshStandardMaterial({map:shingles, roughness:.8});
+  const rs = new THREE.Shape(); rs.moveTo(-RW/2, 0); rs.lineTo(RW/2, 0); rs.lineTo(0, RH); rs.closePath();
+  const roof = new THREE.Mesh(new THREE.ExtrudeGeometry(rs, {depth:3.6, bevelEnabled:false}), [plasterMat, roofMat]);
+  roof.position.set(0, roofTop, -3.3); roof.castShadow = roof.receiveShadow = true; house.add(roof);
+  const gs = new THREE.Shape(); gs.moveTo(-RW/2+0.25, 0); gs.lineTo(RW/2-0.25, 0); gs.lineTo(0, RH-0.18); gs.closePath();
+  const gable = new THREE.Mesh(new THREE.ExtrudeGeometry(gs, {depth:0.06, bevelEnabled:false}), trimMat); gable.position.set(0, roofTop, 0.3); gable.receiveShadow = true; house.add(gable);
+  const slope = Math.atan2(RH, RW/2), slopeLen = Math.hypot(RH, RW/2);
+  for (const sx of [-1,1]){
+    const s = new THREE.Mesh(new THREE.CapsuleGeometry(0.11, slopeLen, 6, 12), snowMat);
+    s.rotation.z = sx * (Math.PI/2 - slope); s.scale.set(1, 1, 3.4);
+    s.position.set(sx*RW/4, roofTop + RH/2 + 0.08, -1.45); s.castShadow = true; house.add(s);
+    const lip = new THREE.Mesh(new THREE.CapsuleGeometry(0.09, slopeLen, 6, 12), snowMat);
+    lip.rotation.z = s.rotation.z; lip.position.set(sx*RW/4, roofTop + RH/2 + 0.04, 0.38); house.add(lip);
+  }
+  const icGeo = new THREE.ConeGeometry(0.028, 1, 6); icGeo.rotateX(Math.PI); icGeo.translate(0, -0.5, 0);
+  const icMat = new THREE.MeshStandardMaterial({color:0xEAF4FF, roughness:.15, transparent:true, opacity:.9});
+  const nIc = 34, icicles = new THREE.InstancedMesh(icGeo, icMat, nIc), m4 = new THREE.Matrix4();
+  for (let i=0;i<nIc;i++){ const L = 0.08 + Math.random()*0.22; m4.compose(new THREE.Vector3(-FW/2 - 0.1 + (FW+0.2)*i/(nIc-1), BASE+FH-0.02, FD+0.14), new THREE.Quaternion(), new THREE.Vector3(1, L, 1)); icicles.setMatrixAt(i, m4); }
+  house.add(icicles);
+  const chim = new THREE.Mesh(new THREE.BoxGeometry(0.55, 1.5, 0.55), trimMat); chim.position.set(FW*0.28, roofTop + RH*0.62, -1.4); chim.castShadow = true; house.add(chim);
+  const chimCap = new THREE.Mesh(new THREE.CapsuleGeometry(0.3, 0.12, 6, 12), snowMat); chimCap.rotation.z = Math.PI/2; chimCap.scale.set(.5,1.08,1.1); chimCap.position.set(FW*0.28, roofTop + RH*0.62 + 0.78, -1.4); house.add(chimCap);
+
+  /* wreath on the gable */
+  const wreath = new THREE.Group(); wreath.position.set(0, roofTop + RH*0.42, 0.42); house.add(wreath);
+  wreath.add(new THREE.Mesh(new THREE.TorusGeometry(0.34, 0.07, 12, 48), new THREE.MeshStandardMaterial({color:0xC8D3E2, roughness:.7})));
+  const leafGeo = new THREE.SphereGeometry(0.05, 8, 6); leafGeo.scale(1.6, .7, .7);
+  const leaves = new THREE.InstancedMesh(leafGeo, new THREE.MeshStandardMaterial({color:0xFFFFFF, roughness:.85}), 70);
+  for (let i=0;i<70;i++){ const t = i/70*Math.PI*2, r = 0.34 + (Math.random()-.5)*0.1;
+    m4.compose(new THREE.Vector3(Math.cos(t)*r, Math.sin(t)*r, 0.04+Math.random()*0.04), new THREE.Quaternion().setFromEuler(new THREE.Euler(Math.random()*.6, Math.random()*.6, t+Math.PI/2+(Math.random()-.5))), new THREE.Vector3(1,1,1));
+    leaves.setMatrixAt(i, m4); leaves.setColorAt(i, new THREE.Color(i%3===0?0xFFFFFF:(i%3===1?0xDCE6F2:0xB9C7D8))); }
+  wreath.add(leaves);
+  for (let i=0;i<9;i++){ const t = i/9*Math.PI*2+.3, b = new THREE.Mesh(new THREE.SphereGeometry(0.035, 12, 10), goldMat); b.position.set(Math.cos(t)*0.34, Math.sin(t)*0.34, 0.1); wreath.add(b); }
+  const bowL = new THREE.Mesh(new THREE.TorusGeometry(0.09, 0.028, 8, 20), goldMat); bowL.position.set(-0.09, -0.36, 0.12); bowL.scale.set(1,.6,1); bowL.rotation.z = .4; wreath.add(bowL);
+  const bowR = bowL.clone(); bowR.position.x = 0.09; bowR.rotation.z = -.4; wreath.add(bowR);
+  const knot = new THREE.Mesh(new THREE.SphereGeometry(0.04, 12, 10), goldMat); knot.position.set(0, -0.36, 0.13); wreath.add(knot);
+
+  /* string lights along the roof edges */
+  const glowTex = canvasTex(64, 64, (g,w,h) => { const r = g.createRadialGradient(32,32,0,32,32,32); r.addColorStop(0,'rgba(255,255,255,1)'); r.addColorStop(.25,'rgba(255,255,255,.55)'); r.addColorStop(1,'rgba(255,255,255,0)'); g.fillStyle=r; g.fillRect(0,0,w,h); });
+  const bulbs = [], bulbCols = [0xF2D67A, 0xFFFFFF, 0x38B6FF, 0xFFE9B8], wires = [[],[]];
+  [-1,1].forEach((sx, side) => {
+    const n = 9;
+    for (let k=0;k<=n;k++){
+      const a = k/n; wires[side].push(new THREE.Vector3(sx*(RW/2)*(1-a), roofTop + RH*a - 0.06, 0.48));
+      if (k<n){ const b = (k+.5)/n, bx = sx*(RW/2)*(1-b), by = roofTop + RH*b - 0.2;
+        wires[side].push(new THREE.Vector3(bx, by, 0.5));
+        const col = bulbCols[bulbs.length%4];
+        const bulb = new THREE.Mesh(new THREE.SphereGeometry(0.045, 12, 10), new THREE.MeshStandardMaterial({color:col, emissive:col, emissiveIntensity:2.2}));
+        bulb.position.set(bx, by-0.04, 0.52); house.add(bulb);
+        const glow = new THREE.Sprite(new THREE.SpriteMaterial({map:glowTex, color:col, transparent:true, blending:THREE.AdditiveBlending, depthWrite:false, opacity:.85}));
+        glow.scale.set(.42,.42,1); glow.position.copy(bulb.position); house.add(glow);
+        bulb.userData = {glow, phase: bulbs.length*0.7}; bulbs.push(bulb); }
+    }
+  });
+  wires.forEach(pts => house.add(new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts), 80, 0.008, 5), new THREE.MeshStandardMaterial({color:0x22324d, roughness:.6}))));
+
+  /* doors */
+  const PX = 300;   // texture pixels per world unit
+  for (const x of DAYS){
+    const c = cell(x.d), unlocked = isUnlocked(x), hingeRight = AREA[x.d][0] === 0;
+    const big = AREA[x.d][2] > 1 && AREA[x.d][3] > 1, today = x.date === TODAY && !PREVIEW;
+
+    // recess walls and the lit back wall with the gift card
+    const depth = 0.3;
+    const rec = new THREE.Mesh(new THREE.BoxGeometry(c.w, c.h, depth), new THREE.MeshStandardMaterial({color:0xF4E9D2, roughness:.9, side:THREE.BackSide}));
+    rec.position.set(c.x + c.w/2, c.y - c.h/2, FD - depth/2 - 0.001); rec.receiveShadow = true; house.add(rec);
+    const card = canvasTex(Math.round(c.w*PX), Math.round(c.h*PX), (g,w,h) => {
+      const bg = g.createRadialGradient(w*.35, h*.3, 10, w*.5, h*.5, Math.max(w,h)*.8);
+      bg.addColorStop(0, '#FFF8EA'); bg.addColorStop(1, '#F1E2C4'); g.fillStyle = bg; g.fillRect(0,0,w,h);
+      const pad = 22, ph = big ? 150 : Math.min(84, h*.36), row = (w > h*1.6) || big;
+      let tx = pad, ty;
+      const drawPhoto = (px, py) => {
+        g.save(); g.beginPath(); g.arc(px+ph/2, py+ph/2, ph/2, 0, Math.PI*2); g.closePath();
+        g.fillStyle = '#1E3A6E'; g.fill(); g.clip();
+        const img = photos[x.d];
+        if (img){ const s = Math.max(ph/img.width, ph/img.height); g.drawImage(img, px+ph/2-img.width*s/2, py, img.width*s, img.height*s); }
+        else { g.fillStyle = '#fff'; g.font = `400 ${ph*.42}px "DM Serif Display"`; g.textAlign='center'; g.textBaseline='middle'; g.fillText(x.mono||'P', px+ph/2, py+ph/2+2); }
+        g.restore(); g.lineWidth = 6; g.strokeStyle = '#FFFFFF'; g.beginPath(); g.arc(px+ph/2, py+ph/2, ph/2, 0, Math.PI*2); g.stroke();
+      };
+      if (row){ drawPhoto(pad, h/2-ph/2); tx = pad*2 + ph; ty = h/2 - (big?60:34); }
+      else { drawPhoto(pad, pad); ty = pad + ph + 14; }
+      g.textAlign = 'left'; g.textBaseline = 'top';
+      g.fillStyle = '#2B7CCA'; const lab = `DAY ${x.d} · ${x.type.toUpperCase()}`; let fsz = big ? 28 : 20;
+      do { g.font = `700 ${fsz}px Inter`; } while (g.measureText(lab).width > w - tx - pad && --fsz > 12);
+      g.fillText(lab, tx, ty);
+      g.fillStyle = '#0C1F3F'; g.font = `400 ${big?44:26}px "DM Serif Display"`;
+      wrap(g, big ? x.title : x.short, w - tx - pad).slice(0, big?3:2).forEach((l,i) => g.fillText(l, tx, ty + (big?36:26) + i*(big?48:29)));
+    });
+    const back = new THREE.Mesh(new THREE.PlaneGeometry(c.w*.995, c.h*.995), new THREE.MeshStandardMaterial({map:card, emissiveMap:card, emissive:0xFFFFFF, emissiveIntensity:.04, roughness:.9}));
+    back.position.set(c.x + c.w/2, c.y - c.h/2, FD - depth + 0.002); back.receiveShadow = true; house.add(back);
+
+    // white casing around the opening, snow on the lintel
+    const cs = new THREE.Shape(), t = 0.06;
+    cs.moveTo(c.x-t, c.y-c.h-t); cs.lineTo(c.x+c.w+t, c.y-c.h-t); cs.lineTo(c.x+c.w+t, c.y+t); cs.lineTo(c.x-t, c.y+t); cs.closePath();
+    const hole = new THREE.Path(); hole.moveTo(c.x, c.y-c.h); hole.lineTo(c.x+c.w, c.y-c.h); hole.lineTo(c.x+c.w, c.y); hole.lineTo(c.x, c.y); hole.closePath(); cs.holes.push(hole);
+    const casing = new THREE.Mesh(new THREE.ExtrudeGeometry(cs, {depth:0.05, bevelEnabled:true, bevelThickness:.015, bevelSize:.015, bevelSegments:2}), whiteTrim);
+    casing.position.z = FD; casing.castShadow = true; house.add(casing);
+    const cap = new THREE.Mesh(new THREE.CapsuleGeometry(0.045, c.w + 0.06, 4, 10), snowMat);
+    cap.rotation.z = Math.PI/2; cap.scale.set(.75, 1, 1.4); cap.position.set(c.x + c.w/2, c.y + t + 0.03, FD + 0.06); cap.castShadow = true; house.add(cap);
+
+    // the door: lacquered navy panel with raised moulding, gold numeral, brass knob
+    const dw = c.w - 0.02, dh = c.h - 0.02, dt = 0.07;
+    const face = canvasTex(Math.round(dw*PX), Math.round(dh*PX), (g,w,h) => {
+      const gr = g.createLinearGradient(0,0,w,h); gr.addColorStop(0,'#24467F'); gr.addColorStop(1,'#132A50'); g.fillStyle = gr; g.fillRect(0,0,w,h);
+      const m = 18;
+      g.lineWidth = 4; g.strokeStyle = 'rgba(255,255,255,.16)'; roundRect(g, m, m, w-2*m, h-2*m, 6); g.stroke();
+      g.lineWidth = 3; g.strokeStyle = 'rgba(0,0,0,.35)'; roundRect(g, m+4, m+4, w-2*m-8, h-2*m-8, 5); g.stroke();
+      g.strokeStyle = 'rgba(201,168,76,.55)'; g.lineWidth = 1.5; roundRect(g, m+10, m+10, w-2*m-20, h-2*m-20, 4); g.stroke();
+      const numSize = big ? Math.min(h*.5, 240) : Math.min(h*.56, w > h*1.6 ? 150 : 128);
+      const nx = hingeRight ? w - m - 26 : m + 26;
+      g.textAlign = hingeRight ? 'right' : 'left'; g.textBaseline = 'alphabetic';
+      const ng = g.createLinearGradient(0, h - m - 26 - numSize*.8, 0, h - m - 26); ng.addColorStop(0, '#F0DC97'); ng.addColorStop(1, '#B8913A');
+      g.font = `400 ${numSize}px "DM Serif Display"`;
+      g.fillStyle = 'rgba(0,0,0,.35)'; g.fillText(String(x.d), nx+3, h - m - 19);
+      g.fillStyle = ng; g.fillText(String(x.d), nx, h - m - 22);
+      g.textAlign = 'left'; g.textBaseline = 'top'; g.font = `700 ${big?36:26}px Inter`; g.fillStyle = 'rgba(238,245,248,.9)';
+      if (today){ g.fillStyle = '#38B6FF'; roundRect(g, m+20, m+18, 124, 42, 8); g.fill(); g.fillStyle = '#0C1F3F'; g.font = '700 26px Inter'; g.fillText('TODAY', m+34, m+26); }
+      else g.fillText(`${fmt(x.date,{weekday:'short'}).toUpperCase()} · DEC ${+x.date.slice(8)}`, m+24, m+24);
+      if (!unlocked){
+        const lx = hingeRight ? m+30 : w-m-46, ly = h-m-50; g.strokeStyle = 'rgba(238,245,248,.6)'; g.lineWidth = 3;
+        roundRect(g, lx, ly+12, 22, 18, 3); g.stroke(); g.beginPath(); g.arc(lx+11, ly+12, 7, Math.PI, 0); g.stroke(); }
+    });
+    const front = new THREE.MeshStandardMaterial({map:face, roughness:.32, metalness:.1});
+    const door = new THREE.Mesh(new THREE.BoxGeometry(dw, dh, dt), [doorEdge, doorEdge, doorEdge, doorEdge, front, doorEdge]);
+    door.castShadow = door.receiveShadow = true;
+    const pivot = new THREE.Group();
+    pivot.position.set(hingeRight ? c.x + c.w - 0.01 : c.x + 0.01, c.y - c.h/2, FD - 0.06);
+    door.position.set(hingeRight ? -dw/2 : dw/2, 0, 0);
+    pivot.add(door); house.add(pivot);
+    const knob = new THREE.Mesh(new THREE.SphereGeometry(0.045, 16, 12), goldMat);
+    knob.position.set(hingeRight ? -dw + 0.12 : dw - 0.12, 0, dt/2 + 0.04); knob.castShadow = true; pivot.add(knob);
+    const plate = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.06, 0.012, 20), goldMat); plate.rotation.x = Math.PI/2; plate.position.set(knob.position.x, 0, dt/2+0.006); pivot.add(plate);
+
+    if (x.d === 12){ // gold ribbon and bow on the finale door
+      const rv = new THREE.Mesh(new THREE.BoxGeometry(0.14, dh+0.01, 0.02), goldMat); rv.position.set(dw*0.62, 0, dt/2+0.01); pivot.add(rv);
+      const rh = new THREE.Mesh(new THREE.BoxGeometry(dw+0.01, 0.14, 0.02), goldMat); rh.position.set(dw/2, dh*0.14, dt/2+0.012); pivot.add(rh);
+      const bg = new THREE.Group(); bg.position.set(dw*0.62, dh/2 + 0.02, dt/2 + 0.06); pivot.add(bg);
+      const loop = new THREE.Mesh(new THREE.TorusGeometry(0.14, 0.045, 10, 24), goldMat); loop.scale.set(1.25,.7,.6);
+      const l1 = loop.clone(); l1.position.x = -0.16; l1.rotation.z = .35; bg.add(l1);
+      const l2 = loop.clone(); l2.position.x = 0.16; l2.rotation.z = -.35; bg.add(l2);
+      bg.add(new THREE.Mesh(new THREE.SphereGeometry(0.07, 14, 10), goldMat));
+      for (const s of [-1,1]){ const tail = new THREE.Mesh(new THREE.BoxGeometry(0.07, 0.3, 0.015), goldMat); tail.position.set(s*0.06, -0.16, 0); tail.rotation.z = s*0.35; bg.add(tail); }
+    }
+
+    // warm light spilling from an open door, blue pulse on today's door
+    const spill = new THREE.Sprite(new THREE.SpriteMaterial({map:glowTex, color:0xFFD9A0, transparent:true, blending:THREE.AdditiveBlending, depthWrite:false, opacity:0}));
+    spill.scale.set(c.w*1.9, c.h*1.9, 1); spill.position.set(c.x + c.w/2, c.y - c.h/2, FD + 0.15); house.add(spill);
+    let glow = null;
+    if (today){ glow = new THREE.Sprite(new THREE.SpriteMaterial({map:glowTex, color:0x38B6FF, transparent:true, blending:THREE.AdditiveBlending, depthWrite:false, opacity:.5}));
+      glow.scale.set(c.w*1.8, c.h*1.8, 1); glow.position.set(c.x + c.w/2, c.y - c.h/2, FD + 0.2); house.add(glow); }
+
+    const start = unlocked && opened.has(x.d) ? 1 : 0;
+    doors[x.d] = {pivot, dir: hingeRight ? 1 : -1, angle:start, target:start, shake:0, spill, glow, hit:[door, knob]};
+  }
+
+  /* ground, trees, lamp post */
+  const groundAlpha = canvasTex(256, 256, (g,w,h) => { const r = g.createRadialGradient(128,128,40,128,128,128); r.addColorStop(0,'#fff'); r.addColorStop(.7,'#fff'); r.addColorStop(1,'#000'); g.fillStyle = r; g.fillRect(0,0,w,h); });
+  groundAlpha.colorSpace = THREE.NoColorSpace;
+  const gGeo = new THREE.PlaneGeometry(26, 26, 64, 64); gGeo.rotateX(-Math.PI/2);
+  const gp = gGeo.attributes.position; for (let i=0;i<gp.count;i++){ const X = gp.getX(i), Z = gp.getZ(i); gp.setY(i, (Math.sin(X*1.3)+Math.cos(Z*1.1))*0.03 + (Math.abs(X)>4.5 ? (Math.abs(X)-4.5)*0.05 : 0)); }
+  gGeo.computeVertexNormals();
+  const ground = new THREE.Mesh(gGeo, new THREE.MeshStandardMaterial({color:0xF4F8FC, roughness:1, alphaMap:groundAlpha, transparent:true}));
+  ground.position.set(0, 0, 2); ground.receiveShadow = true; scene.add(ground);
+  const drift = new THREE.Mesh(new THREE.CapsuleGeometry(0.22, FW+0.6, 6, 16), snowMat); drift.rotation.z = Math.PI/2; drift.scale.set(.55,1,1.6); drift.position.set(0, 0.06, FD+0.25); drift.receiveShadow = true; scene.add(drift);
+
+  const treeMat = new THREE.MeshStandardMaterial({color:0x1B3561, roughness:.85});
+  function tree(x, z, s){
+    const t = new THREE.Group(); t.position.set(x, 0, z); t.scale.setScalar(s); scene.add(t);
+    const trunk = new THREE.Mesh(new THREE.CylinderGeometry(.07,.09,.4,8), new THREE.MeshStandardMaterial({color:0x2a2f3a})); trunk.position.y = .2; t.add(trunk);
+    [[.0,.95,1.05],[.55,.78,.9],[1.05,.6,.75],[1.5,.4,.6]].forEach(([y,r,h]) => {
+      const cone = new THREE.Mesh(new THREE.ConeGeometry(r, h, 18), treeMat); cone.position.y = .4 + y + h/2; cone.castShadow = cone.receiveShadow = true; t.add(cone);
+      const snow = new THREE.Mesh(new THREE.ConeGeometry(r*.72, h*.5, 18), snowMat); snow.position.y = .4 + y + h*.78; snow.castShadow = true; t.add(snow);
+    });
+    const star = new THREE.Mesh(new THREE.OctahedronGeometry(.09), goldMat); star.position.y = 2.6; t.add(star);
+  }
+  tree(-FW/2 - 0.55, -0.2, .82); tree(FW/2 + 0.75, -0.5, 1.0); tree(-FW/2 - 1.45, -1.6, .66);
+
+  const lamp = new THREE.Group(); lamp.position.set(-FW/2 + 0.1, 0, 1.7); scene.add(lamp);
+  const iron = new THREE.MeshStandardMaterial({color:0x101a2c, roughness:.4, metalness:.6});
+  const post = new THREE.Mesh(new THREE.CylinderGeometry(.035,.05, 2.3, 10), iron); post.position.y = 1.15; post.castShadow = true; lamp.add(post);
+  const lantern = new THREE.Mesh(new THREE.CylinderGeometry(.12, .09, .26, 6), new THREE.MeshStandardMaterial({color:0xFFE2A8, emissive:0xFFD27A, emissiveIntensity:2.4})); lantern.position.y = 2.42; lamp.add(lantern);
+  const lampCap = new THREE.Mesh(new THREE.ConeGeometry(.17, .14, 6), iron); lampCap.position.y = 2.62; lamp.add(lampCap);
+  const lampSnow = new THREE.Mesh(new THREE.SphereGeometry(.12, 12, 8), snowMat); lampSnow.scale.set(1.1,.45,1.1); lampSnow.position.y = 2.69; lamp.add(lampSnow);
+  const lampLight = new THREE.PointLight(0xFFC876, 9, 7, 2); lampLight.position.set(0, 2.4, 0.1); lamp.add(lampLight);
+  const lampGlow = new THREE.Sprite(new THREE.SpriteMaterial({map:glowTex, color:0xFFD27A, transparent:true, blending:THREE.AdditiveBlending, depthWrite:false, opacity:.9})); lampGlow.scale.set(1.3,1.3,1); lampGlow.position.y = 2.42; lamp.add(lampGlow);
+  const porch = new THREE.PointLight(0xFFD9A0, 3, 6, 2); porch.position.set(0, 2.6, 2.2); scene.add(porch);
+
+  /* falling snow */
+  const flakeTex = canvasTex(32, 32, (g) => { const r = g.createRadialGradient(16,16,0,16,16,16); r.addColorStop(0,'rgba(255,255,255,1)'); r.addColorStop(1,'rgba(255,255,255,0)'); g.fillStyle = r; g.fillRect(0,0,32,32); });
+  const NF = innerWidth < 700 ? 600 : 1400, fpos = new Float32Array(NF*3), fvel = new Float32Array(NF);
+  for (let i=0;i<NF;i++){ fpos[i*3] = (Math.random()-.5)*16; fpos[i*3+1] = Math.random()*10; fpos[i*3+2] = (Math.random()-.5)*10 + 1; fvel[i] = .25 + Math.random()*.35; }
+  const fGeo = new THREE.BufferGeometry(); fGeo.setAttribute('position', new THREE.BufferAttribute(fpos, 3));
+  scene.add(new THREE.Points(fGeo, new THREE.PointsMaterial({map:flakeTex, size:.07, transparent:true, depthWrite:false, opacity:.85, color:0xFFFFFF})));
+
+  /* camera framing */
+  const target = new THREE.Vector3(0, (BASE + roofTop + RH)/2 - 0.1, 0);
+  const sceneW = FW + 2.6, sceneH = roofTop + RH + 1.3;
+  let baseDist = 14;
+  function resize(){
+    const w = stage.clientWidth, h = stage.clientHeight; renderer.setSize(w, h, false);
+    camera.aspect = w/h;
+    const vf = THREE.MathUtils.degToRad(camera.fov);
+    const narrow = camera.aspect < 0.95, fitW = narrow ? FW + 0.5 : sceneW, fitH = narrow ? roofTop + RH + 0.5 : sceneH;   // phones: let the trees crop, keep the doors big
+    baseDist = Math.max((fitH/2) / Math.tan(vf/2), (fitW/2) / (Math.tan(vf/2) * camera.aspect)) * 1.02;
+    camera.updateProjectionMatrix(); requestRender();
+  }
+
+  /* interaction */
+  const ray = new THREE.Raycaster(), ptr = new THREE.Vector2(); let hovered = null; const look = {x:0, y:0}, lookT = {x:0, y:0};
+  const hitList = []; for (const d in doors) doors[d].hit.forEach(m => { m.userData.d = +d; hitList.push(m); });
+  function pick(e){
+    const r = renderer.domElement.getBoundingClientRect();
+    ptr.set(((e.clientX - r.left)/r.width)*2-1, -((e.clientY - r.top)/r.height)*2+1);
+    ray.setFromCamera(ptr, camera); const h = ray.intersectObjects(hitList, false)[0];
+    return h ? h.object.userData.d : null;
+  }
+  renderer.domElement.addEventListener('pointermove', e => {
+    const d = pick(e); if (d !== hovered){ hovered = d; stage.classList.toggle('hover', !!d); }
+    if (e.pointerType === 'mouse'){ const r = stage.getBoundingClientRect(); lookT.x = ((e.clientX-r.left)/r.width - .5); lookT.y = ((e.clientY-r.top)/r.height - .5); }
+    requestRender();
+  });
+  renderer.domElement.addEventListener('pointerleave', () => { hovered = null; stage.classList.remove('hover'); lookT.x = lookT.y = 0; requestRender(); });
+  renderer.domElement.addEventListener('click', e => { const d = pick(e); if (d) activate(d); });
+
+  /* animation loop: runs while anything moves, idles otherwise */
+  const clock = new THREE.Clock(); let running = false;
+  const ease = t => 1 - Math.pow(1 - t, 3);
+  function frame(){
+    const dt = Math.min(clock.getDelta(), .05), t = clock.elapsedTime; let busy = !REDUCE;
+    look.x += (lookT.x - look.x) * .06; look.y += (lookT.y - look.y) * .06;
+    camera.position.set(target.x + 1.2 + look.x*2.2, target.y + 0.9 - look.y*1.1, baseDist);
+    camera.lookAt(target);
+    for (const d in doors){
+      const o = doors[d];
+      if (o.angle !== o.target){ o.angle = REDUCE ? o.target : (o.target > o.angle ? Math.min(o.target, o.angle + dt*1.15) : Math.max(o.target, o.angle - dt*1.15)); busy = true; }
+      let rot = o.dir * ease(o.angle) * 1.72;
+      if (o.shake > 0){ o.shake = Math.max(0, o.shake - dt*2.2); rot += o.dir * Math.sin(o.shake*28) * 0.09 * o.shake; busy = true; }
+      if (+d === hovered && o.angle === 0) rot += o.dir * 0.05;
+      o.pivot.rotation.y = rot;
+      o.spill.material.opacity = ease(o.angle) * .22;
+      if (o.glow) o.glow.material.opacity = .35 + Math.sin(t*3)*.2;
+    }
+    bulbs.forEach(b => { const k = REDUCE ? 1 : .7 + .3*Math.sin(t*2.2 + b.userData.phase); b.material.emissiveIntensity = 2.2*k; b.userData.glow.material.opacity = .85*k; });
+    if (!REDUCE){ for (let i=0;i<NF;i++){ fpos[i*3+1] -= fvel[i]*dt; fpos[i*3] += Math.sin(t*.6 + i)*dt*.08; if (fpos[i*3+1] < 0) fpos[i*3+1] = 10; } fGeo.attributes.position.needsUpdate = true; }
+    renderer.render(scene, camera);
+    if (busy) requestAnimationFrame(frame); else running = false;
+  }
+  requestRender = () => { if (!running){ running = true; clock.getDelta(); requestAnimationFrame(frame); } };
+  addEventListener('resize', resize); resize();
+  document.getElementById('loading').remove();
+
+  /* deep link: ?day=3 opens that day's gift when it is unlocked */
+  const n = +qs.get('day'), dx = DAYS.find(y => y.d === n);
+  if (dx && isUnlocked(dx)){ opened.add(n); save(); doors[n].target = doors[n].angle = 1; requestRender(); showGift(dx); }
+}
+
+build().catch(err => {
+  console.error(err);
+  stage.classList.add('nogl');
+  const l = document.getElementById('loading'); if (l) l.textContent = 'Open a door below.';
+});
+</script>
+</body>
+</html>
