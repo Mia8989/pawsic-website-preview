@@ -437,6 +437,8 @@
       box-shadow: 0 1px 2px rgba(12,31,63,0.08), 0 8px 24px rgba(201,168,76,0.35);
     }
     .cp-cert-seal svg { width: 44px; height: 44px; }
+    .cp-cert-embed { margin: 1.25rem 0 0.5rem; background: #fff; border: 1px solid rgba(12,31,63,0.12); border-radius: 12px; overflow: hidden; }
+    .cp-cert-embed iframe { display: block; width: 100%; }
     .cp-ce {
       border-left: 4px solid var(--gold);
       background: var(--cream);
@@ -864,10 +866,10 @@
               </div>
               <p class="cp-kicker">Step 4 of 4</p>
               <h2 id="cp-h-4" tabindex="-1">Your certificate is ready</h2>
-              <p class="cp-lede">You watched the course, passed the post-test, and completed the evaluation. Your certificate form opens in a new tab with your name, email, and license details already filled in.</p>
+              <p class="cp-lede">You watched the course, passed the post-test, and completed the evaluation. Your name, email, and license details are already filled in below. Check them, confirm the attestation, and select Get My Certificate to download it. A copy is also emailed to you.</p>
               <p class="cp-ce">Provider approved by the California Board of Registered Nursing, Provider Number CEP 18282, for 1.0 Contact Hours.</p>
-              <div class="cp-actions">
-                <a class="cp-btn cp-btn-gold" id="cp-cert-link" href="https://form.jotform.com/263196109186463" target="_blank" rel="noopener noreferrer">Get my certificate <span aria-hidden="true">&rarr;</span><span class="sr-only"> (opens in a new tab)</span></a>
+              <div class="cp-cert-embed">
+                <iframe id="JotFormIFrame-263196109186463" title="PAWSIC CE Certificate form" allow="fullscreen" style="min-width:100%;max-width:100%;height:760px;border:none;" scrolling="no"></iframe>
               </div>
               <p class="cp-fine">Keep your certificate for four years as your record of completion. Questions about your certificate? Email <a href="mailto:info@pawsic.org">info@pawsic.org</a>.</p>
             </section>
@@ -1437,13 +1439,20 @@
           ["licenseNumber", L.licenseNumber], ["licenseState", L.licenseState], ["course", COURSE_NAME]
         ];
         var q = pairs.map(function (p) { return p[0] + "=" + encodeURIComponent(p[1] || ""); }).join("&");
-        $("cp-cert-link").href = CERT_FORM_URL + "?" + q;
+        var frame = $("JotFormIFrame-263196109186463");
+        var src = CERT_FORM_URL + "?" + q + "&isIframeEmbed=1";
+        if (frame && frame.getAttribute("src") !== src) {
+          frame.setAttribute("src", src);
+          if (window.jotformEmbedHandler) { window.jotformEmbedHandler("iframe[id='JotFormIFrame-263196109186463']", "https://form.jotform.com/"); }
+        }
       }
 
       showStep(state.view || 1, false);
     })();
   </script>
 
+  <script src="https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js"></script>
+  <script>window.addEventListener("load",function(){if(window.jotformEmbedHandler){window.jotformEmbedHandler("iframe[id='JotFormIFrame-263196109186463']","https://form.jotform.com/");}});</script>
   <script src="/js/main.js?v=20260929"></script>
 </body>
 </html>
