@@ -542,6 +542,23 @@
     .cp-chap-t { flex: none; width: 3.6rem; font-variant-numeric: tabular-nums; color: var(--muted); font-weight: 600; }
     @media (max-width: 560px) { .cp-audio { grid-template-columns: 1fr; } .cp-audio img { display: none; } }
   </style>
+<style id="tsf-gate-css">
+.tsf-gate{padding:56px 0 80px}
+.tsf-gate-card{max-width:720px;margin:0 auto;padding:44px 40px;border-radius:16px;background:linear-gradient(160deg,#1B3A6A 0%,#0C1F3F 70%);color:#fff;border-top:4px solid #C9A84C;box-shadow:0 2px 6px rgba(12,31,63,.12),0 24px 48px rgba(12,31,63,.18)}
+.tsf-gate-kicker{margin:0 0 10px;font:700 13px/1.2 Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#C9A84C}
+.tsf-gate-card h2{margin:0 0 22px;font:400 40px/1.1 "DM Serif Display",serif;letter-spacing:-.01em;color:#fff}
+.tsf-gate-clock{display:flex;gap:12px;margin-bottom:22px}
+.tsf-gate-clock span{flex:1;max-width:110px;display:flex;flex-direction:column;align-items:center;padding:12px 6px;border-radius:10px;background:rgba(255,255,255,.08);font:600 11px/1.2 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#C9D6E6}
+.tsf-gate-clock b{font:400 40px/1.1 "DM Serif Display",serif;color:#fff;text-transform:none;letter-spacing:0;margin-bottom:2px}
+.tsf-gate-text{margin:0 0 26px;font:400 17px/1.6 Inter,sans-serif;color:#DCE6F2}
+.tsf-gate-ctas{display:flex;flex-wrap:wrap;gap:12px}
+.tsf-gate-btn{display:inline-block;padding:14px 22px;border-radius:999px;background:#38B6FF;color:#0C1F3F;font:700 15px/1 Inter,sans-serif;text-decoration:none}
+.tsf-gate-btn.alt{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.45)}
+.tsf-gate-btn.gold{background:#C9A84C;color:#0C1F3F}
+.tsf-gate.is-ended .tsf-gate-clock{display:none}
+.tsf-locked .cp-stepbar,.tsf-locked .cp-body{display:none!important}
+@media (max-width:560px){.tsf-gate-card{padding:32px 22px}.tsf-gate-card h2{font-size:32px}.tsf-gate-clock{gap:8px}.tsf-gate-clock b{font-size:30px}}
+</style>
 </head>
 <body>
 
@@ -647,6 +664,21 @@
         <p class="cp-head-meta">Presented by <strong>Jeanine Maguire, PhD, MS, MPT, CWS, FCPP</strong>, President &amp; Co-Founder, PAWSIC</p>
       </div>
     </header>
+
+    <!-- ===== FREE-WEEK GATE (Nov 23 to 28, 2026, ET). Premium copy sets window.TSF_NO_GATE ===== -->
+    <section class="tsf-gate" id="tsfGate" hidden>
+      <div class="container">
+        <div class="tsf-gate-card">
+          <p class="tsf-gate-kicker" id="tsfGK">You're all set</p>
+          <h2 id="tsfGH">The course opens Monday, Nov 23</h2>
+          <div class="tsf-gate-clock" id="tsfGClock"><span><b id="tsfGD">0</b>days</span><span><b id="tsfGHr">0</b>hrs</span><span><b id="tsfGM">0</b>min</span><span><b id="tsfGS">0</b>sec</span></div>
+          <p class="tsf-gate-text" id="tsfGT">Our Thanksgiving gift: this CE course is free for everyone from Monday, Nov 23 through Saturday, Nov 28 at 11:59 PM ET. We'll email you the moment it opens.</p>
+          <div class="tsf-gate-ctas" id="tsfGC">
+            <a class="tsf-gate-btn" href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=PAWSIC%2010-Step%20Framework%20(free%20CE)&amp;dates=20261123T050000Z/20261129T045900Z&amp;details=Free%20CE%20course%2C%201.0%20contact%20hour.%20Watch%20at%20https%3A%2F%2Fpawsic.org%2Fcourses%2F10-step-framework%2Fwatch%2F&amp;location=https%3A%2F%2Fpawsic.org%2Fcourses%2F10-step-framework%2Fwatch%2F" target="_blank" rel="noopener">Add to Google Calendar</a>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- ===== PROGRESS STEPPER ===== -->
     <nav class="cp-stepbar" aria-label="Course progress">
@@ -1437,5 +1469,33 @@
   <script src="https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js"></script>
   <script>window.addEventListener("load",function(){if(window.jotformEmbedHandler){window.jotformEmbedHandler("iframe[id='JotFormIFrame-263196109186463']","https://form.jotform.com/");}});</script>
   <script src="/js/main.js?v=20260929"></script>
+<script id="tsf-gate-js">
+(function(){
+  if(window.TSF_NO_GATE) return;
+  var OPEN=Date.parse('2026-11-23T00:00:00-05:00'), CLOSE=Date.parse('2026-11-29T00:00:00-05:00');
+  var main=document.getElementById('main-content'), g=document.getElementById('tsfGate');
+  if(!main||!g) return;
+  function $(id){return document.getElementById(id);}
+  function lock(){ main.classList.add('tsf-locked'); g.hidden=false; try{ var a=$('cp-audio'); if(a){a.pause();a.removeAttribute('src');} }catch(e){} }
+  function render(){
+    var now=Date.now();
+    if(now>=OPEN && now<CLOSE){ if(main.classList.contains('tsf-locked')){ location.reload(); } return false; }
+    lock();
+    if(now>=CLOSE){
+      g.classList.add('is-ended');
+      $('tsfGK').textContent='Thank you for joining us';
+      $('tsfGH').textContent='The free week has ended';
+      $('tsfGT').textContent='This course was free for everyone Nov 23 to 28 as our Thanksgiving gift. Premium PAWSIC members can watch it anytime and earn the 1.0 contact hour.';
+      $('tsfGC').innerHTML='<a class="tsf-gate-btn gold" href="https://memberships.pawsic.org/register/premium/">Become a premium member</a><a class="tsf-gate-btn alt" href="https://memberships.pawsic.org/10-step-framework-premium/">Premium member? Watch here</a>';
+      return false;
+    }
+    var sec=Math.floor((OPEN-now)/1000);
+    $('tsfGD').textContent=Math.floor(sec/86400); $('tsfGHr').textContent=Math.floor(sec%86400/3600);
+    $('tsfGM').textContent=Math.floor(sec%3600/60); $('tsfGS').textContent=sec%60;
+    return true;
+  }
+  if(render()){ var t=setInterval(function(){ if(!render()) clearInterval(t); },1000); }
+})();
+</script>
 </body>
 </html>
