@@ -709,19 +709,10 @@
               </div>
               <p class="cp-watchstatus" id="cp-watchstatus" role="status" aria-live="polite"></p>
 
-              <div class="cp-attest">
-                <p class="cp-attest-title">Attended this course live?</p>
-                <p class="cp-attest-help">If you attended the full live session, confirm it below and go straight to the post-test.</p>
-                <label class="cp-check" for="cp-attended">
-                  <input type="checkbox" id="cp-attended">
-                  <span>I attended the full live session</span>
-                </label>
-              </div>
-
               <div class="cp-actions">
                 <button type="button" class="cp-btn" id="cp-to-test" disabled aria-describedby="cp-gatehint">Continue to post-test <span aria-hidden="true">&rarr;</span></button>
               </div>
-              <p class="cp-gatehint" id="cp-gatehint">Unlocks when the video ends, or check the box above if you attended live.</p>
+              <p class="cp-gatehint" id="cp-gatehint">Unlocks when the video ends.</p>
 
               <div class="cp-objectives">
                 <h3>Learning objectives</h3>
@@ -1118,11 +1109,11 @@
       function maxUnlocked() {
         if (state.evalDone) return 4;
         if (state.passed) return 3;
-        if (state.watched || state.attended) return 2;
+        if (state.watched) return 2;
         return 1;
       }
       function isDone(n) {
-        return (n === 1 && (state.watched || state.attended)) || (n === 2 && state.passed) || (n === 3 && state.evalDone) || (n === 4 && state.evalDone);
+        return (n === 1 && state.watched) || (n === 2 && state.passed) || (n === 3 && state.evalDone) || (n === 4 && state.evalDone);
       }
       var STEP_NAMES = ["Watch", "Post-test", "Evaluation", "Certificate"];
       var CHECK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>';
@@ -1172,12 +1163,10 @@
 
       /* step 1: watch */
       var toTest = $("cp-to-test");
-      var attended = $("cp-attended");
       var watchStatus = $("cp-watchstatus");
-      attended.checked = !!state.attended;
 
       function syncWatchGate() {
-        toTest.disabled = !(state.watched || attended.checked);
+        toTest.disabled = !state.watched;
         $("cp-gatehint").hidden = !toTest.disabled;
         if (state.watched) watchStatus.innerHTML = "<strong>Video complete.</strong> The post-test is unlocked.";
       }
@@ -1188,12 +1177,6 @@
         syncWatchGate();
         renderStepper();
       }
-      attended.addEventListener("change", function () {
-        state.attended = attended.checked;
-        save();
-        syncWatchGate();
-        renderStepper();
-      });
       toTest.addEventListener("click", function () { showStep(2, true); });
 
       /* Three formats on one timeline: the edited video, the slides-only video and audio only.
