@@ -1074,12 +1074,50 @@
               .pc-status.pc-error { color: #c0392b; font-weight: 600; }
               .pc-status.pc-ok { color: #1e7e34; font-weight: 600; }
               .pc-form-pad { padding: 2.2rem 2rem; }
+              .pc-member { padding: 1.75rem 2rem 1.5rem; background: #FAF8F4; border-bottom: 1px solid #E8ECF1; border-radius: 16px 16px 0 0; }
+              .pc-member-row { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+              .pc-member-q { margin: 0; font-size: 0.95rem; color: #3a4a5c; line-height: 1.5; }
+              .pc-member-q strong { color: #0C1F3F; display: block; font-size: 1.02rem; }
+              .pc-member-toggle { appearance: none; cursor: pointer; font-family: inherit; font-size: 0.92rem; font-weight: 700; color: #0C1F3F; background: #fff; border: 1.5px solid #0C1F3F; border-radius: 100px; padding: 0.65rem 1.2rem; }
+              .pc-member-toggle:hover { background: #0C1F3F; color: #fff; }
+              #pcMemberForm { display: grid; gap: 16px; margin-top: 1.25rem; }
+              #pcMemberForm[hidden] { display: none; }
+              .pc-member-submit { background: #0C1F3F; color: #fff; }
+              .pc-member-submit:hover { background: #1E3A6E; }
+              .pc-or { text-align: center; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #5b6878; margin: 1.5rem 0 0; }
+              @media (max-width: 560px) { .pc-member { padding: 1.5rem 1.25rem 1.25rem; } }
               .pc-note { background: #eef5fb; border-left: 3px solid #1B5E9E; border-radius: 8px; padding: 0.85rem 1rem; font-size: 0.85rem; line-height: 1.5; color: #3a4a5c; }
               .pc-note strong { color: #0C1F3F; }
               .pc-field { min-width: 0; }
               @media (max-width: 560px) { .pc-form .pc-row { grid-template-columns: 1fr; } .pc-form-pad { padding: 1.75rem 1.25rem; } }
             </style>
 
+            <div class="pc-member">
+              <div class="pc-member-row">
+                <p class="pc-member-q"><strong>Already a PAWSIC member?</strong>Skip the long form and use your member email.</p>
+                <button type="button" class="pc-member-toggle" id="pc-member-toggle" aria-expanded="false" aria-controls="pcMemberForm">I'm a member</button>
+              </div>
+              <form id="pcMemberForm" class="pc-form" novalidate hidden>
+                <div class="pc-row">
+                  <div class="pc-field">
+                    <label for="pm-first">First Name <span class="pc-req">*</span></label>
+                    <input id="pm-first" name="firstName" type="text" autocomplete="given-name" required>
+                  </div>
+                  <div class="pc-field">
+                    <label for="pm-email">Member Email <span class="pc-req">*</span></label>
+                    <input id="pm-email" name="email" type="email" autocomplete="email" required>
+                  </div>
+                </div>
+                <p class="pc-help">Use the email on your PAWSIC membership. We'll send your course link there. Not a member yet? Register free below.</p>
+                <input type="hidden" name="returning" value="yes">
+                <input type="hidden" name="courseId" value="10-step-framework">
+                <input type="hidden" name="courseName" value="The PAWSIC 10 Step Framework to Optimize Skin Health and Pressure Prevention in PAC">
+                <input type="hidden" name="watchUrl" value="https://pawsic.org/courses/10-step-framework/watch/">
+                <button type="submit" class="pc-submit pc-member-submit" id="pm-submit">Go to the course &rarr;</button>
+                <p class="pc-status" id="pm-status" role="status" aria-live="polite"></p>
+              </form>
+              <p class="pc-or">New to PAWSIC? Register free below</p>
+            </div>
             <form id="pcRegForm" class="pc-form pc-form-pad" novalidate>
               <div class="pc-row">
                 <div class="pc-field">
@@ -1568,6 +1606,54 @@
           .then(function () { setTimeout(go, 500); })
           .catch(function () { setTimeout(go, 500); });
         setTimeout(go, 3000); // safety net if the network stalls
+      });
+    })();
+  </script>
+
+
+  <!-- Member quick access: email + first name only. Make (scenario 5281344) sees returning=yes,
+       finds the member, logs the sign-up and sends the "Welcome back" email WITHOUT updating their profile,
+       and never creates a member from this short form. -->
+  <script>
+    (function () {
+      var HOOK = "https://hook.us2.make.com/5ltfh3hiv4o3r641md0gxkwc3i5do59i";
+      var WATCH = "https://pawsic.org/courses/10-step-framework/watch/";
+      var toggle = document.getElementById("pc-member-toggle");
+      var form = document.getElementById("pcMemberForm");
+      var status = document.getElementById("pm-status");
+      var btn = document.getElementById("pm-submit");
+      if (!toggle || !form) return;
+      toggle.addEventListener("click", function () {
+        var open = form.hidden;
+        form.hidden = !open;
+        toggle.setAttribute("aria-expanded", open ? "true" : "false");
+        if (open) document.getElementById("pm-first").focus();
+      });
+      var sent = false;
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        if (!form.checkValidity()) {
+          status.className = "pc-status pc-error";
+          status.textContent = "Please enter your first name and member email.";
+          form.reportValidity();
+          return;
+        }
+        if (sent) return;
+        sent = true;
+        var params = new URLSearchParams();
+        new FormData(form).forEach(function (v, k) { params.append(k, String(v).trim()); });
+        try {
+          localStorage.setItem("pawsic_ce_learner", JSON.stringify({ firstName: params.get("firstName"), lastName: "", email: params.get("email") }));
+        } catch (err) {}
+        btn.disabled = true;
+        btn.textContent = "One moment...";
+        status.className = "pc-status pc-ok";
+        status.textContent = "Welcome back. Taking you to the course...";
+        var done = false;
+        var go = function () { if (done) return; done = true; window.location.href = WATCH; };
+        fetch(HOOK, { method: "POST", mode: "no-cors", body: params, keepalive: true })
+          .then(function () { setTimeout(go, 500); }).catch(function () { setTimeout(go, 500); });
+        setTimeout(go, 3000);
       });
     })();
   </script>
