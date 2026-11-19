@@ -1471,9 +1471,10 @@
   <script src="/js/main.js?v=20260929"></script>
 <script id="tsf-gate-js">
 (function(){
-  try{ if(new URLSearchParams(location.search).get('preview')==='tester1123'){ localStorage.setItem('tsf_preview','1'); } if(localStorage.getItem('tsf_preview')==='1') return; }catch(e){}
   if(window.TSF_NO_GATE) return;
   var OPEN=Date.parse('2026-11-23T00:00:00-05:00'), CLOSE=Date.parse('2026-11-29T00:00:00-05:00');
+  /* Tester preview: only works before the course opens, never after the free week. */
+  try{ if(Date.now()<OPEN){ if(new URLSearchParams(location.search).get('preview')==='tester1123'){ localStorage.setItem('tsf_preview','1'); } if(localStorage.getItem('tsf_preview')==='1') return; } else { localStorage.removeItem('tsf_preview'); } }catch(e){}
   var main=document.getElementById('main-content'), g=document.getElementById('tsfGate');
   if(!main||!g) return;
   function $(id){return document.getElementById(id);}
